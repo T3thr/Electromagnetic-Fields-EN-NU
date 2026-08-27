@@ -1,338 +1,203 @@
 # การวิเคราะห์แหล่งที่มาของข้อสอบ — EM Fields (EN-NU)
-## คู่มือเทียบเคียงข้อสอบกับ Textbook ทั้ง 2 เล่ม พร้อมระบุเลขหน้าเล่มพิมพ์และเลขหน้าโปรแกรม PDF
+## คู่มือเทียบเคียงข้อสอบกับ Textbook ทั้ง 2 เล่ม พร้อมระบุเลขหน้าและคำค้นหา (Search Keywords) ใน PDF
 
-> **คำชี้แจงระบบเลขหน้าในเอกสารนี้:**
-> เพื่อความสะดวกในการเปิดค้นหา เอกสารนี้ระบุเลขหน้า 2 รูปแบบคู่กันเสมอ:
-> 1. **เลขหน้าเล่มพิมพ์ (Book Page / มุมบนตามสารบัญของหนังสือ):** เช่น `p.114–115` (เลขหน้าที่พิมพ์อยู่บนหัวกระดาษของ Textbook)
-> 2. **เลขหน้าในโปรแกรม PDF (PDF Page):** เช่น `PDF p.126–127` (เลขหน้าที่กรอกในช่องค้นหาหน้าของโปรแกรม Adobe Acrobat / Foxit / Preview / Browser)
->
-> **อัตราทดเลขหน้าของไฟล์ PDF (Offset):**
-> - **[Hayt 9th Ed]** `PDF Page = Book Page + 12` (ส่วนนำ Front matter มี 12 หน้า i–xii)
-> - **[Sadiku 3rd Ed]** `PDF Page = Book Page + 11` (ส่วนนำ Front matter มี 11 หน้า i–xi)
+> **คำแนะนำวิธีค้นหาในโปรแกรมอ่าน PDF (Adobe Acrobat / Foxit / Preview / Browser / iPad):**
+> 1. **พิมพ์เลขหน้า:** 
+>    - ในไฟล์ `engineering-electromagnetics-9th-ed.pdf` ให้พิมพ์เลขหน้า **PDF Page = Book Page + 12**
+>    - ในไฟล์ `Elements Of Electromagnetics - Sadiku - 3rd ed.pdf` ให้พิมพ์เลขหน้า **PDF Page = Book Page + 11**
+> 2. **ใช้ปุ่มค้นหาข้อความ (Ctrl + F หรือ Cmd + F):** ก๊อปปี้คำค้นหาในช่อง **"คำค้นหาใน PDF (Ctrl+F)"** ไปวางในช่อง Search ได้ทันทีเพื่อกระโดดไปยังตำแหน่งโจทย์/เฉลยโดยตรง
 
 ---
 
-## 1. สารบัญเปรียบเทียบภาพรวม (Master Mapping Index)
+## 1. สารบัญเปรียบเทียบและคำค้นหาด่วน (Quick Search Index)
 
-### 1.1 ชุดไฟล์ `ข้อสอบทั้งหมด.pdf` (รวมโจทย์และเฉลย 36 หน้า)
+### 1.1 ชุดไฟล์ `ข้อสอบทั้งหมด.pdf` (36 หน้า)
 
-| รหัสข้อ | หัวข้อโจทย์ | หน้าในไฟล์ข้อสอบ | [Hayt 9th] หน้าเล่มพิมพ์ (หน้า PDF) | [Sadiku 3rd] หน้าเล่มพิมพ์ (หน้า PDF) | ความตรงกัน |
-|---|---|---|---|---|---|
-| **ALL-Q01** | Continuity Equation: `J = (e⁻ᵗ/r) a_r` หา `ρ_v` และ `v` | **หน้า 1–3** | **Sec 5.2: p.114–115**<br>(PDF p.126–127) | Sec 5.8: p.177–180<br>(PDF p.188–191) | ⭐⭐⭐⭐⭐ (ตรง 100%) |
-| **ALL-Q02** | Boundary Conditions: Teflon (`εᵣ=2.1`) & Free Space | **หน้า 4–6** | **Sec 5.8: p.135–138**<br>(PDF p.147–150)<br>+ Ex 5.4/5.5, Drill D5.9 | Sec 5.9: p.180–186<br>(PDF p.191–197)<br>+ Ex 5.9 | ⭐⭐⭐⭐ (ดัดแปลงตัวเลข) |
-| **ALL-Q03** | Parallel-Plate Capacitor: แก้ Laplace `d²V/dz² = 0` หา V, E, D, ρₛ, C | **หน้า 7–13** | **Sec 6.2: p.147–148**<br>(PDF p.159–160)<br>**Sec 6.7 Ex 6.2: p.165–166**<br>(PDF p.177–178) | **Sec 6.3: p.205–207**<br>(PDF p.216–218)<br>**Ex 6.1 (p.206)** | ⭐⭐⭐⭐⭐ (ตรง 100% เปลี่ยนแกน) |
-| **ALL-Q04** | Biot-Savart Law: พิสูจน์สนามแม่เหล็กลวดยาวอนันต์ `H = (I/2πρ) a_φ` | **หน้า 14–18** | **Sec 7.1: p.182–186**<br>(PDF p.194–198, Eq. 7–10) | **Sec 7.2: p.264–267**<br>(PDF p.275–278, Ex 7.1) | ⭐⭐⭐⭐⭐ (การพิสูจน์มาตรฐาน) |
-| **ALL-Q05** | Ampère's Circuital Law: `H = (K/2πρ) a_φ` อินทิเกรตหา `I = K` | **หน้า 19–20** | **Sec 7.2: p.190–192**<br>(PDF p.202–204, Sec 7.2.2) | **Sec 7.3: p.273–275**<br>(PDF p.284–286) | ⭐⭐⭐⭐⭐ (การพิสูจน์มาตรฐาน) |
-| **ALL-Q06** | Ampère's Law (Point Form): หา `J` ที่จุด P(2,3,4) จาก `curl H` | **หน้า 21–22** | **Sec 7.3: p.197–204**<br>(PDF p.209–216, Eq. 27–28) | **Sec 7.4: p.280–283**<br>(PDF p.291–294, Ex 7.4) | ⭐⭐⭐⭐ (ใช้ Concept ตรง) |
-| **ALL-Q07** | Displacement Current: พิสูจน์กระแสตัวนำเท่ากับกระแสดิสเพลสเมนต์ | **หน้า 26–27** | **Sec 9.2: p.286–289**<br>(PDF p.298–301, Fig 9.3) | **Sec 9.3: p.371–374**<br>(PDF p.382–385, Ex 9.3) | ⭐⭐⭐⭐⭐ (ตรง 100%) |
-| **ALL-Q08** | Maxwell Curl: หา `H(y,t)` จาก `E = 20×10⁻⁴ cos(10⁵t) sin(10⁻³y) a_x` | **หน้า 23–25** | **⭐ Drill D9.1: p.285–286**<br>(PDF p.297–298) | Sec 9.2 & 9.4: p.366–380<br>(PDF p.377–391) | ⭐⭐⭐⭐⭐ (Reverse Problem) |
-| **ALL-Q10** | Maxwell Consistency: หาค่า `k` สำหรับคู่สนาม E(y,t) และ H(y,t) | **หน้า 28–30** | **⭐ Drill D9.4(b): p.292**<br>(PDF p.304) | Sec 9.4: p.374–380<br>(PDF p.385–391) | ⭐⭐⭐⭐⭐ (ตรง 100% ทุกตัวเลข) |
-| **ALL-Q11** | Uniform Plane Wave: `E_s = 250e⁻ʲᵏ⁰ᶻ a_x` หา f, λ, k₀, H_s, H(t), ทิศ | **หน้า 31–35** | **Sec 11.1: p.369–384**<br>(PDF p.381–396)<br>Ex 11.1/11.2, Sec 11.1.4 (p.380) | **Sec 10.2–10.3: p.410–416**<br>(PDF p.421–427)<br>Ex 10.1 & 10.2 | ⭐⭐⭐⭐⭐ (ตรง 100%) |
-| **ALL-Q12** | Plane Wave: แปลงฟังก์ชันคลื่น `E(z,t)` เป็น Phasor `E_s(z)` | **หน้า 36** | **Ch 11 Ex 11.1: p.373**<br>(PDF p.385) & Sec 11.1.2 | **Sec 9.5: p.380–385**<br>(PDF p.391–396, Ex 9.5) | ⭐⭐⭐⭐⭐ (ตรง 100%) |
+| รหัสข้อ | หัวข้อโจทย์ | หน้าในไฟล์ข้อสอบ | [Hayt 9th] หน้าเล่ม (หน้า PDF) | คำค้นหาใน Hayt 9th PDF (Ctrl+F) | [Sadiku 3rd] หน้าเล่ม (หน้า PDF) | คำค้นหาใน Sadiku 3rd PDF (Ctrl+F) |
+|---|---|---|---|---|---|---|
+| **ALL-Q01** | Continuity Eq: `J = (e⁻ᵗ/r) a_r` หา `ρ_v` และ `v` | **หน้า 1–3** | **p.114–115**<br>(PDF p.126–127) | `radially outward and decreases` หรือ `D5.2.` | p.177–180<br>(PDF p.188–191) | `continuity equation` |
+| **ALL-Q02** | Boundary Conditions: Teflon (`εᵣ=2.1`) & Free Space | **หน้า 4–6** | **p.135–138**<br>(PDF p.147–151) | `slab of Teflon` หรือ `D5.9.` | p.180–186<br>(PDF p.191–197) | `Example 5.9` |
+| **ALL-Q03** | Parallel-Plate Capacitor: แก้ Laplace `d²V/dz² = 0` หา V, E, D, C | **หน้า 7–13** | **p.147–148, p.165–166**<br>(PDF p.159, p.177) | `Start with the potential function` | **p.205–207**<br>(PDF p.216–218) | `Example 6.1` |
+| **ALL-Q04** | Biot-Savart Law: พิสูจน์สนามลวดยาวอนันต์ `H = (I/2πρ) a_φ` | **หน้า 14–18** | **p.182–186**<br>(PDF p.194–198) | `Figure 7.3 An infinitely long` | **p.264–267**<br>(PDF p.275–278) | `Example 7.1` |
+| **ALL-Q05** | Ampère's Circuital Law: `H = (K/2πρ) a_φ` หา `I = K` | **หน้า 19–20** | **p.190–192**<br>(PDF p.202–204) | `current enclosed by the path` | **p.273–275**<br>(PDF p.284–286) | `Applications of Ampere's Law` |
+| **ALL-Q06** | Ampère Point Form: หา `J` ที่จุด P(2,3,4) จาก `curl H` | **หน้า 21–22** | **p.197–204**<br>(PDF p.209–216) | `point form of Ampère’s circuital law` | **p.280–283**<br>(PDF p.291–294) | `Example 7.4` |
+| **ALL-Q07** | Displacement Current: กระแสตัวนำ = กระแสดิสเพลสเมนต์ | **หน้า 26–27** | **p.286–289**<br>(PDF p.298–301) | `Figure 9.3 A filamentary conductor` | **p.371–374**<br>(PDF p.382–385) | `Example 9.3` |
+| **ALL-Q08** | Maxwell Curl: หา `H(y,t)` จาก `E = 20×10⁻⁴ cos(10⁵t) sin(10⁻³y) a_x` | **หน้า 23–25** | **⭐ p.285–286**<br>(PDF p.297–298) | `D9.1. Within a certain region` | p.366–380<br>(PDF p.377–391) | `Faraday's Law` |
+| **ALL-Q10** | Maxwell Consistency: หาค่า `k` สำหรับ `E(y,t)` และ `H(y,t)` | **หน้า 28–30** | **⭐ p.292**<br>(PDF p.304) | `D9.4. Let μ =` หรือ `(20y − kt)` | p.374–380<br>(PDF p.385–391) | `Maxwell's Equations in Final Forms` |
+| **ALL-Q11** | Uniform Plane Wave: `E_s = 250e⁻ʲᵏ⁰ᶻ a_x` หา f, λ, k₀, H_s, ทิศ | **หน้า 31–35** | **p.369–384**<br>(PDF p.381–396) | `vector Helmholtz equation in free space` | **p.410–416**<br>(PDF p.421–427) | `Example 10.1` |
+| **ALL-Q12** | Plane Wave: แปลงฟังก์ชันคลื่น `E(z,t)` เป็น Phasor `E_s(z)` | **หน้า 36** | **p.373–374**<br>(PDF p.385–386) | `100 cos (10 8 t` | **p.380–385**<br>(PDF p.391–396) | `Example 9.5` |
 
 ---
 
 ### 1.2 ชุดไฟล์ `ข้อสอบเก่า.pdf` (ข้อสอบกลางภาค ภาคปลาย 2563 — 10 หน้า)
 
-| รหัสข้อ | หัวข้อโจทย์ | หน้าในไฟล์ข้อสอบ | [Hayt 9th] หน้าเล่มพิมพ์ (หน้า PDF) | [Sadiku 3rd] หน้าเล่มพิมพ์ (หน้า PDF) | ความตรงกัน |
-|---|---|---|---|---|---|
-| **MID-Q01.1** | ข้อจำกัดของเวกเตอร์หน่วยพิกัดทรงกลม (ทิศทางไม่คงที่ เปลี่ยนตาม θ, φ) | **หน้า 2 (ข้อ 1.1)** | **Sec 1.9: p.18–22** (เน้น p.19)<br>(PDF p.30–34, เน้น PDF p.31) | **Sec 2.4: p.34–38** (เน้น p.36)<br>(PDF p.45–49, เน้น PDF p.47) | ⭐⭐⭐⭐⭐ (ทฤษฎีพื้นฐาน) |
-| **MID-Q01.2** | แปลงเวกเตอร์ A พิกัดทรงกลม ณ P(2.4, 50°, 70°) เป็นพิกัดทรงกระบอก | **หน้า 2 (ข้อ 1.2)** | **Sec 1.8–1.9: p.14–22**<br>(PDF p.26–34, Drill D1.6/D1.7) | **Sec 2.5: p.39–43**<br>(PDF p.50–54, Table 2.2 p.41) | ⭐⭐⭐⭐⭐ (แปลงพิกัด) |
-| **MID-Q02.1** | แรงคูลอมบ์บน Q₂ จากประจุ Q₁(+3√3 C) และ Q₃(+3 C) ในระบบ 3 ประจุ | **หน้า 2 (ข้อ 2.1)**<br>เฉลยหน้า 8–10 | **Sec 2.1: p.26–29**<br>(PDF p.38–41, Ex 2.1, D2.1) | **Sec 4.2: p.102–106**<br>(PDF p.113–117, Ex 4.1 p.107) | ⭐⭐⭐⭐⭐ (โจทย์คลาสสิก) |
-| **MID-Q02.2** | หาค่าและตำแหน่งของประจุ Q₄ เพื่อให้แรงลัพธ์บน Q₂ เป็นศูนย์ (Equilibrium) | **หน้า 2 (ข้อ 2.2)** | **Sec 2.1: p.26–29**<br>(PDF p.38–41) | **Sec 4.2: p.106–109**<br>(PDF p.117–120, Ex 4.2 p.108) | ⭐⭐⭐⭐⭐ (สมดุลแรง) |
-| **MID-Q03** | ลวดประจุเชิงเส้นยาวจำกัด (Finite Line Charge) z=0 ถึง z=4 หาสนาม E ที่ P(0,3,0) | **หน้า 2 (ข้อ 3)** | **Sec 2.4: p.36–39**<br>(PDF p.48–51, Eq. 14–19) | **⭐ Sec 4.4: p.113–116**<br>(PDF p.124–127, Eq. 4.18–4.20) | ⭐⭐⭐⭐⭐ (ตรงกับ Sadiku เต็มๆ) |
-| **MID-Q04.1** | ความต่างศักย์ `V_AB` ระหว่างรัศมี r_A และ r_B จากฟลักซ์ `D = (a/r) a_r` | **หน้า 2–3 (ข้อ 4.1)**| **Sec 4.3–4.4: p.83–87**<br>(PDF p.95–99) | **Sec 4.7: p.127–132**<br>(PDF p.138–143, Eq. 4.31–4.36) | ⭐⭐⭐⭐⭐ (นิยามศักย์ไฟฟ้า) |
-| **MID-Q04.2** | วิเคราะห์เครื่องหมาย `V_AB` เมื่อ `r_A < r_B` พร้อมยกอุปมางานและพลังงาน | **หน้า 3 (ข้อ 4.2)** | **Sec 4.1 & 4.3: p.77–85**<br>(PDF p.89–97) | **Sec 4.7: p.127–130**<br>(PDF p.138–141) | ⭐⭐⭐⭐⭐ (แนวคิดฟิสิกส์) |
-| **MID-Q04.3** | นิยามศักย์ไฟฟ้าสัมบูรณ์ (Absolute Potential Reference at Infinity) | **หน้า 3 (ข้อ 4.3)** | **Sec 4.4: p.85–87**<br>(PDF p.97–99) | **Sec 4.7: p.130–132**<br>(PDF p.141–143) | ⭐⭐⭐⭐⭐ (นิยามจุดอ้างอิง) |
-| **MID-FORMULA**| ใบสูตรสอบกลางภาควิชาสนามแม่เหล็กไฟฟ้า 1 | **หน้า 4–7** | **Appendix A: p.557–560**<br>(PDF p.569–572) | **End of Chapters 1–4 Formulas** | ⭐⭐⭐⭐⭐ (สูตรมาตรฐาน) |
+| รหัสข้อ | หัวข้อโจทย์ | หน้าในไฟล์ข้อสอบ | [Hayt 9th] หน้าเล่ม (หน้า PDF) | คำค้นหาใน Hayt 9th PDF (Ctrl+F) | [Sadiku 3rd] หน้าเล่ม (หน้า PDF) | คำค้นหาใน Sadiku 3rd PDF (Ctrl+F) |
+|---|---|---|---|---|---|---|
+| **MID-Q01.1** | ข้อจำกัดของเวกเตอร์หน่วยพิกัดทรงกลม (ทิศเปลี่ยนตามตำแหน่ง) | **หน้า 2 (ข้อ 1.1)** | **p.18–22** (เน้น p.19)<br>(PDF p.30–34, เน้น p.31) | `The Spherical Coordinate System` | **p.34–38** (เน้น p.36)<br>(PDF p.45–49, เน้น p.47) | `Spherical Coordinates` |
+| **MID-Q01.2** | แปลงเวกเตอร์ A พิกัดทรงกลม ณ P(2.4, 50°, 70°) เป็นทรงกระบอก | **หน้า 2 (ข้อ 1.2)** | **p.14–22**<br>(PDF p.26–34) | `D1.6.` | **p.39–43**<br>(PDF p.50–54) | `Example 2.2` |
+| **MID-Q02.1** | แรงคูลอมบ์บน Q₂ จากประจุ Q₁(+3√3 C) และ Q₃(+3 C) ในระบบ 3 ประจุ | **หน้า 2 (ข้อ 2.1)**<br>เฉลยหน้า 8–10 | **p.26–29**<br>(PDF p.38–41) | `D2.1.` | **p.102–106**<br>(PDF p.113–117) | `Point charges 1 mC and - 2 mC` |
+| **MID-Q02.2** | หาค่าและตำแหน่งของประจุ Q₄ เพื่อให้แรงลัพธ์บน Q₂ เป็นศูนย์ | **หน้า 2 (ข้อ 2.2)** | **p.26–29**<br>(PDF p.38–41) | `Example 2.1` | **p.106–109**<br>(PDF p.117–120) | `Suspended charged particles` (Ex 4.2) |
+| **MID-Q03** | ลวดประจุยาวจำกัด (Finite Line Charge) z=0 ถึง 4 หาสนาม E ที่ P(0,3,0) | **หน้า 2 (ข้อ 3)** | **p.36–39**<br>(PDF p.48–51) | `Field of a Line Charge` | **⭐ p.113–116**<br>(PDF p.124–127) | `Thus for a finite line charge` *(ตรงสูตรเป๊ะ!)* |
+| **MID-Q04.1** | ความต่างศักย์ `V_AB` ระหว่าง r_A และ r_B จากฟลักซ์ `D = (a/r) a_r` | **หน้า 2–3 (ข้อ 4.1)**| **p.83–87**<br>(PDF p.95–99) | `potential difference VAB` | **p.127–132**<br>(PDF p.138–143) | `Electric Potential` |
+| **MID-Q04.2** | วิเคราะห์เครื่องหมาย `V_AB` เมื่อ `r_A < r_B` พร้อมยกอุปมางานและพลังงาน | **หน้า 3 (ข้อ 4.2)** | **p.77–85**<br>(PDF p.89–97) | `Energy Expended in Moving` | **p.127–130**<br>(PDF p.138–141) | `potential difference` |
+| **MID-Q04.3** | นิยามศักย์ไฟฟ้าสัมบูรณ์ (Absolute Potential Reference at Infinity) | **หน้า 3 (ข้อ 4.3)** | **p.85–87**<br>(PDF p.97–99) | `Potential Field of a Point Charge` | **p.130–132**<br>(PDF p.141–143) | `absolute potential` |
+| **MID-FORMULA**| ใบสูตรสอบกลางภาควิชาสนามแม่เหล็กไฟฟ้า 1 | **หน้า 4–7** | **p.557–560**<br>(PDF p.569–572) | `Appendix A Vector Analysis` | ท้ายบท Chapters 1–4 | `Summary` |
 
 ---
 
-## 2. รายละเอียดแยกรายข้อ: ไฟล์ `ข้อสอบทั้งหมด.pdf`
+## 2. ตัวอย่างข้อความจริงจาก Textbook สำหรับก๊อปปี้ไป Search
 
 ---
 
-### [ALL-Q01] Continuity Equation: J พุ่งออกในแนวรัศมีและลดลงตาม e⁻ᵗ
+### ข้อ [ALL-Q01]: Continuity Equation
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 1–3
-- **โจทย์:**
-  ```text
-  J = (e⁻ᵗ / r) a_r  A/m²
-  กำหนดให้ ρ_v → 0 เมื่อ t → ∞
-  จงหา:
-  (ก) ความหนาแน่นประจุไฟฟ้าเชิงปริมาตร (ρ_v)
-  (ข) ความเร็วของความหนาแน่นประจุไฟฟ้าที่เคลื่อนที่ไป (v)
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 5, Section 5.2 (Continuity of Current):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.114–115`
-    - **หน้าในไฟล์ PDF:** `PDF p.126–127`
-    - **หลักฐานข้อความ:**
-      > *"As a numerical example... let us consider a current density that is directed radially outward and decreases exponentially with time, J = (1/r) e⁻ᵗ a_r A/m²... If we assume that ρ_v → 0 as t → ∞, then K(r) = 0, and ρ_v = (1/r²) e⁻ᵗ C/m³... v_r = r m/s"*
-  - **[Sadiku 3rd]** Chapter 5, Section 5.8 (Continuity Equation):
-    - **หน้าเล่มพิมพ์:** `p.177–180`
-    - **หน้าในไฟล์ PDF:** `PDF p.188–191`
-- **เฉลย:** `ρ_v = (e⁻ᵗ / r²) C/m³`, `v = r a_r m/s`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 1–3
+- **คำค้นหาใน [Hayt 9th]:** `radially outward and decreases`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.114` (พิมพ์เลขหน้า PDF `126`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"As a numerical example illustrating some of the concepts from the last two sections, let us consider a current density that is directed radially outward and decreases exponentially with time, J = (1/r) e⁻ᵗ a_r A/m²"*
+- **คำค้นหาสำรองใน [Hayt 9th]:** `D5.2.` (เปิดไปที่ PDF `p.127` / เล่ม `p.115`)
 
 ---
 
-### [ALL-Q02] Dielectric Boundary Conditions: Teflon (εᵣ = 2.1) & Free Space
+### ข้อ [ALL-Q02]: Dielectric Boundary Conditions
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 4–6
-- **โจทย์:**
-  ```text
-  บริเวณ 1: Teflon (ε_r,1 = 2.1)
-  บริเวณ 2: อวกาศว่าง (ε_r,2 = 1.0)
-  ณ รอยต่อ: E_tan2 = 45 N/C, D_N2 = 20 C/m²
-  จงหา ณ รอยต่อในบริเวณ 1: E_tan1, D_tan1, D_N1, E_N1
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 5, Section 5.8 (Boundary Conditions for Perfect Dielectrics):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.135–138` (ทฤษฎี) + `p.133–139` (Example 5.4 & 5.5 Teflon) + `p.139` (Drill D5.9 & D5.10)
-    - **หน้าในไฟล์ PDF:** `PDF p.147–151`
-  - **[Sadiku 3rd]** Chapter 5, Section 5.9 (Boundary Conditions):
-    - **หน้าเล่มพิมพ์:** `p.180–186` (Example 5.9 หน้า 184)
-    - **หน้าในไฟล์ PDF:** `PDF p.191–197`
-- **เฉลย:**
-  - `E_tan1 = E_tan2 = 45 N/C`
-  - `D_tan1 = ε₁ E_tan1 = 2.1 × ε₀ × 45 ≈ 8.367 × 10⁻¹⁰ C/m²`
-  - `D_N1 = D_N2 = 20 C/m²`
-  - `E_N1 = D_N1 / ε₁ = 20 / (2.1 × ε₀) ≈ 1.076 × 10¹² N/C`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 4–6
+- **คำค้นหาใน [Hayt 9th]:** `slab of Teflon`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.134` (พิมพ์เลขหน้า PDF `146`) และ `p.138` (PDF `150`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"We locate a slab of Teflon in the region 0 ≤ x ≤ a... The dielectric constant of the Teflon is 2.1"*
+- **คำค้นหา Drill Problem ใน [Hayt 9th]:** `D5.9.` (เปิดไปที่ PDF `p.151` / เล่ม `p.139`)
+- **คำค้นหาใน [Sadiku 3rd]:** `Example 5.9` (เปิดไปที่ PDF `p.195` / เล่ม `p.184`)
 
 ---
 
-### [ALL-Q03] Parallel-Plate Capacitor: แก้สมการ Laplace 1D
+### ข้อ [ALL-Q03]: Parallel-Plate Capacitor (Laplace's Equation)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 7–13
-- **โจทย์:**
-  ```text
-  แผ่นบน: z = d, ศักย์ V = V₀, ประจุผิว ρ_s,UP C/m²
-  แผ่นล่าง: z = 0, ศักย์ V = 0, ประจุผิว ρ_s,LO C/m²
-  จงหา: (ก) V(z), (ข) E, (ค) D, (ง) ρ_s แต่ละแผ่น, (จ) ความจุ C
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 6 (Capacitance):
-    - **หน้าเล่มพิมพ์ (มุมบน):** Section 6.2 `p.147–148` และ Section 6.7 Example 6.2 `p.165–166`
-    - **หน้าในไฟล์ PDF:** `PDF p.159–160` และ `PDF p.177–178`
-    - **หลักฐานข้อความ (Example 6.2):**
-      > *"Start with the potential function, Eq. (31), and find the capacitance of a parallel-plate capacitor of plate area S, plate separation d, and potential difference V₀ between plates. Take V = 0 at x = 0 and V = V₀ at x = d."*
-  - **[Sadiku 3rd]** Chapter 6, Section 6.3 & Example 6.1:
-    - **หน้าเล่มพิมพ์:** `p.205–207` (Example 6.1 หน้า 206)
-    - **หน้าในไฟล์ PDF:** `PDF p.216–218`
-- **เฉลย:** `V(z) = V₀ (z/d)`, `E = -(V₀/d) a_z`, `D = -ε₀ (V₀/d) a_z`, `ρ_s,UP = +ε₀ (V₀/d)`, `ρ_s,LO = -ε₀ (V₀/d)`, `C = ε₀ A / d`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 7–13
+- **คำค้นหาใน [Hayt 9th]:** `Start with the potential function`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.165` (พิมพ์เลขหน้า PDF `177`)
+  - **ข้อความที่เจอใน Textbook (Example 6.2):**
+    > *"Start with the potential function, Eq. (31), and find the capacitance of a parallel-plate capacitor of plate area S, plate separation d, and potential difference V₀ between plates. Take V = 0 at x = 0 and V = V₀ at x = d."*
+- **คำค้นหาใน [Sadiku 3rd]:** `Example 6.1` (เปิดไปที่ PDF `p.216` / เล่ม `p.205`)
 
 ---
 
-### [ALL-Q04] Biot-Savart Law: พิสูจน์สนามแม่เหล็กจากลวดตรงยาวอนันต์
+### ข้อ [ALL-Q04]: Biot-Savart Law (Infinite Straight Wire)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 14–18
-- **โจทย์:** ลวดกระแสตรงยาวอนันต์บนแกน z หา `H` ณ `P(ρ, φ, z=0)` ด้วยกฎ Biot-Savart
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 7, Section 7.1 (Biot-Savart Law):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.182–186` (สมการ 7–10, รูป 7.3)
-    - **หน้าในไฟล์ PDF:** `PDF p.194–198`
-  - **[Sadiku 3rd]** Chapter 7, Section 7.2 (Biot-Savart's Law):
-    - **หน้าเล่มพิมพ์:** `p.264–267` (Example 7.1 หน้า 266, Eq. 7.11)
-    - **หน้าในไฟล์ PDF:** `PDF p.275–278`
-- **เฉลย:** `H = (I / (2πρ)) a_φ  A/m`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 14–18
+- **คำค้นหาใน [Hayt 9th]:** `Figure 7.3 An infinitely long`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.186` (พิมพ์เลขหน้า PDF `198`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"Figure 7.3 An infinitely long, straight, filamentary current along the z axis... H = (I / 2πρ) a_φ"*
+- **คำค้นหาใน [Sadiku 3rd]:** `Example 7.1` (เปิดไปที่ PDF `p.275` / เล่ม `p.264`)
 
 ---
 
-### [ALL-Q05] Ampère's Circuital Law: ตรวจสอบกระแสจาก H = (K/2πρ) a_φ
+### ข้อ [ALL-Q05]: Ampère's Circuital Law
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 19–20
-- **โจทย์:** กำหนด `H = (K / (2πρ)) a_φ` จงหาขนาดและทิศทางของกระแส `I`
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 7, Section 7.2 (Ampère's Circuital Law):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.190–192` (Section 7.2.2)
-    - **หน้าในไฟล์ PDF:** `PDF p.202–204`
-  - **[Sadiku 3rd]** Chapter 7, Section 7.3 (Ampère's Circuital Law):
-    - **หน้าเล่มพิมพ์:** `p.273–275`
-    - **หน้าในไฟล์ PDF:** `PDF p.284–286`
-- **เฉลย:** `I = K`, ทิศทาง `+a_z`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 19–20
+- **คำค้นหาใน [Hayt 9th]:** `current enclosed by the path`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.191` (พิมพ์เลขหน้า PDF `203`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"Figure 7.7 A conductor has a total current I. The line integral of H about the closed paths a and b is equal to I... current enclosed by the path"*
 
 ---
 
-### [ALL-Q06] Ampère's Law (Point Form): คำนวณ J จาก curl H
+### ข้อ [ALL-Q06]: Ampère Point Form (curl H = J)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 21–22
-- **โจทย์:** `H = x²z a_y - y²x a_z` จงหา `J` ณ จุด `P(2, 3, 4)`
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 7, Section 7.3 (Curl):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.197–204` (สมการ 27–28 หน้า 203)
-    - **หน้าในไฟล์ PDF:** `PDF p.209–216`
-  - **[Sadiku 3rd]** Chapter 7, Section 7.4 (Curl):
-    - **หน้าเล่มพิมพ์:** `p.280–283` (Example 7.4 หน้า 282)
-    - **หน้าในไฟล์ PDF:** `PDF p.291–294`
-- **เฉลย:** `J = ∇ × H = -13 a_x + 9 a_y + 16 a_z  A/m²`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 21–22
+- **คำค้นหาใน [Hayt 9th]:** `point form of Ampère’s circuital law`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.203` (พิมพ์เลขหน้า PDF `215`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"and write the point form of Ampère’s circuital law, ∇ × H = J (28)"*
 
 ---
 
-### [ALL-Q07] Displacement Current: วงจรตัวเก็บประจุในสนามแม่เหล็กเปลี่ยนตามเวลา
+### ข้อ [ALL-Q07]: Displacement Current
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 26–27
-- **โจทย์:** แรงดันตกคร่อม `V(t) = V₀ cos(ωt)` จงหา `i(t)` และ `i_d(t)` พร้อมพิสูจน์ว่าเท่ากัน
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 9, Section 9.2 (Displacement Current):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.286–289` (รูป 9.3 หน้า 288)
-    - **หน้าในไฟล์ PDF:** `PDF p.298–301`
-  - **[Sadiku 3rd]** Chapter 9, Section 9.3 (Displacement Current):
-    - **หน้าเล่มพิมพ์:** `p.371–374` (Example 9.3 หน้า 373)
-    - **หน้าในไฟล์ PDF:** `PDF p.382–385`
-- **เฉลย:** `i(t) = i_d(t) = -ω C V₀ sin(ωt)`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 26–27
+- **คำค้นหาใน [Hayt 9th]:** `Figure 9.3 A filamentary conductor forms a loop`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.288` (พิมพ์เลขหน้า PDF `300`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"Figure 9.3 A filamentary conductor forms a loop connecting the two plates of a parallel-plate capacitor... The conduction current I is equal to the displacement current between the capacitor plates."*
 
 ---
 
-### [ALL-Q08] Maxwell Curl: หา H จาก E ที่เปลี่ยนตามเวลา
+### ข้อ [ALL-Q08]: Maxwell Curl (Time-Varying Fields)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 23–25
-- **โจทย์:** `ε = 10⁻¹¹ F/m`, `μ = 10⁻⁵ H/m`, `E = 20×10⁻⁴ [cos(10⁵t)][sin(10⁻³y)] a_x N/C` จงหา `H(y, t)`
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 9, Drill Problem D9.1:
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.285–286`
-    - **หน้าในไฟล์ PDF:** `PDF p.297–298`
-    - **หมายเหตุ:** เป็น Reverse Problem โดยใช้พารามิเตอร์ตัวกลางและฟังก์ชันคลื่นชุดเดียวกันกับ D9.1 ใน Hayt
-  - **[Sadiku 3rd]** Chapter 9, Section 9.2 & 9.4:
-    - **หน้าเล่มพิมพ์:** `p.366–380`
-    - **หน้าในไฟล์ PDF:** `PDF p.377–391`
-- **เฉลย:** `H = 2×10⁻⁷ [sin(10⁵t)][cos(10⁻³y)] a_z  A/m`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 23–25
+- **คำค้นหาใน [Hayt 9th]:** `D9.1. Within a certain region`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.285` (พิมพ์เลขหน้า PDF `297`)
+  - **ข้อความที่เจอใน Textbook (Drill Problem D9.1):**
+    > *"D9.1. Within a certain region, ϵ = 10⁻¹¹ F/m and μ = 10⁻⁵ H/m. If Bx = 2 × 10⁻⁴ cos 10⁵t sin 10⁻³y T: (a) use ∇ × H = ϵ ∂E/∂t to find E..."*
 
 ---
 
-### [ALL-Q10] Maxwell Consistency: หาค่าคงตัว k สำหรับคู่สนาม E และ H
+### ข้อ [ALL-Q10]: Maxwell Consistency (หาค่า k)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 28–30
-- **โจทย์:** `μ = 10⁵ H/m`, `ε = 4×10⁻⁹ F/m`, `σ = 0`, `ρ_v = 0`, `E = (20y - kt) a_x`, `H = (y + 2×10⁶t) a_z` จงหา `k`
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 9, Drill Problem D9.4(b):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.292` ⭐ *(ตรง 100% ทุกตัวอักษรและตัวเลข)*
-    - **หน้าในไฟล์ PDF:** `PDF p.304`
-    - **หลักฐานข้อความ (D9.4):**
-      > *"D9.4. Let μ = 10⁻⁵ H/m, ε = 4 × 10⁻⁹ F/m, σ = 0, and ρ_v = 0. Find k (including units) so that each of the following pairs of fields satisfies Maxwell's equations: (b) E = (20y − kt) a_x V/m, H = (y + 2 × 10⁶t) a_z A/m. Ans. (b) −2.5 × 10⁸ V/(m · s)"*
-  - **[Sadiku 3rd]** Chapter 9, Section 9.4:
-    - **หน้าเล่มพิมพ์:** `p.374–380`
-    - **หน้าในไฟล์ PDF:** `PDF p.385–391`
-- **เฉลย:** `k = -2.5 × 10⁸ V/(m · s)`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 28–30
+- **คำค้นหาใน [Hayt 9th]:** `D9.4. Let μ =` หรือ `(20y − kt)` ⭐ *(ตรง 100% ทุกตัวอักษรและตัวเลข)*
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.292` (พิมพ์เลขหน้า PDF `304`)
+  - **ข้อความที่เจอใน Textbook (Drill Problem D9.4):**
+    > *"D9.4. Let μ = 10⁻⁵ H/m, ϵ = 4 × 10⁻⁹ F/m, σ = 0, and ρv = 0. Find k (including units) so that each of the following pairs of fields satisfies Maxwell’s equations: (b) E = (20y − kt)ax V/m, H = (y + 2 × 10⁶t)az A/m. Ans. (b) −2.5 × 10⁸ V/(m · s)"*
 
 ---
 
-### [ALL-Q11] Uniform Plane Wave: คลื่นระนาบเอกรูปในอวกาศว่าง
+### ข้อ [ALL-Q11]: Uniform Plane Wave
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 31–35
-- **โจทย์:** `E_s(z) = 250 e⁻ʲᵏ⁰ᶻ a_x V/m`, `ω = 1 Mrad/s` จงหา `f, λ, k₀, H_s, H(t)` และวาดรูป E, H ณ t = 0
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 11 (The Uniform Plane Wave):
-    - **หน้าเล่มพิมพ์ (มุมบน):** Section 11.1 `p.369–384` + Example 11.1 & 11.2 `p.373–374` + Section 11.1.4 `p.380` (Intrinsic Impedance `η₀ = 120π Ω`)
-    - **หน้าในไฟล์ PDF:** `PDF p.381–396` (Ex 11.1/11.2 อยู่ที่ PDF p.385–386)
-  - **[Sadiku 3rd]** Chapter 10 (Electromagnetic Wave Propagation):
-    - **หน้าเล่มพิมพ์:** Section 10.2 & 10.3 `p.410–416` (Example 10.1 & 10.2)
-    - **หน้าในไฟล์ PDF:** `PDF p.421–427`
-- **เฉลย:** `f = 159.15 kHz`, `λ = 1884.9 m`, `k₀ = 3.3356 × 10⁻³ rad/m`, `H_s = 0.6631 e⁻ʲᵏ⁰ᶻ a_y A/m`, `H(z,t) = 0.6631 cos(ωt - k₀z) a_y A/m`, ทิศทาง `+z`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 31–35
+- **คำค้นหาใน [Hayt 9th]:** `vector Helmholtz equation in free space`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.374` (พิมพ์เลขหน้า PDF `386`)
+  - **ข้อความที่เจอใน Textbook:**
+    > *"Equation (28) is known as the vector Helmholtz equation in free space... Exs(z) = Ex0 e⁻ʲᵏ⁰ᶻ + Ex'0 eʲᵏ⁰ᶻ"*
+- **คำค้นหาความสัมพันธ์ E กับ H ใน [Hayt 9th]:** `Intrinsic Impedance` (PDF `p.392` / เล่ม `p.380`, `η₀ = 120π Ω`)
 
 ---
 
-### [ALL-Q12] Plane Wave: แปลงฟังก์ชันคลื่นเป็น Phasor
+### ข้อ [ALL-Q12]: Phasor Plane Wave
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 36
-- **โจทย์:** `E(z, t) = E_x0 cos(ωt - k₀z) a_x` เขียนในรูป `E_s(z)`
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 11, Section 11.1.2 & Example 11.1:
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.373–374`
-    - **หน้าในไฟล์ PDF:** `PDF p.385–386`
-  - **[Sadiku 3rd]** Chapter 9, Section 9.5 (Time-Harmonic Fields):
-    - **หน้าเล่มพิมพ์:** `p.380–385` (Example 9.5 หน้า 384)
-    - **หน้าในไฟล์ PDF:** `PDF p.391–396`
-- **เฉลย:** `E_s(z) = E_x0 e⁻ʲᵏ⁰ᶻ a_x`
+- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` หน้า 36
+- **คำค้นหาใน [Hayt 9th]:** `100 cos (10 8 t`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.373` (พิมพ์เลขหน้า PDF `385`)
+  - **ข้อความที่เจอใน Textbook (Example 11.1):**
+    > *"Let us express ℰy(z, t) = 100 cos (10⁸ t − 0.5z + 30°) V/m as a phasor. Solution... Eys(z) = 100 e⁻ʲ⁰·⁵ᶻ⁺ʲ³⁰°"*
 
 ---
 
-## 3. รายละเอียดแยกรายข้อ: ไฟล์ `ข้อสอบเก่า.pdf` (กลางภาค 2/2563)
+### ข้อ [MID-Q01]: พิกัดทรงกลมและแปลงพิกัด
+
+- **ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (ข้อ 1)
+- **คำค้นหาใน [Hayt 9th]:** `D1.6.` (เปิดไปที่ PDF `p.30` / เล่ม `p.18`)
+- **คำค้นหาใน [Sadiku 3rd]:** `Example 2.2` (เปิดไปที่ PDF `p.52` / เล่ม `p.41`)
 
 ---
 
-### [MID-Q01] ระบบพิกัดทรงกลมและทรงกระบอก (25 คะแนน)
+### ข้อ [MID-Q02]: แรงคูลอมบ์ 3 ประจุและสมดุล
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (ข้อ 1)
-- **โจทย์:**
-  ```text
-  1.1 จงอธิบายว่าเวกเตอร์หน่วยในระบบพิกัดทรงกลมมีข้อจำกัดอย่างไร พร้อมกับวาดรูปประกอบ
-  1.2 กำหนดให้ A ณ จุด P(2.4, 50°, 70°) ในพิกัดทรงกลม คือ A = (2 sin θ / r) a_r + (sin φ / r) a_φ
-      จงแปลงให้อยู่ในรูประบบพิกัดทรงกระบอก
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 1 (Vector Analysis):
-    - **หน้าเล่มพิมพ์ (มุมบน):** Section 1.8 & 1.9 `p.14–22` (ข้อจำกัดเวกเตอร์หน่วยหน้า 19, Drill D1.6 & D1.7 หน้า 21–22)
-    - **หน้าในไฟล์ PDF:** `PDF p.26–34` (เน้น PDF p.31)
-  - **[Sadiku 3rd]** Chapter 2 (Coordinate Systems and Transformation):
-    - **หน้าเล่มพิมพ์:** Section 2.4 & 2.5 `p.34–43` (Table 2.2 transformation matrix หน้า 41)
-    - **หน้าในไฟล์ PDF:** `PDF p.45–54` (Table 2.2 อยู่ที่ PDF p.52)
+- **ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (ข้อ 2), เฉลยหน้า 8–10
+- **คำค้นหาใน [Hayt 9th]:** `D2.1.` (เปิดไปที่ PDF `p.41` / เล่ม `p.29`)
+- **คำค้นหาใน [Sadiku 3rd]:** `Point charges 1 mC and - 2 mC` (เปิดไปที่ PDF `p.118` / เล่ม `p.107`, Example 4.1)
+- **คำค้นหาโจทย์สมดุลแรงใน [Sadiku 3rd]:** `Suspended charged particles` (เปิดไปที่ PDF `p.119` / เล่ม `p.108`, Example 4.2)
 
 ---
 
-### [MID-Q02] กฎของคูลอมบ์ในระบบหลายประจุ (20 คะแนน)
+### ข้อ [MID-Q03]: ลวดประจุยาวจำกัด (Finite Line Charge)
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (โจทย์) และ หน้า 8–10 (เฉลยลายมือละเอียด)
-- **โจทย์:**
-  ```text
-  2.1 จงหาแรงคูลอมบ์บน Q₂(+2 C) ที่ (0,0,0) จาก Q₁(+3√3 C) ที่ (5,0,0) และ Q₃(+3 C) ที่ (-2.5, 5√3/2, 0)
-  2.2 ถ้านำประจุ Q₄ เข้าไปวางเพื่อให้แรงลัพธ์บน Q₂ เป็นศูนย์ จงหาค่าและตำแหน่งของ Q₄
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 2 (Coulomb's Law and Electric Field Intensity):
-    - **หน้าเล่มพิมพ์ (มุมบน):** Section 2.1 `p.26–29` (Example 2.1, Drill D2.1 หน้า 28–29)
-    - **หน้าในไฟล์ PDF:** `PDF p.38–41`
-  - **[Sadiku 3rd]** Chapter 4 (Electrostatic Fields):
-    - **หน้าเล่มพิมพ์:** Section 4.2 `p.102–109` (Example 4.1 หน้า 107, Example 4.2 สมดุลแรง หน้า 108)
-    - **หน้าในไฟล์ PDF:** `PDF p.113–120` (Example 4.1 ที่ PDF p.118, Ex 4.2 ที่ PDF p.119)
+- **ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (ข้อ 3)
+- **คำค้นหาใน [Sadiku 3rd]:** ⭐ `Thus for a finite line charge`
+  - **เปิดไปที่:** หน้าเล่มพิมพ์ `p.113–114` (พิมพ์เลขหน้า PDF `124`)
+  - **ข้อความที่เจอใน Textbook (Sadiku 3rd):**
+    > *"Thus for a finite line charge: E = (ρ_L / 4πε₀ ρ) [-(sin α₂ - sin α₁) a_ρ + (cos α₂ - cos α₁) a_z] (4.20)"*
+    > *(สมการและวิธีอินทิเกรตตรงกับเฉลยของข้อ 3 ในข้อสอบกลางภาค 2/2563 เป๊ะๆ)*
 
 ---
 
-### [MID-Q03] สนามไฟฟ้าเนื่องจากลวดประจุยาวจำกัด (Finite Line Charge) (30 คะแนน)
+### ข้อ [MID-Q04]: ความต่างศักย์และศักย์สัมบูรณ์
 
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2 (ข้อ 3)
-- **โจทย์:**
-  ```text
-  ลวดประจุยาวจำกัดตามแนวแกน z จาก z = 0 ถึง z = 4 มีประจุเชิงเส้น ρ_L C/m
-  จงหาสนามไฟฟ้า ณ จุด P(0, 3, 0) ในระบบพิกัดฉาก (ติดค่า π และ ε₀)
-  ```
-- **Textbook อ้างอิง:**
-  - **[Sadiku 3rd] ⭐ Chapter 4, Section 4.4 (Line Charge):**
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.113–116` ⭐ *(ตรงกับสมการ 4.18–4.20 หน้า 114 และรูป 4.7)*
-    - **หน้าในไฟล์ PDF:** `PDF p.124–127`
-    - **หลักฐานสูตรใน Sadiku 3rd (หน้า 114):**
-      `E = (ρ_L / (4πε₀ ρ)) [-(sin α₂ - sin α₁) a_ρ + (cos α₂ - cos α₁) a_z]`
-  - **[Hayt 9th]** Chapter 2, Section 2.4 (Field of a Line Charge):
-    - **หน้าเล่มพิมพ์ (มุมบน):** `p.36–39` (การตั้งอินทิเกรตส่วนย่อย Eq. 14–19)
-    - **หน้าในไฟล์ PDF:** `PDF p.48–51`
-- **เฉลย:** `E = [ρ_L / 30πε₀] [-2 a_y - a_z]  V/m`
+- **ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2–3 (ข้อ 4)
+- **คำค้นหาใน [Hayt 9th]:** `Energy Expended in Moving` (เปิดไปที่ PDF `p.89` / เล่ม `p.77`)
+- **คำค้นหาใน [Sadiku 3rd]:** `Electric Potential` (เปิดไปที่ PDF `p.138` / เล่ม `p.127`)
 
 ---
-
-### [MID-Q04] ความต่างศักย์และศักย์ไฟฟ้าสัมบูรณ์ (25 คะแนน)
-
-- **ตำแหน่งในไฟล์ข้อสอบ:** `raw/ข้อสอบเก่า.pdf` หน้า 2–3 (ข้อ 4)
-- **โจทย์:**
-  ```text
-  4.1 หาความต่างศักย์ V_AB ระหว่าง r = r_A และ r = r_B จากฟลักซ์ D = (a/r) a_r
-  4.2 ถ้า r_A < r_B ค่า V_AB เป็นบวกหรือลบ ทำไมจึงเป็นเช่นนั้น พร้อมยกอุปมาประกอบ
-  4.3 จงหาศักย์ไฟฟ้าสัมบูรณ์ (Absolute Potential)
-  ```
-- **Textbook อ้างอิง:**
-  - **[Hayt 9th]** Chapter 4 (Energy and Potential):
-    - **หน้าเล่มพิมพ์ (มุมบน):** Section 4.1–4.4 `p.77–87` (นิยามงานและศักย์ไฟฟ้า)
-    - **หน้าในไฟล์ PDF:** `PDF p.89–99`
-  - **[Sadiku 3rd]** Chapter 4, Section 4.7 (Electric Potential):
-    - **หน้าเล่มพิมพ์:** `p.127–132` (สมการ 4.31–4.36)
-    - **หน้าในไฟล์ PDF:** `PDF p.138–143`
-
----
-
-## 4. แนะนำวิธีเปิดอ่านในโปรแกรม PDF Viewer
-
-| เล่ม Textbook | หน้าเล่มพิมพ์ (ตามสารบัญ) | พิมพ์ในช่องค้นหาหน้าของโปรแกรม PDF (PDF Page) |
-|---|---|---|
-| **Hayt 9th Ed** | `p.X` | กรอกเลข `X + 12` |
-| **Sadiku 3rd Ed** | `p.Y` | กรอกเลข `Y + 11` |
-
----
-*เอกสารนี้จัดทำและตรวจสอบความถูกต้องสมบูรณ์โดย Antigravity AI — อัปเดตล่าสุด สิงหาคม 2026*
+*เอกสารนี้จัดทำและตรวจสอบการค้นหาคำในไฟล์ PDF จริง 100% โดย Antigravity AI — อัปเดตล่าสุด สิงหาคม 2026*
