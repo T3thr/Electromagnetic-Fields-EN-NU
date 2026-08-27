@@ -370,44 +370,46 @@
         ตัวดำเนินการเดล (Del Operator ∇) ในระบบพิกัดฉากนิยามเป็น <code>∇ = <b>a</b><sub>x</sub> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂x</span></span> + <b>a</b><sub>y</sub> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂y</span></span> + <b>a</b><sub>z</sub> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂z</span></span></code> เมื่อนำไปทำ Dot Product กับสนามเวกเตอร์ <b>D</b> จะได้สูตรใน 3 ระบบพิกัดดังนี้:
       </p>
 
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ระบบพิกัด (Coordinate System)</th>
-            <th>สูตรไดเวอร์เจนซ์ ∇ • <b>D</b> (Divergence Formula)</th>
-            <th>จุดที่ต้องระวังในการหาอนุพันธ์</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
-                ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">∂<em>D</em><sub>x</sub></span><span class="math-den">∂x</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>y</sub></span><span class="math-den">∂y</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>z</sub></span><span class="math-den">∂z</span></span>
-              </div>
-            </td>
-            <td>ดิฟตรงตามแนวแกนแต่ละตัวแปร</td>
-          </tr>
-          <tr>
-            <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
-                ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂ρ</span></span>(ρ <em>D</em><sub>ρ</sub>) + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂<em>D</em><sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>z</sub></span><span class="math-den">∂z</span></span>
-              </div>
-            </td>
-            <td><strong>ต้องคูณ ρ เข้ากับ D<sub>ρ</sub> ก่อนดิฟ</strong> แล้วจึงหารด้วย ρ</td>
-          </tr>
-          <tr>
-            <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
-                ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>²</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂r</span></span>(<em>r</em>² <em>D</em><sub>r</sub>) + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂θ</span></span>(<em>D</em><sub>θ</sub> sin θ) + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂<em>D</em><sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span>
-              </div>
-            </td>
-            <td><strong>พจน์แรกคูณ r² ก่อนดิฟ</strong>, <strong>พจน์ที่สองคูณ sin θ ก่อนดิฟ</strong></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ระบบพิกัด (Coordinate System)</th>
+              <th>สูตรไดเวอร์เจนซ์ ∇ • <b>D</b> (Divergence Formula)</th>
+              <th>จุดที่ต้องระวังในการหาอนุพันธ์</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
+                  ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">∂<em>D</em><sub>x</sub></span><span class="math-den">∂x</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>y</sub></span><span class="math-den">∂y</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>z</sub></span><span class="math-den">∂z</span></span>
+                </div>
+              </td>
+              <td>ดิฟตรงตามแนวแกนแต่ละตัวแปร</td>
+            </tr>
+            <tr>
+              <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
+                  ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂ρ</span></span>(ρ <em>D</em><sub>ρ</sub>) + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂<em>D</em><sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span> + <span class="math-frac"><span class="math-num">∂<em>D</em><sub>z</sub></span><span class="math-den">∂z</span></span>
+                </div>
+              </td>
+              <td><strong>ต้องคูณ ρ เข้ากับ D<sub>ρ</sub> ก่อนดิฟ</strong> แล้วจึงหารด้วย ρ</td>
+            </tr>
+            <tr>
+              <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0; font-size: 1.05rem;">
+                  ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>²</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂r</span></span>(<em>r</em>² <em>D</em><sub>r</sub>) + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂θ</span></span>(<em>D</em><sub>θ</sub> sin θ) + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂<em>D</em><sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span>
+                </div>
+              </td>
+              <td><strong>พจน์แรกคูณ r² ก่อนดิฟ</strong>, <strong>พจน์ที่สองคูณ sin θ ก่อนดิฟ</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 6: ทฤษฎีบทไดเวอร์เจนซ์ -->

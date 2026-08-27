@@ -236,32 +236,34 @@
         ในการคำนวณอินทิกรัลเส้น <code>-∫ <b>E</b> • d<b>l</b></code> เราจะต้องเขียนเวกเตอร์ <code>d<b>l</b></code> ให้ตรงกับระบบพิกัดที่ใช้ในโจทย์:
       </p>
 
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ระบบพิกัด</th>
-            <th>เวกเตอร์การกระจัดส่วนย่อย d<b>l</b></th>
-            <th>กรณีเคลื่อนที่ตามแนวแกนเฉพาะ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
-            <td><strong>d<b>l</b> = dx <b>a</b><sub>x</sub> + dy <b>a</b><sub>y</sub> + dz <b>a</b><sub>z</sub></strong></td>
-            <td>ตามแกน x: <code>d<b>l</b> = dx <b>a</b><sub>x</sub></code>, ตามแกน y: <code>d<b>l</b> = dy <b>a</b><sub>y</sub></code></td>
-          </tr>
-          <tr>
-            <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
-            <td><strong>d<b>l</b> = dρ <b>a</b><sub>ρ</sub> + ρ dϕ <b>a</b><sub>ϕ</sub> + dz <b>a</b><sub>z</sub></strong></td>
-            <td>ตามแนวรัศมี ρ: <code>d<b>l</b> = dρ <b>a</b><sub>ρ</sub></code>, ตามแนวหมุน: <code>d<b>l</b> = ρ dϕ <b>a</b><sub>ϕ</sub></code></td>
-          </tr>
-          <tr>
-            <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
-            <td><strong>d<b>l</b> = dr <b>a</b><sub>r</sub> + r dθ <b>a</b><sub>θ</sub> + r sin θ dϕ <b>a</b><sub>ϕ</sub></strong></td>
-            <td>ตามแนวรัศมี r: <code>d<b>l</b> = dr <b>a</b><sub>r</sub></code></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ระบบพิกัด</th>
+              <th>เวกเตอร์การกระจัดส่วนย่อย d<b>l</b></th>
+              <th>กรณีเคลื่อนที่ตามแนวแกนเฉพาะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
+              <td><strong>d<b>l</b> = dx <b>a</b><sub>x</sub> + dy <b>a</b><sub>y</sub> + dz <b>a</b><sub>z</sub></strong></td>
+              <td>ตามแกน x: <code>d<b>l</b> = dx <b>a</b><sub>x</sub></code>, ตามแกน y: <code>d<b>l</b> = dy <b>a</b><sub>y</sub></code></td>
+            </tr>
+            <tr>
+              <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
+              <td><strong>d<b>l</b> = dρ <b>a</b><sub>ρ</sub> + ρ dϕ <b>a</b><sub>ϕ</sub> + dz <b>a</b><sub>z</sub></strong></td>
+              <td>ตามแนวรัศมี ρ: <code>d<b>l</b> = dρ <b>a</b><sub>ρ</sub></code>, ตามแนวหมุน: <code>d<b>l</b> = ρ dϕ <b>a</b><sub>ϕ</sub></code></td>
+            </tr>
+            <tr>
+              <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
+              <td><strong>d<b>l</b> = dr <b>a</b><sub>r</sub> + r dθ <b>a</b><sub>θ</sub> + r sin θ dϕ <b>a</b><sub>ϕ</sub></strong></td>
+              <td>ตามแนวรัศมี r: <code>d<b>l</b> = dr <b>a</b><sub>r</sub></code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนจำลอง 3D CAD Potential Simulator -->
@@ -418,44 +420,46 @@
       </div>
 
       <h3 class="sub-title">สูตรเกรเดียนต์ ∇V ใน 3 ระบบพิกัด:</h3>
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ระบบพิกัด (Coordinate System)</th>
-            <th>สูตรเกรเดียนต์ ∇<em>V</em></th>
-            <th>สนามไฟฟ้า <b>E</b> = -∇<em>V</em></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0;">
-                ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂x</span></span> <b>a</b><sub>x</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂y</span></span> <b>a</b><sub>y</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub>
-              </div>
-            </td>
-            <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂x</span></span> <b>a</b><sub>x</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂y</span></span> <b>a</b><sub>y</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub></code></td>
-          </tr>
-          <tr>
-            <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0;">
-                ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ρ</span></span> <b>a</b><sub>ρ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub>
-              </div>
-            </td>
-            <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ρ</span></span> <b>a</b><sub>ρ</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub></code></td>
-          </tr>
-          <tr>
-            <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
-            <td>
-              <div class="math-display" style="margin: 4px 0;">
-                ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂r</span></span> <b>a</b><sub>r</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em></span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂θ</span></span> <b>a</b><sub>θ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub>
-              </div>
-            </td>
-            <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂r</span></span> <b>a</b><sub>r</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">r</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂θ</span></span> <b>a</b><sub>θ</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">r sin θ</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub></code></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ระบบพิกัด (Coordinate System)</th>
+              <th>สูตรเกรเดียนต์ ∇<em>V</em></th>
+              <th>สนามไฟฟ้า <b>E</b> = -∇<em>V</em></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. พิกัดฉาก (Cartesian)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0;">
+                  ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂x</span></span> <b>a</b><sub>x</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂y</span></span> <b>a</b><sub>y</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub>
+                </div>
+              </td>
+              <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂x</span></span> <b>a</b><sub>x</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂y</span></span> <b>a</b><sub>y</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub></code></td>
+            </tr>
+            <tr>
+              <td><strong>2. พิกัดทรงกระบอก (Cylindrical)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0;">
+                  ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ρ</span></span> <b>a</b><sub>ρ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub>
+                </div>
+              </td>
+              <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ρ</span></span> <b>a</b><sub>ρ</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub> - <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂z</span></span> <b>a</b><sub>z</sub></code></td>
+            </tr>
+            <tr>
+              <td><strong>3. พิกัดทรงกลม (Spherical)</strong></td>
+              <td>
+                <div class="math-display" style="margin: 4px 0;">
+                  ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂r</span></span> <b>a</b><sub>r</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em></span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂θ</span></span> <b>a</b><sub>θ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em> sin θ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub>
+                </div>
+              </td>
+              <td><code><b>E</b> = -<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂r</span></span> <b>a</b><sub>r</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">r</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂θ</span></span> <b>a</b><sub>θ</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">r sin θ</span></span> <span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂ϕ</span></span> <b>a</b><sub>ϕ</sub></code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 6: อุปมาฟิสิกส์เครื่องหมายบวก/ลบ -->

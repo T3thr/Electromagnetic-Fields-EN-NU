@@ -74,8 +74,7 @@ html {
   font-size: 16px;
   scroll-padding-top: calc(var(--header-height) + 28px);
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -87,9 +86,8 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
   -webkit-font-smoothing: antialiased;
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
   position: relative;
+  overflow-x: clip;
 }
 
 /* ═══════════ Sticky Header & Navigation Bar ═══════════ */
@@ -546,8 +544,8 @@ body {
   display: grid;
   grid-template-columns: 290px minmax(0, 1fr);
   gap: 48px;
-  align-items: start;
   box-sizing: border-box;
+  position: relative;
 }
 
 .portal-container {
@@ -568,8 +566,10 @@ body {
 
 /* ═══════════ Sticky Chapter Sidebar ═══════════ */
 .chapter-sidebar {
+  position: -webkit-sticky;
   position: sticky;
   top: calc(var(--header-height) + 24px);
+  height: fit-content;
   max-height: calc(100vh - var(--header-height) - 48px);
   overflow-y: auto;
   overflow-x: hidden;
@@ -579,8 +579,9 @@ body {
   padding: 20px;
   box-shadow: var(--shadow-sm);
   box-sizing: border-box;
-  /* Self-alignment ensures it doesn't stretch to full grid row height */
+  /* Self-alignment ensures it stays at top of grid track while scrolling */
   align-self: start;
+  z-index: 90;
 }
 
 /* Subtle scrollbar for sidebar */
@@ -1553,15 +1554,19 @@ footer.page-footer {
 /* Tablet: keep 2-column layout with a narrower sticky sidebar */
 @media (max-width: 1024px) and (min-width: 769px) {
   .chapter-container {
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 240px minmax(0, 1fr);
     gap: 28px;
   }
-  /* Sidebar stays sticky on tablet — just a bit smaller */
+  /* Sidebar stays sticky on tablet */
   .chapter-sidebar {
+    position: -webkit-sticky;
     position: sticky;
     top: calc(var(--header-height) + 16px);
+    height: fit-content;
     max-height: calc(100vh - var(--header-height) - 32px);
     padding: 16px;
+    align-self: start;
+    z-index: 90;
   }
   .sidebar-link {
     font-size: 0.82rem;

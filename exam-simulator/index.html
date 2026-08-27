@@ -168,16 +168,27 @@
 
   <!-- Randomized Practice Mode Generator -->
   <div class="summary-box" style="margin-top: 48px; border: 1.5px solid var(--accent); background: var(--card-bg);">
-    <h3 style="font-size: 1.20rem; font-weight: 800; margin-bottom: 8px; color: var(--accent);">
-      🎲 โหมดฝึกทำโจทย์แบบสุ่มตัวเลข (Randomized Practice Generator)
-    </h3>
-    <p style="font-size: 0.95rem; line-height: 1.75; color: var(--ink-soft);">
-      ต้องการฝึกซ้อมทำโจทย์แบบเปลี่ยนตัวเลข พิกัด และความหนาแน่นประจุ เพื่อความชำนาญในการคำนวณก่อนสอบจริงหรือไม่?
-    </p>
-    <button class="btn btn-primary" id="btn-randomize-problem" type="button" style="margin-top: 12px;">
-      ⚡ สร้างโจทย์ชุดใหม่แบบสุ่มตัวเลข (Randomize Numbers)
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+      <div>
+        <h3 style="font-size: 1.22rem; font-weight: 800; color: var(--accent); margin: 0 0 4px;">
+          🎲 โหมดฝึกทำโจทย์แบบสุ่มตัวเลข (Randomized Practice Generator)
+        </h3>
+        <p style="font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); margin: 0;">
+          สุ่มค่าตัวเลข พิกัด และขนาดประจุเพื่อฝึกฝนทักษะการคำนวณข้อสอบเสมือนจริงแบบไม่รู้ล่วงหน้า
+        </p>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="btn btn-secondary rand-q-select active" data-rand-type="q1" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 1 (แปลงพิกัด)</button>
+        <button class="btn btn-secondary rand-q-select" data-rand-type="q2" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 2 (คูลอมบ์/สมดุล)</button>
+        <button class="btn btn-secondary rand-q-select" data-rand-type="q3" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 3 (ลวดประจุ E)</button>
+        <button class="btn btn-secondary rand-q-select" data-rand-type="q4" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 4 (ศักย์ไฟฟ้า V)</button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="btn-randomize-problem" type="button" style="width: 100%; justify-content: center; padding: 10px 18px; font-weight: 800;">
+      ⚡ สร้างโจทย์สุ่มชุดใหม่และวิธีทำละเอียด (Generate Practice Problem)
     </button>
-    <div id="random-problem-box" style="display: none; margin-top: 20px; padding: 20px; background: var(--paper2); border-radius: var(--radius-md); border: 1.5px dashed var(--accent);"></div>
+    <div id="random-problem-box" style="display: none; margin-top: 20px; padding: 22px; background: var(--paper2); border-radius: var(--radius-md); border: 1.5px dashed var(--accent);"></div>
   </div>
 
   <footer class="page-footer">
@@ -470,11 +481,81 @@
       });
     });
 
-    // Randomize Problem Generator with strict math typesetting
+    // Multi-Question Randomize Problem Generator with strict math formatting
+    let selectedRandType = 'q1';
+    const randTypeBtns = document.querySelectorAll('.rand-q-select');
+    randTypeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        randTypeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedRandType = btn.getAttribute('data-rand-type');
+        generateRandomProblem();
+      });
+    });
+
     const randBtn = document.getElementById('btn-randomize-problem');
     const randBox = document.getElementById('random-problem-box');
-    if (randBtn && randBox) {
-      randBtn.addEventListener('click', () => {
+    
+    function generateRandomProblem() {
+      if (!randBox) return;
+      randBox.style.display = 'block';
+
+      if (selectedRandType === 'q1') {
+        const r = (Math.random() * 3 + 1.5).toFixed(1);
+        const thetaDeg = Math.floor(Math.random() * 40) + 30; // 30° to 70°
+        const phiDeg = Math.floor(Math.random() * 50) + 30;   // 30° to 80°
+        const k = Math.floor(Math.random() * 4) + 2;
+
+        const thetaRad = thetaDeg * Math.PI / 180;
+        const phiRad = phiDeg * Math.PI / 180;
+        const sinT = Math.sin(thetaRad);
+        const cosT = Math.cos(thetaRad);
+        const sinP = Math.sin(phiRad);
+
+        const A_theta = (k * sinT / parseFloat(r));
+        const A_phi = (sinP / sinT);
+
+        const A_rho = (A_theta * cosT).toFixed(4);
+        const A_phi_res = A_phi.toFixed(4);
+        const A_z = (-A_theta * sinT).toFixed(4);
+
+        randBox.innerHTML = `
+          <h4 style="font-weight: 800; font-size: 1.10rem; color: var(--accent); margin-bottom: 10px;">
+            โจทย์สุ่มข้อที่ 1: การแปลงพิกัดเวกเตอร์จากทรงกลมเป็นทรงกระบอก
+          </h4>
+          <p style="font-size: 0.98rem; line-height: 1.8;">
+            กำหนดให้เวกเตอร์ <strong>A</strong> ที่จุด <strong>P(r = ${r}, θ = ${thetaDeg}°, ϕ = ${phiDeg}°)</strong> ในพิกัดทรงกลม มีค่าเป็น:<br>
+            <code><strong>A</strong> = <span class="math-frac"><span class="math-num">${k} sin θ</span><span class="math-den">r</span></span> <strong>a</strong><sub>θ</sub> + <span class="math-frac"><span class="math-num">sin ϕ</span><span class="math-den">sin θ</span></span> <strong>a</strong><sub>ϕ</sub></code><br>
+            จงแปลงเวกเตอร์นี้ให้อยู่ในระบบพิกัดทรงกระบอก ณ จุด P
+          </p>
+          <div class="math-display" style="margin-top: 14px; font-size: 0.96rem;">
+            <strong>ขั้นตอนการคำนวณและผลลัพธ์:</strong><br>
+            • A<sub>r</sub> = 0 , &nbsp; A<sub>θ</sub> = <span class="math-frac"><span class="math-num">${k}(${sinT.toFixed(4)})</span><span class="math-den">${r}</span></span> = <strong>${A_theta.toFixed(4)}</strong> , &nbsp; A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">${sinP.toFixed(4)}</span><span class="math-den">${sinT.toFixed(4)}</span></span> = <strong>${A_phi.toFixed(4)}</strong><br><br>
+            • A<sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ = 0 + (${A_theta.toFixed(4)})(${cosT.toFixed(4)}) = <strong>${A_rho}</strong><br>
+            • A<sub>ϕ</sub> = A<sub>ϕ</sub> = <strong>${A_phi_res}</strong><br>
+            • A<sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ = 0 - (${A_theta.toFixed(4)})(${sinT.toFixed(4)}) = <strong>${A_z}</strong><br><br>
+            <strong>คำตอบในพิกัดทรงกระบอก:</strong> <strong>A</strong> = <strong>${A_rho} <strong>a</strong><sub>ρ</sub> + ${A_phi_res} <strong>a</strong><sub>ϕ</sub> + (${A_z}) <strong>a</strong><sub>z</sub></strong>
+          </div>
+        `;
+      } else if (selectedRandType === 'q2') {
+        const q1 = Math.floor(Math.random() * 5) + 2;
+        const q2 = Math.floor(Math.random() * 4) + 1;
+        const d = Math.floor(Math.random() * 4) + 3; // distance 3 to 6
+        randBox.innerHTML = `
+          <h4 style="font-weight: 800; font-size: 1.10rem; color: var(--accent); margin-bottom: 10px;">
+            โจทย์สุ่มข้อที่ 2: กฎของคูลอมบ์และสมดุลแรง
+          </h4>
+          <p style="font-size: 0.98rem; line-height: 1.8;">
+            กำหนดประจุ <strong>Q₂ = ${q2} C</strong> อยู่ที่จุดกำเนิด P₂(0,0,0) และประจุ <strong>Q₁ = ${q1} C</strong> อยู่ที่ตำแหน่ง P₁(${d}, 0, 0)<br>
+            จงหาแรงคูลอมบ์บนประจุ Q₂ และหาขนาดของประจุ Q₄ ที่ต้องวางที่จุด P₄(-${d}, 0, 0) เพื่อให้แรงลัพธ์บน Q₂ สมดุลเป็นศูนย์
+          </p>
+          <div class="math-display" style="margin-top: 14px; font-size: 0.96rem;">
+            <strong>สูตรและผลลัพธ์:</strong><br>
+            • <strong>F</strong>₁₂ = <span class="math-frac"><span class="math-num"><em>k</em> (${q1})(${q2})</span><span class="math-den">${d}²</span></span> (-<strong>a</strong><sub>x</sub>) = <strong>- <span class="math-frac"><span class="math-num">${(q1*q2*8.988/ (d*d)).toFixed(3)} × 10⁹</span><span class="math-den">1</span></span> <strong>a</strong><sub>x</sub> N</strong><br>
+            • สภาวะสมดุล: <strong>F</strong>₄₂ = -<strong>F</strong>₁₂ &nbsp; ⇒ &nbsp; ประจุ <strong>Q₄ = +${q1} C</strong> วางที่ P₄(-${d}, 0, 0)
+          </div>
+        `;
+      } else if (selectedRandType === 'q3') {
         const z_top = Math.floor(Math.random() * 5) + 3;
         const y_obs = Math.floor(Math.random() * 4) + 2;
         const rho_l = Math.floor(Math.random() * 10) + 1;
@@ -482,23 +563,46 @@
         const ey_val = ((1/y_obs) * (z_top / hypot)).toFixed(4);
         const ez_val = ((1 / hypot) - (1 / y_obs)).toFixed(4);
 
-        randBox.style.display = 'block';
         randBox.innerHTML = `
-          <h4 style="font-weight: 800; font-size: 1.08rem; color: var(--accent); margin-bottom: 10px;">
-            โจทย์สุ่มชุดใหม่ (ข้อสอบลวดประจุจำกัดบนแกน z):
+          <h4 style="font-weight: 800; font-size: 1.10rem; color: var(--accent); margin-bottom: 10px;">
+            โจทย์สุ่มข้อที่ 3: ลวดประจุจำกัดบนแกน z (Analytical Hand-Integration)
           </h4>
           <p style="font-size: 0.98rem; line-height: 1.8;">
             ลวดเส้นหนึ่งทอดตัวยาวในแนวแกน z ตั้งแต่ <strong>z = 0</strong> ถึง <strong>z = ${z_top}</strong> มีความหนาแน่นประจุเชิงเส้น <strong>ρ<sub>l</sub> = ${rho_l} C/m</strong> จงหาสนามไฟฟ้า <strong>E</strong> ณ จุด <strong>P(0, ${y_obs}, 0)</strong>
           </p>
-          <div class="math-display" style="margin-top: 14px; font-size: 1.05rem;">
-            <strong>สูตรคำนวณและผลลัพธ์:</strong><br>
+          <div class="math-display" style="margin-top: 14px; font-size: 0.96rem;">
+            <strong>ผลลัพธ์จากการอินทิเกรตด้วยมือ:</strong><br>
             • E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">${y_obs}</span></span> (<span class="math-frac"><span class="math-num">${z_top}</span><span class="math-den">√[${y_obs}² + ${z_top}²]</span></span>) ] <strong>a</strong><sub>y</sub> = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> (${ey_val}) <strong>a</strong><sub>y</sub></strong><br>
             • E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">√[${y_obs}² + ${z_top}²]</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">${y_obs}</span></span> ] <strong>a</strong><sub>z</sub> = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> (${ez_val}) <strong>a</strong><sub>z</sub></strong><br><br>
-            <strong>สนามไฟฟ้ารวม:</strong> <strong>E</strong> = <span class="math-frac"><span class="math-num">${rho_l}</span><span class="math-den">4πε₀</span></span> [ ${ey_val} <strong>a</strong><sub>y</sub> + (${ez_val}) <strong>a</strong><sub>z</sub> ] V/m
+            <strong>สนามไฟฟ้ารวม:</strong> <strong>E</strong> = <span class="math-frac"><span class="math-num">${rho_l}</span><span class="math-den">4πε₀</span></span> [ ${ey_val} <strong>a</strong><sub>y</sub> + (${ez_val}) <strong>a</strong><sub>z</sub> ] โวลต์ต่อเมตร (V/m)
           </div>
         `;
-      });
+      } else if (selectedRandType === 'q4') {
+        const a_val = Math.floor(Math.random() * 3) + 1;
+        const r_A = Math.floor(Math.random() * 2) + 1;
+        const r_B = r_A + Math.floor(Math.random() * 3) + 2;
+
+        const termA = 1 / (r_A**2 + a_val**2);
+        const termB = 1 / (r_B**2 + a_val**2);
+        const diff = (termA - termB).toFixed(4);
+
+        randBox.innerHTML = `
+          <h4 style="font-weight: 800; font-size: 1.10rem; color: var(--accent); margin-bottom: 10px;">
+            โจทย์สุ่มข้อที่ 4: ความต่างศักย์ไฟฟ้า V<sub>AB</sub> และศักย์สัมบูรณ์
+          </h4>
+          <p style="font-size: 0.98rem; line-height: 1.8;">
+            กำหนดสนาม <strong>D</strong> = [r / (r² + ${a_val}²)²] <strong>a</strong><sub>r</sub> ในอวกาศว่าง จงหาความต่างศักย์ <strong>V<sub>AB</sub></strong> ระหว่างจุด <strong>r<sub>A</sub> = ${r_A} m</strong> และ <strong>r<sub>B</sub> = ${r_B} m</strong>
+          </p>
+          <div class="math-display" style="margin-top: 14px; font-size: 0.96rem;">
+            <strong>สูตรและผลการคำนวณ:</strong><br>
+            • V<sub>AB</sub> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">${r_A}² + ${a_val}²</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">${r_B}² + ${a_val}²</span></span> ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">${r_A**2 + a_val**2}</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">${r_B**2 + a_val**2}</span></span> ] = <strong><span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> (${diff}) V</strong><br>
+            • เนื่องจาก r<sub>A</sub> &lt; r<sub>B</sub> ค่า V<sub>AB</sub> จึงเป็น <strong>บวก (+) เสมอ</strong>
+          </div>
+        `;
+      }
     }
+
+    if (randBtn) randBtn.addEventListener('click', generateRandomProblem);
   });
 </script>
 </body>

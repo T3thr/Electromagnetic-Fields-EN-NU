@@ -182,61 +182,63 @@
     <section id="sec2">
       <h2 class="section-title">2. อภิธานศัพท์ คำอ่าน สัญลักษณ์ และขอบเขตตัวแปร (Nomenclature & Range)</h2>
       
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ตัวแปร (Variable)</th>
-            <th>คำอ่านไทย / กรีก</th>
-            <th>ความหมายเชิงเรขาคณิต (Geometric Definition)</th>
-            <th>ช่วงขอบเขต (Range)</th>
-            <th>หน่วย (Unit)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>ρ</strong></td>
-            <td>โรว์ / Rho</td>
-            <td>ระยะทางในแนวรัศมีที่วัดตั้งฉากจากแกน z ออกมายังจุด P</td>
-            <td><code>0 ≤ ρ < ∞</code></td>
-            <td><span class="unit-tag">m (เมตร)</span></td>
-          </tr>
-          <tr>
-            <td><strong>ϕ</strong></td>
-            <td>ฟาย / Phi (Azimuth)</td>
-            <td>มุมแอซิมัท วัดทวนเข็มนาฬิกาจากแกน +x บนระนาบ xy ไปยังเส้นรัศมี</td>
-            <td><code>0 ≤ ϕ < 2π</code> (0° ถึง 360°)</td>
-            <td><span class="unit-tag">rad หรือ deg (องศา)</span></td>
-          </tr>
-          <tr>
-            <td><strong>z</strong></td>
-            <td>แซด / Z (Height)</td>
-            <td>ระยะความสูงตามแนวแกน z (เหมือนกับแกน z ในพิกัดฉากทุกประการ)</td>
-            <td><code>-∞ < z < ∞</code></td>
-            <td><span class="unit-tag">m (เมตร)</span></td>
-          </tr>
-          <tr>
-            <td><strong>a</strong><sub>ρ</sub></td>
-            <td>Unit Vector Rho</td>
-            <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวรัศมีพุ่งออกจากแกน z (ตั้งฉากกับผิว ρ = const)</td>
-            <td>ขนาด = 1</td>
-            <td>ไร้หน่วย</td>
-          </tr>
-          <tr>
-            <td><strong>a</strong><sub>ϕ</sub></td>
-            <td>Unit Vector Phi</td>
-            <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวสัมผัสเส้นรอบวงในทิศทางที่มุม ϕ เพิ่มขึ้น</td>
-            <td>ขนาด = 1</td>
-            <td>ไร้หน่วย</td>
-          </tr>
-          <tr>
-            <td><strong>a</strong><sub>z</sub></td>
-            <td>Unit Vector Z</td>
-            <td>เวกเตอร์หนึ่งหน่วยชี้ตามแนวแกน +z</td>
-            <td>ขนาด = 1</td>
-            <td>ไร้หน่วย</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ตัวแปร (Variable)</th>
+              <th>คำอ่านไทย / กรีก</th>
+              <th>ความหมายเชิงเรขาคณิต (Geometric Definition)</th>
+              <th>ช่วงขอบเขต (Range)</th>
+              <th>หน่วย (Unit)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ρ</strong></td>
+              <td>โรว์ / Rho</td>
+              <td>ระยะทางในแนวรัศมีที่วัดตั้งฉากจากแกน z ออกมายังจุด P</td>
+              <td><code>0 ≤ ρ < ∞</code></td>
+              <td><span class="unit-tag">m (เมตร)</span></td>
+            </tr>
+            <tr>
+              <td><strong>ϕ</strong></td>
+              <td>ฟาย / Phi (Azimuth)</td>
+              <td>มุมแอซิมัท วัดทวนเข็มนาฬิกาจากแกน +x บนระนาบ xy ไปยังเส้นรัศมี</td>
+              <td><code>0 ≤ ϕ < 2π</code> (0° ถึง 360°)</td>
+              <td><span class="unit-tag">rad หรือ deg (องศา)</span></td>
+            </tr>
+            <tr>
+              <td><strong>z</strong></td>
+              <td>แซด / Z (Height)</td>
+              <td>ระยะความสูงตามแนวแกน z (เหมือนกับแกน z ในพิกัดฉากทุกประการ)</td>
+              <td><code>-∞ < z < ∞</code></td>
+              <td><span class="unit-tag">m (เมตร)</span></td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>ρ</sub></td>
+              <td>Unit Vector Rho</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวรัศมีพุ่งออกจากแกน z (ตั้งฉากกับผิว ρ = const)</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>ϕ</sub></td>
+              <td>Unit Vector Phi</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวสัมผัสเส้นรอบวงในทิศทางที่มุม ϕ เพิ่มขึ้น</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>z</sub></td>
+              <td>Unit Vector Z</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ตามแนวแกน +z</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 3: ผิวตัดกัน 3 ผิวและเวกเตอร์หนึ่งหน่วย -->
@@ -405,42 +407,44 @@
       </div>
 
       <h3 class="sub-title">หลักการเลือกมุม ϕ ตามควอดรันต์ (Quadrant Rules):</h3>
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ควอดรันต์ (Quadrant)</th>
-            <th>เงื่อนไขพิกัดฉาก</th>
-            <th>การคำนวณมุม ϕ</th>
-            <th>ตัวอย่าง</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>ควอดรันต์ที่ 1</strong></td>
-            <td>x > 0, y > 0</td>
-            <td>ϕ = arctan<span class="math-frac"><span class="math-num">y</span><span class="math-den">x</span></span></td>
-            <td>(2, 2) ⇒ ϕ = 45°</td>
-          </tr>
-          <tr>
-            <td><strong>ควอดรันต์ที่ 2</strong></td>
-            <td>x < 0, y > 0</td>
-            <td>ϕ = 180° - arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
-            <td>(-2, 2) ⇒ ϕ = 135°</td>
-          </tr>
-          <tr>
-            <td><strong>ควอดรันต์ที่ 3</strong></td>
-            <td>x < 0, y < 0</td>
-            <td>ϕ = 180° + arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
-            <td>(-2, -2) ⇒ ϕ = 225°</td>
-          </tr>
-          <tr>
-            <td><strong>ควอดรันต์ที่ 4</strong></td>
-            <td>x > 0, y < 0</td>
-            <td>ϕ = 360° - arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
-            <td>(2, -2) ⇒ ϕ = 315°</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ควอดรันต์ (Quadrant)</th>
+              <th>เงื่อนไขพิกัดฉาก</th>
+              <th>การคำนวณมุม ϕ</th>
+              <th>ตัวอย่าง</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ควอดรันต์ที่ 1</strong></td>
+              <td>x > 0, y > 0</td>
+              <td>ϕ = arctan<span class="math-frac"><span class="math-num">y</span><span class="math-den">x</span></span></td>
+              <td>(2, 2) ⇒ ϕ = 45°</td>
+            </tr>
+            <tr>
+              <td><strong>ควอดรันต์ที่ 2</strong></td>
+              <td>x < 0, y > 0</td>
+              <td>ϕ = 180° - arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
+              <td>(-2, 2) ⇒ ϕ = 135°</td>
+            </tr>
+            <tr>
+              <td><strong>ควอดรันต์ที่ 3</strong></td>
+              <td>x < 0, y < 0</td>
+              <td>ϕ = 180° + arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
+              <td>(-2, -2) ⇒ ϕ = 225°</td>
+            </tr>
+            <tr>
+              <td><strong>ควอดรันต์ที่ 4</strong></td>
+              <td>x > 0, y < 0</td>
+              <td>ϕ = 360° - arctan<span class="math-frac"><span class="math-num">|y|</span><span class="math-den">|x|</span></span></td>
+              <td>(2, -2) ⇒ ϕ = 315°</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 6: การแปลงองค์ประกอบเวกเตอร์และ Table 1.1 -->
@@ -453,36 +457,38 @@
       </p>
 
       <h3 class="sub-title">ตารางผลคูณจุดของยูนิตเวกเตอร์ Table 1.1 (Hayt & Buck 9th Ed. หน้า 18):</h3>
-      <table class="academic-table" style="text-align: center;">
-        <thead>
-          <tr>
-            <th>• (Dot Product)</th>
-            <th style="color: var(--accent);"><strong>a</strong><sub>ρ</sub></th>
-            <th style="color: var(--accent2);"><strong>a</strong><sub>ϕ</sub></th>
-            <th style="color: var(--green);"><strong>a</strong><sub>z</sub></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong><strong>a</strong><sub>x</sub> •</strong></td>
-            <td><strong>cos ϕ</strong></td>
-            <td><strong>-sin ϕ</strong></td>
-            <td><strong>0</strong></td>
-          </tr>
-          <tr>
-            <td><strong><strong>a</strong><sub>y</sub> •</strong></td>
-            <td><strong>sin ϕ</strong></td>
-            <td><strong>cos ϕ</strong></td>
-            <td><strong>0</strong></td>
-          </tr>
-          <tr>
-            <td><strong><strong>a</strong><sub>z</sub> •</strong></td>
-            <td><strong>0</strong></td>
-            <td><strong>0</strong></td>
-            <td><strong>1</strong></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table" style="text-align: center;">
+          <thead>
+            <tr>
+              <th>• (Dot Product)</th>
+              <th style="color: var(--accent);"><strong>a</strong><sub>ρ</sub></th>
+              <th style="color: var(--accent2);"><strong>a</strong><sub>ϕ</sub></th>
+              <th style="color: var(--green);"><strong>a</strong><sub>z</sub></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><strong>a</strong><sub>x</sub> •</strong></td>
+              <td><strong>cos ϕ</strong></td>
+              <td><strong>-sin ϕ</strong></td>
+              <td><strong>0</strong></td>
+            </tr>
+            <tr>
+              <td><strong><strong>a</strong><sub>y</sub> •</strong></td>
+              <td><strong>sin ϕ</strong></td>
+              <td><strong>cos ϕ</strong></td>
+              <td><strong>0</strong></td>
+            </tr>
+            <tr>
+              <td><strong><strong>a</strong><sub>z</sub> •</strong></td>
+              <td><strong>0</strong></td>
+              <td><strong>0</strong></td>
+              <td><strong>1</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="formula-card">
         <div class="f-title">

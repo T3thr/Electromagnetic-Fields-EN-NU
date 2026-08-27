@@ -226,42 +226,44 @@
         </div>
       </div>
 
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>ระบบพิกัด</th>
-            <th>ผิวคงที่ (Constant Surface)</th>
-            <th>เวกเตอร์พื้นที่ผิวชี้ออก (Outward d<b>s</b>)</th>
-            <th>การประยุกต์ในกฎของเกาส์</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>พิกัดทรงกลม (Spherical)</strong></td>
-            <td>ผิวทรงกลม <code>r = const</code></td>
-            <td><strong>d<b>s</b> = <em>r</em>² sin θ dθ dϕ <b>a</b><sub>r</sub></strong></td>
-            <td>ผิวเกาส์เซียนรอบจุดประจุและทรงกลม</td>
-          </tr>
-          <tr>
-            <td><strong>พิกัดทรงกระบอก (Cylindrical)</strong></td>
-            <td>ผิวด้านข้าง <code>ρ = const</code></td>
-            <td><strong>d<b>s</b> = ρ dϕ dz <b>a</b><sub>ρ</sub></strong></td>
-            <td>ผิวด้านข้างของลวดประจุและสายโคแอกเชียล</td>
-          </tr>
-          <tr>
-            <td><strong>พิกัดทรงกระบอก (ฝาบน/ฝาล่าง)</strong></td>
-            <td>ฝาบน <code>z = +L/2</code>, ฝาล่าง <code>z = -L/2</code></td>
-            <td><strong>d<b>s</b><sub>top</sub> = ρ dρ dϕ <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -ρ dρ dϕ <b>a</b><sub>z</sub></strong></td>
-            <td>ฝาปิดทรงกระบอก (สนาม <b>D</b> ขนานผิว ⇒ ฟลักซ์เป็นศูนย์)</td>
-          </tr>
-          <tr>
-            <td><strong>พิกัดฉาก (Cartesian Pillbox)</strong></td>
-            <td>ฝาบน <code>z = +h</code>, ฝาล่าง <code>z = -h</code></td>
-            <td><strong>d<b>s</b><sub>top</sub> = dx dy <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -dx dy <b>a</b><sub>z</sub></strong></td>
-            <td>กล่องเกาส์เซียนประกบแผ่นประจุระนาบ</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ระบบพิกัด</th>
+              <th>ผิวคงที่ (Constant Surface)</th>
+              <th>เวกเตอร์พื้นที่ผิวชี้ออก (Outward d<b>s</b>)</th>
+              <th>การประยุกต์ในกฎของเกาส์</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>พิกัดทรงกลม (Spherical)</strong></td>
+              <td>ผิวทรงกลม <code>r = const</code></td>
+              <td><strong>d<b>s</b> = <em>r</em>² sin θ dθ dϕ <b>a</b><sub>r</sub></strong></td>
+              <td>ผิวเกาส์เซียนรอบจุดประจุและทรงกลม</td>
+            </tr>
+            <tr>
+              <td><strong>พิกัดทรงกระบอก (Cylindrical)</strong></td>
+              <td>ผิวด้านข้าง <code>ρ = const</code></td>
+              <td><strong>d<b>s</b> = ρ dϕ dz <b>a</b><sub>ρ</sub></strong></td>
+              <td>ผิวด้านข้างของลวดประจุและสายโคแอกเชียล</td>
+            </tr>
+            <tr>
+              <td><strong>พิกัดทรงกระบอก (ฝาบน/ฝาล่าง)</strong></td>
+              <td>ฝาบน <code>z = +L/2</code>, ฝาล่าง <code>z = -L/2</code></td>
+              <td><strong>d<b>s</b><sub>top</sub> = ρ dρ dϕ <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -ρ dρ dϕ <b>a</b><sub>z</sub></strong></td>
+              <td>ฝาปิดทรงกระบอก (สนาม <b>D</b> ขนานผิว ⇒ ฟลักซ์เป็นศูนย์)</td>
+            </tr>
+            <tr>
+              <td><strong>พิกัดฉาก (Cartesian Pillbox)</strong></td>
+              <td>ฝาบน <code>z = +h</code>, ฝาล่าง <code>z = -h</code></td>
+              <td><strong>d<b>s</b><sub>top</sub> = dx dy <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -dx dy <b>a</b><sub>z</sub></strong></td>
+              <td>กล่องเกาส์เซียนประกบแผ่นประจุระนาบ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 3: หลักการเลือกผิวเกาส์เซียนสมมาตร -->

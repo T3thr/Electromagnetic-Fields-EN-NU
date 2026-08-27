@@ -363,54 +363,56 @@
         เมื่อพิจารณาโครงสร้างทรงกลมตัวนำซ้อน 2 ใบอย่างละเอียดในเชิงวิศวกรรมไฟฟ้า เราสามารถแบ่งย่านการวิเคราะห์สนามออกเป็น 3 บริเวณหลัก:
       </p>
 
-      <table class="academic-table">
-        <thead>
-          <tr>
-            <th>บริเวณ (Region)</th>
-            <th>ช่วงรัศมี</th>
-            <th>สนามความหนาแน่นฟลักซ์ <b>D</b></th>
-            <th>สนามไฟฟ้า <b>E</b></th>
-            <th>เหตุผลทางฟิสิกส์</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. ภายในเนื้อโลหะทรงกลมใน</strong></td>
-            <td><code>r &lt; a</code></td>
-            <td><strong><b>D</b> = 0</strong></td>
-            <td><strong><b>E</b> = 0</strong></td>
-            <td>ภายในเนื้อตัวนำไฟฟ้าสถิตไม่มีประจุสุทธิและไม่มีสนามไฟฟ้า</td>
-          </tr>
-          <tr>
-            <td><strong>2. ผิวด้านนอกของทรงกลมใน</strong></td>
-            <td><code>r = a⁺</code></td>
-            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>a</em>²</span></span> <b>a</b><sub>r</sub> = ρ<sub>sa</sub> <b>a</b><sub>r</sub></strong></td>
-            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>a</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
-            <td>ประจุ <code>+Q</code> แผ่กระจายสม่ำเสมอบนผิวนอก <code>ρ<sub>sa</sub> = Q / (4π a²)</code></td>
-          </tr>
-          <tr>
-            <td><strong>3. ช่องว่างไดอิเล็กทริกระหว่างทรงกลม</strong></td>
-            <td><code>a &lt; r &lt; b</code></td>
-            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
-            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
-            <td>ฟลักซ์ <code>Ψ = Q</code> แผ่ผ่านพื้นที่ <code>4π r²</code> ในแนวรัศมี</td>
-          </tr>
-          <tr>
-            <td><strong>4. ผิวด้านในของทรงกลมนอก</strong></td>
-            <td><code>r = b⁻</code></td>
-            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
-            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
-            <td>ประจุเหนี่ยวนำ <code>-Q</code> กระจายบนผิวด้านใน <code>ρ<sub>sb</sub> = -Q / (4π b²)</code></td>
-          </tr>
-          <tr>
-            <td><strong>5. ภายนอกทรงกลมด้านนอก</strong></td>
-            <td><code>r &gt; b</code></td>
-            <td><strong><b>D</b> = 0</strong></td>
-            <td><strong><b>E</b> = 0</strong></td>
-            <td>ประจุสุทธิรวมภายในผิวปิดเป็นศูนย์ (<code>Q + (-Q) = 0</code>)</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>บริเวณ (Region)</th>
+              <th>ช่วงรัศมี</th>
+              <th>สนามความหนาแน่นฟลักซ์ <b>D</b></th>
+              <th>สนามไฟฟ้า <b>E</b></th>
+              <th>เหตุผลทางฟิสิกส์</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. ภายในเนื้อโลหะทรงกลมใน</strong></td>
+              <td><code>r &lt; a</code></td>
+              <td><strong><b>D</b> = 0</strong></td>
+              <td><strong><b>E</b> = 0</strong></td>
+              <td>ภายในเนื้อตัวนำไฟฟ้าสถิตไม่มีประจุสุทธิและไม่มีสนามไฟฟ้า</td>
+            </tr>
+            <tr>
+              <td><strong>2. ผิวด้านนอกของทรงกลมใน</strong></td>
+              <td><code>r = a⁺</code></td>
+              <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>a</em>²</span></span> <b>a</b><sub>r</sub> = ρ<sub>sa</sub> <b>a</b><sub>r</sub></strong></td>
+              <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>a</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+              <td>ประจุ <code>+Q</code> แผ่กระจายสม่ำเสมอบนผิวนอก <code>ρ<sub>sa</sub> = Q / (4π a²)</code></td>
+            </tr>
+            <tr>
+              <td><strong>3. ช่องว่างไดอิเล็กทริกระหว่างทรงกลม</strong></td>
+              <td><code>a &lt; r &lt; b</code></td>
+              <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+              <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+              <td>ฟลักซ์ <code>Ψ = Q</code> แผ่ผ่านพื้นที่ <code>4π r²</code> ในแนวรัศมี</td>
+            </tr>
+            <tr>
+              <td><strong>4. ผิวด้านในของทรงกลมนอก</strong></td>
+              <td><code>r = b⁻</code></td>
+              <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+              <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+              <td>ประจุเหนี่ยวนำ <code>-Q</code> กระจายบนผิวด้านใน <code>ρ<sub>sb</sub> = -Q / (4π b²)</code></td>
+            </tr>
+            <tr>
+              <td><strong>5. ภายนอกทรงกลมด้านนอก</strong></td>
+              <td><code>r &gt; b</code></td>
+              <td><strong><b>D</b> = 0</strong></td>
+              <td><strong><b>E</b> = 0</strong></td>
+              <td>ประจุสุทธิรวมภายในผิวปิดเป็นศูนย์ (<code>Q + (-Q) = 0</code>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ส่วนที่ 5: ความสัมพันธ์ปรุงแต่ง -->
