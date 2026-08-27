@@ -48,36 +48,36 @@ class ExamEngine {
           {
             partId: "1.2",
             points: 15,
-            question: "กำหนดให้เวกเตอร์ <strong>A</strong> ที่จุด P(r = 2.4, θ = 50°, ϕ = 70°) ในระบบพิกัดทรงกลม มีค่าเป็น <strong>A</strong> = (2 sin θ / sin ϕ) <strong>a</strong><sub>r</sub> + (sin θ / sin ϕ) <strong>a</strong><sub>θ</sub> จงแปลงเวกเตอร์นี้ให้อยู่ในรูประบบพิกัดทรงกระบอก ณ จุด P",
+            question: "กำหนดให้เวกเตอร์ <strong>A</strong> ที่อยู่ ณ จุดในระบบพิกัดทรงกลม P(r = 2.4, θ = 50°, ϕ = 70°) มีค่าเป็น <strong>A</strong> = <span class="math-frac"><span class="math-num">2 sin θ</span><span class="math-den">r</span></span> <strong>a</strong><sub>r</sub> + <span class="math-frac"><span class="math-num">sin ϕ</span><span class="math-den">r</span></span> <strong>a</strong><sub>ϕ</sub> จงแปลงเวกเตอร์นี้ให้อยู่ในรูประบบพิกัดทรงกระบอก ณ จุด P",
             rubric: [
-              { label: "เขียนสูตรความสัมพันธ์หรือเมทริกซ์การแปลงจากพิกัดทรงกลมสู่ทรงกระบอก", pts: 5 },
-              { label: "คำนวณค่าตัวเลขขององค์ประกอบ A<sub>r</sub>, A<sub>θ</sub>, A<sub>ϕ</sub> ณ จุด P อย่างถูกต้อง", pts: 4 },
+              { label: "เขียนสูตรตั้งต้นความสัมพันธ์ทั่วไปของการแปลงพิกัด (General Transformation Matrix)", pts: 5 },
+              { label: "คำนวณค่าตัวเลขขององค์ประกอบ A<sub>r</sub>, A<sub>θ</sub>, A<sub>ϕ</sub> ณ จุด P ถูกต้อง", pts: 4 },
               { label: "คำนวณหา A<sub>ρ</sub>, A<sub>ϕ</sub>, A<sub>z</sub> ในพิกัดทรงกระบอกครบถ้วนถูกต้องพร้อมหน่วย", pts: 6 }
             ],
             solutionHtml: `
               <div class="step-card step-essential">
-                <span class="step-badge must-write">สูตรตั้งต้นทั่วไป (General Transformation Formula)</span>
+                <span class="step-badge must-write">สูตรตั้งต้นทั่วไป (General Transformation Matrix)</span>
                 <p>ความสัมพันธ์การแปลงเวกเตอร์จากพิกัดทรงกลมสู่พิกัดทรงกระบอก ณ จุด <code>P(r, θ, ϕ)</code>:</p>
                 <div class="math-display">
-                  A<sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ<br>
-                  A<sub>ϕ</sub> = A<sub>ϕ</sub> &nbsp;&nbsp; (มุม ϕ เดียวกัน)<br>
-                  A<sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ
+                  A<sub>ρ</sub> = <strong>A</strong> • <strong>a</strong><sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ<br>
+                  A<sub>ϕ</sub> = <strong>A</strong> • <strong>a</strong><sub>ϕ</sub> = A<sub>ϕ</sub> &nbsp;&nbsp; (แกนมุมหมุน ϕ เดียวกันในทั้งสองระบบ)<br>
+                  A<sub>z</sub> = <strong>A</strong> • <strong>a</strong><sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ
                 </div>
               </div>
               <div class="step-card">
-                <span class="step-badge">แทนค่าตัวเลข ณ จุด P(r = 2.4, θ = 50°, ϕ = 70°)</span>
-                <p>ค่าตรีโกณมิติ: sin 50° ≈ 0.7660, cos 50° ≈ 0.6428, sin 70° ≈ 0.9397</p>
+                <span class="step-badge">คำนวณค่าองค์ประกอบ ณ จุด P(r = 2.4, θ = 50°, ϕ = 70°)</span>
+                <p>ค่าฟังก์ชันตรีโกณมิติ: <code>sin(50°) ≈ 0.76604</code>, <code>cos(50°) ≈ 0.64279</code>, <code>sin(70°) ≈ 0.93969</code></p>
                 <div class="math-display">
-                  A<sub>r</sub> = <span class="math-frac"><span class="math-num">2 sin 50°</span><span class="math-den">sin 70°</span></span> = <span class="math-frac"><span class="math-num">2(0.7660)</span><span class="math-den">0.9397</span></span> ≈ <strong>1.6304</strong><br>
-                  A<sub>θ</sub> = <span class="math-frac"><span class="math-num">sin 50°</span><span class="math-den">sin 70°</span></span> = <span class="math-frac"><span class="math-num">0.7660</span><span class="math-den">0.9397</span></span> ≈ <strong>0.8152</strong><br>
-                  A<sub>ϕ</sub> = <strong>0</strong>
+                  A<sub>r</sub> = <span class="math-frac"><span class="math-num">2 sin(50°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">2(0.76604)</span><span class="math-den">2.4</span></span> ≈ <strong>0.6384</strong><br>
+                  A<sub>θ</sub> = <strong>0</strong> &nbsp; (ไม่มีองค์ประกอบในแนว a<sub>θ</sub>)<br>
+                  A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">sin(70°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">0.93969</span><span class="math-den">2.4</span></span> ≈ <strong>0.3915</strong>
                 </div>
                 <p><strong>คำนวณองค์ประกอบในระบบพิกัดทรงกระบอก:</strong></p>
                 <div class="math-display">
-                  A<sub>ρ</sub> = (1.6304)(0.7660) + (0.8152)(0.6428) = 1.2489 + 0.5240 = <strong>1.7729</strong><br>
-                  A<sub>ϕ</sub> = <strong>0</strong><br>
-                  A<sub>z</sub> = (1.6304)(0.6428) - (0.8152)(0.7660) = 1.0480 - 0.6244 = <strong>0.4236</strong><br><br>
-                  <strong>คำตอบสุดท้าย:</strong> <strong>A</strong> = 1.773 <strong>a</strong><sub>ρ</sub> + 0.424 <strong>a</strong><sub>z</sub>
+                  A<sub>ρ</sub> = (0.6384)(0.76604) + (0)(0.64279) = <strong>0.4890</strong><br>
+                  A<sub>ϕ</sub> = A<sub>ϕ</sub> = <strong>0.3915</strong><br>
+                  A<sub>z</sub> = (0.6384)(0.64279) - (0)(0.76604) = <strong>0.4103</strong><br><br>
+                  <strong>คำตอบสุดท้าย:</strong> <strong>A</strong> = <strong>0.489 a</strong><sub>ρ</sub> + <strong>0.392 a</strong><sub>ϕ</sub> + <strong>0.410 a</strong><sub>z</sub>
                 </div>
               </div>
             `

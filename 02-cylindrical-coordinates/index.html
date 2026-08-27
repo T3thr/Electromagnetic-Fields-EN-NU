@@ -573,6 +573,37 @@
     <section id="sec7">
       <h2 class="section-title">7. ตัวอย่างโจทย์และแบบฝึกหัดเสริมทักษะ (Worked Examples & Drill Problems)</h2>
 
+      <!-- กล่องเชื่อมโยงข้อสอบจริงและเกณฑ์การให้คะแนน (Exam Rubric Box) -->
+      <div class="step-card step-essential" style="border-left: 4px solid var(--accent); margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span class="step-badge must-write">เกณฑ์ข้อสอบกลางภาค: การแปลงเวกเตอร์ข้ามระบบพิกัด</span>
+          <span class="academic-badge badge-primary">เชื่อมโยงข้อสอบจริง ข้อ 1.2 (15 คะแนน)</span>
+        </div>
+        <h4>หลักการแปลงเวกเตอร์ระหว่างระบบพิกัดทรงกลม (Spherical) และพิกัดทรงกระบอก (Cylindrical):</h4>
+        <div class="math-display">
+          <p>ใน <strong>ข้อสอบกลางภาค ข้อ 1.2</strong> อาจารย์กำหนดเวกเตอร์ในพิกัดทรงกลม <code><strong>A</strong> = A<sub>r</sub> <strong>a</strong><sub>r</sub> + A<sub>ϕ</sub> <strong>a</strong><sub>ϕ</sub></code> ณ จุด <code>P(r = 2.4, θ = 50°, ϕ = 70°)</code> และให้แปลงเป็นพิกัดทรงกระบอก (Cylindrical: <code>A<sub>ρ</sub> <strong>a</strong><sub>ρ</sub> + A<sub>ϕ</sub> <strong>a</strong><sub>ϕ</sub> + A<sub>z</sub> <strong>a</strong><sub>z</sub></code>):</p>
+          <ol style="margin-left: 20px; line-height: 1.85;">
+            <li><strong>เขียนสูตรตั้งต้นการแปลงทั่วไป (General Form) ก่อนแทนค่า:</strong>
+              <div style="margin: 6px 0;">
+                <code>A<sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ</code><br>
+                <code>A<sub>ϕ</sub> = A<sub>ϕ</sub></code> &nbsp; (แกนมุมหมุน ϕ ในพิกัดทรงกระบอกและทรงกลมเป็นแกนเดียวกัน)<br>
+                <code>A<sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ</code>
+              </div>
+            </li>
+            <li><strong>คำนวณค่าตัวเลของค์ประกอบทีละขั้นตอน:</strong>
+              <div style="margin: 6px 0;">
+                • <code>A<sub>r</sub> = <span class="math-frac"><span class="math-num">2 sin(50°)</span><span class="math-den">2.4</span></span> ≈ 0.6384</code>, &nbsp; <code>A<sub>θ</sub> = 0</code>, &nbsp; <code>A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">sin(70°)</span><span class="math-den">2.4</span></span> ≈ 0.3915</code><br>
+                • <code>A<sub>ρ</sub> = 0.6384 sin(50°) ≈ <strong>0.4890</strong></code><br>
+                • <code>A<sub>ϕ</sub> = <strong>0.3915</strong></code><br>
+                • <code>A<sub>z</sub> = 0.6384 cos(50°) ≈ <strong>0.4103</strong></code>
+              </div>
+            </li>
+            <li><strong>สรุปคำตอบสมบูรณ์:</strong> <code><strong>A</strong> = 0.489 <strong>a</strong><sub>ρ</sub> + 0.392 <strong>a</strong><sub>ϕ</sub> + 0.410 <strong>a</strong><sub>z</sub></code> (ศึกษาเฉลยฉบับสมบูรณ์ได้ใน <a href="../03-spherical-coordinates/index.html#sec8" style="color: var(--accent); font-weight: 700;">บทที่ 3 ส่วนที่ 8</a>)</li>
+          </ol>
+        </div>
+      </div>
+
+
       <!-- Drill D1.5 -->
       <div class="drill-box">
         <div class="drill-header">

@@ -725,88 +725,92 @@
         </div>
       </section>
 
-      <!-- ส่วนที่ 8: เฉลยข้อสอบจริง ข้อที่ 1 -->
+            <!-- ส่วนที่ 8: เฉลยข้อสอบจริง ข้อที่ 1 -->
       <section id="sec8">
         <h2 class="section-title">8. เฉลยข้อสอบกลางภาคฉบับจริง: ข้อที่ 1 (25 คะแนนเต็ม)</h2>
 
         <!-- ข้อ 1.1 -->
         <div class="step-card step-essential">
-          <span class="step-badge must-write">ข้อสอบข้อ 1.1 (10 คะแนน)</span>
-          <h4>คำถาม: จงอธิบายข้อจำกัดของเวกเตอร์หน่วยในระบบพิกัดทรงกลม (<strong>a</strong><sub>r</sub>,
-            <strong>a</strong><sub>θ</sub>, <strong>a</strong><sub>ϕ</sub>)
-            พร้อมวาดภาพประกอบและอธิบายเหตุผลทางฟิสิกส์คณิตศาสตร์</h4>
+          <span class="step-badge must-write">ข้อสอบข้อ 1.1 (10 คะแนนเต็ม — ข้อสอบกลางภาค 2/2563)</span>
+          <h4>คำถาม: จงอธิบายว่าเวกเตอร์หน่วยในระบบพิกัดทรงกลม (<strong>a</strong><sub>r</sub>, <strong>a</strong><sub>θ</sub>, <strong>a</strong><sub>ϕ</sub>) มีข้อจำกัดอย่างไรเมื่อเทียบกับพิกัดฉาก พร้อมกับวาดรูปประกอบ และอธิบายวิธีปฏิบัติที่ถูกต้องในการรวมเวกเตอร์</h4>
 
           <div class="math-display">
-            <strong>แนวคำตอบที่ได้คะแนนเต็ม 10/10:</strong><br><br>
+            <div style="background: var(--surface); padding: 16px; border-radius: var(--radius-sm); border-left: 4px solid var(--accent); margin-bottom: 16px;">
+              <strong style="color: var(--accent);">เกณฑ์การให้คะแนนตามประกาศอาจารย์ผู้สอน (Rubric):</strong><br>
+              • [4 คะแนน] ระบุข้อจำกัดว่าเวกเตอร์หน่วย <code><strong>a</strong><sub>r</sub>, <strong>a</strong><sub>θ</sub>, <strong>a</strong><sub>ϕ</sub></code> มีทิศทางเปลี่ยนไปตามตำแหน่งเชิงมุม <code>(θ, ϕ)</code> ของแต่ละจุด ไม่คงที่ในอวกาศ<br>
+              • [4 คะแนน] อธิบายว่าไม่สามารถนำเวกเตอร์ในพิกัดทรงกลมที่อยู่คนละจุดมาบวก/ลบองค์ประกอบกันตรงๆ ได้ พร้อมวาดรูปหรือแสดงตัวอย่าง<br>
+              • [2 คะแนน] ระบุวิธีปฏิบัติที่ถูกต้องว่าต้องแปลงเป็นระบบพิกัดฉาก (Cartesian: <code><strong>a</strong><sub>x</sub>, <strong>a</strong><sub>y</sub>, <strong>a</strong><sub>z</sub></code>) ก่อนคำนวณเสมอ
+            </div>
+
             <strong>1. สาระสำคัญของข้อจำกัด (Core Limitation):</strong><br>
-            เวกเตอร์หน่วยในระบบพิกัดทรงกลมทั้งสามตัว ได้แก่ <code><strong>a</strong><sub>r</sub></code>,
-            <code><strong>a</strong><sub>θ</sub></code>, และ <code><strong>a</strong><sub>ϕ</sub></code>
-            <strong>ไม่ใช่เวกเตอร์คงที่ (Not Constant Vectors)</strong>
-            โดยทิศทางของเวกเตอร์จะเปลี่ยนแปลงไปตามตำแหน่งของจุดสังเกต <code>P(r, θ, ϕ)</code> ในอวกาศ (แปรผันตามมุม
-            <code>θ</code> และ <code>ϕ</code>)<br><br>
-            <strong>2. การพิสูจน์ทางคณิตศาสตร์จากสมการ Table 1.2:</strong><br>
-            •
-            <code><strong>a</strong><sub>r</sub> = sin θ cos ϕ <strong>a</strong><sub>x</sub> + sin θ sin ϕ <strong>a</strong><sub>y</sub> + cos θ <strong>a</strong><sub>z</sub></code>
-            (ขึ้นอยู่กับทั้ง θ และ ϕ)<br>
-            •
-            <code><strong>a</strong><sub>θ</sub> = cos θ cos ϕ <strong>a</strong><sub>x</sub> + cos θ sin ϕ <strong>a</strong><sub>y</sub> - sin θ <strong>a</strong><sub>z</sub></code>
-            (ขึ้นอยู่กับทั้ง θ และ ϕ)<br>
-            •
-            <code><strong>a</strong><sub>ϕ</sub> = -sin ϕ <strong>a</strong><sub>x</sub> + cos ϕ <strong>a</strong><sub>y</sub> + 0 <strong>a</strong><sub>z</sub></code>
-            (ขึ้นอยู่กับมุม ϕ)<br><br>
-            <strong>3. ข้อสรุปเชิงปฏิบัติการ (Engineering Rule):</strong><br>
-            เมื่อมีเวกเตอร์สองตัว <code><strong>A</strong></code> และ <code><strong>B</strong></code>
-            อยู่ที่คนละตำแหน่งจุด <strong>ห้ามนำองค์ประกอบมาบวกกันโดยตรง
-              (<code>A<sub>r</sub> + B<sub>r</sub> ≠ (<strong>A</strong> + <strong>B</strong>)<sub>r</sub></code>)</strong>
-            เพราะยูนิตเวกเตอร์ <code><strong>a</strong><sub>r</sub></code> ของทั้งสองจุดชี้คนละทิศทาง
-            จำเป็นต้องแปลงเวกเตอร์ทั้งหมดให้เป็นระบบพิกัดฉาก (Cartesian) ก่อนทำการรวมเวกเตอร์เสมอ
+            เวกเตอร์หน่วยฐานในระบบพิกัดทรงกลมทั้งสามตัว ได้แก่ <code><strong>a</strong><sub>r</sub></code>, <code><strong>a</strong><sub>θ</sub></code>, และ <code><strong>a</strong><sub>ϕ</sub></code> <strong>ไม่ใช่เวกเตอร์คงที่ (Not Constant Vectors)</strong> โดยทิศทางของเวกเตอร์จะเปลี่ยนแปลงไปตามตำแหน่งของจุดสังเกต <code>P(r, θ, ϕ)</code> ในอวกาศ (แปรผันตามมุม <code>θ</code> และ <code>ϕ</code>)<br><br>
+
+            <strong>2. การพิสูจน์ทางคณิตศาสตร์จากความสัมพันธ์เวกเตอร์ฐาน:</strong><br>
+            • <code><strong>a</strong><sub>r</sub> = sin θ cos ϕ <strong>a</strong><sub>x</sub> + sin θ sin ϕ <strong>a</strong><sub>y</sub> + cos θ <strong>a</strong><sub>z</sub></code> &nbsp; (ทิศทางขึ้นกับทั้ง θ และ ϕ)<br>
+            • <code><strong>a</strong><sub>θ</sub> = cos θ cos ϕ <strong>a</strong><sub>x</sub> + cos θ sin ϕ <strong>a</strong><sub>y</sub> - sin θ <strong>a</strong><sub>z</sub></code> &nbsp; (ทิศทางขึ้นกับทั้ง θ และ ϕ)<br>
+            • <code><strong>a</strong><sub>ϕ</sub> = -sin ϕ <strong>a</strong><sub>x</sub> + cos ϕ <strong>a</strong><sub>y</sub> + 0 <strong>a</strong><sub>z</sub></code> &nbsp; (ทิศทางขึ้นกับมุม ϕ)<br><br>
+
+            <strong>3. ข้อห้ามและวิธีปฏิบัติที่ถูกต้องตามมาตรฐานวิศวกรรม (Engineering Rule):</strong><br>
+            เมื่อมีเวกเตอร์สองตัว <code><strong>A</strong></code> ณ จุด <code>P₁</code> และ <code><strong>B</strong></code> ณ จุด <code>P₂</code> ซึ่งมีพิกัดเชิงมุมต่างกัน <strong>ห้ามนำองค์ประกอบมาบวกกันโดยตรง (<code>A<sub>r</sub> + B<sub>r</sub> ≠ (<strong>A</strong> + <strong>B</strong>)<sub>r</sub></code>)</strong> เพราะแนวรัศมีของทั้งสองจุดชี้คนละทิศทางกัน<br>
+            <strong>วิธีแก้ที่ถูกต้อง:</strong> ต้องแปลงเวกเตอร์ทั้งหมดให้อยู่ในระบบพิกัดฉาก (Cartesian: <code><strong>a</strong><sub>x</sub>, <strong>a</strong><sub>y</sub>, <strong>a</strong><sub>z</sub></code>) เสียก่อน เนื่องจาก <code><strong>a</strong><sub>x</sub>, <strong>a</strong><sub>y</sub>, <strong>a</strong><sub>z</sub></code> มีทิศทางคงที่ทั่วทั้งอวกาศ จึงสามารถบวก/ลบกันได้ แล้วจึงแปลงผลลัพธ์กลับสู่พิกัดอื่นหากต้องการ
           </div>
         </div>
 
         <!-- ข้อ 1.2 -->
         <div class="step-card step-essential" style="margin-top: 20px;">
-          <span class="step-badge must-write">ข้อสอบข้อ 1.2 (15 คะแนน)</span>
-          <h4>คำถาม: กำหนดสนามเวกเตอร์ <strong>A</strong> = 25 <strong>a</strong><sub>r</sub> - 12
-            <strong>a</strong><sub>θ</sub> + 8 <strong>a</strong><sub>ϕ</sub> ณ จุด P(r = 4, θ = 60°, ϕ = 45°)
-            จงแปลงเวกเตอร์ <strong>A</strong> ให้อยู่ในรูปพิกัดฉาก (Cartesian) และพิกัดทรงกระบอก (Cylindrical)</h4>
+          <span class="step-badge must-write">ข้อสอบข้อ 1.2 (15 คะแนนเต็ม — ข้อสอบกลางภาค 2/2563)</span>
+          <h4>คำถาม: กำหนดให้เวกเตอร์ <strong>A</strong> ที่อยู่ ณ จุดในระบบพิกัดทรงกลม P(r = 2.4, θ = 50°, ϕ = 70°) มีค่าเป็น<br>
+          <span style="display: inline-block; margin-top: 6px;"><code><strong>A</strong> = <span class="math-frac"><span class="math-num">2 sin θ</span><span class="math-den">r</span></span> <strong>a</strong><sub>r</sub> + <span class="math-frac"><span class="math-num">sin ϕ</span><span class="math-den">r</span></span> <strong>a</strong><sub>ϕ</sub></code></span><br>
+          จงเขียนเวกเตอร์นี้ให้อยู่ในรูประบบพิกัดทรงกระบอก (Cylindrical Coordinates) ณ จุด P</h4>
 
           <div class="accordion">
             <div class="accordion-header">
-              <span>แสดงวิธีทำแบบสมบูรณ์ตามเกณฑ์การให้คะแนน (Rubric Solution)</span>
+              <span>แสดงวิธีทำแบบละเอียดทุกขั้นตอนตามเกณฑ์คะแนนเต็ม 15/15 (Step-by-Step Solution)</span>
               <span class="accordion-icon">▼</span>
             </div>
             <div class="accordion-body">
               <div class="math-display">
-                <strong>ขั้นที่ 1: หาค่าฟังก์ชันตรีโกณมิติ ณ จุด P(r = 4, θ = 60°, ϕ = 45°):</strong><br>
-                sin(60°) = √3/2 ≈ 0.8660 , &nbsp; cos(60°) = 1/2 = 0.5000<br>
-                sin(45°) = 1/√2 ≈ 0.7071 , &nbsp; cos(45°) = 1/√2 ≈ 0.7071<br><br>
+                <div style="background: var(--surface); padding: 14px; border-radius: var(--radius-sm); border-left: 4px solid var(--accent); margin-bottom: 16px;">
+                  <strong style="color: var(--accent);">กฎการได้คะแนนตามประกาศอาจารย์ (for_Exam_mid_214_68_for_prnt.pdf):</strong><br>
+                  • <strong>ต้องเขียนสูตรตั้งต้นทั่วไป (General Transformation Formula) ก่อนเสมอ</strong> ห้ามใส่ตัวเลขเลยทันที<br>
+                  • แสดงการคำนวณค่าตัวเลขขององค์ประกอบทีละตัว และระบุทิศทางเวกเตอร์ฐานอย่างถูกต้อง
+                </div>
 
-                <strong>ขั้นที่ 2: ใช้เมทริกซ์การแปลง [A<sub>sr</sub>] เพื่อหาพิกัดฉาก:</strong><br>
-                • A<sub>x</sub> = A<sub>r</sub> (sin θ cos ϕ) + A<sub>θ</sub> (cos θ cos ϕ) + A<sub>ϕ</sub> (-sin ϕ)<br>
-                &nbsp;&nbsp;A<sub>x</sub> = 25 (0.8660 × 0.7071) + (-12) (0.5000 × 0.7071) + 8 (-0.7071)<br>
-                &nbsp;&nbsp;A<sub>x</sub> = 25 (0.6124) - 12 (0.3536) - 8 (0.7071) = 15.309 - 4.243 - 5.657 =
-                <strong>5.409</strong><br><br>
+                <strong>ขั้นที่ 1: เขียนสูตรตั้งต้นทั่วไปของการแปลงเวกเตอร์ (General Transformation Matrix):</strong><br>
+                ความสัมพันธ์ระหว่างองค์ประกอบของเวกเตอร์ในระบบพิกัดทรงกระบอก <code>(A<sub>ρ</sub>, A<sub>ϕ</sub>, A<sub>z</sub>)</code> และพิกัดทรงกลม <code>(A<sub>r</sub>, A<sub>θ</sub>, A<sub>ϕ</sub>)</code> ได้แก่:
+                <div style="margin: 12px 0;">
+                  <code>A<sub>ρ</sub> = <strong>A</strong> • <strong>a</strong><sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ</code><br>
+                  <code>A<sub>ϕ</sub> = <strong>A</strong> • <strong>a</strong><sub>ϕ</sub> = A<sub>ϕ</sub></code> &nbsp; (มุม ϕ มีแนวแกนเดียวกันในทั้งสองระบบ)<br>
+                  <code>A<sub>z</sub> = <strong>A</strong> • <strong>a</strong><sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ</code>
+                </div>
 
-                • A<sub>y</sub> = A<sub>r</sub> (sin θ sin ϕ) + A<sub>θ</sub> (cos θ sin ϕ) + A<sub>ϕ</sub> (cos ϕ)<br>
-                &nbsp;&nbsp;A<sub>y</sub> = 25 (0.8660 × 0.7071) + (-12) (0.5000 × 0.7071) + 8 (0.7071)<br>
-                &nbsp;&nbsp;A<sub>y</sub> = 15.309 - 4.243 + 5.657 = <strong>16.723</strong><br><br>
+                หรือเขียนในรูปเมทริกซ์การแปลงมาตรฐาน (Sadiku 3rd Ed, Table 2.2 / Hayt 9th Ed, Section 1.9):
+                <div style="margin: 12px 0; font-family: var(--font-mono);">
+                  [ A<sub>ρ</sub> ] &nbsp; [  sin θ &nbsp;  cos θ &nbsp; 0 ] [ A<sub>r</sub> ]<br>
+                  [ A<sub>ϕ</sub> ] = [    0   &nbsp;    0   &nbsp; 1 ] [ A<sub>θ</sub> ]<br>
+                  [ A<sub>z</sub> ] &nbsp; [  cos θ &nbsp; -sin θ &nbsp; 0 ] [ A<sub>ϕ</sub> ]
+                </div><br>
 
-                • A<sub>z</sub> = A<sub>r</sub> (cos θ) + A<sub>θ</sub> (-sin θ) + A<sub>ϕ</sub> (0)<br>
-                &nbsp;&nbsp;A<sub>z</sub> = 25 (0.5000) + (-12) (-0.8660) + 0 = 12.500 + 10.392 =
-                <strong>22.892</strong><br><br>
+                <strong>ขั้นที่ 2: คำนวณค่าองค์ประกอบของเวกเตอร์ A ณ จุด P(r = 2.4, θ = 50°, ϕ = 70°):</strong><br>
+                จากโจทย์ <code><strong>A</strong> = A<sub>r</sub> <strong>a</strong><sub>r</sub> + A<sub>θ</sub> <strong>a</strong><sub>θ</sub> + A<sub>ϕ</sub> <strong>a</strong><sub>ϕ</sub></code><br>
+                • <code>A<sub>r</sub> = <span class="math-frac"><span class="math-num">2 sin(50°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">2 × 0.766044</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">1.532088</span><span class="math-den">2.4</span></span> ≈ <strong>0.63837</strong></code><br>
+                • <code>A<sub>θ</sub> = <strong>0</strong></code> &nbsp; (โจทย์ไม่มีองค์ประกอบในแนว a<sub>θ</sub>)<br>
+                • <code>A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">sin(70°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">0.939693</span><span class="math-den">2.4</span></span> ≈ <strong>0.39154</strong></code><br><br>
 
-                <strong>เวกเตอร์ในพิกัดฉาก: <strong>A</strong> = 5.41 <strong>a</strong><sub>x</sub> + 16.72
-                  <strong>a</strong><sub>y</sub> + 22.89 <strong>a</strong><sub>z</sub></strong><br><br>
+                <strong>ขั้นที่ 3: แทนค่าคำนวณหาองค์ประกอบในระบบพิกัดทรงกระบอก:</strong><br>
+                มุม <code>θ = 50°</code> → <code>sin(50°) ≈ 0.766044</code>, <code>cos(50°) ≈ 0.642788</code><br><br>
+                1) องค์ประกอบแนวรัศมีทรงกระบอก (A<sub>ρ</sub>):<br>
+                <code>A<sub>ρ</sub> = A<sub>r</sub> sin(50°) + A<sub>θ</sub> cos(50°) = (0.63837 × 0.766044) + (0 × 0.642788) = <strong>0.48902</strong></code><br><br>
+                2) องค์ประกอบแนวราบมุมหมุน (A<sub>ϕ</sub>):<br>
+                <code>A<sub>ϕ</sub> = A<sub>ϕ</sub> = <strong>0.39154</strong></code><br><br>
+                3) องค์ประกอบแนวแกนดิ่ง (A<sub>z</sub>):<br>
+                <code>A<sub>z</sub> = A<sub>r</sub> cos(50°) - A<sub>θ</sub> sin(50°) = (0.63837 × 0.642788) - (0 × 0.766044) = <strong>0.41034</strong></code><br><br>
 
-                <strong>ขั้นที่ 3: แปลงเป็นพิกัดทรงกระบอก (Cylindrical):</strong><br>
-                ความสัมพันธ์ระหว่าง Spherical ↔ Cylindrical:<br>
-                • A<sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ = 25 (0.8660) + (-12)(0.5000) = 21.651 -
-                6.000 = <strong>15.651</strong><br>
-                • A<sub>ϕ</sub> = <strong>8.000</strong> (มุม ϕ เท่ากันในทั้งสองระบบ)<br>
-                • A<sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ = 25 (0.5000) - (-12)(0.8660) = 12.500 +
-                10.392 = <strong>22.892</strong><br><br>
-                <strong>เวกเตอร์ในพิกัดทรงกระบอก: <strong>A</strong> = 15.65 <strong>a</strong><sub>ρ</sub> + 8.00
-                  <strong>a</strong><sub>ϕ</sub> + 22.89 <strong>a</strong><sub>z</sub></strong>
+                <div style="background: var(--surface); padding: 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--accent); margin-top: 10px;">
+                  <strong style="color: var(--accent);">คำตอบสุดท้าย (Final Answer):</strong><br>
+                  <strong>A</strong> = <strong>0.489 a</strong><sub>ρ</sub> + <strong>0.392 a</strong><sub>ϕ</sub> + <strong>0.410 a</strong><sub>z</sub><br>
+                  (หรือในรูปค่าแม่นตรง: <code><strong>A</strong> ≈ 0.4890 <strong>a</strong><sub>ρ</sub> + 0.3915 <strong>a</strong><sub>ϕ</sub> + 0.4103 <strong>a</strong><sub>z</sub></code>)
+                </div>
               </div>
             </div>
           </div>
