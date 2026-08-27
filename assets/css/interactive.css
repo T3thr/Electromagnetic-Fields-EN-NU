@@ -1,0 +1,619 @@
+/* ═══════════════════════════════════════════════════════════════════
+   303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I)
+   Interactive Simulation Workbench & 3D CAD HUD Stylesheet
+   ออกแบบตามมาตรฐานเครื่องมือจำลองฟิสิกส์วิศวกรรมระดับสากล
+   ═══════════════════════════════════════════════════════════════════ */
+
+.interactive-workbench {
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin: 32px 0 40px;
+  overflow: hidden;
+}
+
+.workbench-header {
+  padding: 16px 22px;
+  background: var(--paper2);
+  border-bottom: 1.5px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.workbench-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.workbench-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-light);
+}
+
+/* ═══════════ Presets & Quick Action Bar ═══════════ */
+.workbench-presets-bar {
+  padding: 12px 24px;
+  background: var(--paper2);
+  border-bottom: 1.5px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.workbench-presets-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.btn-preset {
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-preset:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-preset.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+/* ═══════════ Input Coordinate Control Grid ═══════════ */
+.workbench-controls {
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  background: var(--card-bg);
+  border-bottom: 1.5px solid var(--rule);
+  box-sizing: border-box;
+}
+
+.coord-card {
+  background: var(--paper);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0; /* CRITICAL: prevents CSS Grid blowout */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.coord-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.coord-card-title {
+  font-weight: 700;
+  font-size: 0.90rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.point-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.point-indicator.p-point {
+  background: var(--accent);
+}
+
+.point-indicator.q-point {
+  background: var(--accent2);
+}
+
+.coord-inputs-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.coord-inputs-row.grid-2-cols {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.coord-inputs-row.grid-1-col {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.input-axis-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.input-axis-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coord-number-input,
+.coord-card input[type="number"],
+.coord-card input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 7px 6px;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.90rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.coord-card input[type="range"] {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin: 6px 0;
+}
+
+.coord-number-input:focus,
+.coord-card input[type="number"]:focus,
+.coord-card input[type="text"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+/* ═══════════ 3D Viewport & Canvas HUD ═══════════ */
+.viewport-container {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background: #FAFAFA;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--rule);
+}
+
+[data-theme="dark"] .viewport-container {
+  background: #0B1120;
+}
+
+.viewport-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+.viewport-canvas:active {
+  cursor: grabbing;
+}
+
+/* Floating HUD Controls Toolbar */
+.hud-toolbar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+[data-theme="dark"] .hud-toolbar {
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.hud-btn-group {
+  display: flex;
+  gap: 4px;
+}
+
+.hud-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.hud-btn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hud-btn.active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+.viewport-overlay-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: rgba(255, 255, 255, 0.75);
+  padding: 4px 10px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--rule-light);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .viewport-overlay-hint {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* ═══════════ Mathematical Breakdown Output Panel ═══════════ */
+.workbench-breakdown,
+.result-box {
+  padding: 22px 24px;
+  background: var(--paper);
+  border-top: 1.5px solid var(--rule);
+  box-sizing: border-box;
+}
+
+.breakdown-header {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.breakdown-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+}
+
+.breakdown-card-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.breakdown-card-value {
+  font-family: var(--font-math), var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+/* ═══════════ Aliases for Chapter 6-9 Modular Simulator HTML ═══════════ */
+.interactive-section {
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin: 32px 0 40px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.interactive-header {
+  padding: 16px 22px;
+  background: var(--paper2);
+  border-bottom: 1.5px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.interactive-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+  display: inline-block;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-light);
+}
+
+.preset-bar {
+  padding: 12px 24px;
+  background: var(--paper2);
+  border-bottom: 1.5px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.preset-btn {
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.preset-btn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.preset-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+.interactive-controls {
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  background: var(--card-bg);
+  border-bottom: 1.5px solid var(--rule);
+  box-sizing: border-box;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.control-group label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.control-group input[type="number"],
+.control-group input[type="text"],
+.control-group select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 7px 10px;
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono), var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.control-group select {
+  cursor: pointer;
+}
+
+.control-group input:focus,
+.control-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 440px;
+  background: #FAFAFA;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--rule);
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .canvas-container {
+  background: #0B1120;
+}
+
+.canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  cursor: grab;
+  box-sizing: border-box;
+}
+
+.canvas-container canvas:active {
+  cursor: grabbing;
+}
+
+.cad-hud {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+[data-theme="dark"] .cad-hud {
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.canvas-overlay-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: rgba(255, 255, 255, 0.75);
+  padding: 4px 10px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--rule-light);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .canvas-overlay-hint {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+/* ═══════════ Mobile Responsive Adjustments ═══════════ */
+@media (max-width: 768px) {
+  .workbench-controls,
+  .interactive-controls {
+    grid-template-columns: 1fr;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .viewport-container,
+  .canvas-container {
+    height: 320px;
+  }
+  .hud-toolbar,
+  .cad-hud {
+    top: 10px;
+    right: 10px;
+    padding: 4px;
+  }
+  .hud-btn {
+    min-width: 26px;
+    height: 26px;
+    font-size: 0.72rem;
+    padding: 4px 6px;
+  }
+  .workbench-breakdown,
+  .result-box {
+    padding: 16px;
+  }
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+  .preset-bar,
+  .workbench-presets-bar {
+    padding: 10px 16px;
+  }
+}
+

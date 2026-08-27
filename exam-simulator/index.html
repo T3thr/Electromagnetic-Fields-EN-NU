@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>ระบบจำลองการสอบกลางภาคเสมือนจริง (Midterm Exam Simulator) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="../index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="../index.html" class="nav-link">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="../exam-simulator/index.html" class="nav-link active">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="../exam-simulator/index.html" class="mobile-nav-link active">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="../index.html">หน้าแรก</a>
+    <span class="sep">/</span>
+    <span>ระบบจำลองการสอบกลางภาคเสมือนจริง (Exam Simulator)</span>
+  </div>
+
+  <!-- Course Meta Line -->
+  <div class="course-meta-bar">
+    <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I)</strong> · มหาวิทยาลัยนเรศวร</div>
+    <div style="display: flex; gap: 8px;">
+      <span class="academic-badge badge-midterm">🔥 ข้อสอบกลางภาค 100 คะแนนเต็ม (น้ำหนัก 45%)</span>
+    </div>
+  </div>
+
+  <h1 class="book-title">📝 ระบบจำลองการสอบกลางภาคเสมือนจริง</h1>
+  <div class="subtitle">
+    จำลองสถานการณ์การสอบจริง 4 ข้อใหญ่ 100 คะแนนเต็ม (เวลา 3 ชั่วโมง) พร้อมระบบตรวจสอบเกณฑ์การตรวจอย่างเข้มงวด (Strict Rubric Assessment) และหน้าต่างเปิดใบสูตรแบบ Modal โดยไม่ต้องสลับหน้าจอ
+  </div>
+
+  <!-- Exam HUD (Sticky Timer & Quick Action Controls) -->
+  <div class="exam-hud">
+    <div class="timer-box">
+      <span>⏱️ เวลาที่เหลือ:</span>
+      <span class="timer-display" id="exam-timer">03:00:00</span>
+    </div>
+
+    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+      <button class="btn btn-secondary" id="btn-pause-timer" type="button" style="padding: 7px 14px; font-size: 0.86rem;">⏸️ พักเวลา</button>
+      <button class="btn btn-secondary" id="btn-restart-timer" type="button" style="padding: 7px 14px; font-size: 0.86rem;">🔄 เริ่มจับเวลาใหม่</button>
+      <button class="btn btn-primary" id="btn-open-formula-modal" type="button" style="padding: 7px 16px; font-size: 0.86rem;">📑 เปิดใบสูตรกลางภาค (Modal)</button>
+    </div>
+  </div>
+
+  <!-- คำชี้แจงการสอบตามหัวกระดาษข้อสอบจริง -->
+  <div class="exam-alert-box">
+    <h3 style="font-weight: 800; font-size: 1.05rem; color: var(--accent2); margin-bottom: 8px;">
+      📌 คำสั่งและข้อบังคับในการสอบกลางภาค (คำชี้แจงหัวกระดาษข้อสอบจริง):
+    </h3>
+    <ol style="margin-left: 20px; font-size: 0.95rem; line-height: 1.85; color: var(--ink);">
+      <li>ข้อสอบมีทั้งหมด 4 ข้อใหญ่ รวม 100 คะแนน คิดเป็นน้ำหนัก <strong>45% ของคะแนนรวมทั้งรายวิชา</strong></li>
+      <li>ให้เวลาทำข้อสอบ <strong>3 ชั่วโมงเต็ม (180 นาที)</strong></li>
+      <li><strong>ต้องเขียนสูตรตั้งต้นทั่วไปก่อนแทนค่าตัวแปรเสมอ</strong> (หากไม่แสดงสูตรเริ่มต้น ส่วนที่หายไปจะได้ 0 คะแนน)</li>
+      <li><strong>การอินทิเกรตให้ทำด้วยวิธีเชิงวิเคราะห์เท่านั้น (Analytical Hand-Integration)</strong> ห้ามกดเครื่องคิดเลขใส่ผลลัพธ์ตัวเลขตรงๆ</li>
+      <li>ให้แสดงการแก้ปัญหาทุกขั้นตอนอย่างละเอียด พร้อมระบุหน่วยกำกับทุกครั้งเพื่อที่จะได้คะแนนเต็มในแต่ละข้อ</li>
+    </ol>
+  </div>
+
+  <!-- Navigation Grid for Questions -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--ink);">เลือกข้อสอบที่ต้องการทำ:</h3>
+    <span style="font-size: 0.86rem; color: var(--ink-soft);">คลิกเพื่อสลับไปยังข้อสอบและเกณฑ์การตรวจของแต่ละข้อ</span>
+  </div>
+  <div class="question-nav-grid" id="exam-nav-grid"></div>
+
+  <!-- Dynamic Question Content Area -->
+  <div id="exam-question-content" style="min-height: 380px; margin-top: 20px;">
+    กำลังโหลดข้อสอบและระบบประเมินผล...
+  </div>
+
+  <!-- Randomized Practice Mode Generator -->
+  <div class="summary-box" style="margin-top: 48px; border: 1.5px solid var(--accent); background: var(--card-bg);">
+    <h3 style="font-size: 1.20rem; font-weight: 800; margin-bottom: 8px; color: var(--accent);">
+      🎲 โหมดฝึกทำโจทย์แบบสุ่มตัวเลข (Randomized Practice Generator)
+    </h3>
+    <p style="font-size: 0.95rem; line-height: 1.75; color: var(--ink-soft);">
+      ต้องการฝึกซ้อมทำโจทย์แบบเปลี่ยนตัวเลข พิกัด และความหนาแน่นประจุ เพื่อความชำนาญในการคำนวณก่อนสอบจริงหรือไม่?
+    </p>
+    <button class="btn btn-primary" id="btn-randomize-problem" type="button" style="margin-top: 12px;">
+      ⚡ สร้างโจทย์ชุดใหม่แบบสุ่มตัวเลข (Randomize Numbers)
+    </button>
+    <div id="random-problem-box" style="display: none; margin-top: 20px; padding: 20px; background: var(--paper2); border-radius: var(--radius-md); border: 1.5px dashed var(--accent);"></div>
+  </div>
+
+  <footer class="page-footer">
+    <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+    <a href="../index.html" class="btn btn-secondary">🏠 กลับสู่หน้าหลัก</a>
+  </footer>
+</div>
+
+<!-- ═══════════ Formula Sheet Modal Component ═══════════ -->
+<div id="formula-modal-backdrop" class="modal-backdrop">
+  <div class="formula-modal">
+    <div class="formula-modal-header">
+      <div class="formula-modal-title">
+        <span>📑 ใบสูตรสำหรับสอบกลางภาค (Midterm Formula Sheet)</span>
+      </div>
+      <button class="modal-close-btn" id="btn-close-formula-modal" type="button" aria-label="ปิดหน้าต่าง">✕</button>
+    </div>
+
+    <!-- Modal Category Pills & Filter -->
+    <div style="padding: 14px 24px 8px; background: var(--card-bg); border-bottom: 1px solid var(--rule);">
+      <div class="formula-pills-bar" style="margin: 0 0 10px;">
+        <button class="formula-pill active" data-modal-filter="all">ทั้งหมด</button>
+        <button class="formula-pill" data-modal-filter="vector">เวกเตอร์</button>
+        <button class="formula-pill" data-modal-filter="cylindrical">ทรงกระบอก</button>
+        <button class="formula-pill" data-modal-filter="spherical">ทรงกลม</button>
+        <button class="formula-pill" data-modal-filter="coulomb">คูลอมบ์ & E</button>
+        <button class="formula-pill" data-modal-filter="differential">dl, ds, dv</button>
+        <button class="formula-pill" data-modal-filter="gauss">ฟลักซ์ & ∇•D</button>
+        <button class="formula-pill" data-modal-filter="potential">ศักย์ & ∇V</button>
+      </div>
+      <input type="text" id="modal-formula-search" class="formula-filter-input" placeholder="🔍 ค้นหาสูตรใน Modal (เช่น ทรงกลม, เมทริกซ์, คูลอมบ์, ∇•D)..." style="width: 100%; padding: 8px 14px; border: 1.5px solid var(--rule); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.90rem; background: var(--paper); color: var(--ink);">
+    </div>
+
+    <div class="formula-modal-body" id="modal-formula-content">
+      
+      <!-- Modal Section 1 -->
+      <div class="formula-category modal-cat" data-modal-cat="vector cartesian dot cross">
+        <h3 class="sub-title" style="margin-top: 0; color: var(--accent);">1. เวกเตอร์และผลคูณในพิกัดฉาก (Vector Algebra)</h3>
+        <div class="formula-card">
+          <div class="f-title"><span>ขนาดและเวกเตอร์หนึ่งหน่วย</span></div>
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.98rem; line-height: 1.9;">
+            <strong>B</strong> = B<sub>x</sub> <strong>a</strong><sub>x</sub> + B<sub>y</sub> <strong>a</strong><sub>y</sub> + B<sub>z</sub> <strong>a</strong><sub>z</sub><br>
+            |<strong>B</strong>| = √[B<sub>x</sub>² + B<sub>y</sub>² + B<sub>z</sub>²]<br>
+            <strong>a</strong><sub>B</sub> = <span class="math-frac"><span class="math-num"><strong>B</strong></span><span class="math-den">|<strong>B</strong>|</span></span> = <span class="math-frac"><span class="math-num">B<sub>x</sub> <strong>a</strong><sub>x</sub> + B<sub>y</sub> <strong>a</strong><sub>y</sub> + B<sub>z</sub> <strong>a</strong><sub>z</sub></span><span class="math-den">√[B<sub>x</sub>² + B<sub>y</sub>² + B<sub>z</sub>²]</span></span>
+          </div>
+        </div>
+        <div class="formula-card">
+          <div class="f-title"><span>ผลคูณจุดและผลคูณไขว้ (Dot & Cross Product)</span></div>
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.98rem; line-height: 1.9;">
+            <strong>A</strong> • <strong>B</strong> = |<strong>A</strong>| |<strong>B</strong>| cos θ<sub>AB</sub> = A<sub>x</sub> B<sub>x</sub> + A<sub>y</sub> B<sub>y</sub> + A<sub>z</sub> B<sub>z</sub><br>
+            <strong>A</strong> × <strong>B</strong> = (A<sub>y</sub> B<sub>z</sub> - A<sub>z</sub> B<sub>y</sub>) <strong>a</strong><sub>x</sub> - (A<sub>x</sub> B<sub>z</sub> - A<sub>z</sub> B<sub>x</sub>) <strong>a</strong><sub>y</sub> + (A<sub>x</sub> B<sub>y</sub> - A<sub>y</sub> B<sub>x</sub>) <strong>a</strong><sub>z</sub>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 2 -->
+      <div class="formula-category modal-cat" data-modal-cat="cylindrical coordinates transformation">
+        <h3 class="sub-title" style="color: var(--accent);">2. ระบบพิกัดทรงกระบอก (Cylindrical Coordinates)</h3>
+        <div class="formula-card">
+          <div class="f-title"><span>ความสัมพันธ์ของพิกัดและเมทริกซ์แปลง [A<sub>rc</sub>]</span></div>
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.98rem; line-height: 1.9;">
+            x = ρ cos ϕ , &nbsp; y = ρ sin ϕ , &nbsp; z = z , &nbsp; ρ = √[x² + y²] , &nbsp; ϕ = arctan(y/x)<br><br>
+            <div class="math-equation">
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.90rem;">
+                  <tr><td>A<sub>ρ</sub></td></tr>
+                  <tr><td>A<sub>ϕ</sub></td></tr>
+                  <tr><td>A<sub>z</sub></td></tr>
+                </table>
+              </div>
+              <span>=</span>
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.90rem;">
+                  <tr><td>cos ϕ</td><td>sin ϕ</td><td>0</td></tr>
+                  <tr><td>-sin ϕ</td><td>cos ϕ</td><td>0</td></tr>
+                  <tr><td>0</td><td>0</td><td>1</td></tr>
+                </table>
+              </div>
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.90rem;">
+                  <tr><td>A<sub>x</sub></td></tr>
+                  <tr><td>A<sub>y</sub></td></tr>
+                  <tr><td>A<sub>z</sub></td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 3 -->
+      <div class="formula-category modal-cat" data-modal-cat="spherical coordinates transformation">
+        <h3 class="sub-title" style="color: var(--accent);">3. ระบบพิกัดทรงกลม (Spherical Coordinates)</h3>
+        <div class="formula-card">
+          <div class="f-title"><span>ความสัมพันธ์ของพิกัดและเมทริกซ์แปลง [A<sub>rs</sub>]</span></div>
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.98rem; line-height: 1.9;">
+            x = r sin θ cos ϕ , &nbsp; y = r sin θ sin ϕ , &nbsp; z = r cos θ<br>
+            r = √[x² + y² + z²] , &nbsp; θ = arccos(z / r) , &nbsp; ϕ = arctan(y / x)<br><br>
+            <div class="math-equation">
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.88rem;">
+                  <tr><td>A<sub>r</sub></td></tr>
+                  <tr><td>A<sub>θ</sub></td></tr>
+                  <tr><td>A<sub>ϕ</sub></td></tr>
+                </table>
+              </div>
+              <span>=</span>
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.88rem;">
+                  <tr><td>sin θ cos ϕ</td><td>sin θ sin ϕ</td><td>cos θ</td></tr>
+                  <tr><td>cos θ cos ϕ</td><td>cos θ sin ϕ</td><td>-sin θ</td></tr>
+                  <tr><td>-sin ϕ</td><td>cos ϕ</td><td>0</td></tr>
+                </table>
+              </div>
+              <div class="math-mat">
+                <table class="math-table" style="font-size: 0.88rem;">
+                  <tr><td>A<sub>x</sub></td></tr>
+                  <tr><td>A<sub>y</sub></td></tr>
+                  <tr><td>A<sub>z</sub></td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 4 -->
+      <div class="formula-category modal-cat" data-modal-cat="coulomb electric field">
+        <h3 class="sub-title" style="color: var(--accent);">4. กฎของคูลอมบ์และสนามไฟฟ้า (Coulomb & Electric Field)</h3>
+        <div class="formula-card">
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.98rem; line-height: 1.9;">
+            <strong>F</strong><sub>12</sub> = <span class="math-frac"><span class="math-num">Q₁ Q₂</span><span class="math-den">4πε₀ |<strong>R</strong><sub>12</sub>|²</span></span> <strong>a</strong><sub>R12</sub> , &nbsp;&nbsp; <strong>E</strong> = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4πε₀ |<strong>R</strong>|²</span></span> <strong>a</strong><sub>R</sub><br>
+            อินทิกรัลเส้น: <strong>E</strong> = ∫<sub>L</sub> <span class="math-frac"><span class="math-num">ρ<sub>l</sub> dl'</span><span class="math-den">4πε₀ |<strong>R</strong>|²</span></span> <strong>a</strong><sub>R</sub><br>
+            ตรีโกณมิติช่วย: ∫ cos ψ dψ = sin ψ , &nbsp; d(tan ψ)/dψ = sec² ψ
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 5 -->
+      <div class="formula-category modal-cat" data-modal-cat="differential elements dl ds dv">
+        <h3 class="sub-title" style="color: var(--accent);">5. ส่วนย่อยเชิงอนุพันธ์ (Differential Elements)</h3>
+        <div class="formula-card">
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.95rem; line-height: 1.9;">
+            <strong>Cartesian:</strong> d<strong>l</strong> = dx <strong>a</strong><sub>x</sub> + dy <strong>a</strong><sub>y</sub> + dz <strong>a</strong><sub>z</sub> , &nbsp; dv = dx dy dz<br>
+            <strong>Cylindrical:</strong> d<strong>l</strong> = dρ <strong>a</strong><sub>ρ</sub> + ρ dϕ <strong>a</strong><sub>ϕ</sub> + dz <strong>a</strong><sub>z</sub> , &nbsp; dv = ρ dρ dϕ dz<br>
+            <strong>Spherical:</strong> d<strong>l</strong> = dr <strong>a</strong><sub>r</sub> + r dθ <strong>a</strong><sub>θ</sub> + r sin θ dϕ <strong>a</strong><sub>ϕ</sub> , &nbsp; dv = r² sin θ dr dθ dϕ
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 6 -->
+      <div class="formula-category modal-cat" data-modal-cat="gauss flux divergence">
+        <h3 class="sub-title" style="color: var(--accent);">6. ฟลักซ์ กฎของเกาส์ และไดเวอร์เจนซ์ (Flux, Gauss & Divergence)</h3>
+        <div class="formula-card">
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.95rem; line-height: 1.9;">
+            Ψ = ∮<sub>S</sub> <strong>D</strong> • d<strong>s</strong> = Q<sub>enc</sub> = ∫<sub>V</sub> ρ<sub>v</sub> dv = ∫<sub>V</sub> (∇ • <strong>D</strong>) dv<br><br>
+            <strong>Cartesian:</strong> ∇ • <strong>D</strong> = <span class="math-frac"><span class="math-num">∂D<sub>x</sub></span><span class="math-den">∂x</span></span> + <span class="math-frac"><span class="math-num">∂D<sub>y</sub></span><span class="math-den">∂y</span></span> + <span class="math-frac"><span class="math-num">∂D<sub>z</sub></span><span class="math-den">∂z</span></span><br>
+            <strong>Cylindrical:</strong> ∇ • <strong>D</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂(ρ D<sub>ρ</sub>)</span><span class="math-den">∂ρ</span></span> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂D<sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span> + <span class="math-frac"><span class="math-num">∂D<sub>z</sub></span><span class="math-den">∂z</span></span><br>
+            <strong>Spherical:</strong> ∇ • <strong>D</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">r²</span></span> <span class="math-frac"><span class="math-num">∂(r² D<sub>r</sub>)</span><span class="math-den">∂r</span></span> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">r sin θ</span></span> <span class="math-frac"><span class="math-num">∂(sin θ D<sub>θ</sub>)</span><span class="math-den">∂θ</span></span> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">r sin θ</span></span> <span class="math-frac"><span class="math-num">∂D<sub>ϕ</sub></span><span class="math-den">∂ϕ</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Section 7 -->
+      <div class="formula-category modal-cat" data-modal-cat="potential work gradient">
+        <h3 class="sub-title" style="color: var(--accent);">7. ศักย์ไฟฟ้าและเกรเดียนต์ (Potential & Gradient)</h3>
+        <div class="formula-card">
+          <div class="math-display" style="padding: 10px 14px; font-size: 0.95rem; line-height: 1.9;">
+            V<sub>AB</sub> = - ∫<sub>r<sub>B</sub></sub><sup>r<sub>A</sub></sup> <strong>E</strong> • d<strong>l</strong> , &nbsp;&nbsp; <strong>E</strong> = - ∇<em>V</em><br><br>
+            <strong>Cartesian:</strong> ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂x</span></span> <strong>a</strong><sub>x</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂y</span></span> <strong>a</strong><sub>y</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <strong>a</strong><sub>z</sub><br>
+            <strong>Cylindrical:</strong> ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ρ</span></span> <strong>a</strong><sub>ρ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">ρ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <strong>a</strong><sub>ϕ</sub> + <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂z</span></span> <strong>a</strong><sub>z</sub><br>
+            <strong>Spherical:</strong> ∇<em>V</em> = <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂r</span></span> <strong>a</strong><sub>r</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">r</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂θ</span></span> <strong>a</strong><sub>θ</sub> + <span class="math-frac"><span class="math-num">1</span><span class="math-den">r sin θ</span></span> <span class="math-frac"><span class="math-num">∂<em>V</em></span><span class="math-den">∂ϕ</span></span> <strong>a</strong><sub>ϕ</sub>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="formula-modal-footer">
+      <div>กดปุ่ม <code>Esc</code> หรือคลิกนอกหน้าต่างเพื่อปิด</div>
+      <a href="../formula-sheet/index.html" target="_blank" class="btn btn-secondary" style="padding: 5px 12px; font-size: 0.80rem;">เปิดแท็บเต็ม ↗</a>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/exam-engine.js"></script>
+<script src="../assets/js/engines/search-index.js"></script>
+<script src="../assets/js/engines/site-search.js"></script>
+<script>
+  let exam;
+  window.addEventListener('load', () => {
+    exam = new ExamEngine();
+
+    const pauseBtn = document.getElementById('btn-pause-timer');
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', () => {
+        exam.isPaused = !exam.isPaused;
+        pauseBtn.innerText = exam.isPaused ? '▶️ จับเวลาต่อ' : '⏸️ พักเวลา';
+        pauseBtn.classList.toggle('btn-primary', exam.isPaused);
+        pauseBtn.classList.toggle('btn-secondary', !exam.isPaused);
+      });
+    }
+
+    const restartBtn = document.getElementById('btn-restart-timer');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
+        if (confirm('คุณต้องการเริ่มจับเวลา 3 ชั่วโมงใหม่ใช่หรือไม่?')) {
+          exam.remainingSeconds = 3 * 3600;
+          exam.isPaused = false;
+          exam.updateTimerDisplay();
+          if (pauseBtn) {
+            pauseBtn.innerText = '⏸️ พักเวลา';
+            pauseBtn.classList.remove('btn-primary');
+            pauseBtn.classList.add('btn-secondary');
+          }
+        }
+      });
+    }
+
+    // Formula Modal Event Handlers
+    const modalBackdrop = document.getElementById('formula-modal-backdrop');
+    const openModalBtn = document.getElementById('btn-open-formula-modal');
+    const closeModalBtn = document.getElementById('btn-close-formula-modal');
+
+    function openModal() {
+      if (modalBackdrop) {
+        modalBackdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      if (modalBackdrop) {
+        modalBackdrop.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    // Modal Search and Pill Filter
+    const modalSearch = document.getElementById('modal-formula-search');
+    const modalPills = document.querySelectorAll('[data-modal-filter]');
+    let currentModalFilter = 'all';
+
+    function applyModalFilter() {
+      const q = modalSearch ? modalSearch.value.toLowerCase().trim() : '';
+      document.querySelectorAll('.modal-cat').forEach(cat => {
+        const catData = (cat.getAttribute('data-modal-cat') || '').toLowerCase();
+        const matchPill = (currentModalFilter === 'all') || catData.includes(currentModalFilter);
+        
+        const cards = cat.querySelectorAll('.formula-card');
+        let hasMatch = false;
+
+        cards.forEach(card => {
+          const text = card.innerText.toLowerCase();
+          if ((!q || text.includes(q)) && matchPill) {
+            card.style.display = 'block';
+            hasMatch = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        cat.style.display = hasMatch ? 'block' : 'none';
+      });
+    }
+
+    if (modalSearch) modalSearch.addEventListener('input', applyModalFilter);
+
+    modalPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        modalPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentModalFilter = pill.getAttribute('data-modal-filter');
+        applyModalFilter();
+      });
+    });
+
+    // Randomize Problem Generator with strict math typesetting
+    const randBtn = document.getElementById('btn-randomize-problem');
+    const randBox = document.getElementById('random-problem-box');
+    if (randBtn && randBox) {
+      randBtn.addEventListener('click', () => {
+        const z_top = Math.floor(Math.random() * 5) + 3;
+        const y_obs = Math.floor(Math.random() * 4) + 2;
+        const rho_l = Math.floor(Math.random() * 10) + 1;
+        const hypot = Math.sqrt(y_obs**2 + z_top**2);
+        const ey_val = ((1/y_obs) * (z_top / hypot)).toFixed(4);
+        const ez_val = ((1 / hypot) - (1 / y_obs)).toFixed(4);
+
+        randBox.style.display = 'block';
+        randBox.innerHTML = `
+          <h4 style="font-weight: 800; font-size: 1.08rem; color: var(--accent); margin-bottom: 10px;">
+            โจทย์สุ่มชุดใหม่ (ข้อสอบลวดประจุจำกัดบนแกน z):
+          </h4>
+          <p style="font-size: 0.98rem; line-height: 1.8;">
+            ลวดเส้นหนึ่งทอดตัวยาวในแนวแกน z ตั้งแต่ <strong>z = 0</strong> ถึง <strong>z = ${z_top}</strong> มีความหนาแน่นประจุเชิงเส้น <strong>ρ<sub>l</sub> = ${rho_l} C/m</strong> จงหาสนามไฟฟ้า <strong>E</strong> ณ จุด <strong>P(0, ${y_obs}, 0)</strong>
+          </p>
+          <div class="math-display" style="margin-top: 14px; font-size: 1.05rem;">
+            <strong>สูตรคำนวณและผลลัพธ์:</strong><br>
+            • E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">${y_obs}</span></span> (<span class="math-frac"><span class="math-num">${z_top}</span><span class="math-den">√[${y_obs}² + ${z_top}²]</span></span>) ] <strong>a</strong><sub>y</sub> = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> (${ey_val}) <strong>a</strong><sub>y</sub></strong><br>
+            • E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">√[${y_obs}² + ${z_top}²]</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">${y_obs}</span></span> ] <strong>a</strong><sub>z</sub> = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> (${ez_val}) <strong>a</strong><sub>z</sub></strong><br><br>
+            <strong>สนามไฟฟ้ารวม:</strong> <strong>E</strong> = <span class="math-frac"><span class="math-num">${rho_l}</span><span class="math-den">4πε₀</span></span> [ ${ey_val} <strong>a</strong><sub>y</sub> + (${ez_val}) <strong>a</strong><sub>z</sub> ] V/m
+          </div>
+        `;
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>บทที่ 1: พีชคณิตเวกเตอร์และระบบพิกัดฉาก (Vector Analysis & Cartesian Coordinates) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="../index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="../index.html" class="nav-link">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="../01-vector-algebra/index.html" class="dropdown-item active"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="../01-vector-algebra/index.html" class="mobile-ch-link active"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
+<div class="chapter-container">
+  
+  <!-- Sticky Table of Contents Sidebar -->
+  <aside class="chapter-sidebar">
+    <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
+    <ul class="sidebar-nav">
+      <li><a href="#sec1" class="sidebar-link active">1. อภิธานศัพท์และสัญลักษณ์</a></li>
+      <li><a href="#sec2" class="sidebar-link">2. นิยามสเกลาร์ เวกเตอร์ และสนาม</a></li>
+      <li><a href="#sec3" class="sidebar-link">3. พิกัดฉากและเวกเตอร์ระยะทาง</a></li>
+      <li><a href="#sec-sim" class="sidebar-link">แบบจำลองเวกเตอร์ 3 มิติ (CAD)</a></li>
+      <li><a href="#sec4" class="sidebar-link">4. ผลคูณจุด (Dot Product)</a></li>
+      <li><a href="#sec5" class="sidebar-link">5. ผลคูณไขว้ (Cross Product)</a></li>
+      <li><a href="#sec6" class="sidebar-link">6. ส่วนย่อยเชิงอนุพันธ์ (dl, ds, dv)</a></li>
+      <li><a href="#sec7" class="sidebar-link">7. ตัวอย่างโจทย์ Drill Problems</a></li>
+      <li><a href="#sec8" class="sidebar-link">8. แบบประเมินความเข้าใจด้วยตนเอง</a></li>
+    </ul>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--rule); font-size: 0.82rem; color: var(--ink-muted);">
+      <div>ตำราอ้างอิง:</div>
+      <strong>Hayt & Buck (9th Edition)</strong><br>Chapter 1: Vector Analysis
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="chapter-main">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าหลัก</a>
+      <span class="sep">/</span>
+      <span>บทที่ 1 พีชคณิตเวกเตอร์และระบบพิกัดฉาก</span>
+    </div>
+
+    <!-- Course Meta Line -->
+    <div class="course-meta-bar">
+      <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1</strong> · อ้างอิง Hayt & Buck 9th Ed. (Chapter 1)</div>
+      <span class="academic-badge badge-primary">บทเรียนที่ 1/9</span>
+    </div>
+
+    <h1 class="book-title">บทที่ 1: พีชคณิตเวกเตอร์และระบบพิกัดฉาก</h1>
+    <div class="subtitle">
+      รากฐานคณิตศาสตร์เวกเตอร์สำหรับวิศวกรรมไฟฟ้า: ปริมาณสเกลาร์-เวกเตอร์, สนามเวกเตอร์, เวกเตอร์บอกตำแหน่งและระยะทาง, ผลคูณจุด (Dot Product), ผลคูณไขว้ (Cross Product), เวกเตอร์ส่วนย่อยเชิงอนุพันธ์ (d<b>l</b>, d<b>s</b>, dv) พร้อมโจทย์ฝึกทักษะระดับ Textbook
+    </div>
+
+    <!-- สรุปวัตถุประสงค์ -->
+    <div class="academic-callout">
+      <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
+      <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
+        <li>เข้าใจความแตกต่างเชิงกายภาพระหว่าง <strong>ปริมาณสเกลาร์ (Scalar)</strong>, <strong>ปริมาณเวกเตอร์ (Vector)</strong> และ <strong>สนามเวกเตอร์ (Vector Field)</strong></li>
+        <li>สามารถสร้างและหาขนาดของ <strong>เวกเตอร์บอกตำแหน่ง (Position Vector, <b>r</b>)</strong> และ <strong>เวกเตอร์ระยะทาง (Distance Vector, <b>R</b>)</strong> ระหว่างจุดสองจุดได้อย่างถูกต้องแม่นยำ</li>
+        <li>เข้าใจและประยุกต์ใช้ <strong>ผลคูณจุด (Dot Product)</strong> เพื่อหามุมระหว่างเวกเตอร์, การตั้งฉาก และการหาองค์ประกอบภาพฉาย (Projections)</li>
+        <li>เข้าใจและคำนวณ <strong>ผลคูณไขว้ (Cross Product)</strong> ในรูปดีเทอร์มิแนนต์, การหาพื้นที่ผิว และการสร้างเวกเตอร์หนึ่งหน่วยตั้งฉากกับระนาบ</li>
+        <li>จำแนกและคำนวณส่วนย่อยเชิงอนุพันธ์ความยาว d<b>l</b>, พื้นที่ d<b>s</b>, และปริมาตร dv ในระบบพิกัดฉากสำหรับการอินทิเกรตประจุไฟฟ้า</li>
+      </ol>
+    </div>
+
+    <!-- ส่วนที่ 1: อภิธานศัพท์และสัญลักษณ์ -->
+    <section id="sec1">
+      <h2 class="section-title">1. อภิธานศัพท์ สัญลักษณ์ และหน่วยมาตรฐานสากล (Nomenclature & Standards)</h2>
+      <p>
+        ในวิชาแม่เหล็กไฟฟ้า ปริมาณทางกายภาพเกือบทั้งหมดแสดงอยู่ในรูปเวกเตอร์ เพื่อป้องกันความสับสน ตารางข้างล่างนี้สรุปสัญลักษณ์ คำอ่าน และหน่วยมาตรฐาน SI ที่ใช้ตลอดหลักสูตร:
+      </p>
+
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th>สัญลักษณ์ (Symbol)</th>
+            <th>คำอ่านภาษาไทย / อังกฤษ</th>
+            <th>ความหมายทางวิศวกรรม (Physical Meaning)</th>
+            <th>หน่วย SI (SI Unit)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A</strong> หรือ <strong>r</strong></td>
+            <td>เวกเตอร์ (Vector)</td>
+            <td>ปริมาณที่มีทั้งขนาด (Magnitude) และทิศทาง (Direction)</td>
+            <td>ตามแต่ละปริมาณ</td>
+          </tr>
+          <tr>
+            <td>|<strong>A</strong>| หรือ <em>A</em></td>
+            <td>ขนาดของเวกเตอร์ (Magnitude / Length)</td>
+            <td>ความยาวหรือขนาดสเกลาร์ของเวกเตอร์ (เป็นค่าบวกเสมอ <code>≥ 0</code>)</td>
+            <td>ตามแต่ละปริมาณ</td>
+          </tr>
+          <tr>
+            <td><strong>a</strong><sub>x</sub>, <strong>a</strong><sub>y</sub>, <strong>a</strong><sub>z</sub></td>
+            <td>ยูนิตเวกเตอร์ / Unit Vectors</td>
+            <td>เวกเตอร์หนึ่งหน่วยที่ชี้ตามแนวแกน +x, +y, +z (มีขนาดเท่ากับ 1 เสมอ)</td>
+            <td>ไร้หน่วย (Dimensionless)</td>
+          </tr>
+          <tr>
+            <td><strong>r</strong><sub>P</sub></td>
+            <td>Position Vector</td>
+            <td>เวกเตอร์บอกตำแหน่งที่ลากจากจุดกำเนิด Origin (0,0,0) ไปยังจุด P</td>
+            <td><span class="unit-tag">m (เมตร)</span></td>
+          </tr>
+          <tr>
+            <td><strong>R</strong><sub>12</sub> = <strong>r</strong><sub>2</sub> - <strong>r</strong><sub>1</sub></td>
+            <td>Distance Vector</td>
+            <td>เวกเตอร์ระยะทางที่ลากจากจุดต้นกำเนิดประจุ (1) ไปยังจุดสังเกต (2)</td>
+            <td><span class="unit-tag">m (เมตร)</span></td>
+          </tr>
+          <tr>
+            <td><strong>A</strong> • <strong>B</strong></td>
+            <td>ผลคูณจุด / Dot (Scalar) Product</td>
+            <td>ผลคูณเชิงสเกลาร์ของเวกเตอร์สองตัว ให้ผลลัพธ์เป็นตัวเลข (สเกลาร์)</td>
+            <td>ผลคูณของหน่วย A และ B</td>
+          </tr>
+          <tr>
+            <td><strong>A</strong> × <strong>B</strong></td>
+            <td>ผลคูณไขว้ / Cross (Vector) Product</td>
+            <td>ผลคูณเชิงเวกเตอร์ ให้ผลลัพธ์เป็นเวกเตอร์ที่ตั้งฉากกับระนาบของทั้งสอง</td>
+            <td>ผลคูณของหน่วย A และ B</td>
+          </tr>
+          <tr>
+            <td>d<em>l</em> , d<em>s</em> , d<em>v</em></td>
+            <td>Differential Elements</td>
+            <td>ส่วนย่อยเชิงอนุพันธ์ของเส้นความยาว, พื้นที่ผิว และปริมาตร</td>
+            <td><span class="unit-tag">m</span> , <span class="unit-tag">m²</span> , <span class="unit-tag">m³</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ส่วนที่ 2: รากฐานสเกลาร์ เวกเตอร์ และสนาม -->
+    <section id="sec2">
+      <h2 class="section-title">2. นิยามสเกลาร์ เวกเตอร์ และสนามเวกเตอร์ (Scalars, Vectors & Vector Fields)</h2>
+      
+      <h3 class="sub-title">2.1 สเกลาร์และเวกเตอร์ (Scalars vs Vectors)</h3>
+      <p>
+        • <strong>ปริมาณสเกลาร์ (Scalar):</strong> คือปริมาณที่บ่งบอกค่าได้อย่างสมบูรณ์ด้วย "ขนาด" (Magnitude) เพียงตัวเลขเดียว เช่น มวล (Mass), อุณหภูมิ (<em>T</em>), ศักย์ไฟฟ้า (<em>V</em> หน่วยโวลต์), ความหนาแน่นประจุ (<em>ρ</em>) และเวลา (<em>t</em>)<br>
+        • <strong>ปริมาณเวกเตอร์ (Vector):</strong> คือปริมาณที่จำเป็นต้องระบุทั้ง "ขนาด" และ "ทิศทาง" จึงจะมีความหมายสมบูรณ์ เช่น แรง (<strong>F</strong> หน่วยนิวตัน), ความเร็ว (<strong>v</strong>), ความเข้มสนามไฟฟ้า (<strong>E</strong> หน่วย V/m) และความหนาแน่นฟลักซ์แม่เหล็ก (<strong>B</strong> หน่วยเทสลา)
+      </p>
+
+      <h3 class="sub-title">2.2 สนามเวกเตอร์ (The Vector Field)</h3>
+      <p>
+        ในทางวิศวกรรมแม่เหล็กไฟฟ้า เรามักไม่ได้ศึกษาเวกเตอร์เพียงตัวเดียว ณ จุดใดจุดหนึ่ง แต่เราศึกษา <strong>"สนาม" (Field)</strong> ซึ่งหมายถึงฟังก์ชันที่กำหนดค่าเวกเตอร์ให้กับทุกๆ จุดในปริภูมิ 3 มิติ เขียนแทนด้วย:
+      </p>
+      <div class="math-display">
+        <strong>G</strong>(x, y, z) = G<sub>x</sub>(x, y, z) <strong>a</strong><sub>x</sub> + G<sub>y</sub>(x, y, z) <strong>a</strong><sub>y</sub> + G<sub>z</sub>(x, y, z) <strong>a</strong><sub>z</sub>
+      </div>
+      <p>
+        ตัวอย่างเช่น สนามแรงโน้มถ่วงรอบโลก, สนามไฟฟ้า <strong>E</strong> ที่แผ่ออกจากสายอากาศ หรือสนามแม่เหล็ก <strong>H</strong> ภายในหม้อแปลงไฟฟ้า
+      </p>
+    </section>
+
+    <!-- ส่วนที่ 3: ระบบพิกัดฉากและเวกเตอร์ระยะทาง -->
+    <section id="sec3">
+      <h2 class="section-title">3. ระบบพิกัดฉาก เวกเตอร์บอกตำแหน่ง และเวกเตอร์ระยะทาง</h2>
+      
+      <h3 class="sub-title">3.1 ระบบพิกัดฉากแบบกฎมือขวา (Right-Handed Cartesian System)</h3>
+      <p>
+        ระบบพิกัดฉากประกอบด้วยแกน 3 แกนที่ตั้งฉากซึ่งกันและกัน (x, y, z) โดยการวางตัวของแกนต้องเป็นไปตาม <strong>กฎมือขวา (Right-Hand Rule)</strong>: เมื่อกวาดนิ้วมือขวาจากแกน +x ไปยังแกน +y นิ้วหัวแม่มือจะต้องชี้ไปตามทิศทางของแกน +z เสมอ (นั่นคือ <code><strong>a</strong><sub>x</sub> × <strong>a</strong><sub>y</sub> = <strong>a</strong><sub>z</sub></code>)
+      </p>
+      <p>
+        ตำแหน่งของจุด <code>P(x₁, y₁, z₁)</code> ใดๆ เกิดจากการตัดกันของระนาบ 3 ระนาบที่ตั้งฉากกัน ได้แก่ ระนาบ <code>x = x₁</code>, ระนาบ <code>y = y₁</code>, และระนาบ <code>z = z₁</code>
+      </p>
+
+      <h3 class="sub-title">3.2 เวกเตอร์บอกตำแหน่ง (Position Vector)</h3>
+      <p>
+        เวกเตอร์บอกตำแหน่งของจุด <code>P(x, y, z)</code> คือเวกเตอร์ที่ลากจากจุดกำเนิด Origin <code>O(0, 0, 0)</code> ไปยังจุด <code>P</code>:
+      </p>
+      <div class="math-display">
+        <strong>r</strong><sub>P</sub> = x <strong>a</strong><sub>x</sub> + y <strong>a</strong><sub>y</sub> + z <strong>a</strong><sub>z</sub>
+      </div>
+
+      <h3 class="sub-title">3.3 เวกเตอร์ระยะทางระหว่างสองจุด (Distance Vector)</h3>
+      <p>
+        หากเรามีจุดสองจุด <code>P(x<sub>P</sub>, y<sub>P</sub>, z<sub>P</sub>)</code> และ <code>Q(x<sub>Q</sub>, y<sub>Q</sub>, z<sub>Q</sub>)</code> เวกเตอร์ระยะทางที่ลากจากจุด <code>P</code> ไปยังจุด <code>Q</code> (แทนด้วย <code><strong>R</strong><sub>PQ</sub></code> หรือ <code><strong>r</strong><sub>Q</sub> - <strong>r</strong><sub>P</sub></code>) หาได้จาก:
+      </p>
+      <div class="math-display">
+        <strong>R</strong><sub>PQ</sub> = (x<sub>Q</sub> - x<sub>P</sub>) <strong>a</strong><sub>x</sub> + (y<sub>Q</sub> - y<sub>P</sub>) <strong>a</strong><sub>y</sub> + (z<sub>Q</sub> - z<sub>P</sub>) <strong>a</strong><sub>z</sub>
+      </div>
+      <p>
+        <strong>ขนาดของระยะทาง (Distance |R<sub>PQ</sub>|):</strong>
+      </p>
+      <div class="math-display">
+        |<strong>R</strong><sub>PQ</sub>| = √[ (x<sub>Q</sub> - x<sub>P</sub>)² + (y<sub>Q</sub> - y<sub>P</sub>)² + (z<sub>Q</sub> - z<sub>P</sub>)² ]
+      </div>
+      <p>
+        <strong>เวกเตอร์หนึ่งหน่วยในทิศทางจาก P ไป Q:</strong>
+      </p>
+      <div class="math-display">
+        <strong>a</strong><sub>PQ</sub> = <span class="math-frac"><span class="math-num"><strong>R</strong><sub>PQ</sub></span><span class="math-den">|<strong>R</strong><sub>PQ</sub>|</span></span>
+      </div>
+    </section>
+
+    <!-- ส่วนจำลอง 3D CAD Workbench Simulator -->
+    <section id="sec-sim">
+      <div class="interactive-workbench">
+        <div class="workbench-header">
+          <div class="workbench-title">
+            <span>โปรแกรมจำลองทัศนภาพเวกเตอร์ 3 มิติและการวิเคราะห์เชิงตัวเลข</span>
+          </div>
+          <span class="workbench-badge">Engineering 3D Simulator</span>
+        </div>
+
+        <div class="workbench-controls">
+          <!-- Point P Card -->
+          <div class="coord-card">
+            <div class="coord-card-header">
+              <span class="coord-card-title">
+                <span class="point-indicator p-point"></span>
+                <span>จุดต้นทาง P (x<sub>P</sub>, y<sub>P</sub>, z<sub>P</sub>)</span>
+              </span>
+              <span class="unit-tag">เมตร (m)</span>
+            </div>
+            <div class="coord-inputs-row">
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน X:</label>
+                <input type="number" id="v1x" value="1.0" step="0.5" class="coord-number-input">
+              </div>
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน Y:</label>
+                <input type="number" id="v1y" value="2.0" step="0.5" class="coord-number-input">
+              </div>
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน Z:</label>
+                <input type="number" id="v1z" value="3.0" step="0.5" class="coord-number-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Point Q Card -->
+          <div class="coord-card">
+            <div class="coord-card-header">
+              <span class="coord-card-title">
+                <span class="point-indicator q-point"></span>
+                <span>จุดปลายทาง Q (x<sub>Q</sub>, y<sub>Q</sub>, z<sub>Q</sub>)</span>
+              </span>
+              <span class="unit-tag">เมตร (m)</span>
+            </div>
+            <div class="coord-inputs-row">
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน X:</label>
+                <input type="number" id="v2x" value="2.0" step="0.5" class="coord-number-input">
+              </div>
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน Y:</label>
+                <input type="number" id="v2y" value="-2.0" step="0.5" class="coord-number-input">
+              </div>
+              <div class="input-axis-group">
+                <label class="input-axis-label">แกน Z:</label>
+                <input type="number" id="v2z" value="1.0" step="0.5" class="coord-number-input">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viewport-container">
+          <canvas id="vector-canvas" class="viewport-canvas"></canvas>
+
+          <!-- Floating HUD Toolbar -->
+          <div class="hud-toolbar">
+            <div class="hud-btn-group">
+              <button id="hud-zoom-in" class="hud-btn" title="ขยายมุมมอง (Zoom In)">+</button>
+              <button id="hud-zoom-out" class="hud-btn" title="ย่อมุมมอง (Zoom Out)">−</button>
+              <button id="hud-reset" class="hud-btn" title="รีเซ็ตมุมมอง (Reset Camera)">↺</button>
+            </div>
+            <div class="hud-btn-group">
+              <button class="hud-btn active" data-preset-view="iso" title="มุมมอง 3 มิติ (ISO)">3D</button>
+              <button class="hud-btn" data-preset-view="top" title="ระนาบด้านบน (XY)">Top</button>
+              <button class="hud-btn" data-preset-view="side" title="ระนาบด้านข้าง (YZ)">Side</button>
+              <button class="hud-btn" data-preset-view="front" title="ระนาบด้านหน้า (XZ)">Front</button>
+            </div>
+          </div>
+
+          <div class="viewport-overlay-hint">คลิกค้างแล้วลากเพื่อหมุน (Orbit Drag) | เลื่อนล้อเมาส์หรือบีบนิ้วเพื่อซูม</div>
+        </div>
+
+        <div class="workbench-breakdown">
+          <div class="breakdown-header">
+            <span>ผลการคำนวณเวกเตอร์และระยะทางแบบเรียลไทม์ (Live Analytical Breakdown):</span>
+          </div>
+          <div id="vector-output">
+            กำลังคำนวณ...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ผลคูณจุด (Dot Product) -->
+    <section id="sec4">
+      <h2 class="section-title">4. ผลคูณจุดและการหาองค์ประกอบภาพฉาย (The Dot Product & Projections)</h2>
+      
+      <h3 class="sub-title">4.1 นิยามเชิงเรขาคณิต (Geometric Definition)</h3>
+      <p>
+        ผลคูณจุด (Dot Product หรือ Scalar Product) ระหว่างเวกเตอร์ <strong>A</strong> และ <strong>B</strong> นิยามโดย:
+      </p>
+      <div class="math-display">
+        <strong>A</strong> • <strong>B</strong> = |<strong>A</strong>| |<strong>B</strong>| cos θ<sub>AB</sub> &nbsp;&nbsp;&nbsp; (โดยที่ 0 ≤ θ<sub>AB</sub> ≤ π)
+      </div>
+      <p>
+        <strong>คุณสมบัติสำคัญ:</strong>
+        <br>1. การสลับที่: <code><strong>A</strong> • <strong>B</strong> = <strong>B</strong> • <strong>A</strong></code>
+        <br>2. การกระจาย: <code><strong>A</strong> • (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> • <strong>B</strong> + <strong>A</strong> • <strong>C</strong></code>
+        <br>3. ผลคูณกับตัวเอง: <code><strong>A</strong> • <strong>A</strong> = |<strong>A</strong>|²</code> หรือ <code>|<strong>A</strong>| = √(<strong>A</strong> • <strong>A</strong>)</code>
+        <br>4. การตั้งฉากกัน (Orthogonality): ถ้า <code><strong>A</strong> • <strong>B</strong> = 0</code> และเวกเตอร์ทั้งสองไม่เป็นศูนย์ แสดงว่า <strong>A ตั้งฉากกับ B</strong> (θ = 90°)
+      </p>
+
+      <h3 class="sub-title">4.2 นิยามเชิงการคำนวณในพิกัดฉาก (Operational Definition)</h3>
+      <p>
+        เมื่อกระจายผลคูณจุดของยูนิตเวกเตอร์ฐานในพิกัดฉาก:
+        <br>• <code><strong>a</strong><sub>x</sub> • <strong>a</strong><sub>x</sub> = <strong>a</strong><sub>y</sub> • <strong>a</strong><sub>y</sub> = <strong>a</strong><sub>z</sub> • <strong>a</strong><sub>z</sub> = 1</code>
+        <br>• <code><strong>a</strong><sub>x</sub> • <strong>a</strong><sub>y</sub> = <strong>a</strong><sub>y</sub> • <strong>a</strong><sub>z</sub> = <strong>a</strong><sub>z</sub> • <strong>a</strong><sub>x</sub> = 0</code> (เพราะตั้งฉากกัน)
+      </p>
+      <div class="math-display">
+        <strong>A</strong> • <strong>B</strong> = A<sub>x</sub> B<sub>x</sub> + A<sub>y</sub> B<sub>y</sub> + A<sub>z</sub> B<sub>z</sub>
+      </div>
+
+      <h3 class="sub-title">4.3 การประยุกต์: การหามุมและองค์ประกอบภาพฉาย (Projections)</h3>
+      <p>
+        <strong>1) การหามุมระหว่างเวกเตอร์สองตัว:</strong>
+      </p>
+      <div class="math-display">
+        cos θ<sub>AB</sub> = <span class="math-frac"><span class="math-num"><strong>A</strong> • <strong>B</strong></span><span class="math-den">|<strong>A</strong>| |<strong>B</strong>|</span></span> = <span class="math-frac"><span class="math-num">A<sub>x</sub> B<sub>x</sub> + A<sub>y</sub> B<sub>y</sub> + A<sub>z</sub> B<sub>z</sub></span><span class="math-den">√[A<sub>x</sub>² + A<sub>y</sub>² + A<sub>z</sub>²] √[B<sub>x</sub>² + B<sub>y</sub>² + B<sub>z</sub>²]</span></span>
+      </div>
+      <p>
+        <strong>2) องค์ประกอบสเกลาร์ของ B ในทิศทางของเวกเตอร์หนึ่งหน่วย a (Scalar Component):</strong>
+      </p>
+      <div class="math-display">
+        B<sub>a</sub> = <strong>B</strong> • <strong>a</strong> = |<strong>B</strong>| cos θ
+      </div>
+      <p>
+        <strong>3) องค์ประกอบเวกเตอร์ของ B ในทิศทางของ a (Vector Component):</strong>
+      </p>
+      <div class="math-display">
+        <strong>B</strong><sub>a(vec)</sub> = (<strong>B</strong> • <strong>a</strong>) <strong>a</strong>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: ผลคูณไขว้ (Cross Product) -->
+    <section id="sec5">
+      <h2 class="section-title">5. ผลคูณไขว้และการหาพื้นที่ (The Cross Product & Area)</h2>
+      
+      <h3 class="sub-title">5.1 นิยามเชิงเรขาคณิต (Geometric Definition)</h3>
+      <p>
+        ผลคูณไขว้ (Cross Product หรือ Vector Product) ระหว่าง <strong>A</strong> และ <strong>B</strong> คือเวกเตอร์ที่นิยามโดย:
+      </p>
+      <div class="math-display">
+        <strong>A</strong> × <strong>B</strong> = <strong>a</strong><sub>N</sub> |<strong>A</strong>| |<strong>B</strong>| sin θ<sub>AB</sub>
+      </div>
+      <p>
+        โดยที่ <code><strong>a</strong><sub>N</sub></code> คือเวกเตอร์หนึ่งหน่วยที่ตั้งฉากกับระนาบที่บรรจุเวกเตอร์ <strong>A</strong> และ <strong>B</strong> ทิศทางหาได้จาก <strong>กฎสกรูมือขวา (Right-Hand Screw Rule)</strong> เมื่อหมุนจาก <strong>A</strong> ไปหา <strong>B</strong>
+      </p>
+      <p>
+        <strong>คุณสมบัติสำคัญ:</strong>
+        <br>1. การไม่สลับที่ (Anti-commutative): <code><strong>A</strong> × <strong>B</strong> = - (<strong>B</strong> × <strong>A</strong>)</code>
+        <br>2. การกระจาย: <code><strong>A</strong> × (<strong>B</strong> + <strong>C</strong>) = <strong>A</strong> × <strong>B</strong> + <strong>A</strong> × <strong>C</strong></code>
+        <br>3. ผลคูณกับตัวเอง: <code><strong>A</strong> × <strong>A</strong> = <strong>0</strong></code> (เนื่องจาก sin 0° = 0)
+      </p>
+
+      <h3 class="sub-title">5.2 รูปแบบดีเทอร์มิแนนต์ในพิกัดฉาก (Determinant Operational Formula)</h3>
+      <div class="math-display">
+        <div class="math-equation" style="margin-bottom: 12px;">
+          <span style="font-weight: 700;"><strong>A</strong> × <strong>B</strong> = </span>
+          <div class="math-det">
+            <table class="math-table">
+              <tr>
+                <td><strong>a</strong><sub>x</sub></td>
+                <td><strong>a</strong><sub>y</sub></td>
+                <td><strong>a</strong><sub>z</sub></td>
+              </tr>
+              <tr>
+                <td>A<sub>x</sub></td>
+                <td>A<sub>y</sub></td>
+                <td>A<sub>z</sub></td>
+              </tr>
+              <tr>
+                <td>B<sub>x</sub></td>
+                <td>B<sub>y</sub></td>
+                <td>B<sub>z</sub></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div style="padding-left: 20px; color: var(--ink);">
+          = (A<sub>y</sub> B<sub>z</sub> - A<sub>z</sub> B<sub>y</sub>) <strong>a</strong><sub>x</sub> - (A<sub>x</sub> B<sub>z</sub> - A<sub>z</sub> B<sub>x</sub>) <strong>a</strong><sub>y</sub> + (A<sub>x</sub> B<sub>y</sub> - A<sub>y</sub> B<sub>x</sub>) <strong>a</strong><sub>z</sub>
+        </div>
+      </div>
+
+      <h3 class="sub-title">5.3 การประยุกต์หาพื้นที่และเวกเตอร์ตั้งฉากระนาบ</h3>
+      <div class="math-display">
+        <div>• <strong>พื้นที่สี่เหลี่ยมด้านขนาน (Area of Parallelogram):</strong> Area = |<strong>A</strong> × <strong>B</strong>|</div>
+        <div>• <strong>พื้นที่สามเหลี่ยมที่มีเวกเตอร์ A และ B เป็นด้านประกอบ:</strong> Area<sub>triangle</sub> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> |<strong>A</strong> × <strong>B</strong>|</div>
+        <div>• <strong>เวกเตอร์หนึ่งหน่วยตั้งฉากกับระนาบของรูปสามเหลี่ยม:</strong> <strong>a</strong><sub>N</sub> = <span class="math-frac"><span class="math-num"><strong>A</strong> × <strong>B</strong></span><span class="math-den">|<strong>A</strong> × <strong>B</strong>|</span></span></div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 6: ดิฟเฟอเรนเชียลในพิกัดฉาก -->
+    <section id="sec6">
+      <h2 class="section-title">6. ส่วนย่อยเชิงอนุพันธ์ในระบบพิกัดฉาก (Differential Elements in Cartesian)</h2>
+      <p>
+        เมื่อพิจารณาการเปลี่ยนแปลงระยะทางเล็กๆ ตามแนวแกน x, y, z เป็น <code>dx, dy, dz</code> จะได้ส่วนย่อยสำคัญ 3 รูปแบบ:
+      </p>
+      <div class="formula-card">
+        <div class="math-display">
+          <div style="margin-bottom: 14px;">
+            <strong>1. เวกเตอร์ความยาวส่วนย่อย (Differential Length Vector, d<b>l</b>):</strong><br>
+            d<strong>l</strong> = dx <strong>a</strong><sub>x</sub> + dy <strong>a</strong><sub>y</sub> + dz <strong>a</strong><sub>z</sub> &nbsp;&nbsp;&nbsp; (|d<strong>l</strong>| = √(dx² + dy² + dz²))
+          </div>
+          <div style="margin-bottom: 14px;">
+            <strong>2. เวกเตอร์พื้นที่ผิวส่วนย่อย (Differential Normal Area Vector, d<b>s</b>):</strong><br>
+            • บนระนาบ x = const (เวกเตอร์ตั้งฉากชี้แนว x): d<strong>s</strong><sub>x</sub> = dy dz <strong>a</strong><sub>x</sub><br>
+            • บนระนาบ y = const (เวกเตอร์ตั้งฉากชี้แนว y): d<strong>s</strong><sub>y</sub> = dx dz <strong>a</strong><sub>y</sub><br>
+            • บนระนาบ z = const (เวกเตอร์ตั้งฉากชี้แนว z): d<strong>s</strong><sub>z</sub> = dx dy <strong>a</strong><sub>z</sub>
+          </div>
+          <div>
+            <strong>3. ปริมาตรส่วนย่อย (Differential Volume Element, dv):</strong><br>
+            dv = dx dy dz
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 7: คลังโจทย์ฝึกทักษะระดับ Textbook (Drill Problems) -->
+    <section id="sec7">
+      <h2 class="section-title">7. ตัวอย่างโจทย์และแบบฝึกหัดเสริมทักษะ (Worked Examples & Drill Problems)</h2>
+
+      <!-- Drill D1.1 -->
+      <div class="drill-box">
+        <div class="drill-header">
+          <span class="drill-title">แบบฝึกหัด D1.1 (Hayt & Buck 9th Edition, หน้า 7)</span>
+          <span class="academic-badge badge-primary">เวกเตอร์ระยะทางและยูนิตเวกเตอร์</span>
+        </div>
+        <p><strong>โจทย์:</strong> กำหนดจุด M(-1, 2, 1), N(3, -3, 0), และ P(-2, -3, -4) จงหา:</p>
+        <p>(a) เวกเตอร์ <strong>R</strong><sub>MN</sub> &nbsp;|&nbsp; (b) เวกเตอร์ <strong>R</strong><sub>MN</sub> + <strong>R</strong><sub>MP</sub> &nbsp;|&nbsp; (c) ขนาดของเวกเตอร์ |<strong>r</strong><sub>M</sub>| &nbsp;|&nbsp; (d) เวกเตอร์หนึ่งหน่วย <strong>a</strong><sub>MP</sub> &nbsp;|&nbsp; (e) ขนาดของเวกเตอร์ |2<strong>r</strong><sub>P</sub> - 3<strong>r</strong><sub>N</sub>|</p>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>แสดงขั้นตอนการคำนวณอย่างละเอียด (Step-by-Step Solution)</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="step-card">
+              <h4>(a) หา <strong>R</strong><sub>MN</sub> = <strong>r</strong><sub>N</sub> - <strong>r</strong><sub>M</sub>:</h4>
+              <div class="math-display">
+                <strong>R</strong><sub>MN</sub> = [ 3 - (-1) ] <strong>a</strong><sub>x</sub> + [ -3 - 2 ] <strong>a</strong><sub>y</sub> + [ 0 - 1 ] <strong>a</strong><sub>z</sub> = <strong>4 a</strong><sub>x</sub> - <strong>5 a</strong><sub>y</sub> - <strong>a</strong><sub>z</sub>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(b) หา <strong>R</strong><sub>MP</sub> และผลบวก <strong>R</strong><sub>MN</sub> + <strong>R</strong><sub>MP</sub>:</h4>
+              <div class="math-display">
+                <strong>R</strong><sub>MP</sub> = [ -2 - (-1) ] <strong>a</strong><sub>x</sub> + [ -3 - 2 ] <strong>a</strong><sub>y</sub> + [ -4 - 1 ] <strong>a</strong><sub>z</sub> = - <strong>a</strong><sub>x</sub> - 5 <strong>a</strong><sub>y</sub> - 5 <strong>a</strong><sub>z</sub><br>
+                <strong>R</strong><sub>MN</sub> + <strong>R</strong><sub>MP</sub> = (4 - 1) <strong>a</strong><sub>x</sub> + (-5 - 5) <strong>a</strong><sub>y</sub> + (-1 - 5) <strong>a</strong><sub>z</sub> = <strong>3 a</strong><sub>x</sub> - <strong>10 a</strong><sub>y</sub> - <strong>6 a</strong><sub>z</sub>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(c) หาขนาด |<strong>r</strong><sub>M</sub>|:</h4>
+              <div class="math-display">
+                <strong>r</strong><sub>M</sub> = - <strong>a</strong><sub>x</sub> + 2 <strong>a</strong><sub>y</sub> + <strong>a</strong><sub>z</sub><br>
+                |<strong>r</strong><sub>M</sub>| = √[ (-1)² + 2² + 1² ] = √(1 + 4 + 1) = √6 ≈ <strong>2.45</strong>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(d) หาเวกเตอร์หนึ่งหน่วย <strong>a</strong><sub>MP</sub>:</h4>
+              <div class="math-display">
+                |<strong>R</strong><sub>MP</sub>| = √[ (-1)² + (-5)² + (-5)² ] = √(1 + 25 + 25) = √51 ≈ 7.141<br>
+                <strong>a</strong><sub>MP</sub> = <span class="math-frac"><span class="math-num"><strong>R</strong><sub>MP</sub></span><span class="math-den">|<strong>R</strong><sub>MP</sub>|</span></span> = <span class="math-frac"><span class="math-num">- <strong>a</strong><sub>x</sub> - 5 <strong>a</strong><sub>y</sub> - 5 <strong>a</strong><sub>z</sub></span><span class="math-den">7.141</span></span> = <strong>-0.140 a</strong><sub>x</sub> - <strong>0.700 a</strong><sub>y</sub> - <strong>0.700 a</strong><sub>z</sub>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(e) หาขนาด |2 <strong>r</strong><sub>P</sub> - 3 <strong>r</strong><sub>N</sub>|:</h4>
+              <div class="math-display">
+                2 <strong>r</strong><sub>P</sub> = 2(-2 <strong>a</strong><sub>x</sub> - 3 <strong>a</strong><sub>y</sub> - 4 <strong>a</strong><sub>z</sub>) = -4 <strong>a</strong><sub>x</sub> - 6 <strong>a</strong><sub>y</sub> - 8 <strong>a</strong><sub>z</sub><br>
+                3 <strong>r</strong><sub>N</sub> = 3(3 <strong>a</strong><sub>x</sub> - 3 <strong>a</strong><sub>y</sub> + 0 <strong>a</strong><sub>z</sub>) = 9 <strong>a</strong><sub>x</sub> - 9 <strong>a</strong><sub>y</sub> + 0 <strong>a</strong><sub>z</sub><br>
+                2 <strong>r</strong><sub>P</sub> - 3 <strong>r</strong><sub>N</sub> = (-4 - 9) <strong>a</strong><sub>x</sub> + (-6 - (-9)) <strong>a</strong><sub>y</sub> + (-8 - 0) <strong>a</strong><sub>z</sub> = -13 <strong>a</strong><sub>x</sub> + 3 <strong>a</strong><sub>y</sub> - 8 <strong>a</strong><sub>z</sub><br>
+                |2 <strong>r</strong><sub>P</sub> - 3 <strong>r</strong><sub>N</sub>| = √[ (-13)² + 3² + (-8)² ] = √(169 + 9 + 64) = √242 ≈ <strong>15.56</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drill D1.3 & D1.4 -->
+      <div class="drill-box">
+        <div class="drill-header">
+          <span class="drill-title">แบบฝึกหัด D1.3 & D1.4 (Hayt & Buck 9th Edition, หน้า 11, 13)</span>
+          <span class="academic-badge badge-primary">ผลคูณจุดและผลคูณไขว้</span>
+        </div>
+        <p><strong>โจทย์:</strong> จุดยอดสามจุดของรูปสามเหลี่ยมอยู่ที่ A(6, -1, 2), B(-2, 3, -4), และ C(-3, 1, 5) จงหา:</p>
+        <p>(a) เวกเตอร์ <strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub> &nbsp;|&nbsp; (b) มุมที่จุดยอด A (θ<sub>BAC</sub>) &nbsp;|&nbsp; (c) พื้นที่ของรูปสามเหลี่ยม ABC &nbsp;|&nbsp; (d) เวกเตอร์หนึ่งหน่วยที่ตั้งฉากกับระนาบรูปสามเหลี่ยม <strong>a</strong><sub>N</sub></p>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>แสดงขั้นตอนการคำนวณอย่างละเอียด (Step-by-Step Solution)</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="step-card">
+              <h4>ขั้นที่ 1: หาเวกเตอร์ด้านประกอบ <strong>R</strong><sub>AB</sub> และ <strong>R</strong><sub>AC</sub></h4>
+              <div class="math-display">
+                <strong>R</strong><sub>AB</sub> = (-2 - 6) <strong>a</strong><sub>x</sub> + (3 - (-1)) <strong>a</strong><sub>y</sub> + (-4 - 2) <strong>a</strong><sub>z</sub> = <strong>-8 a</strong><sub>x</sub> + <strong>4 a</strong><sub>y</sub> - <strong>6 a</strong><sub>z</sub><br>
+                <strong>R</strong><sub>AC</sub> = (-3 - 6) <strong>a</strong><sub>x</sub> + (1 - (-1)) <strong>a</strong><sub>y</sub> + (5 - 2) <strong>a</strong><sub>z</sub> = <strong>-9 a</strong><sub>x</sub> + <strong>2 a</strong><sub>y</sub> + <strong>3 a</strong><sub>z</sub>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(a) หาผลคูณไขว้ <strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub> ด้วยดีเทอร์มิแนนต์:</h4>
+              <div class="math-display">
+                <div class="math-equation">
+                  <span style="font-weight: 700;"><strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub> = </span>
+                  <div class="math-det">
+                    <table class="math-table">
+                      <tr>
+                        <td><strong>a</strong><sub>x</sub></td>
+                        <td><strong>a</strong><sub>y</sub></td>
+                        <td><strong>a</strong><sub>z</sub></td>
+                      </tr>
+                      <tr>
+                        <td>-8</td>
+                        <td>4</td>
+                        <td>-6</td>
+                      </tr>
+                      <tr>
+                        <td>-9</td>
+                        <td>2</td>
+                        <td>3</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div>= [ (4)(3) - (-6)(2) ] <strong>a</strong><sub>x</sub> - [ (-8)(3) - (-6)(-9) ] <strong>a</strong><sub>y</sub> + [ (-8)(2) - (4)(-9) ] <strong>a</strong><sub>z</sub></div>
+                <div>= <strong>24 a</strong><sub>x</sub> + <strong>78 a</strong><sub>y</sub> + <strong>20 a</strong><sub>z</sub></div>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(b) หามุม θ<sub>BAC</sub> จาก Dot Product:</h4>
+              <div class="math-display">
+                <strong>R</strong><sub>AB</sub> • <strong>R</strong><sub>AC</sub> = (-8)(-9) + (4)(2) + (-6)(3) = 72 + 8 - 18 = <strong>62</strong><br>
+                |<strong>R</strong><sub>AB</sub>| = √[ (-8)² + 4² + (-6)² ] = √(64 + 16 + 36) = √116 ≈ 10.770<br>
+                |<strong>R</strong><sub>AC</sub>| = √[ (-9)² + 2² + 3² ] = √(81 + 4 + 9) = √94 ≈ 9.695<br>
+                cos θ<sub>BAC</sub> = <span class="math-frac"><span class="math-num">62</span><span class="math-den">10.770 × 9.695</span></span> = <span class="math-frac"><span class="math-num">62</span><span class="math-den">104.42</span></span> ≈ 0.5937<br>
+                θ<sub>BAC</sub> = arccos(0.5937) = <strong>53.58° ≈ 53.6°</strong>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(c) หาพื้นที่ของรูปสามเหลี่ยม ABC:</h4>
+              <div class="math-display">
+                ขนาดของ |<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>| = √(24² + 78² + 20²) = √(576 + 6084 + 400) = √7060 ≈ 84.024<br>
+                พื้นที่สามเหลี่ยม Area = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> |<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>| = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> (84.024) = <strong>42.01 ≈ 42.0 ตารางหน่วย</strong>
+              </div>
+            </div>
+            <div class="step-card">
+              <h4>(d) หาเวกเตอร์หนึ่งหน่วยตั้งฉาก <strong>a</strong><sub>N</sub>:</h4>
+              <div class="math-display">
+                <strong>a</strong><sub>N</sub> = <span class="math-frac"><span class="math-num"><strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub></span><span class="math-den">|<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>|</span></span> = <span class="math-frac"><span class="math-num">24 <strong>a</strong><sub>x</sub> + 78 <strong>a</strong><sub>y</sub> + 20 <strong>a</strong><sub>z</sub></span><span class="math-den">84.024</span></span><br>
+                = <strong>0.286 a</strong><sub>x</sub> + <strong>0.928 a</strong><sub>y</sub> + <strong>0.238 a</strong><sub>z</sub>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 8: แบบทดสอบความเข้าใจสมองประลองปัญญา -->
+    <section id="sec8">
+      <h2 class="section-title">8. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Test)</h2>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 1: การทดสอบเงื่อนไขการตั้งฉากของเวกเตอร์ (Orthogonality Condition)</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>กำหนดเวกเตอร์ <strong>A</strong> = 2 <strong>a</strong><sub>x</sub> + c <strong>a</strong><sub>y</sub> - 4 <strong>a</strong><sub>z</sub> และ <strong>B</strong> = 3 <strong>a</strong><sub>x</sub> + 2 <strong>a</strong><sub>y</sub> + 2 <strong>a</strong><sub>z</sub> ค่าคงตัว <code>c</code> ต้องมีค่าเท่าใดจึงจะทำให้เวกเตอร์ทั้งสองตั้งฉากกัน?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">c = 2</div>
+          <div class="quiz-option" data-correct="true">c = 1</div>
+          <div class="quiz-option" data-correct="false">c = -1</div>
+          <div class="quiz-option" data-correct="false">c = 4</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="เงื่อนไขการตั้งฉากคือ <strong>A</strong> • <strong>B</strong> = 0: (2)(3) + (<em>c</em>)(2) + (-4)(2) = 0 ⇒ 6 + 2<em>c</em> - 8 = 0 ⇒ 2<em>c</em> = 2 ⇒ <em>c</em> = 1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 2: ความหมายเชิงกายภาพของผลคูณไขว้ของเวกเตอร์ที่ขนานกัน</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>ถ้าเวกเตอร์ <strong>A</strong> ขนานกับเวกเตอร์ <strong>B</strong> (ทิศเดียวกันหรือตรงข้ามกัน) ผลคูณไขว้ <strong>A</strong> × <strong>B</strong> จะมีค่าเท่าใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">|<strong>A</strong>| |<strong>B</strong>|</div>
+          <div class="quiz-option" data-correct="true">เวกเตอร์ศูนย์ <strong>0</strong></div>
+          <div class="quiz-option" data-correct="false"><strong>A</strong> • <strong>B</strong></div>
+          <div class="quiz-option" data-correct="false">1</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="เนื่องจากมุมระหว่างเวกเตอร์ที่ขนานกันคือ θ = 0° หรือ 180° ทำให้ sin θ = 0 ดังนั้น <strong>A</strong> × <strong>B</strong> = <strong>0</strong> (เวกเตอร์ศูนย์) เสมอ"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 3: เวกเตอร์พื้นที่ผิวส่วนย่อยบนระนาบแนวนอน z = 3</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>บนระนาบแนวนอน <em>z</em> = 3 (ระนาบ <em>z</em> คงตัว) เวกเตอร์พื้นที่ผิวส่วนย่อย d<strong>s</strong><sub>z</sub> มีค่าเท่ากับข้อใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">d<strong>s</strong><sub>x</sub> = <em>dy</em> <em>dz</em> <strong>a</strong><sub>x</sub></div>
+          <div class="quiz-option" data-correct="false">d<strong>s</strong><sub>y</sub> = <em>dx</em> <em>dz</em> <strong>a</strong><sub>y</sub></div>
+          <div class="quiz-option" data-correct="true">d<strong>s</strong><sub>z</sub> = <em>dx</em> <em>dy</em> <strong>a</strong><sub>z</sub></div>
+          <div class="quiz-option" data-correct="false">dv = <em>dx</em> <em>dy</em> <em>dz</em></div>
+        </div>
+        <div class="quiz-feedback" data-explanation="บนระนาบ <em>z</em> = ค่าคงตัว (ระนาบแนวนอน) ส่วนย่อยที่เปลี่ยนแปลงคือแกน <em>x</em> และ <em>y</em> (<em>dx</em> <em>dy</em>) และเวกเตอร์หนึ่งหน่วยตั้งฉากชี้ในแนวแกน <em>z</em> (<strong>a</strong><sub>z</sub>) ดังนั้น d<strong>s</strong><sub>z</sub> = <em>dx</em> <em>dy</em> <strong>a</strong><sub>z</sub>"></div>
+      </div>
+    </section>
+
+    <!-- แถบนำทางไปบทถัดไป -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1.5px solid var(--rule);">
+      <a href="../index.html" class="btn btn-secondary">← หน้าหลัก</a>
+      <a href="../02-cylindrical-coordinates/index.html" class="btn btn-primary">ศึกษาต่อ บทที่ 2: ระบบพิกัดทรงกระบอก →</a>
+    </div>
+
+    <footer class="page-footer">
+      <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+      <div>เพื่อการศึกษาวิศวกรรมแม่เหล็กไฟฟ้าอย่างเท่าเทียม</div>
+    </footer>
+  </main>
+</div>
+
+<!-- JavaScript Core & Engines -->
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/engines/vector3d-core.js"></script>
+<script src="../assets/js/engines/vector-sandbox.js"></script>
+<script src="../assets/js/engines/search-index.js"></script>
+<script src="../assets/js/engines/site-search.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    new VectorSandboxEngine('vector-canvas', 'vector-output');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>บทที่ 7: กฎของเกาส์และผิวสมมาตร (Gauss's Law & Symmetrical Surfaces) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="../index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="../index.html" class="nav-link">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="../07-gauss-law/index.html" class="dropdown-item active"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="../07-gauss-law/index.html" class="mobile-ch-link active"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
+<div class="chapter-container">
+  
+  <!-- Sticky Table of Contents Sidebar -->
+  <aside class="chapter-sidebar">
+    <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
+    <ul class="sidebar-nav">
+      <li><a href="#sec1" class="sidebar-link active">1. นิยามและสมการกฎของเกาส์</a></li>
+      <li><a href="#sec2" class="sidebar-link">2. เวกเตอร์พื้นที่ผิวส่วนย่อย ds</a></li>
+      <li><a href="#sec3" class="sidebar-link">3. หลักการเลือกผิวเกาส์เซียนสมมาตร</a></li>
+      <li><a href="#sec-sim" class="sidebar-link">แบบจำลองผิวเกาส์เซียน (CAD)</a></li>
+      <li><a href="#sec4" class="sidebar-link">4. สมมาตรทรงกลม (Spherical)</a></li>
+      <li><a href="#sec5" class="sidebar-link">5. สมมาตรทรงกระบอก (Cylindrical)</a></li>
+      <li><a href="#sec6" class="sidebar-link">6. สมมาตรแผ่นระนาบ (Planar)</a></li>
+      <li><a href="#sec7" class="sidebar-link">7. ตัวอย่างโจทย์สายส่ง Coaxial</a></li>
+      <li><a href="#sec8" class="sidebar-link">8. แบบฝึกหัด Textbook Drill</a></li>
+      <li><a href="#sec9" class="sidebar-link">9. แบบประเมินความเข้าใจด้วยตนเอง</a></li>
+    </ul>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--rule); font-size: 0.82rem; color: var(--ink-muted);">
+      <div>ตำราอ้างอิง:</div>
+      <strong>Hayt & Buck (9th Edition)</strong><br>Section 3.2–3.4: Gauss's Law
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="chapter-main">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าหลัก</a>
+      <span class="sep">/</span>
+      <span>บทที่ 7 กฎของเกาส์และผิวสมมาตร</span>
+    </div>
+
+    <!-- Course Meta Line -->
+    <div class="course-meta-bar">
+      <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1</strong> · Lecture Set 7 · Hayt & Buck 9th Ed. (Section 3.2–3.4)</div>
+      <span class="academic-badge badge-primary">บทเรียนที่ 7/9</span>
+    </div>
+
+    <h1 class="book-title">บทที่ 7: กฎของเกาส์และผิวสมมาตร (Gauss's Law & Symmetrical Surfaces)</h1>
+    <div class="subtitle">
+      กฎของเกาส์ในรูปอินทิกรัลผิวปิด ∮ <b>D</b> • d<b>s</b> = <em>Q</em><sub>enc</sub>, หลักเกณฑ์การเลือกผิวเกาส์เซียนสมมาตร 3 รูปแบบ (ทรงกลม, ทรงกระบอก, แผ่นระนาบ), และเทคนิคการหาความหนาแน่นฟลักซ์ <b>D</b> และสนามไฟฟ้า <b>E</b> โดยไม่ต้องอินทิเกรตคูลอมบ์ที่ซับซ้อน
+    </div>
+
+    <!-- สรุปวัตถุประสงค์ -->
+    <div class="academic-callout">
+      <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
+      <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
+        <li>เข้าใจข้อความทางฟิสิกส์และสมการอินทิกรัลผิวปิดของ <strong>กฎของเกาส์ (Gauss's Law)</strong>: <code>∮<sub>S</sub> <b>D</b> • d<b>s</b> = <em>Q</em><sub>enc</sub></code></li>
+        <li>เข้าใจนิยามและทิศทางของ <strong>เวกเตอร์พื้นที่ผิวส่วนย่อย (Differential Surface Vector, d<b>s</b> = dS <b>a</b><sub>n</sub>)</strong> ซึ่งต้องมีทิศพุ่งออกจากผิวปิดในแนวตั้งฉากเสมอ</li>
+        <li>จดจำและประยุกต์ <strong>เงื่อนไขสำคัญ 2 ประการ</strong> ในการเลือกผิวเกาส์เซียนสมมติ (Symmetrical Gaussian Surface) เพื่อดึง <code>|<b>D</b>|</code> ออกนอกเครื่องหมายอินทิกรัล</li>
+        <li>แสดงการพิสูจน์หา <b>D</b> และ <b>E</b> ใน 3 โครงสร้างสมมาตรคลาสสิก: ลูกบอลประจุทรงกลมตัน (<code>r ≤ a</code> และ <code>r &gt; a</code>), สายส่งโคแอกเชียล (Coaxial Cable), และแผ่นระนาบประจุคู่ขนาน</li>
+      </ol>
+    </div>
+
+    <!-- ส่วนที่ 1: นิยามกฎของเกาส์ -->
+    <section id="sec1">
+      <h2 class="section-title">1. นิยามและสมการของกฎของเกาส์ (Gauss's Law Formulation)</h2>
+      <p>
+        จากการทดลองของฟาราเดย์ในบทที่ 6 ทำให้ทราบว่า ฟลักซ์ไฟฟ้า <code>Ψ</code> ที่แผ่ออกจากประจุใดๆ มีค่าเท่ากับประจุที่ล้อมรอบเสมอ <strong>คาร์ล ฟรีดริช เกาส์ (Carl Friedrich Gauss)</strong> ได้ขยายแนวคิดนี้ให้กลายเป็นกฎทางฟิสิกส์พื้นฐานที่ทรงพลังยิ่ง:
+      </p>
+
+      <div class="highlight-box">
+        <p><strong>ข้อความของกฎของเกาส์ (Statement of Gauss's Law):</strong></p>
+        <p>
+          <em>"ฟลักซ์ไฟฟ้าทั้งหมดที่พุ่งผ่านผิวปิดสมมติ (Closed Surface) ใดๆ ย่อมมีค่าเท่ากับประจุไฟฟ้าสุทธิทั้งหมดที่ถูกล้อมรอบอยู่ภายในผิวปิดนั้นพอดี"</em><br>
+          <span style="font-size: 0.90rem; color: var(--ink-soft); font-style: italic;">(The electric flux passing through any closed surface is equal to the total charge enclosed by that surface.)</span>
+        </p>
+      </div>
+
+      <p>
+        เนื่องจากฟลักซ์ไฟฟ้าส่วนย่อย <code>dΨ</code> ที่พุ่งตัดผ่านพื้นที่ผิวส่วนย่อย <code>d<b>s</b></code> สัมพันธ์กับความหนาแน่นฟลักซ์ <b>D</b> ด้วยผลคูณจุด: <code>dΨ = <b>D</b> • d<b>s</b></code> เมื่อรวมฟลักซ์รอบผิวปิดทั้งหมด <code>S</code> จึงได้สมการกฎของเกาส์ในรูปอินทิกรัล:
+      </p>
+
+      <div class="formula-card">
+        <div class="f-title">
+          <span>สมการกฎของเกาส์ในรูปอินทิกรัล (Integral Form of Gauss's Law)</span>
+          <button class="copy-btn" data-copy="∮ D • ds = Q_enc">คัดลอกสูตร</button>
+        </div>
+        <div class="math-display">
+          <div class="math-equation">
+            Ψ = ∮<sub>S</sub> <b>D</b> • d<b>s</b> = <em>Q</em><sub>enc</sub>
+          </div>
+          <div>
+            เมื่อ:<br>
+            • <code>∮<sub>S</sub></code> = การอินทิเกรตบนผิวปิด (Closed Surface Integral) ที่หุ้มล้อมรอบปริมาตร <code>v</code> ไว้อย่างสมบูรณ์<br>
+            • <code><b>D</b></code> = เวกเตอร์ความหนาแน่นฟลักซ์ไฟฟ้าบนผิว <code>S</code> (หน่วย: <code>C/m²</code>)<br>
+            • <code>d<b>s</b> = dS <b>a</b><sub>n</sub></code> = เวกเตอร์พื้นที่ผิวส่วนย่อยที่มีทิศพุ่งออกตั้งฉากกับผิวปิด (หน่วย: <code>m²</code>)<br>
+            • <code><em>Q</em><sub>enc</sub></code> = ปริมาณประจุไฟฟ้าสุทธิทั้งหมดที่ถูกล้อมรอบอยู่ภายในผิวปิด <code>S</code> (หน่วย: <code>C</code>)
+          </div>
+        </div>
+      </div>
+
+      <p>
+        หากประจุไฟฟ้าภายในผิวปิด <code>S</code> มีการกระจายตัวแบบต่อเนื่องในปริมาตร <code>v</code> ด้วยความหนาแน่น <code>ρ<sub>v</sub></code> ประจุล้อมรอบ <code><em>Q</em><sub>enc</sub></code> จะมีค่าเท่ากับ:
+      </p>
+      <div class="math-display">
+        <div class="math-equation">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = ∫<sub>vol</sub> ρ<sub>v</sub> d<em>v</em> = <em>Q</em><sub>enc</sub>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: เวกเตอร์พื้นที่ผิวส่วนย่อย ds -->
+    <section id="sec2">
+      <h2 class="section-title">2. เวกเตอร์พื้นที่ผิวส่วนย่อยชี้ออกในแนวตั้งฉาก (Differential Surface Vector, d<b>s</b>)</h2>
+      <p>
+        ในการอินทิเกรตตามกฎของเกาส์ <strong>ทิศทางของเวกเตอร์พื้นที่ผิว <code>d<b>s</b></code> มีกฎเกณฑ์ตายตัวตามมาตรฐานสากล</strong>:
+      </p>
+
+      <div class="math-display">
+        <div class="math-equation">
+          d<b>s</b> = d<em>S</em> <b>a</b><sub>n</sub>
+        </div>
+        <div>
+          โดยที่ <code><b>a</b><sub>n</sub></code> คือ <strong>เวกเตอร์หนึ่งหน่วยที่ตั้งฉากกับพื้นผิวและชี้พุ่งออกจากปริมาตรปิดเสมอ (Outward Normal Unit Vector)</strong>
+        </div>
+      </div>
+
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th>ระบบพิกัด</th>
+            <th>ผิวคงที่ (Constant Surface)</th>
+            <th>เวกเตอร์พื้นที่ผิวชี้ออก (Outward d<b>s</b>)</th>
+            <th>การประยุกต์ในกฎของเกาส์</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>พิกัดทรงกลม (Spherical)</strong></td>
+            <td>ผิวทรงกลม <code>r = const</code></td>
+            <td><strong>d<b>s</b> = <em>r</em>² sin θ dθ dϕ <b>a</b><sub>r</sub></strong></td>
+            <td>ผิวเกาส์เซียนรอบจุดประจุและทรงกลม</td>
+          </tr>
+          <tr>
+            <td><strong>พิกัดทรงกระบอก (Cylindrical)</strong></td>
+            <td>ผิวด้านข้าง <code>ρ = const</code></td>
+            <td><strong>d<b>s</b> = ρ dϕ dz <b>a</b><sub>ρ</sub></strong></td>
+            <td>ผิวด้านข้างของลวดประจุและสายโคแอกเชียล</td>
+          </tr>
+          <tr>
+            <td><strong>พิกัดทรงกระบอก (ฝาบน/ฝาล่าง)</strong></td>
+            <td>ฝาบน <code>z = +L/2</code>, ฝาล่าง <code>z = -L/2</code></td>
+            <td><strong>d<b>s</b><sub>top</sub> = ρ dρ dϕ <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -ρ dρ dϕ <b>a</b><sub>z</sub></strong></td>
+            <td>ฝาปิดทรงกระบอก (สนาม <b>D</b> ขนานผิว ⇒ ฟลักซ์เป็นศูนย์)</td>
+          </tr>
+          <tr>
+            <td><strong>พิกัดฉาก (Cartesian Pillbox)</strong></td>
+            <td>ฝาบน <code>z = +h</code>, ฝาล่าง <code>z = -h</code></td>
+            <td><strong>d<b>s</b><sub>top</sub> = dx dy <b>a</b><sub>z</sub></strong><br><strong>d<b>s</b><sub>bot</sub> = -dx dy <b>a</b><sub>z</sub></strong></td>
+            <td>กล่องเกาส์เซียนประกบแผ่นประจุระนาบ</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ส่วนที่ 3: หลักการเลือกผิวเกาส์เซียนสมมาตร -->
+    <section id="sec3">
+      <h2 class="section-title">3. หลักการและเงื่อนไขสำคัญในการเลือกผิวเกาส์เซียน (Gaussian Surface Selection)</h2>
+      <p>
+        แม้ว่ากฎของเกาส์จะเป็นจริงสำหรับผิวปิดรูปทรงใดๆ ก็ตามในเอกภพ แต่<strong>การจะใช้กฎของเกาส์เพื่อคำนวณหาขนาดของสนาม <b>D</b> ได้อย่างง่ายดายโดยไม่ต้องทำการอินทิเกรตที่ซับซ้อน</strong> เราจะต้องเลือกผิวปิดสมมติ (เรียกว่า <strong>ผิวเกาส์เซียน / Gaussian Surface</strong>) ให้สอดคล้องกับ <strong>เงื่อนไขความสมมาตร 2 ประการ</strong> ดังต่อไปนี้:
+      </p>
+
+      <div class="step-container">
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">เงื่อนไขที่ 1</span>
+          <h4>ขนาดของสนาม |D| มีค่าสม่ำเสมอคงที่ทั่วทั้งพื้นผิว</h4>
+          <p>
+            ผิวเกาส์เซียนต้องวางตัวในระยะที่สมมาตรกับประจุต้นเหตุ เพื่อให้ขนาดสเกลาร์ <code><em>D</em> = |<b>D</b>|</code> มีค่าคงที่ ณ ทุกๆ จุดบนผิวนั้น ส่งผลให้เราสามารถ <strong>ดึงค่าคงที่ <em>D</em> ออกมานอกเครื่องหมายอินทิกรัลได้</strong>:
+          </p>
+          <div class="math-display">
+            ∮<sub>S</sub> <b>D</b> • d<b>s</b> = <em>D</em><sub>n</sub> ∮<sub>S</sub> d<em>S</em> = <em>D</em><sub>n</sub> · <em>S</em><sub>area</sub>
+          </div>
+        </div>
+
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">เงื่อนไขที่ 2</span>
+          <h4>เวกเตอร์ D ต้องตั้งฉากกับผิว (ขนานกับ ds) หรือขนานกับผิว (ตั้งฉากกับ ds) เสมอ</h4>
+          <p>
+            ในทุกๆ ชิ้นส่วนของผิวปิด <code>S</code>:
+          </p>
+          <ul style="margin-left: 20px; line-height: 1.85;">
+            <li><strong>เมื่อ <b>D</b> ตั้งฉากกับผิว (<b>D</b> ขนานกับ d<b>s</b>):</strong> จะได้ <code><b>D</b> • d<b>s</b> = |<b>D</b>| |d<b>s</b>| cos(0°) = <em>D</em> d<em>S</em></code> (เกิดฟลักซ์เต็มที่)</li>
+            <li><strong>เมื่อ <b>D</b> ขนานกับผิว (<b>D</b> ตั้งฉากกับ d<b>s</b>):</strong> จะได้ <code><b>D</b> • d<b>s</b> = |<b>D</b>| |d<b>s</b>| cos(90°) = 0</code> (ไม่มีฟลักซ์พุ่งทะลุผิวนั้นเลย ฟลักซ์เป็นศูนย์อย่างแท้จริง)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนจำลอง 3D CAD Gauss Simulator -->
+    <section id="sec-sim">
+      <h2 class="section-title">แบบจำลอง 3 มิติ: การเลือกผิวเกาส์เซียนสมมาตร 3 รูปแบบ (Interactive CAD Explorer)</h2>
+      <p>
+        ทดลองเลือกชนิดโครงสร้างสมมาตรของประจุ ปรับค่าประจุหรือความหนาแน่นประจุ และปรับระยะรัศมี <code>r</code> เพื่อดูการคำนวณอินทิกรัล <code>∮ <b>D</b> • d<b>s</b> = <em>Q</em><sub>enc</sub></code> และการสร้างผิวเกาส์เซียนสมมติแบบ 3 มิติ
+      </p>
+
+      <div class="interactive-section">
+        <div class="interactive-header">
+          <div class="interactive-title">
+            <span class="pulse-dot"></span>
+            เครื่องมือจำลองผิวเกาส์เซียนและฟลักซ์สมมาตร (Gaussian Surface 3D Explorer)
+          </div>
+          <span class="tag tag-tool">3 Symmetry Modes</span>
+        </div>
+
+        <!-- Controls Grid -->
+        <div class="interactive-controls">
+          <div class="control-group">
+            <label for="gauss-type">เลือกชนิดสมมาตรของประจุ:</label>
+            <select id="gauss-type">
+              <option value="sphere">1. สมมาตรทรงกลม — จุดประจุ (Point Charge)</option>
+              <option value="sphere-ball">2. สมมาตรทรงกลม — ลูกบอลประจุสม่ำเสมอ (Uniform Volume Ball)</option>
+              <option value="cylinder">3. สมมาตรทรงกระบอก — ลวดประจุอนันต์ (Line Charge)</option>
+              <option value="sheet">4. สมมาตรแผ่นระนาบ — แผ่นประจุอนันต์ (Infinite Sheet)</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="gauss-val">ขนาดประจุ / ความหนาแน่น (nC, nC/m, nC/m²):</label>
+            <input type="number" id="gauss-val" value="10" step="2" min="0.1">
+          </div>
+          <div class="control-group">
+            <label for="gauss-r">รัศมี / ระยะผิวเกาส์เซียน r (m):</label>
+            <input type="number" id="gauss-r" value="2.0" step="0.5" min="0.2">
+          </div>
+          <div class="control-group">
+            <label for="gauss-a">รัศมีลูกบอลประจุ a (m):</label>
+            <input type="number" id="gauss-a" value="1.0" step="0.5" min="0.2">
+          </div>
+        </div>
+
+        <!-- Preset Bar -->
+        <div class="preset-bar">
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--ink-soft);">เลือกกรณีศึกษา:</span>
+          <button type="button" class="preset-btn" data-gauss-preset="sphere-point">จุดประจุ (Spherical Point)</button>
+          <button type="button" class="preset-btn" data-gauss-preset="sphere-ball">ลูกบอลประจุตัน (Volume Ball)</button>
+          <button type="button" class="preset-btn" data-gauss-preset="cylinder-line">เส้นลวดประจุ (Line Charge)</button>
+          <button type="button" class="preset-btn" data-gauss-preset="sheet-plane">แผ่นระนาบประจุ (Planar Sheet)</button>
+        </div>
+
+        <!-- 3D Canvas Area with CAD HUD -->
+        <div class="canvas-container">
+          <canvas id="gauss-canvas" width="800" height="420"></canvas>
+          
+          <div class="cad-hud">
+            <div class="hud-btn-group">
+              <button class="hud-btn" id="hud-zoom-in" title="ซูมเข้า">+</button>
+              <button class="hud-btn" id="hud-zoom-out" title="ซูมออก">−</button>
+              <button class="hud-btn" id="hud-reset" title="รีเซ็ตมุมมอง">↺</button>
+            </div>
+            <div class="hud-btn-group">
+              <button class="hud-btn active" data-preset-view="iso">3D ISO</button>
+              <button class="hud-btn" data-preset-view="top">Top XY</button>
+              <button class="hud-btn" data-preset-view="side">Side YZ</button>
+              <button class="hud-btn" data-preset-view="front">Front XZ</button>
+            </div>
+          </div>
+          <div class="canvas-overlay-hint">🖱️ ลากเมาส์เพื่อหมุนดูผิวปิดเกาส์เซียน (เส้นประสีน้ำตาล) และเวกเตอร์ฟลักซ์ D ที่พุ่งตัดผิว</div>
+        </div>
+
+        <!-- Realtime Analytics Output Card -->
+        <div class="result-box">
+          <h4 style="margin-bottom: 12px; color: var(--accent); font-weight: 800;">
+            📊 ผลการอินทิเกรตด้วยกฎของเกาส์ (Step-by-Step Gauss Integration):
+          </h4>
+          <div id="gauss-output">
+            กำลังโหลดข้อมูลการจำลอง...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: สมมาตรทรงกลม -->
+    <section id="sec4">
+      <h2 class="section-title">4. การประยุกต์ที่ 1: สมมาตรทรงกลม (Spherical Symmetry)</h2>
+      
+      <h3 class="sub-title">4.1 จุดประจุ Q ที่จุดกำเนิด (Point Charge)</h3>
+      <p>
+        เลือกผิวเกาส์เซียนเป็น <strong>ผิวทรงกลมสมมติรัศมี r</strong> ที่มีจุดศูนย์กลางร่วมกับจุดประจุ:
+      </p>
+      <div class="math-display">
+        <div class="math-equation">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = ∫<sub>ϕ=0</sub><sup>2π</sup> ∫<sub>θ=0</sub><sup>π</sup> <em>D</em><sub>r</sub> (<em>r</em>² sin θ dθ dϕ) = <em>D</em><sub>r</sub> (4π <em>r</em>²)
+        </div>
+        <div class="math-equation" style="margin-top: 8px;">
+          <em>D</em><sub>r</sub> (4π <em>r</em>²) = <em>Q</em><sub>enc</sub> = <em>Q</em> &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub> &nbsp;&nbsp;&nbsp; และ &nbsp;&nbsp;&nbsp; <b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε₀ <em>r</em>²</span></span> <b>a</b><sub>r</sub>
+        </div>
+      </div>
+
+      <h3 class="sub-title">4.2 ทรงกลมตันประจุกระจายสม่ำเสมอ (Uniform Volume Charge Ball)</h3>
+      <p>
+        กำหนดทรงกลมตันรัศมี <code>a</code> มีความหนาแน่นประจุเชิงปริมาตรคงที่ <code>ρ<sub>v</sub> C/m³</code> (ประจุรวม <code><em>Q</em><sub>total</sub> = ρ<sub>v</sub> (4/3 π a³)</code>):
+      </p>
+      
+      <div class="step-container">
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">กรณีที่ 1: ภายในทรงกลม (r ≤ a)</span>
+          <p>ประจุที่ถูกผิวเกาส์เซียนรัศมี <code>r</code> ล้อมรอบอยู่:</p>
+          <div class="math-display">
+            <em>Q</em><sub>enc</sub> = ∫<sub>0</sub><sup>r</sup> ρ<sub>v</sub> (4π <em>r</em>'² d<em>r</em>') = ρ<sub>v</sub> (<span class="math-frac"><span class="math-num">4</span><span class="math-den">3</span></span> π <em>r</em>³)
+          </div>
+          <p>แทนลงในกฎของเกาส์:</p>
+          <div class="math-display">
+            <em>D</em><sub>r</sub> (4π <em>r</em>²) = ρ<sub>v</sub> (<span class="math-frac"><span class="math-num">4</span><span class="math-den">3</span></span> π <em>r</em>³) &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong><b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>v</sub> <em>r</em></span><span class="math-den">3</span></span> <b>a</b><sub>r</sub></strong> &nbsp;&nbsp;&nbsp; (สนามแปรผันตรงกับระยะ r)
+          </div>
+        </div>
+
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">กรณีที่ 2: ภายนอกทรงกลม (r &gt; a)</span>
+          <p>ผิวเกาส์เซียนล้อมรอบประจุของลูกบอลทั้งลูก:</p>
+          <div class="math-display">
+            <em>Q</em><sub>enc</sub> = ρ<sub>v</sub> (<span class="math-frac"><span class="math-num">4</span><span class="math-den">3</span></span> π <em>a</em>³) = <em>Q</em><sub>total</sub>
+          </div>
+          <div class="math-display">
+            <em>D</em><sub>r</sub> (4π <em>r</em>²) = ρ<sub>v</sub> (<span class="math-frac"><span class="math-num">4</span><span class="math-den">3</span></span> π <em>a</em>³) &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong><b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>v</sub> <em>a</em>³</span><span class="math-den">3 <em>r</em>²</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num"><em>Q</em><sub>total</sub></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: สมมาตรทรงกระบอก -->
+    <section id="sec5">
+      <h2 class="section-title">5. การประยุกต์ที่ 2: สมมาตรทรงกระบอก (Cylindrical Symmetry)</h2>
+      <p>
+        สำหรับเส้นประจุอนันต์ <code>ρ<sub>l</sub> C/m</code> บนแกน z เลือกผิวเกาส์เซียนเป็น <strong>ทรงกระบอกตันสมมติรัศมี ρ ความยาว L</strong> ปิดหัวท้าย:
+      </p>
+
+      <div class="math-display">
+        <div class="math-equation">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = ∫<sub>top</sub> <b>D</b> • d<b>s</b> + ∫<sub>bottom</sub> <b>D</b> • d<b>s</b> + ∫<sub>side</sub> <b>D</b> • d<b>s</b>
+        </div>
+        <div>
+          • ฝาบนและฝาล่าง: <b>D</b> มีทิศในแนว <code><b>a</b><sub>ρ</sub></code> แต่ d<b>s</b> มีทิศในแนว <code>±<b>a</b><sub>z</sub></code> ดังนั้น <code><b>D</b> • d<b>s</b> = 0</code> (ฟลักซ์เป็นศูนย์)<br>
+          • ผิวด้านข้าง: <b>D</b> ขนานกับ d<b>s</b> และมีขนาดคงที่ <code><em>D</em><sub>ρ</sub></code>
+        </div>
+        <div class="math-equation" style="margin-top: 10px;">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = <em>D</em><sub>ρ</sub> (2π ρ <em>L</em>) = <em>Q</em><sub>enc</sub> = ρ<sub>l</sub> <em>L</em>
+        </div>
+        <div class="math-equation" style="margin-top: 10px;">
+          <strong><b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2π ρ</span></span> <b>a</b><sub>ρ</sub></strong> &nbsp;&nbsp;&nbsp;&nbsp; และ &nbsp;&nbsp;&nbsp;&nbsp; <strong><b>E</b> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2πε₀ ρ</span></span> <b>a</b><sub>ρ</sub></strong>
+        </div>
+      </div>
+      <p style="font-size: 0.92rem; color: var(--ink-soft);">
+        <em>หมายเหตุ: ได้ผลลัพธ์ตรงกับวิธีอินทิเกรตคูลอมบ์ในบทที่ 5 ทุกประการ แต่แก้ปัญหาได้ใน 3 บรรทัดด้วยกฎของเกาส์!</em>
+      </p>
+    </section>
+
+    <!-- ส่วนที่ 6: สมมาตรแผ่นระนาบ -->
+    <section id="sec6">
+      <h2 class="section-title">6. การประยุกต์ที่ 3: สมมาตรแผ่นระนาบ (Planar Symmetry)</h2>
+      <p>
+        สำหรับแผ่นระนาบประจุอนันต์ความหนาแน่น <code>ρ<sub>s</sub> C/m²</code> บนระนาบ z = 0 เลือกผิวเกาส์เซียนเป็น <strong>กล่องสี่เหลี่ยม (Gaussian Pillbox) พื้นที่หน้าตัดฝาบน-ล่าง ΔS</strong> ประกบคร่อมแผ่นระนาบ:
+      </p>
+
+      <div class="math-display">
+        <div class="math-equation">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = ∫<sub>top</sub> <b>D</b> • d<b>s</b> + ∫<sub>bottom</sub> <b>D</b> • d<b>s</b> + ∫<sub>sides</sub> <b>D</b> • d<b>s</b>
+        </div>
+        <div>
+          • ผนังด้านข้าง 4 ด้าน: <b>D</b> ขนานกับผิวกล่อง (ตั้งฉากกับ d<b>s</b>) ดังนั้น <code><b>D</b> • d<b>s</b> = 0</code><br>
+          • ฝาบน (z &gt; 0): <code><b>D</b> • d<b>s</b> = <em>D</em><sub>z</sub> Δ<em>S</em></code> (ทิศ <code>+<b>a</b><sub>z</sub></code>)<br>
+          • ฝาล่าง (z &lt; 0): <code><b>D</b> • d<b>s</b> = (-<em>D</em><sub>z</sub>) (-Δ<em>S</em> <b>a</b><sub>z</sub>) = <em>D</em><sub>z</sub> Δ<em>S</em></code> (ทิศ <code>-<b>a</b><sub>z</sub></code>)
+        </div>
+        <div class="math-equation" style="margin-top: 10px;">
+          ∮<sub>S</sub> <b>D</b> • d<b>s</b> = 2 <em>D</em><sub>z</sub> Δ<em>S</em> = <em>Q</em><sub>enc</sub> = ρ<sub>s</sub> Δ<em>S</em>
+        </div>
+        <div class="math-equation" style="margin-top: 10px;">
+          <strong><b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2</span></span> <b>a</b><sub>n</sub></strong> &nbsp;&nbsp;&nbsp;&nbsp; และ &nbsp;&nbsp;&nbsp;&nbsp; <strong><b>E</b> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2ε₀</span></span> <b>a</b><sub>n</sub></strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 7: ตัวอย่างโจทย์สายส่ง Coaxial -->
+    <section id="sec7">
+      <h2 class="section-title">7. ตัวอย่างโจทย์สายส่งโคแอกเชียล (Coaxial Cable Analysis)</h2>
+
+      <div class="step-container">
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ตัวอย่างการวิเคราะห์สาย Coaxial</span>
+          <h4>โจทย์: สายส่งโคแอกเชียลยาวอนันต์ประกอบด้วยตัวนำทรงกระบอกด้านในรัศมี a = 1 mm มีความหนาแน่นประจุเชิงผิว ρ<sub>sa</sub> = +8 nC/m² และปลอกตัวนำทรงกระบอกด้านนอกรัศมี b = 4 mm มีความหนาแน่นประจุเชิงผิว ρ<sub>sb</sub> = -2 nC/m² จงหาสนามความหนาแน่นฟลักซ์ D ในทุกๆ บริเวณ</h4>
+          
+          <p><strong>วิธีทำอย่างเป็นระบบ:</strong></p>
+          <ol style="margin-left: 20px; line-height: 1.9;">
+            <li><strong>หาประจุเชิงเส้นเทียบเท่าบนตัวนำใน (ρ<sub>l</sub>):</strong>
+              <div class="math-display">
+                ρ<sub>l</sub> = ρ<sub>sa</sub> (2π <em>a</em>) = (8 × 10⁻⁹) (2π × 10⁻³) = 1.6π × 10⁻¹¹ C/m ≈ <strong>5.027 × 10⁻¹¹ C/m</strong>
+              </div>
+            </li>
+            <li><strong>บริเวณ 1: ภายในตัวนำแกนใน (ρ &lt; a):</strong>
+              <div class="math-display">
+                ไม่มีประจุสุทธิภายในเนื้อตัวนำ <code><em>Q</em><sub>enc</sub> = 0</code> ดังนั้น <strong><b>D</b> = 0</strong>
+              </div>
+            </li>
+            <li><strong>บริเวณ 2: ระหว่างตัวนำทั้งสอง (a &lt; ρ &lt; b):</strong>
+              <p>เลือกผิวเกาส์เซียนทรงกระบอกรัศมี <code>ρ</code> ความยาว <code>L</code> ล้อมรอบตัวนำใน:</p>
+              <div class="math-display">
+                <em>D</em><sub>ρ</sub> (2π ρ <em>L</em>) = <em>Q</em><sub>enc</sub> = ρ<sub>sa</sub> (2π <em>a</em> <em>L</em>)<br>
+                <strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>a</em> ρ<sub>sa</sub></span><span class="math-den">ρ</span></span> <b>a</b><sub>ρ</sub> = <span class="math-frac"><span class="math-num">(10⁻³) (8)</span><span class="math-den">ρ</span></span> <b>a</b><sub>ρ</sub> = <span class="math-frac"><span class="math-num">8 × 10⁻³</span><span class="math-den">ρ</span></span> <b>a</b><sub>ρ</sub> nC/m²</strong>
+              </div>
+            </li>
+            <li><strong>บริเวณ 3: ภายนอกปลอกตัวนำนอก (ρ &gt; b):</strong>
+              <p>ประจุรวมภายในผิวเกาส์เซียนต่อหนึ่งหน่วยความยาว:</p>
+              <div class="math-display">
+                <em>Q</em><sub>enc</sub>/<em>L</em> = ρ<sub>sa</sub> (2π <em>a</em>) + ρ<sub>sb</sub> (2π <em>b</em>) = 2π [ (8)(10⁻³) + (-2)(4 × 10⁻³) ] = 2π [ 8 × 10⁻³ - 8 × 10⁻³ ] = <strong>0</strong>
+              </div>
+              <div class="math-display">
+                ดังนั้น <strong><b>D</b> = 0</strong> สำหรับบริเวณ <code>ρ &gt; b</code>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 8: แบบฝึกหัด Textbook Drill -->
+    <section id="sec8">
+      <h2 class="section-title">8. ตัวอย่างโจทย์ฝึกทักษะระดับ Textbook (Hayt & Buck Drill Problems)</h2>
+
+      <div class="step-container">
+        <!-- Drill Problem 3.3 -->
+        <div class="step-card">
+          <span class="step-badge">Drill Problem 3.3</span>
+          <h4>กำหนดให้ประจุไฟฟ้าเชิงปริมาตรกระจายตัวในอวกาศด้วยความหนาแน่น ρ<sub>v</sub> = 5 / r C/m³ ในย่าน 0 &lt; r &lt; 2 m และ ρ<sub>v</sub> = 0 ในย่านอื่นๆ จงหาความหนาแน่นฟลักซ์ไฟฟ้า D ณ (ก) r = 1 m และ (ข) r = 3 m</h4>
+          <p><strong>วิธีทำ:</strong></p>
+          <ol style="margin-left: 20px; line-height: 1.85;">
+            <li>(ก) ที่ <code>r = 1 m</code> (อยู่ภายในย่านประจุ <code>r &lt; 2 m</code>):
+              <div class="math-display">
+                <em>Q</em><sub>enc</sub> = ∫<sub>0</sub><sup>2π</sup> ∫<sub>0</sub><sup>π</sup> ∫<sub>0</sub><sup>1</sup> (<span class="math-frac"><span class="math-num">5</span><span class="math-den"><em>r</em>'</span></span>) (<em>r</em>'² sin θ d<em>r</em>' dθ dϕ) = 4π ∫<sub>0</sub><sup>1</sup> 5<em>r</em>' d<em>r</em>' = 4π [ <span class="math-frac"><span class="math-num">5(1)²</span><span class="math-den">2</span></span> ] = 10π C
+              </div>
+              <div class="math-display">
+                <em>D</em><sub>r</sub> (4π (1)²) = 10π &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <em>D</em><sub>r</sub> = <span class="math-frac"><span class="math-num">10π</span><span class="math-den">4π</span></span> = <strong>2.5 <b>a</b><sub>r</sub> C/m²</strong>
+              </div>
+            </li>
+            <li>(ข) ที่ <code>r = 3 m</code> (อยู่ภายนอกย่านประจุ <code>r &gt; 2 m</code>):
+              <div class="math-display">
+                <em>Q</em><sub>enc</sub> = 4π ∫<sub>0</sub><sup>2</sup> 5<em>r</em>' d<em>r</em>' = 4π [ <span class="math-frac"><span class="math-num">5(2)²</span><span class="math-den">2</span></span> ] = 4π (10) = 40π C
+              </div>
+              <div class="math-display">
+                <em>D</em><sub>r</sub> (4π (3)²) = 40π &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <em>D</em><sub>r</sub> = <span class="math-frac"><span class="math-num">40π</span><span class="math-den">36π</span></span> = <span class="math-frac"><span class="math-num">10</span><span class="math-den">9</span></span> ≈ <strong>1.111 <b>a</b><sub>r</sub> C/m²</strong>
+              </div>
+            </li>
+          </ol>
+          <p><strong>ตอบ:</strong> (ก) <code><b>D</b>(1 m) = 2.5 <b>a</b><sub>r</sub> C/m²</code> &nbsp;&nbsp; (ข) <code><b>D</b>(3 m) = 1.111 <b>a</b><sub>r</sub> C/m²</code></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 9: แบบทดสอบความเข้าใจ -->
+    <section id="sec9">
+      <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Quiz)</h2>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 1: เงื่อนไขการเลือกผิวเกาส์เซียน</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>เหตุใดเราจึงเลือกผิวเกาส์เซียนให้เวกเตอร์ <b>D</b> ตั้งฉากกับผิว (ขนานกับ d<b>s</b>) หรือขนานกับผิว (ตั้งฉากกับ d<b>s</b>)?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">เพื่อทำให้ประจุที่ล้อมรอบกลายเป็นศูนย์เสมอ</div>
+          <div class="quiz-option" data-correct="true">เพื่อให้ผลคูณจุด <b>D</b> • d<b>s</b> กลายเป็น D dS หรือ 0 ทำให้การอินทิเกรตง่ายดาย</div>
+          <div class="quiz-option" data-correct="false">เพื่อเปลี่ยนระบบพิกัดจากพิกัดฉากเป็นพิกัดทรงกลมโดยอัตโนมัติ</div>
+          <div class="quiz-option" data-correct="false">เพื่อให้ค่าสภาพยอมของตัวกลาง ε มีค่าคงที่</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="เมื่อ <b>D</b> ตั้งฉากกับผิว จะได้ <b>D</b> • d<b>s</b> = D dS และเมื่อ <b>D</b> ขนานกับผิว จะได้ <b>D</b> • d<b>s</b> = 0 ทำให้ไม่ต้องแก้สมการอินทิกรัลมุมตรีโกณมิติที่ซับซ้อน"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 2: สนาม D ภายในลูกบอลประจุทรงกลมตัน</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>ลูกบอลประจุทรงกลมตันรัศมี <code>a</code> มีความหนาแน่นประจุเชิงปริมาตรสม่ำเสมอ <code>ρ<sub>v</sub></code> ขนาดของสนาม <code>|<b>D</b>|</code> ที่ระยะ <code>r ≤ a</code> มีพฤติกรรมอย่างไร?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">แปรผกผันกับกำลังสองของระยะทาง (∝ 1/r²)</div>
+          <div class="quiz-option" data-correct="false">แปรผกผันกับระยะทาง (∝ 1/r)</div>
+          <div class="quiz-option" data-correct="true">แปรผันตรงกับระยะทาง r เชิงเส้น (∝ r)</div>
+          <div class="quiz-option" data-correct="false">มีค่าคงที่เท่ากับศูนย์ตลอดทั้งลูกบอล</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="ภายในลูกบอลประจุทรงกลมตัน <b>D</b>(r) = (ρ<sub>v</sub> r / 3) <b>a</b><sub>r</sub> ซึ่งแปรผันตรงเชิงเส้นกับรัศมี <b>r</b> (โดยเริ่มจาก 0 ที่จุดศูนย์กลาง และมีค่าสูงสุดที่ผิวนอก r = a)"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 3: สนาม D จากแผ่นประจุระนาบอนันต์</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>แผ่นระนาบประจุอนันต์ความหนาแน่น <code>ρ<sub>s</sub></code> วางอยู่ที่ระนาบ z = 0 ขนาดของสนาม <b>D</b> ที่ระยะห่าง <code>z = 100 m</code> มีค่าเป็นเท่าใดเทียบกับที่ระยะ <code>z = 1 m</code>?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">ลดลงเหลือ 1/100 เท่า</div>
+          <div class="quiz-option" data-correct="false">ลดลงเหลือ 1/10000 เท่า</div>
+          <div class="quiz-option" data-correct="true">มีค่าเท่าเดิมทุกประการ (D = ρ<sub>s</sub> / 2)</div>
+          <div class="quiz-option" data-correct="false">เพิ่มขึ้น 100 เท่า</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="สนามจากแผ่นประจุระนาบอนันต์ <b>D</b> = (ρ<sub>s</sub> / 2) <b>a</b><sub>n</sub> เป็น <b>สนามไฟฟ้าสม่ำเสมอ (Uniform Field)</b> ที่ไม่ขึ้นอยู่กับระยะห่าง z เลย"></div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 2px solid var(--rule); flex-wrap: wrap; gap: 16px;">
+      <a href="../06-electric-flux-density/index.html" class="btn btn-secondary">← บทที่ 6: ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+      <a href="../08-divergence-theorem/index.html" class="btn btn-primary">เรียนบทที่ 8: ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์ →</a>
+    </div>
+
+    <footer class="page-footer">
+      <div>© 2026 ภาควิชาวิศวกรรมไฟฟ้า มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+    </footer>
+  </main>
+</div>
+
+<!-- Core & Engine Scripts -->
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/engines/vector3d-core.js"></script>
+<script src="../assets/js/engines/gauss-sim.js"></script>
+<script src="../assets/js/engines/search-index.js"></script>
+<script src="../assets/js/engines/site-search.js"></script>
+<script>
+  let gaussEngine;
+  window.addEventListener('load', () => {
+    gaussEngine = new GaussSimEngine('gauss-canvas', 'gauss-output');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>บทที่ 6: ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D (Electric Flux & Density D) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="../index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="../index.html" class="nav-link">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="dropdown-item active"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link active"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
+<div class="chapter-container">
+  
+  <!-- Sticky Table of Contents Sidebar -->
+  <aside class="chapter-sidebar">
+    <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
+    <ul class="sidebar-nav">
+      <li><a href="#sec1" class="sidebar-link active">1. การทดลองทรงกลมซ้อนของฟาราเดย์</a></li>
+      <li><a href="#sec2" class="sidebar-link">2. นิยามฟลักซ์ไฟฟ้า (Electric Flux Ψ)</a></li>
+      <li><a href="#sec3" class="sidebar-link">3. ความหนาแน่นฟลักซ์ไฟฟ้า D</a></li>
+      <li><a href="#sec-sim" class="sidebar-link">แบบจำลองฟาราเดย์ 3 มิติ (CAD)</a></li>
+      <li><a href="#sec4" class="sidebar-link">4. การกระจายของ D ในทรงกลมซ้อน</a></li>
+      <li><a href="#sec5" class="sidebar-link">5. ความสัมพันธ์ปรุงแต่ง (D = ε E)</a></li>
+      <li><a href="#sec6" class="sidebar-link">6. สนาม D จากการกระจายประจุ</a></li>
+      <li><a href="#sec7" class="sidebar-link">7. ตัวอย่างโจทย์จากสไลด์อาจารย์</a></li>
+      <li><a href="#sec8" class="sidebar-link">8. แบบฝึกหัด Textbook Drill</a></li>
+      <li><a href="#sec9" class="sidebar-link">9. แบบประเมินความเข้าใจด้วยตนเอง</a></li>
+    </ul>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--rule); font-size: 0.82rem; color: var(--ink-muted);">
+      <div>ตำราอ้างอิง:</div>
+      <strong>Hayt & Buck (9th Edition)</strong><br>Section 3.1: Electric Flux Density
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="chapter-main">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าหลัก</a>
+      <span class="sep">/</span>
+      <span>บทที่ 6 ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</span>
+    </div>
+
+    <!-- Course Meta Line -->
+    <div class="course-meta-bar">
+      <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1</strong> · Lecture Set 6 · Hayt & Buck 9th Ed. (Section 3.1)</div>
+      <span class="academic-badge badge-primary">บทเรียนที่ 6/9</span>
+    </div>
+
+    <h1 class="book-title">บทที่ 6: ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ (Electric Flux & Density D)</h1>
+    <div class="subtitle">
+      รากฐานการทดลองทรงกลมตัวนำซ้อนของไมเคิล ฟาราเดย์ (Faraday's Concentric Spheres), นิยามฟลักซ์ไฟฟ้า Ψ, สนามเวกเตอร์ความหนาแน่นฟลักซ์ <b>D</b>, ความสัมพันธ์ปรุงแต่ง <b>D</b> = ε <b>E</b> ในตัวกลาง และการกระจายตัวของฟลักซ์ในโครงสร้างตัวนำ
+    </div>
+
+    <!-- สรุปวัตถุประสงค์ -->
+    <div class="academic-callout">
+      <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
+      <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
+        <li>เข้าใจการทดลองเชิงประวัติศาสตร์ของไมเคิล ฟาราเดย์ (Faraday's Experiment, 1837) ที่นำไปสู่นิยามของ <strong>ฟลักซ์ไฟฟ้า (Electric Flux, Ψ)</strong> และข้อสรุปเรื่องประจุเหนี่ยวนำ</li>
+        <li>อธิบายนิยามและทิศทางของ <strong>สนามความหนาแน่นฟลักซ์ไฟฟ้า (Electric Flux Density Vector, <b>D</b>)</strong> ในหน่วย <code>C/m²</code> และความสัมพันธ์กับเวกเตอร์พื้นที่ตั้งฉาก</li>
+        <li>วิเคราะห์การกระจายตัวของฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ <b>D</b> ในโครงสร้างทรงกลมตัวนำซ้อน (Concentric Spheres) ครบทั้ง 3 โซน (ภายในตัวนำ, ระหว่างตัวนำ, และภายนอก)</li>
+        <li>ประยุกต์ <strong>ความสัมพันธ์ปรุงแต่ง (Constitutive Relation)</strong> ระหว่าง <b>D</b> และ <b>E</b> ทั้งในอวกาศว่าง (Free Space) และตัวกลางไดอิเล็กทริกที่มีสภาพยอมสัมพัทธ์ <code>ε<sub>r</sub></code></li>
+      </ol>
+    </div>
+
+    <!-- ส่วนที่ 1: การทดลองของฟาราเดย์ -->
+    <section id="sec1">
+      <h2 class="section-title">1. การทดลองทรงกลมตัวนำซ้อนของฟาราเดย์ (Faraday's Concentric Spheres Experiment)</h2>
+      <p>
+        ในปี ค.ศ. 1837 <strong>ไมเคิล ฟาราเดย์ (Michael Faraday)</strong> ได้ออกแบบการทดลองเพื่อศึกษาธรรมชาติของการเหนี่ยวนำทางไฟฟ้าสถิต โดยใช้อุปกรณ์ที่ประกอบด้วย <strong>ทรงกลมโลหะตัวนำ 2 ใบ (Concentric Metallic Spheres)</strong> ที่มีรัศมีแตกต่างกัน:
+      </p>
+      <ul style="margin-left: 24px; line-height: 1.85; font-size: 0.95rem;">
+        <li><strong>ทรงกลมโลหะใบเล็กด้านใน (Inner Sphere):</strong> มีรัศมี <code>r = a</code></li>
+        <li><strong>ทรงกลมโลหะใบใหญ่ด้านนอก (Outer Sphere):</strong> มีรัศมี <code>r = b</code> (ประกอบด้วยฝาประกบ 2 ซีกที่สามารถถอดแยกได้)</li>
+        <li><strong>บริเวณคั่นกลางระหว่างทรงกลมทั้งสอง:</strong> บรรจุด้วย <strong>วัสดุฉนวนไฟฟ้า (Insulating Dielectric Material)</strong> ชนิดต่างๆ</li>
+      </ul>
+
+      <h3 class="sub-title">ขั้นตอนการทดลอง 5 ขั้นตอนตามลำดับเชิงวิทยาศาสตร์:</h3>
+      <div class="step-container">
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ขั้นตอนที่ 1</span>
+          <h4>ให้ประจุบวก +Q แก่ทรงกลมใบเล็กด้านใน</h4>
+          <p>ถ่ายประจุบวกขนาด <code>+Q</code> ที่ทราบค่าแน่นอนให้แก่ผิวนอกของทรงกลมโลหะใบเล็กด้านใน</p>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">ขั้นตอนที่ 2</span>
+          <h4>ครอบด้วยวัสดุฉนวนไฟฟ้าไดอิเล็กทริก</h4>
+          <p>นำวัสดุฉนวนไฟฟ้า (เช่น กำมะถัน, พาราฟิน, แก้ว หรืออากาศ) มาหุ้มล้อมรอบทรงกลมใบเล็ก</p>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">ขั้นตอนที่ 3</span>
+          <h4>ต่อสายดินทรงกลมใบใหญ่เพื่อคลายประจุ</h4>
+          <p>นำทรงกลมโลหะใบใหญ่มาต่อลงดิน (Grounding) เพื่อให้ประจุสุทธิเริ่มต้นบนทรงกลมใบใหญ่มีค่าเป็นศูนย์อย่างแน่นอน</p>
+        </div>
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ขั้นตอนที่ 4</span>
+          <h4>ครอบทรงกลมใบใหญ่ลงบนทรงกลมใบเล็ก</h4>
+          <p>นำทรงกลมใบใหญ่มาครอบประกบปิดสนิทรอบทรงกลมใบเล็กที่มีฉนวนคั่นอยู่</p>
+        </div>
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ขั้นตอนที่ 5</span>
+          <h4>ยกทรงกลมใบใหญ่ออกและวัดประจุเหนี่ยวนำ</h4>
+          <p>ถอดแยกซีกทรงกลมใบใหญ่ออก แล้วนำไปวัดประจุบนผิวด้านใน พบว่าเกิด <strong>ประจุเหนี่ยวนำลบ -Q</strong> ขึ้นที่ผิวด้านในของทรงกลมใบใหญ่พอดีเป๊ะ!</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>ข้อสรุปสำคัญยิ่งจากการทดลองของฟาราเดย์:</strong></p>
+        <p>
+          ไม่ว่าจะเปลี่ยนชนิดของวัสดุฉนวนไดอิเล็กทริกที่คั่นกลางเป็นสารชนิดใดก็ตาม (แก้ว ยาง ขี้ผึ้ง หรือสุญญากาศ) <strong>ขนาดของประจุเหนี่ยวนำที่เกิดขึ้นบนผิวด้านในของทรงกลมใบใหญ่จะมีค่าเท่ากับขนาดของประจุต้นเหตุบนทรงกลมใบเล็กเสมอ (กล่าวคือ เท่ากับ -Q พอดี)</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: นิยามฟลักซ์ไฟฟ้า -->
+    <section id="sec2">
+      <h2 class="section-title">2. นิยามฟลักซ์ไฟฟ้า (Electric Flux, Ψ)</h2>
+      <p>
+        จากการทดลอง ฟาราเดย์จึงเสนอแนวคิดว่า มี "การกระจัดทางไฟฟ้า" หรือ <strong>กระแสฟลักซ์ไฟฟ้า (Displacement / Electric Flux)</strong> ซึ่งแทนด้วยอักษรกรีก <code>Ψ (Psi)</code> แผ่ออกจากประจุบวก <code>+Q</code> บนทรงกลมด้านใน พุ่งผ่านตัวกลางไดอิเล็กทริกในแนวรัศมีทุกทิศทางอย่างสมมาตร ไปสิ้นสุดลงที่ประจุลบ <code>-Q</code> บนผิวด้านในของทรงกลมด้านนอก
+      </p>
+
+      <div class="formula-card">
+        <div class="f-title">
+          <span>นิยามปริมาณฟลักซ์ไฟฟ้า (Electric Flux Total)</span>
+          <button class="copy-btn" data-copy="Ψ = Q_enc">คัดลอกสูตร</button>
+        </div>
+        <div class="math-display">
+          <div class="math-equation">
+            Ψ = <em>Q</em><sub>enc</sub> &nbsp;&nbsp;&nbsp; (หน่วย: คูลอมบ์, C)
+          </div>
+          <div>
+            <strong>ความหมายทางกายภาพ:</strong> ปริมาณฟลักซ์ไฟฟ้ารวม <code>Ψ</code> ที่พุ่งออกจากประจุใดๆ มีขนาดเท่ากับขนาดของประจุไฟฟ้าต้นเหตุ <code><em>Q</em></code> ที่ถูกล้อมรอบอยู่พอดี และมีหน่วยวัดเป็น <strong>คูลอมบ์ (Coulomb, C)</strong> เช่นเดียวกับประจุไฟฟ้า
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: ความหนาแน่นฟลักซ์ไฟฟ้า D -->
+    <section id="sec3">
+      <h2 class="section-title">3. ความหนาแน่นฟลักซ์ไฟฟ้า (Electric Flux Density, <b>D</b>)</h2>
+      <p>
+        เมื่อพิจารณาผิวทรงกลมสมมติรัศมี <code>r</code> (โดยที่ <code>a &lt; r &lt; b</code>) ซึ่งมีพื้นที่ผิวทรงกลมเท่ากับ <code>Area = 4π r²</code> ฟลักซ์ไฟฟ้าทั้งหมด <code>Ψ = Q</code> จะพุ่งทะลุผ่านผิวทรงกลมนี้อย่างสม่ำเสมอในทุกทิศทาง
+      </p>
+      
+      <p>
+        <strong>ความหนาแน่นของฟลักซ์ (Density of Flux)</strong> จึงนิยามจากอัตราส่วนของฟลักซ์ไฟฟ้ารวมต่อพื้นที่ผิวที่ฟลักซ์พุ่งตัดผ่าน:
+      </p>
+
+      <div class="math-display">
+        <div class="math-equation">
+          Density of Flux = <span class="math-frac"><span class="math-num">Ψ</span><span class="math-den">Area</span></span> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> &nbsp;&nbsp; (หน่วย: C/m²)
+        </div>
+      </div>
+
+      <p>
+        เนื่องจากฟลักซ์ไฟฟ้ามีทิศทางพุ่งออกจากจุดศูนย์กลางในแนวรัศมีทุกทิศทางในอวกาศสามมิติ ซึ่งตรงกับทิศทางของเวกเตอร์หนึ่งหน่วย <code><b>a</b><sub>r</sub></code> ในระบบพิกัดทรงกลม เมื่อนำทิศทางมารวมกับขนาดสเกลาร์ จึงได้นิยามของ <strong>เวกเตอร์ความหนาแน่นฟลักซ์ไฟฟ้า (Electric Flux Density Vector, <b>D</b>)</strong>:
+      </p>
+
+      <div class="formula-card">
+        <div class="f-title">
+          <span>สมการเวกเตอร์ความหนาแน่นฟลักซ์ไฟฟ้าจากจุดประจุ (Electric Flux Density Vector)</span>
+          <button class="copy-btn" data-copy="D = (Q / (4π r²)) a_r">คัดลอกสูตร</button>
+        </div>
+        <div class="math-display">
+          <div class="math-equation">
+            <b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub> &nbsp;&nbsp; (สำหรับบริเวณ <em>a</em> &lt; <em>r</em> &lt; <em>b</em> หรือจุดประจุที่จุดกำเนิด)
+          </div>
+          <div>
+            เมื่อ:<br>
+            • <code><b>D</b></code> = เวกเตอร์ความหนาแน่นฟลักซ์ไฟฟ้า (หน่วย: <code>C/m²</code> หรือ คูลอมบ์ต่อตารางเมตร)<br>
+            • <code><em>Q</em></code> = ปริมาณประจุไฟฟ้าต้นเหตุ (หน่วย: <code>C</code>)<br>
+            • <code><em>r</em></code> = ระยะห่างจากจุดศูนย์กลางในแนวรัศมี (หน่วย: <code>m</code>)<br>
+            • <code><b>a</b><sub>r</sub></code> = เวกเตอร์หนึ่งหน่วยชี้ในแนวรัศมีพุ่งออกจากจุดกำเนิด
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนจำลอง 3D CAD Faraday Workbench -->
+    <section id="sec-sim">
+      <h2 class="section-title">แบบจำลอง 3 มิติ: การทดลองทรงกลมซ้อนของฟาราเดย์ (Interactive CAD Workbench)</h2>
+      <p>
+        ทดลองปรับเปลี่ยนขนาดประจุ <code>+Q</code>, รัศมีทรงกลมใน <code>a</code>, รัศมีทรงกลมนอก <code>b</code>, ค่าสภาพยอมสัมพัทธ์ <code>ε<sub>r</sub></code> และระยะสังเกต <code>r</code> เพื่อศึกษาการกระจายตัวของเวกเตอร์ความหนาแน่นฟลักซ์ <b>D</b> และสนามไฟฟ้า <b>E</b> แบบเรียลไทม์
+      </p>
+
+      <div class="interactive-section">
+        <div class="interactive-header">
+          <div class="interactive-title">
+            <span class="pulse-dot"></span>
+            เครื่องมือจำลองทรงกลมซ้อนและฟลักซ์ไฟฟ้า 3 มิติ (Faraday's Concentric Spheres Simulation)
+          </div>
+          <span class="tag tag-tool">Interactive 3D Engine</span>
+        </div>
+
+        <!-- Controls Grid -->
+        <div class="interactive-controls">
+          <div class="control-group">
+            <label for="sphere-q">ประจุบนทรงกลมใน Q (nC):</label>
+            <input type="number" id="sphere-q" value="965" step="50" min="1">
+          </div>
+          <div class="control-group">
+            <label for="sphere-a">รัศมีทรงกลมใน a (m):</label>
+            <input type="number" id="sphere-a" value="2.0" step="0.5" min="0.5">
+          </div>
+          <div class="control-group">
+            <label for="sphere-b">รัศมีทรงกลมนอก b (m):</label>
+            <input type="number" id="sphere-b" value="5.0" step="0.5" min="1.0">
+          </div>
+          <div class="control-group">
+            <label for="sphere-eps-r">สภาพยอมสัมพัทธ์ ε<sub>r</sub>:</label>
+            <input type="number" id="sphere-eps-r" value="1.0" step="0.5" min="1.0">
+          </div>
+          <div class="control-group">
+            <label for="obs-r">ระยะสังเกต r (m):</label>
+            <input type="number" id="obs-r" value="3.5" step="0.5" min="0.1">
+          </div>
+        </div>
+
+        <!-- Preset Buttons -->
+        <div class="preset-bar">
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--ink-soft);">ชุดตัวอย่างทดสอบ:</span>
+          <button type="button" class="preset-btn" data-faraday-preset="lecture">ตัวอย่างสไลด์อาจารย์ (a=2m, b=5m, Q=965nC)</button>
+          <button type="button" class="preset-btn" data-faraday-preset="dielectric">ตัวกลางไดอิเล็กทริก (ε_r = 4.0)</button>
+          <button type="button" class="preset-btn" data-faraday-preset="compact">โครงสร้างขนาดกะทัดรัด (a=0.8m, b=2.2m)</button>
+        </div>
+
+        <!-- 3D Canvas Area with CAD HUD -->
+        <div class="canvas-container">
+          <canvas id="faraday-canvas" width="800" height="420"></canvas>
+          
+          <!-- Floating CAD HUD Toolbar -->
+          <div class="cad-hud">
+            <div class="hud-btn-group">
+              <button class="hud-btn" id="hud-zoom-in" title="ซูมเข้า">+</button>
+              <button class="hud-btn" id="hud-zoom-out" title="ซูมออก">−</button>
+              <button class="hud-btn" id="hud-reset" title="รีเซ็ตมุมมอง">↺</button>
+            </div>
+            <div class="hud-btn-group">
+              <button class="hud-btn active" data-preset-view="iso">3D ISO</button>
+              <button class="hud-btn" data-preset-view="top">Top XY</button>
+              <button class="hud-btn" data-preset-view="side">Side YZ</button>
+              <button class="hud-btn" data-preset-view="front">Front XZ</button>
+            </div>
+          </div>
+          <div class="canvas-overlay-hint">🖱️ คลิกเมาส์ค้างเพื่อหมุน 3D | หมุนลูกกลิ้งเพื่อซูม | ใช้แถบควบคุม HUD ปรับมุมมอง</div>
+        </div>
+
+        <!-- Realtime Analytics Output Card -->
+        <div class="result-box">
+          <h4 style="margin-bottom: 12px; color: var(--accent); font-weight: 800;">
+            📊 ผลการวิเคราะห์ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D(r) และ E(r) เชิงตัวเลข:
+          </h4>
+          <div id="faraday-output">
+            กำลังโหลดข้อมูลการจำลอง...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: การกระจายของ D ในทรงกลมซ้อน -->
+    <section id="sec4">
+      <h2 class="section-title">4. การกระจายของความหนาแน่นฟลักซ์ D ในแต่ละบริเวณ</h2>
+      <p>
+        เมื่อพิจารณาโครงสร้างทรงกลมตัวนำซ้อน 2 ใบอย่างละเอียดในเชิงวิศวกรรมไฟฟ้า เราสามารถแบ่งย่านการวิเคราะห์สนามออกเป็น 3 บริเวณหลัก:
+      </p>
+
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th>บริเวณ (Region)</th>
+            <th>ช่วงรัศมี</th>
+            <th>สนามความหนาแน่นฟลักซ์ <b>D</b></th>
+            <th>สนามไฟฟ้า <b>E</b></th>
+            <th>เหตุผลทางฟิสิกส์</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. ภายในเนื้อโลหะทรงกลมใน</strong></td>
+            <td><code>r &lt; a</code></td>
+            <td><strong><b>D</b> = 0</strong></td>
+            <td><strong><b>E</b> = 0</strong></td>
+            <td>ภายในเนื้อตัวนำไฟฟ้าสถิตไม่มีประจุสุทธิและไม่มีสนามไฟฟ้า</td>
+          </tr>
+          <tr>
+            <td><strong>2. ผิวด้านนอกของทรงกลมใน</strong></td>
+            <td><code>r = a⁺</code></td>
+            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>a</em>²</span></span> <b>a</b><sub>r</sub> = ρ<sub>sa</sub> <b>a</b><sub>r</sub></strong></td>
+            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>a</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+            <td>ประจุ <code>+Q</code> แผ่กระจายสม่ำเสมอบนผิวนอก <code>ρ<sub>sa</sub> = Q / (4π a²)</code></td>
+          </tr>
+          <tr>
+            <td><strong>3. ช่องว่างไดอิเล็กทริกระหว่างทรงกลม</strong></td>
+            <td><code>a &lt; r &lt; b</code></td>
+            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>r</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+            <td>ฟลักซ์ <code>Ψ = Q</code> แผ่ผ่านพื้นที่ <code>4π r²</code> ในแนวรัศมี</td>
+          </tr>
+          <tr>
+            <td><strong>4. ผิวด้านในของทรงกลมนอก</strong></td>
+            <td><code>r = b⁻</code></td>
+            <td><strong><b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+            <td><strong><b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε <em>b</em>²</span></span> <b>a</b><sub>r</sub></strong></td>
+            <td>ประจุเหนี่ยวนำ <code>-Q</code> กระจายบนผิวด้านใน <code>ρ<sub>sb</sub> = -Q / (4π b²)</code></td>
+          </tr>
+          <tr>
+            <td><strong>5. ภายนอกทรงกลมด้านนอก</strong></td>
+            <td><code>r &gt; b</code></td>
+            <td><strong><b>D</b> = 0</strong></td>
+            <td><strong><b>E</b> = 0</strong></td>
+            <td>ประจุสุทธิรวมภายในผิวปิดเป็นศูนย์ (<code>Q + (-Q) = 0</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ส่วนที่ 5: ความสัมพันธ์ปรุงแต่ง -->
+    <section id="sec5">
+      <h2 class="section-title">5. ความสัมพันธ์ปรุงแต่งระหว่าง D และ E (Constitutive Relation)</h2>
+      <p>
+        เมื่อเปรียบเทียบสมการความเข้มสนามไฟฟ้า <code><b>E</b></code> (จากกฎของคูลอมบ์ในบทที่ 5) กับสมการความหนาแน่นฟลักซ์ไฟฟ้า <code><b>D</b></code>:
+      </p>
+
+      <div class="math-display">
+        <div class="math-equation">
+          <b>E</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε₀ <em>r</em>²</span></span> <b>a</b><sub>r</sub> &nbsp;&nbsp;&nbsp;&nbsp; และ &nbsp;&nbsp;&nbsp;&nbsp; <b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub>
+        </div>
+      </div>
+
+      <p>
+        จะสังเกตเห็นได้ทันทีว่า <strong>สนามความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> ไม่ขึ้นอยู่กับสภาพยอม (Permittivity) ของตัวกลางเลย</strong> แต่ขึ้นอยู่กับปริมาณประจุและเรขาคณิตของพื้นที่เท่านั้น ในขณะที่สนามไฟฟ้า <b>E</b> จะแปรผกผันกับสภาพยอม <code>ε</code> ของตัวกลาง
+      </p>
+
+      <div class="formula-card">
+        <div class="f-title">
+          <span>ความสัมพันธ์ปรุงแต่งในตัวกลางเชิงเส้น สมมาตร และเนื้อเดียว (Constitutive Relations)</span>
+          <button class="copy-btn" data-copy="D = ε E = ε_r ε_0 E">คัดลอกสูตร</button>
+        </div>
+        <div class="math-display">
+          <div class="math-equation">
+            <b>D</b> = ε₀ <b>E</b> &nbsp;&nbsp;&nbsp; (ในอวกาศว่าง / Free Space)
+          </div>
+          <div class="math-equation" style="margin-top: 10px;">
+            <b>D</b> = ε <b>E</b> = ε<sub>r</sub> ε₀ <b>E</b> &nbsp;&nbsp;&nbsp; (ในตัวกลางไดอิเล็กทริกทั่วไป)
+          </div>
+          <div>
+            เมื่อ:<br>
+            • <code>ε₀</code> = สภาพยอมของอวกาศว่าง <code>≈ 8.854 × 10⁻¹² F/m ≈ 10⁻⁹ / (36π) F/m</code><br>
+            • <code>ε<sub>r</sub></code> = สภาพยอมสัมพัทธ์ (Relative Permittivity หรือ Dielectric Constant) เป็นปริมาณไร้มิติ (เช่น อากาศ <code>ε<sub>r</sub> ≈ 1.0</code>, เทฟลอน <code>ε<sub>r</sub> ≈ 2.1</code>, น้ำบริสุทธิ์ <code>ε<sub>r</sub> ≈ 80</code>)<br>
+            • <code>ε = ε<sub>r</sub> ε₀</code> = สภาพยอมสมบูรณ์ของตัวกลาง (Permittivity, หน่วย: <code>F/m</code>)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 6: สนาม D จากการกระจายประจุ -->
+    <section id="sec6">
+      <h2 class="section-title">6. การคำนวณสนาม D จากการกระจายตัวของประจุแบบต่อเนื่อง</h2>
+      <p>
+        เช่นเดียวกับสนามไฟฟ้า <b>E</b> ในบทที่ 5 เมื่อประจุไฟฟ้าไม่ได้รวมเป็นจุดเดียว แต่กระจายตัวอย่างต่อเนื่องในอวกาศ สนามความหนาแน่นฟลักซ์ <b>D</b> ณ จุดสังเกต <code><b>r</b></code> สามารถหาได้จากการอินทิเกรตตามหลักการซ้อนทับ (Superposition):
+      </p>
+
+      <div class="math-display">
+        <strong>1. ประจุแบบจุดหลายตัว (Multiple Point Charges):</strong>
+        <div class="math-equation" style="margin: 8px 0;">
+          <b>D</b>(<b>r</b>) = ∑<sub>i=1</sub><sup>N</sup> <span class="math-frac"><span class="math-num"><em>Q</em><sub>i</sub></span><span class="math-den">4π |<b>r</b> - <b>r</b><sub>i</sub>|²</span></span> <b>a</b><sub>Ri</sub> = ∑<sub>i=1</sub><sup>N</sup> <span class="math-frac"><span class="math-num"><em>Q</em><sub>i</sub> (<b>r</b> - <b>r</b><sub>i</sub>)</span><span class="math-den">4π |<b>r</b> - <b>r</b><sub>i</sub>|³</span></span>
+        </div>
+
+        <strong>2. ประจุเชิงเส้น (Line Charge Distribution, ρ<sub>l</sub> C/m):</strong>
+        <div class="math-equation" style="margin: 8px 0;">
+          <b>D</b>(<b>r</b>) = ∫<sub>L</sub> <span class="math-frac"><span class="math-num">ρ<sub>l</sub>(<b>r</b>') d<em>l</em>'</span><span class="math-den">4π |<b>r</b> - <b>r</b>'|²</span></span> <b>a</b><sub>R</sub> &nbsp;&nbsp; ⇒ สำหรับลวดอนันต์แกน z: &nbsp;&nbsp; <b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2π ρ</span></span> <b>a</b><sub>ρ</sub>
+        </div>
+
+        <strong>3. ประจุเชิงผิว (Surface Charge Distribution, ρ<sub>s</sub> C/m²):</strong>
+        <div class="math-equation" style="margin: 8px 0;">
+          <b>D</b>(<b>r</b>) = ∫<sub>S</sub> <span class="math-frac"><span class="math-num">ρ<sub>s</sub>(<b>r</b>') d<em>s</em>'</span><span class="math-den">4π |<b>r</b> - <b>r</b>'|²</span></span> <b>a</b><sub>R</sub> &nbsp;&nbsp; ⇒ สำหรับแผ่นระนาบอนันต์: &nbsp;&nbsp; <b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2</span></span> <b>a</b><sub>n</sub>
+        </div>
+
+        <strong>4. ประจุเชิงปริมาตร (Volume Charge Distribution, ρ<sub>v</sub> C/m³):</strong>
+        <div class="math-equation" style="margin: 8px 0;">
+          <b>D</b>(<b>r</b>) = ∫<sub>vol</sub> <span class="math-frac"><span class="math-num">ρ<sub>v</sub>(<b>r</b>') d<em>v</em>'</span><span class="math-den">4π |<b>r</b> - <b>r</b>'|²</span></span> <b>a</b><sub>R</sub>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 7: ตัวอย่างโจทย์จากสไลด์อาจารย์ -->
+    <section id="sec7">
+      <h2 class="section-title">7. ตัวอย่างโจทย์ละเอียดจากเอกสารคำสอนอาจารย์ (Lecture Set 6)</h2>
+      
+      <div class="step-container">
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ตัวอย่างหลักประจำชุดสไลด์ Set 6</span>
+          <h4>โจทย์: ทรงกลมโลหะสองใบมีจุดศูนย์กลางร่วมกันที่จุดกำเนิด โดยทรงกลมใบเล็กมีรัศมี a = 2 m และทรงกลมใบใหญ่มีรัศมี b = 5 m ระหว่างทรงกลมทั้งสองเป็นฉนวนไฟฟ้า ถ้าผิวนอกของทรงกลมใบเล็กได้รับประจุบวก Q = 965 nC จงหา:</h4>
+          <p style="margin-top: 6px;">
+            (ก) ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> ในบริเวณระหว่างทรงกลมทั้งสอง (<code>2 &lt; r &lt; 5 m</code>)<br>
+            (ข) ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> บนผิวนอกของทรงกลมใบเล็ก (<code>r = 2⁺ m</code>)<br>
+            (ค) ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> บนผิวด้านในของทรงกลมใบใหญ่ (<code>r = 5⁻ m</code>)<br>
+            (ง) ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> ภายในทรงกลมใบเล็ก (<code>r &lt; 2 m</code>)<br>
+            (จ) ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> ภายนอกทรงกลมใบใหญ่ (<code>r &gt; 5 m</code>)
+          </p>
+          
+          <p style="margin-top: 14px;"><strong>วิธีทำอย่างละเอียดทุกขั้นตอน:</strong></p>
+          <ol style="margin-left: 20px; line-height: 1.9;">
+            <li><strong>เขียนสูตรตั้งต้นทั่วไป (Formula-First):</strong>
+              <div class="math-display">
+                <b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub>
+              </div>
+            </li>
+            <li><strong>(ก) หา D ณ ตำแหน่งใดๆ ระหว่าง 2 &lt; r &lt; 5 m:</strong>
+              <div class="math-display">
+                <b>D</b> = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">7.679 × 10⁻⁸</span><span class="math-den"><em>r</em>²</span></span> <b>a</b><sub>r</sub> C/m² = <strong><span class="math-frac"><span class="math-num">76.79</span><span class="math-den"><em>r</em>²</span></span> <b>a</b><sub>r</sub> nC/m²</strong>
+              </div>
+            </li>
+            <li><strong>(ข) หา D บนผิวนอกทรงกลมใบเล็ก (r = 2 m):</strong>
+              <div class="math-display">
+                <b>D</b>(<em>r</em>=2) = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">4π (2)²</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">16π</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">50.2655</span></span> <b>a</b><sub>r</sub> = <strong>19.20 <b>a</b><sub>r</sub> nC/m²</strong>
+              </div>
+            </li>
+            <li><strong>(ค) หา D บนผิวด้านในทรงกลมใบใหญ่ (r = 5 m):</strong>
+              <div class="math-display">
+                <b>D</b>(<em>r</em>=5) = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">4π (5)²</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">100π</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">965 × 10⁻⁹</span><span class="math-den">314.159</span></span> <b>a</b><sub>r</sub> = <strong>3.072 <b>a</b><sub>r</sub> nC/m²</strong>
+              </div>
+            </li>
+            <li><strong>(ง) หา D ภายในทรงกลมใบเล็ก (r &lt; 2 m):</strong>
+              <div class="math-display">
+                เนื่องจากภายในเนื้อโลหะตัวนำไม่มีประจุไฟฟ้าบรรจุอยู่ ประจุสุทธิเป็นศูนย์ ดังนั้น <strong><b>D</b> = 0 C/m²</strong>
+              </div>
+            </li>
+            <li><strong>(จ) หา D ภายนอกทรงกลมใบใหญ่ (r &gt; 5 m):</strong>
+              <div class="math-display">
+                เนื่องจากประจุบวก <code>+Q</code> บนทรงกลมในเหนี่ยวนำให้เกิดประจุลบ <code>-Q</code> บนทรงกลมนอก ทำให้ประจุสุทธิรวมทั้งหมดภายในเป็น <code>Q + (-Q) = 0</code> ดังนั้น <strong><b>D</b> = 0 C/m²</strong>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 8: แบบฝึกหัด Textbook Drill -->
+    <section id="sec8">
+      <h2 class="section-title">8. ตัวอย่างโจทย์ฝึกทักษะระดับ Textbook (Hayt & Buck Drill Problems)</h2>
+
+      <div class="step-container">
+        <!-- Drill Problem 3.1 -->
+        <div class="step-card">
+          <span class="step-badge">Drill Problem 3.1</span>
+          <h4>กำหนดจุดประจุ Q₁ = 30 nC อยู่ที่จุดกำเนิดในอวกาศว่าง จงหาฟลักซ์ไฟฟ้ารวม Ψ ที่พุ่งผ่านส่วนของผิวทรงกลมสมมติ r = 2 m ในช่วงมุม 0 &lt; θ &lt; π/4 และ 0 &lt; ϕ &lt; π/2</h4>
+          <p><strong>วิธีทำ:</strong></p>
+          <ol style="margin-left: 20px; line-height: 1.85;">
+            <li>เขียนสมการอินทิเกรตฟลักซ์ไฟฟ้าผ่านผิวเปิด:
+              <div class="math-display">
+                Ψ = ∫<sub>S</sub> <b>D</b> • d<b>s</b>
+              </div>
+            </li>
+            <li>สนาม <b>D</b> จากจุดประจุที่จุดกำเนิด และเวกเตอร์พื้นที่ผิวทรงกลม <code>d<b>s</b></code>:
+              <div class="math-display">
+                <b>D</b> = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π <em>r</em>²</span></span> <b>a</b><sub>r</sub> , &nbsp;&nbsp;&nbsp; d<b>s</b> = <em>r</em>² sin θ dθ dϕ <b>a</b><sub>r</sub>
+              </div>
+            </li>
+            <li>ทำ Dot Product <code><b>D</b> • d<b>s</b> = [Q / (4π r²)] (r² sin θ dθ dϕ) = [Q / (4π)] sin θ dθ dϕ</code>:
+              <div class="math-display">
+                Ψ = <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4π</span></span> ∫<sub>ϕ=0</sub><sup>π/2</sup> dϕ ∫<sub>θ=0</sub><sup>π/4</sup> sin θ dθ
+              </div>
+            </li>
+            <li>คำนวณอินทิกรัลทีละตัวแปร:
+              <div class="math-display">
+                ∫<sub>0</sub><sup>π/2</sup> dϕ = <span class="math-frac"><span class="math-num">π</span><span class="math-den">2</span></span><br>
+                ∫<sub>0</sub><sup>π/4</sup> sin θ dθ = [ -cos θ ]<sub>0</sub><sup>π/4</sup> = 1 - cos(π/4) = 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">√2</span></span> ≈ 1 - 0.7071 = 0.2929
+              </div>
+            </li>
+            <li>แทนค่า <code>Q = 30 nC</code>:
+              <div class="math-display">
+                Ψ = <span class="math-frac"><span class="math-num">30 nC</span><span class="math-den">4π</span></span> × <span class="math-frac"><span class="math-num">π</span><span class="math-den">2</span></span> × 0.2929 = <span class="math-frac"><span class="math-num">30</span><span class="math-den">8</span></span> × 0.2929 = 3.75 × 0.2929 = <strong>1.098 nC</strong>
+              </div>
+            </li>
+          </ol>
+          <p><strong>ตอบ:</strong> ฟลักซ์ไฟฟ้าที่พุ่งผ่านพื้นที่ผิวดังกล่าวมีค่าเท่ากับ <code>Ψ = 1.098 nC</code></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 9: แบบทดสอบความเข้าใจ -->
+    <section id="sec9">
+      <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Quiz)</h2>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 1: ความหมายของฟลักซ์ไฟฟ้ารวม Ψ ตามการทดลองของฟาราเดย์</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>ถ้าประจุบวกขนาด <code>Q = +50 μC</code> ถูกล้อมรอบอย่างสมบูรณ์ด้วยผิวปิดสมมติใดๆ ในอวกาศ ฟลักซ์ไฟฟ้ารวม <code>Ψ</code> ที่พุ่งทะลุออกจากผิวปิดนั้นมีค่าเท่าใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">0 μC</div>
+          <div class="quiz-option" data-correct="false">25 μC</div>
+          <div class="quiz-option" data-correct="true">+50 μC</div>
+          <div class="quiz-option" data-correct="false">50 / (4πε₀) μC</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="ตามกฎและนิยามของฟาราเดย์ ฟลักซ์ไฟฟ้ารวม Ψ ที่พุ่งออกจากประจุที่ถูกล้อมรอบจะมีค่าเท่ากับขนาดของประจุสุทธิเสมอ กล่าวคือ <b>Ψ = Q<sub>enc</sub> = +50 μC</b>"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 2: ความสัมพันธ์ปรุงแต่งระหว่าง D และ E ในตัวกลาง</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>ในตัวกลางที่มีค่าสภาพยอมสัมพัทธ์ <code>ε<sub>r</sub> = 5.0</code> ถ้าความเข้มสนามไฟฟ้า ณ จุดหนึ่งมีค่าเป็น <code><b>E</b> = 200 <b>a</b><sub>x</sub> V/m</code> ความหนาแน่นฟลักซ์ไฟฟ้า <code><b>D</b></code> ณ จุดนั้นคือข้อใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">40 ε₀ <b>a</b><sub>x</sub> C/m²</div>
+          <div class="quiz-option" data-correct="false">200 ε₀ <b>a</b><sub>x</sub> C/m²</div>
+          <div class="quiz-option" data-correct="true">1000 ε₀ <b>a</b><sub>x</sub> C/m²</div>
+          <div class="quiz-option" data-correct="false">5000 ε₀ <b>a</b><sub>x</sub> C/m²</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="ความสัมพันธ์ในตัวกลางคือ <b>D</b> = ε <b>E</b> = ε<sub>r</sub> ε₀ <b>E</b> = (5.0)(ε₀)(200 <b>a</b><sub>x</sub>) = <b>1000 ε₀ <b>a</b><sub>x</sub> C/m²</b> (หรือประมาณ 8.854 nC/m²)"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>คำถามที่ 3: หน่วย SI ของความหนาแน่นฟลักซ์ไฟฟ้า D</h4>
+          <span class="quiz-points">5 คะแนน</span>
+        </div>
+        <p>หน่วยมาตรฐานสากล (SI Unit) ของสนามความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> คือหน่วยใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">V/m (โวลต์ต่อเมตร)</div>
+          <div class="quiz-option" data-correct="false">N/C (นิวตันต่อคูลอมบ์)</div>
+          <div class="quiz-option" data-correct="true">C/m² (คูลอมบ์ต่อตารางเมตร)</div>
+          <div class="quiz-option" data-correct="false">F/m (ฟารัดต่อเมตร)</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="ความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> นิยามจากปริมาณฟลักซ์ (คูลอมบ์, C) ต่อหนึ่งหน่วยพื้นที่ตั้งฉาก (ตารางเมตร, m²) จึงมีหน่วย SI เป็น <b>C/m²</b> ในขณะที่ V/m คือหน่วยของ <b>E</b> และ F/m คือหน่วยของ <b>ε</b>"></div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 2px solid var(--rule); flex-wrap: wrap; gap: 16px;">
+      <a href="../05-electric-field-intensity/index.html" class="btn btn-secondary">← บทที่ 5: ความเข้มสนามไฟฟ้า E</a>
+      <a href="../07-gauss-law/index.html" class="btn btn-primary">เรียนบทที่ 7: กฎของเกาส์ (Gauss's Law) →</a>
+    </div>
+
+    <footer class="page-footer">
+      <div>© 2026 ภาควิชาวิศวกรรมไฟฟ้า มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+    </footer>
+  </main>
+</div>
+
+<!-- Core & Engine Scripts -->
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/engines/vector3d-core.js"></script>
+<script src="../assets/js/engines/faraday-sim.js"></script>
+<script src="../assets/js/engines/search-index.js"></script>
+<script src="../assets/js/engines/site-search.js"></script>
+<script>
+  let faradayEngine;
+  window.addEventListener('load', () => {
+    faradayEngine = new FaradaySimEngine('faraday-canvas', 'faraday-output');
+  });
+</script>
+</body>
+</html>

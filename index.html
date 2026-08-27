@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I) · แพลตฟอร์มการเรียนรู้และคลังวิชาการ</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link active">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="index.html" class="mobile-nav-link active">หน้าหลัก Portal</a>
+      <a href="formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์ (ข้อสอบ 2)</a>
+          <a href="05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ Main Portal Container ═══════════ -->
+<div class="portal-container">
+  
+  <div class="course-meta-bar">
+    <div><strong>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</strong></div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <span class="academic-badge badge-primary">303214 สนามแม่เหล็กไฟฟ้า 1</span>
+      <span class="academic-badge">อ้างอิง Hayt & Buck (9th Edition)</span>
+    </div>
+  </div>
+
+  <h1 class="book-title">คลังความรู้และระบบการเรียนรู้วิชาสนามแม่เหล็กไฟฟ้า 1</h1>
+  <div class="subtitle">
+    ระบบรวบรวมเนื้อหาการสอนรายวิชา 303214 (Electromagnetic Fields I) ครอบคลุมทั้งภาคทฤษฎีไฟฟ้าสถิต สนามแม่เหล็กสถิต สนามแม่เหล็กไฟฟ้าแปรตามเวลา สมการแมกซ์เวลล์ พร้อมโปรแกรมจำลองทัศนภาพ 3 มิติเชิงปฏิสัมพันธ์
+  </div>
+
+  <!-- แนะนำภาพรวมรายวิชาเชิงวิศวกรรม (Engineering Course Architecture) -->
+  <div class="academic-callout">
+    <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1.15rem;">คำอธิบายรายวิชาและโครงสร้างความรู้ (Course Architecture)</h3>
+    <p style="font-size: 0.94rem; line-height: 1.85; margin-bottom: 12px;">
+      วิชาสนามแม่เหล็กไฟฟ้า 1 เป็นรากฐานสำคัญที่สุดของวิศวกรรมไฟฟ้า โดยศึกษากฎทางฟิสิกส์และคณิตศาสตร์เวกเตอร์ชั้นสูงที่อธิบายปฏิสัมพันธ์ระหว่างประจุไฟฟ้า กระแสไฟฟ้า แรงดันไฟฟ้า และพลังงานคลื่นแม่เหล็กไฟฟ้า โครงสร้างรายวิชาแบ่งออกเป็น 2 ช่วงการศึกษาหลัก:
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+      <div style="padding: 14px 18px; background: var(--paper); border: 1.5px solid var(--accent); border-radius: var(--radius-sm);">
+        <div style="font-weight: 800; color: var(--accent); margin-bottom: 4px;">1. ส่วนกลางภาค: ไฟฟ้าสถิตและระบบพิกัด 3 มิติ (Sets 1–9)</div>
+        <div style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.65;">
+          ศึกษาการวิเคราะห์เวกเตอร์ 3 ระบบพิกัด, แรงระหว่างประจุของคูลอมบ์, ความเข้มสนามไฟฟ้า <b>E</b>, ฟลักซ์ไฟฟ้า <b>D</b>, กฎของเกาส์, ไดเวอร์เจนซ์ ∇ • <b>D</b> และศักย์ไฟฟ้า <em>V</em>
+        </div>
+      </div>
+
+      <div style="padding: 14px 18px; background: var(--paper); border: 1.5px solid var(--purple); border-radius: var(--radius-sm);">
+        <div style="font-weight: 800; color: var(--purple); margin-bottom: 4px;">2. ส่วนปลายภาค: ตัวนำ แม่เหล็กสถิต และสมการแมกซ์เวลล์ (Sets 10–22)</div>
+        <div style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.65;">
+          ศึกษากระแสและความหนาแน่น <b>J</b>, เงื่อนไขขอบเขต, สมการปัวซง-ลาปลาซ ∇²<em>V</em>, กฎบิโอต์-ซาวารต์, กฎแอมแปร์ ∮ <b>H</b> • d<b>l</b>, เคิร์ล ∇ × <b>H</b>, กระแสแทนที่ <b>J</b><sub>d</sub> และสมการแมกซ์เวลล์
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ส่วนที่ 1: สารบัญเนื้อหากลางภาค (Midterm Curriculum) -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin: 44px 0 16px;">
+    <h2 class="section-title" style="margin: 0; padding: 0; border: none;">1. สารบัญเนื้อหาส่วนกลางภาค (Midterm Syllabus · Sets 01–09)</h2>
+    <span class="academic-badge badge-midterm">น้ำหนัก 45%</span>
+  </div>
+
+  <table class="academic-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ชุดที่</th>
+        <th style="width: 32%;">ชื่อบทเรียน</th>
+        <th style="width: 44%;">ขอบเขตเนื้อหาและหัวข้อสำคัญ</th>
+        <th style="width: 14%; text-align: center;">เข้าสู่บทเรียน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Set 01</strong></td>
+        <td><strong>พีชคณิตเวกเตอร์และระบบพิกัดฉาก</strong></td>
+        <td>ปริมาณสเกลาร์-เวกเตอร์, เวกเตอร์บอกตำแหน่งและระยะทาง, ผลคูณจุด (Dot), ผลคูณไขว้ (Cross), ส่วนย่อยเชิงอนุพันธ์ d<b>l</b>, d<b>s</b>, dv</td>
+        <td style="text-align: center;"><a href="01-vector-algebra/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 02</strong></td>
+        <td><strong>ระบบพิกัดทรงกระบอก</strong></td>
+        <td>ตัวแปร (ρ, ϕ, z), ผิวตัดกัน 3 ผิว, เวกเตอร์ฐาน (<b>a</b><sub>ρ</sub>, <b>a</b><sub>ϕ</sub>, <b>a</b><sub>z</sub>), เมทริกซ์การแปลงเวกเตอร์ [A<sub>rc</sub>], การแปลงสนามเวกเตอร์</td>
+        <td style="text-align: center;"><a href="02-cylindrical-coordinates/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 03</strong></td>
+        <td><strong>ระบบพิกัดทรงกลม</strong></td>
+        <td>ตัวแปร (r, θ, ϕ), ข้อจำกัดของยูนิตเวกเตอร์ <b>a</b><sub>r</sub>, <b>a</b><sub>θ</sub>, <b>a</b><sub>ϕ</sub> และการแปลงเวกเตอร์ <b>A</b> ณ จุด P <em>(เนื้อหาข้อสอบข้อ 1)</em></td>
+        <td style="text-align: center;"><a href="03-spherical-coordinates/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 04</strong></td>
+        <td><strong>กฎของคูลอมบ์และแรงระหว่างประจุ</strong></td>
+        <td>แรงระหว่างจุดประจุ <b>F</b> = k (Q<sub>1</sub>Q<sub>2</sub> / R²) <b>a</b><sub>R</sub>, การรวมแรงเวกเตอร์ <b>F</b><sub>net</sub> และการหาจุดสมดุลแรง <em>(เนื้อหาข้อสอบข้อ 2)</em></td>
+        <td style="text-align: center;"><a href="04-coulombs-law/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 05</strong></td>
+        <td><strong>ความเข้มสนามไฟฟ้า E</strong></td>
+        <td>สนามไฟฟ้าจากประจุจุด เส้น ผิว ปริมาตร และการอินทิเกรตลวดประจุจำกัดด้วยตรีโกณมิติ z = 3 tan ψ <em>(เนื้อหาข้อสอบข้อ 3)</em></td>
+        <td style="text-align: center;"><a href="05-electric-field-intensity/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 06</strong></td>
+        <td><strong>ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</strong></td>
+        <td>การทดลองทรงกลมตัวนำซ้อนของฟาราเดย์, ฟลักซ์รวม Ψ = Q<sub>enc</sub>, ความสัมพันธ์ <b>D</b> = ε₀ <b>E</b> ในอวกาศว่าง</td>
+        <td style="text-align: center;"><a href="06-electric-flux-density/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 07</strong></td>
+        <td><strong>กฎของเกาส์</strong></td>
+        <td>สมการอินทิกรัล ∮ <b>D</b> • d<b>s</b> = Q<sub>enc</sub> และการประยุกต์ผิวเกาส์เซียนสมมาตร 3 รูปแบบ (ทรงกลม, ทรงกระบอก, แผ่นระนาบ)</td>
+        <td style="text-align: center;"><a href="07-gauss-law/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 08</strong></td>
+        <td><strong>ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</strong></td>
+        <td>สมการแมกซ์เวลล์ข้อที่ 1 (∇ • <b>D</b> = ρ<sub>v</sub>), สูตรไดเวอร์เจนซ์ใน 3 ระบบพิกัด และทฤษฎีบทไดเวอร์เจนซ์</td>
+        <td style="text-align: center;"><a href="08-divergence-theorem/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+      <tr>
+        <td><strong>Set 09</strong></td>
+        <td><strong>ศักย์ไฟฟ้าและพลังงาน</strong></td>
+        <td>ความต่างศักย์ V<sub>AB</sub> = -∫ <b>E</b> • d<b>l</b>, เกรเดียนต์ <b>E</b> = -∇V และอุปมาฟิสิกส์เครื่องหมายศักย์ไฟฟ้า <em>(เนื้อหาข้อสอบข้อ 4)</em></td>
+        <td style="text-align: center;"><a href="09-electric-potential/index.html" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.82rem;">ศึกษาบทเรียน</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ส่วนที่ 2: สารบัญเนื้อหาปลายภาค อิงจากไฟล์จริงใน lecture/final (Final Curriculum) -->
+  <section id="sec-final" style="margin-top: 48px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <h2 class="section-title" style="margin: 0; padding: 0; border: none;">2. สารบัญเนื้อหาส่วนปลายภาค (Final Syllabus · Sets 10–22 ตามชุดสไลด์อาจารย์)</h2>
+      <span class="academic-badge badge-final">อยู่ระหว่างการจัดเตรียม</span>
+    </div>
+
+    <table class="academic-table">
+      <thead>
+        <tr>
+          <th style="width: 10%;">ชุดที่</th>
+          <th style="width: 32%;">ชื่อชุดสไลด์บรรยาย (Lecture Set)</th>
+          <th style="width: 44%;">ขอบเขตเนื้อหาและหัวข้อสำคัญ</th>
+          <th style="width: 14%; text-align: center;">สถานะ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Set 10</strong></td>
+          <td><strong>Current and Current Density</strong></td>
+          <td>กระแสไฟฟ้า <em>I</em>, ความหนาแน่นกระแส <b>J</b>, สมการความต่อเนื่องของกระแส ∇ • <b>J</b> = -∂ρ<sub>v</sub>/∂t, สภาพนำไฟฟ้า σ และกฎของโอห์มแบบจุด</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 11</strong></td>
+          <td><strong>Metallic Conductors and Dielectrics</strong></td>
+          <td>สมบัติของตัวนำในสถิตไฟฟ้า, สนามภายในตัวนำ <b>E</b> = 0, วัสดุไดอิเล็กทริก, โพลาไรเซชัน <b>P</b>, สภาพยอมสัมพัทธ์ ε<sub>r</sub></td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 12</strong></td>
+          <td><strong>Boundary Conditions</strong></td>
+          <td>เงื่อนไขขอบเขตระหว่างตัวนำ-ไดอิเล็กทริก (E<sub>t</sub> = 0, D<sub>N</sub> = ρ<sub>s</sub>) และไดอิเล็กทริก-ไดอิเล็กทริก (E<sub>t1</sub> = E<sub>t2</sub>, D<sub>N1</sub> - D<sub>N2</sub> = ρ<sub>s</sub>)</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 13</strong></td>
+          <td><strong>Capacitance and Electrostatic Energy</strong></td>
+          <td>นิยามความจุไฟฟ้า C = Q/V, การคำนวณความจุไฟฟ้าแผ่นขนาน ทรงกระบอก ทรงกลม และพลังงานสะสม W<sub>E</sub> = (1/2) ∫ ε E² dv</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 14</strong></td>
+          <td><strong>Poisson's and Laplace's Equations</strong></td>
+          <td>สมการของปัวซง ∇²V = -ρ<sub>v</sub>/ε, สมการของลาปลาซ ∇²V = 0, ทฤษฎีบทเอกลักษณ์ และการแก้สมการค่าขอบเขต 1 มิติ</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 15</strong></td>
+          <td><strong>The Steady Magnetic Field & Biot-Savart</strong></td>
+          <td>กฎของบิโอต์-ซาวารต์ d<b>H</b> = (I d<b>l</b> × <b>a</b><sub>R</sub>)/(4π R²), สนามแม่เหล็กจากเส้นกระแสตรงอนันต์และวงแหวนกระแส</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 16</strong></td>
+          <td><strong>Ampere's Circuital Law</strong></td>
+          <td>กฎวงรอบของแอมแปร์ ∮ <b>H</b> • d<b>l</b> = I<sub>enc</sub>, การประยุกต์กับเส้นกระแส สายเคเบิลโคแอกเชียล แผ่นกระแส และขดลวดโซเลนอยด์</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 17</strong></td>
+          <td><strong>Curl and Stokes' Theorem</strong></td>
+          <td>ตัวดำเนินการเคิร์ล ∇ × <b>H</b> ใน 3 ระบบพิกัด, ทฤษฎีบทของสโตกส์ ∮ <b>H</b> • d<b>l</b> = ∫ (∇ × <b>H</b>) • d<b>s</b> และสมการแมกซ์เวลล์ ∇ × <b>H</b> = <b>J</b></td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 18</strong></td>
+          <td><strong>Magnetic Flux Density & Gauss for Magnetism</strong></td>
+          <td>ความหนาแน่นฟลักซ์แม่เหล็ก <b>B</b> = μ₀ <b>H</b>, ฟลักซ์แม่เหล็ก Φ = ∫ <b>B</b> • d<b>s</b>, กฎของเกาส์สำหรับแม่เหล็ก ∇ • <b>B</b> = 0 (ไม่มีขั้วแม่เหล็กเดี่ยว)</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 19</strong></td>
+          <td><strong>Maxwell's Equations for Static Fields</strong></td>
+          <td>สรุปสมการแมกซ์เวลล์สำหรับสนามไฟฟ้าและแม่เหล็กสถิตทั้ง 4 ข้อ ทั้งในรูปเชิงอนุพันธ์ (Point form) และรูปอินทิกรัล (Integral form)</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 20</strong></td>
+          <td><strong>Time-Varying Fields & Faraday's Law</strong></td>
+          <td>กฎการเหนี่ยวนำของฟาราเดย์ emf = -dΦ/dt, แรงเคลื่อนไฟฟ้าจากการเคลื่อนที่ (Motional emf) และ ∇ × <b>E</b> = -∂<b>B</b>/∂t</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 21</strong></td>
+          <td><strong>Displacement Current</strong></td>
+          <td>แนวคิดกระแสแทนที่ของแมกซ์เวลล์ <b>J</b><sub>d</sub> = ∂<b>D</b>/∂t, การแก้ไขกฎของแอมแปร์ ∇ × <b>H</b> = <b>J</b> + ∂<b>D</b>/∂t</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+        <tr>
+          <td><strong>Set 22</strong></td>
+          <td><strong>Maxwell's Equations for Time-Harmonic Fields</strong></td>
+          <td>สมการแมกซ์เวลล์ฉบับสมบูรณ์สำหรับสนามฮาร์มอนิกไซน์, เวกเตอร์เฟสเซอร์ และการกำเนิดคลื่นแม่เหล็กไฟฟ้าในระนาบ</td>
+          <td style="text-align: center;"><span class="unit-tag" style="background: var(--paper2); color: var(--ink-muted); border-color: var(--rule);">เตรียมเปิดตัว</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ส่วนศูนย์กลางการเตรียมตัวสอบและเครื่องมือคำนวณ -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 44px 0;">
+    <div class="academic-callout" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <h3 style="color: var(--accent); margin-bottom: 8px; font-size: 1.12rem;">ใบสูตรสำหรับสอบกลางภาค (Formula Sheet)</h3>
+        <p style="font-size: 0.90rem; color: var(--ink-soft);">
+          รวบรวมสูตรอย่างเป็นทางการครบทั้ง 4 หน้า พร้อมระบบค้นหาด่วนและการจัดรูปแบบที่รองรับการพิมพ์ A4
+        </p>
+      </div>
+      <a href="formula-sheet/index.html" class="btn btn-primary" style="margin-top: 16px; justify-content: center;">เปิดใบสูตรกลางภาค</a>
+    </div>
+
+    <div class="academic-callout" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <h3 style="color: var(--accent2); margin-bottom: 8px; font-size: 1.12rem;">ระบบจำลองการสอบกลางภาค 3 ชั่วโมง</h3>
+        <p style="font-size: 0.90rem; color: var(--ink-soft);">
+          ทดลองทำข้อสอบจริง 4 ข้อ 100 คะแนนเต็ม พร้อมตัวจับเวลา และระบบตรวจสอบเกณฑ์การตรวจอย่างเข้มงวด
+        </p>
+      </div>
+      <a href="exam-simulator/index.html" class="btn btn-primary" style="margin-top: 16px; justify-content: center; background: var(--accent2);">เข้าสู่ห้องจำลองการสอบ</a>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+    <div>เพื่อการศึกษาวิศวกรรมแม่เหล็กไฟฟ้าอย่างเท่าเทียม</div>
+  </footer>
+</div>
+
+<!-- JavaScript Modules & Search Engine -->
+<script src="assets/js/common.js"></script>
+<script src="assets/js/engines/search-index.js"></script>
+<script src="assets/js/engines/site-search.js"></script>
+</body>
+</html>

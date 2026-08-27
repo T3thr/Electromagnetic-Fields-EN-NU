@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
+  <title>บทที่ 3: ระบบพิกัดทรงกลม (Spherical Coordinates) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+
+<body>
+
+  <!-- ═══════════ Sticky Top Navbar ═══════════ -->
+  <header class="site-header">
+    <nav class="site-navbar">
+      <a href="../index.html" class="nav-brand">
+        <span class="course-code">303214</span>
+        <span>สนามแม่เหล็กไฟฟ้า 1</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="../index.html" class="nav-link">หน้าหลัก</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+            <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span>
+              พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+            <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span>
+              ระบบพิกัดทรงกระบอก</a>
+            <a href="../03-spherical-coordinates/index.html" class="dropdown-item active"><span class="ch-num">03</span>
+              ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+            <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span>
+              กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+            <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span>
+              ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+            <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span>
+              ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+            <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span>
+              กฎของเกาส์และผิวสมมาตร</a>
+            <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span>
+              ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+            <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span>
+              ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+
+            <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)
+            </div>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+            <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span
+                class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+        </li>
+        <li class="nav-item">
+          <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>ค้นหา</span>
+          <span class="search-kbd-hint">Ctrl K</span>
+        </button>
+        <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+        <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+      </div>
+    </nav>
+
+    <!-- Structured Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-title">เมนูหลัก</div>
+        <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+        <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+        <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+      </div>
+
+      <div class="mobile-nav-group">
+        <div class="mobile-accordion-item open">
+          <div class="mobile-accordion-header">
+            <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="mobile-accordion-content">
+            <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span>
+              พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+            <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span>
+              ระบบพิกัดทรงกระบอก</a>
+            <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link active"><span
+                class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+            <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span>
+              กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+            <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span>
+              ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+            <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span>
+              ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+            <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span>
+              กฎของเกาส์และผิวสมมาตร</a>
+            <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span>
+              ไดเวอร์เจนซ์ ∇ • D</a>
+            <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span>
+              ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
+  <div class="chapter-container">
+
+    <!-- Sticky Table of Contents Sidebar -->
+    <aside class="chapter-sidebar">
+      <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
+      <ul class="sidebar-nav">
+        <li><a href="#sec1" class="sidebar-link active">1. ความสำคัญทางวิศวกรรม</a></li>
+        <li><a href="#sec2" class="sidebar-link">2. อภิธานศัพท์และตัวแปร (r, θ, ϕ)</a></li>
+        <li><a href="#sec3" class="sidebar-link">3. ผิวตัดกัน 3 ผิวและเวกเตอร์ฐาน</a></li>
+        <li><a href="#sec-sim" class="sidebar-link">แบบจำลองพิกัดทรงกลม (CAD)</a></li>
+        <li><a href="#sec4" class="sidebar-link">4. ส่วนย่อยเชิงอนุพันธ์ (dl, ds, dv)</a></li>
+        <li><a href="#sec5" class="sidebar-link">5. การแปลงพิกัดจุด</a></li>
+        <li><a href="#sec6" class="sidebar-link">6. การแปลงเวกเตอร์ & Table 1.2</a></li>
+        <li><a href="#sec7" class="sidebar-link">7. ตัวอย่างโจทย์ Drill Problems</a></li>
+        <li><a href="#sec8" class="sidebar-link">8. เฉลยข้อสอบจริง ข้อที่ 1</a></li>
+        <li><a href="#sec9" class="sidebar-link">9. แบบประเมินความเข้าใจด้วยตนเอง</a></li>
+      </ul>
+
+      <div
+        style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--rule); font-size: 0.82rem; color: var(--ink-muted);">
+        <div>ตำราอ้างอิง:</div>
+        <strong>Hayt & Buck (9th Edition)</strong><br>Section 1.9: Spherical Coordinates
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="chapter-main">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../index.html">หน้าหลัก</a>
+        <span class="sep">/</span>
+        <span>บทที่ 3 ระบบพิกัดทรงกลม</span>
+      </div>
+
+      <!-- Course Meta Line -->
+      <div class="course-meta-bar">
+        <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1</strong> · Lecture Set 3 · Hayt & Buck 9th Ed. (Section 1.9)</div>
+        <span class="academic-badge badge-primary">ข้อสอบข้อ 1 (25 คะแนน)</span>
+      </div>
+
+      <h1 class="book-title">บทที่ 3: ระบบพิกัดทรงกลม</h1>
+      <div class="subtitle">
+        ระบบพิกัด 3 มิติสำหรับโครงสร้างสมมาตรเชิงทรงกลม: ตัวแปร (r, θ, ϕ), ผิวตัดกัน 3 ผิว, เวกเตอร์หนึ่งหน่วยฐาน
+        (<b>a</b><sub>r</sub>, <b>a</b><sub>θ</sub>, <b>a</b><sub>ϕ</sub>), ส่วนย่อยเชิงอนุพันธ์, การแปลงพิกัดจุด,
+        การแปลงสนามเวกเตอร์ด้วยตาราง Table 1.2 และการวิเคราะห์ข้อจำกัดของเวกเตอร์หน่วย
+      </div>
+
+      <!-- สรุปวัตถุประสงค์ -->
+      <div class="academic-callout">
+        <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
+        <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
+          <li>เข้าใจความสำคัญทางวิศวกรรมในการใช้ <strong>ระบบพิกัดทรงกลม (Spherical Coordinates)</strong>
+            ในการแก้ปัญหาที่มีความสมมาตรแบบจุดศูนย์กลาง (เช่น จุดประจุ, การแผ่คลื่นของสายอากาศ,
+            สนามไฟฟ้าในชั้นบรรยากาศรอบโลก)</li>
+          <li>ระบุนิยาม ความหมายเชิงเรขาคณิต และช่วงขอบเขตของพิกัดทั้งสาม ได้แก่ รัศมี <code>r (0 ≤ r < ∞)</code>,
+            มุมโพลาร์ <code>θ (0 ≤ θ ≤ π)</code>, และมุมแอซิมัท <code>ϕ (0 ≤ ϕ < 2π)</code></li>
+          <li>วิเคราะห์ลักษณะเฉพาะของเวกเตอร์หนึ่งหน่วยฐาน <code><strong>a</strong><sub>r</sub></code>,
+            <code><strong>a</strong><sub>θ</sub></code>, <code><strong>a</strong><sub>ϕ</sub></code>
+            และอธิบายได้ว่าเหตุใดทิศทางของเวกเตอร์เหล่านี้จึงเปลี่ยนไปตามตำแหน่งมุม <code>θ</code> และ <code>ϕ</code>
+          </li>
+          <li>คำนวณและประยุกต์ใช้ส่วนย่อยเชิงอนุพันธ์ความยาว <code>d<strong>l</strong></code>, เวกเตอร์พื้นที่ผิว
+            <code>d<strong>s</strong><sub>r</sub> = r² sin θ dθ dϕ <strong>a</strong><sub>r</sub></code>, และปริมาตร
+            <code>dv = r² sin θ dr dθ dϕ</code> ในการอินทิเกรต</li>
+          <li>แปลงพิกัดจุดและแปลงสนามเวกเตอร์ระหว่างระบบพิกัดฉาก พิกัดทรงกระบอก
+            และพิกัดทรงกลมได้อย่างถูกต้องโดยใช้เมทริกซ์การแปลงและตารางผลคูณจุด Table 1.2</li>
+        </ol>
+      </div>
+
+      <!-- ส่วนที่ 1: ที่มาและความสำคัญทางวิศวกรรม -->
+      <section id="sec1">
+        <h2 class="section-title">1. ที่มาและความสำคัญทางวิศวกรรม (Engineering Motivation)</h2>
+        <p>
+          ในวิศวกรรมแม่เหล็กไฟฟ้า ปรากฏการณ์พื้นฐานที่สุดเริ่มจากการแผ่กระจายของสนามจาก "จุดประจุเดี่ยว (Point Charge)"
+          ซึ่งสนามไฟฟ้าจะพุ่งออกจากจุดกำเนิดอย่างสม่ำเสมอในทุกทิศทางแบบสมมาตรเชิงทรงกลม (Spherical Symmetry)
+          ตัวอย่างการประยุกต์ใช้ที่สำคัญ ได้แก่:
+        </p>
+        <ul style="margin-left: 24px; line-height: 1.85; font-size: 0.95rem;">
+          <li><strong>สายอากาศแผ่คลื่นรอบทิศและไดโพล (Antenna Radiation Patterns):</strong>
+            การวิเคราะห์การแพร่กระจายคลื่นวิทยุในระยะไกล (Far-Field Radiation) จะวัดกำลังงานในแนวรัศมี <code>r</code>
+            ที่ฟังก์ชันของมุมกวาด <code>θ</code> และ <code>ϕ</code></li>
+          <li><strong>การสะท้อนของคลื่นเรดาร์ (Radar Cross-Section - RCS):</strong>
+            การจำลองการสะท้อนของคลื่นแม่เหล็กไฟฟ้าจากวัตถุทรงกลมหรือเป้าหมายอากาศยาน</li>
+          <li><strong>แบบจำลองอะตอมและสนามไฟฟ้าเหนี่ยวนำรอบโลก (Geophysical & Plasma Physics):</strong>
+            การวิเคราะห์ประจุไอออนิกและสนามไฟฟ้าในชั้นบรรยากาศไอโอโนสเฟียร์</li>
+        </ul>
+        <p>
+          หากใช้พิกัดฉาก สมการผิวทรงกลมจะเป็น <code>x² + y² + z² = a²</code> ซึ่งยุ่งยากต่อการคำนวณอินทิกรัล
+          แต่ในพิกัดทรงกลม ผิวทรงกลมจะลดรูปเหลือเพียง <strong><code>r = a</code> (ค่าคงตัวค่าเดียว)</strong>
+          ทำให้การอินทิเกรตกฎของเกาส์และฟลักซ์ไฟฟ้าทำได้อย่างรวดเร็วและแม่นยำ
+        </p>
+      </section>
+
+      <!-- ส่วนที่ 2: อภิธานศัพท์และสัญลักษณ์ -->
+      <section id="sec2">
+        <h2 class="section-title">2. อภิธานศัพท์ คำอ่าน สัญลักษณ์ และขอบเขตตัวแปร (Nomenclature & Range)</h2>
+
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>ตัวแปร (Variable)</th>
+              <th>คำอ่านไทย / สากล</th>
+              <th>ความหมายเชิงเรขาคณิต (Geometric Definition)</th>
+              <th>ช่วงขอบเขต (Range)</th>
+              <th>หน่วย (Unit)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>r</strong></td>
+              <td>อาร์ / Radius (Radial Distance)</td>
+              <td>ระยะทางตรงจากจุดกำเนิด (0,0,0) ไปยังจุด P ในอวกาศ 3 มิติ</td>
+              <td><code>0 ≤ r < ∞</code></td>
+              <td><span class="unit-tag">m (เมตร)</span></td>
+            </tr>
+            <tr>
+              <td><strong>θ</strong></td>
+              <td>เธตา / Theta (Colatitude / Polar Angle)</td>
+              <td>มุมโพลาร์ วัดจากแกน +z แนวดิ่งลงมายังเส้นรัศมี (แกนขั้วเหนือลงใต้)</td>
+              <td><code>0 ≤ θ ≤ π</code> (0° ถึง 180°)</td>
+              <td><span class="unit-tag">rad หรือ deg (องศา)</span></td>
+            </tr>
+            <tr>
+              <td><strong>ϕ</strong></td>
+              <td>ฟาย / Phi (Azimuth Angle)</td>
+              <td>มุมแอซิมัท วัดทวนเข็มนาฬิกาจากแกน +x บนระนาบ xy ไปยังเส้นโครงร่างรัศมี</td>
+              <td><code>0 ≤ ϕ < 2π</code> (0° ถึง 360°)</td>
+              <td><span class="unit-tag">rad หรือ deg (องศา)</span></td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>r</sub></td>
+              <td>Unit Vector R</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวรัศมีพุ่งออกจากจุดกำเนิด (ตั้งฉากกับผิว r = const)</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>θ</sub></td>
+              <td>Unit Vector Theta</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวสัมผัสเส้นเมริเดียนในทิศทางที่มุม θ เพิ่มขึ้น (พุ่งลง)</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+            <tr>
+              <td><strong>a</strong><sub>ϕ</sub></td>
+              <td>Unit Vector Phi</td>
+              <td>เวกเตอร์หนึ่งหน่วยชี้ในแนวสัมผัสเส้นละติจูดในทิศทางที่มุม ϕ เพิ่มขึ้น (ทวนเข็ม)</td>
+              <td>ขนาด = 1</td>
+              <td>ไร้หน่วย</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ส่วนที่ 3: ผิวตัดกัน 3 ผิวและเวกเตอร์หนึ่งหน่วย -->
+      <section id="sec3">
+        <h2 class="section-title">3. ผิวตัดกัน 3 ผิวและเวกเตอร์หนึ่งหน่วยฐาน (Orthogonal Surfaces & Unit Vectors)</h2>
+
+        <h3 class="sub-title">3.1 ผิวตัดกัน 3 ผิวที่ตั้งฉากซึ่งกันและกัน (Mutually Perpendicular Surfaces)</h3>
+        <p>
+          ตำแหน่งของจุด <code>P(r₁, θ₁, ϕ₁)</code> เกิดจากการตัดกันของผิว 3 ผิวที่ตั้งฉากกัน ดังนี้:
+        </p>
+        <ol style="margin-left: 24px; line-height: 1.85; font-size: 0.95rem;">
+          <li><strong>ผิวทรงกลมสมบูรณ์ (Concentric Sphere):</strong> <code>r = r₁</code> (ระยะห่างจากจุดกำเนิดคงที่)
+          </li>
+          <li><strong>ผิวกรวยกลมยอดแหลมที่จุดกำเนิด (Circular Cone):</strong> <code>θ = θ₁</code>
+            (กรวยที่มีแกนสมมาตรคือแกน z)</li>
+          <li><strong>ผิวระนาบกึ่ง (Half-Plane):</strong> <code>ϕ = ϕ₁</code> (ระนาบที่ยื่นออกจากแกน z ทำมุม ϕ₁ กับแกน
+            x)</li>
+        </ol>
+
+        <h3 class="sub-title">3.2 กฎมือขวาและความสัมพันธ์ของเวกเตอร์หนึ่งหน่วย</h3>
+        <p>
+          เวกเตอร์หนึ่งหน่วยทั้งสามตัว
+          <code>(<strong>a</strong><sub>r</sub>, <strong>a</strong><sub>θ</sub>, <strong>a</strong><sub>ϕ</sub>)</code>
+          มีความสัมพันธ์ตามระบบมือขวา (Right-Handed Orthogonal System):
+        </p>
+        <div class="math-display">
+          <strong>a</strong><sub>r</sub> × <strong>a</strong><sub>θ</sub> = <strong>a</strong><sub>ϕ</sub>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <strong>a</strong><sub>θ</sub> × <strong>a</strong><sub>ϕ</sub> = <strong>a</strong><sub>r</sub>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <strong>a</strong><sub>ϕ</sub> × <strong>a</strong><sub>r</sub> = <strong>a</strong><sub>θ</sub>
+        </div>
+
+        <div class="callout-warning">
+          <div class="callout-warning-title">ข้อควรระวังสำคัญ (หัวใจของข้อสอบข้อ 1.1):
+            เวกเตอร์หน่วยทั้งสามตัวเปลี่ยนทิศทางตามจุดพิกัด</div>
+          <div>
+            ในพิกัดทรงกลม <strong>เวกเตอร์หนึ่งหน่วยทั้ง <code><strong>a</strong><sub>r</sub></code>,
+              <code><strong>a</strong><sub>θ</sub></code>, และ <code><strong>a</strong><sub>ϕ</sub></code>
+              ล้วนเปลี่ยนทิศทางตามมุม <code>θ</code> และ <code>ϕ</code> ของจุดสังเกต</strong>:
+            <br>• ณ ขั้วเหนือ (θ = 0°): <code><strong>a</strong><sub>r</sub> = <strong>a</strong><sub>z</sub></code>
+            <br>• ณ เส้นศูนย์สูตรบนแกน +x (θ = 90°, ϕ = 0°):
+            <code><strong>a</strong><sub>r</sub> = <strong>a</strong><sub>x</sub></code> และ
+            <code><strong>a</strong><sub>θ</sub> = -<strong>a</strong><sub>z</sub></code>
+            <br>• ณ เส้นศูนย์สูตรบนแกน +y (θ = 90°, ϕ = 90°):
+            <code><strong>a</strong><sub>r</sub> = <strong>a</strong><sub>y</sub></code> และ
+            <code><strong>a</strong><sub>ϕ</sub> = -<strong>a</strong><sub>x</sub></code>
+            <br><strong>ข้อสรุปเชิงวิศวกรรม:</strong>
+            ไม่สามารถนำเวกเตอร์สองตัวที่อยู่ต่างตำแหน่งจุดพิกัดมาบวกหรือลบองค์ประกอบ
+            <code>A<sub>r</sub> + B<sub>r</sub></code> กันโดยตรง ต้องแปลงเป็นพิกัดฉากก่อนเสมอ
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนจำลอง 3D Spherical Workbench Simulator -->
+      <section id="sec-sim">
+        <div class="interactive-workbench">
+          <div class="workbench-header">
+            <div class="workbench-title">
+              <span>โปรแกรมจำลองทัศนภาพพิกัดทรงกลมและเวกเตอร์ฐาน 3 มิติแบบเรียลไทม์</span>
+            </div>
+            <span class="workbench-badge">Engineering 3D Simulator</span>
+          </div>
+
+          <div class="workbench-controls">
+            <div class="coord-card">
+              <div class="coord-card-header">
+                <span class="coord-card-title">
+                  <span class="point-indicator p-point"></span>
+                  <span>รัศมี r (Radius)</span>
+                </span>
+                <span class="unit-tag"><span id="lbl-r">3.0</span> เมตร (m)</span>
+              </div>
+              <input type="range" id="sl-r" min="0.5" max="5.0" step="0.1" value="3.0" style="width: 100%;">
+            </div>
+
+            <div class="coord-card">
+              <div class="coord-card-header">
+                <span class="coord-card-title">
+                  <span class="point-indicator" style="background: var(--green);"></span>
+                  <span>มุมโพลาร์ θ (Theta)</span>
+                </span>
+                <span class="unit-tag"><span id="lbl-theta">45°</span></span>
+              </div>
+              <input type="range" id="sl-theta" min="5" max="175" step="5" value="45" style="width: 100%;">
+            </div>
+
+            <div class="coord-card">
+              <div class="coord-card-header">
+                <span class="coord-card-title">
+                  <span class="point-indicator q-point"></span>
+                  <span>มุมแอซิมัท ϕ (Phi)</span>
+                </span>
+                <span class="unit-tag"><span id="lbl-phi">60°</span></span>
+              </div>
+              <input type="range" id="sl-phi" min="0" max="360" step="5" value="60" style="width: 100%;">
+            </div>
+          </div>
+
+          <div class="viewport-container">
+            <canvas id="sph-canvas" class="viewport-canvas"></canvas>
+
+            <!-- Floating HUD Toolbar -->
+            <div class="hud-toolbar">
+              <div class="hud-btn-group">
+                <button id="hud-zoom-in" class="hud-btn" title="ขยายมุมมอง (Zoom In)">+</button>
+                <button id="hud-zoom-out" class="hud-btn" title="ย่อมุมมอง (Zoom Out)">−</button>
+                <button id="hud-reset" class="hud-btn" title="รีเซ็ตมุมมอง (Reset Camera)">↺</button>
+              </div>
+              <div class="hud-btn-group">
+                <button class="hud-btn active" data-preset-view="iso" title="มุมมอง 3 มิติ (ISO)">3D</button>
+                <button class="hud-btn" data-preset-view="top" title="ระนาบด้านบน (XY)">Top</button>
+                <button class="hud-btn" data-preset-view="side" title="ระนาบด้านข้าง (YZ)">Side</button>
+                <button class="hud-btn" data-preset-view="front" title="ระนาบด้านหน้า (XZ)">Front</button>
+              </div>
+            </div>
+
+            <div class="viewport-overlay-hint">หมุนดูเวกเตอร์ <b>a</b><sub>r</sub> (แดง), <b>a</b><sub>θ</sub> (เขียว),
+              <b>a</b><sub>ϕ</sub> (น้ำเงิน) ณ ตำแหน่งจุด P</div>
+          </div>
+
+          <div class="workbench-breakdown">
+            <div class="breakdown-header">
+              <span>ค่าพิกัดและการแปลงเป็นพิกัดฉากแบบเรียลไทม์ (Live Transformation Breakdown):</span>
+            </div>
+            <div id="sph-output">
+              กำลังคำนวณ...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 4: ส่วนย่อยเชิงอนุพันธ์ -->
+      <section id="sec4">
+        <h2 class="section-title">4. ส่วนย่อยเชิงอนุพันธ์ในพิกัดทรงกลม (Differential Elements)</h2>
+        <p>
+          เมื่อพิกัด <code>r, θ, ϕ</code> เปลี่ยนแปลงไปเป็นปริมาณน้อยๆ <code>dr, dθ, dϕ</code>:
+          <br>• ระยะทางตามแนวรัศมี = <code>dr</code>
+          <br>• ระยะทางตามเส้นเมริเดียน (แนวตั้ง) = <strong><code>r dθ</code></strong>
+          <br>• ระยะทางตามเส้นละติจูด (แนวนอน) = <strong><code>(r sin θ) dϕ</code></strong> (รัศมีวงกลมแนวนอนคูณมุม dϕ)
+        </p>
+
+        <div class="formula-card">
+          <div class="f-title">
+            <span>สูตรส่วนย่อยเชิงอนุพันธ์ในพิกัดทรงกลม (Hayt & Buck Section 1.9.3)</span>
+            <button class="copy-btn"
+              data-copy="dl = dr a_r + r dθ a_θ + r sin θ dϕ a_ϕ, dv = r² sin θ dr dθ dϕ">คัดลอก</button>
+          </div>
+          <div class="math-display">
+            <strong>1. เวกเตอร์ความยาวส่วนย่อย (Differential Length Vector):</strong><br>
+            d<strong>l</strong> = dr <strong>a</strong><sub>r</sub> + r dθ <strong>a</strong><sub>θ</sub> + r sin θ dϕ
+            <strong>a</strong><sub>ϕ</sub><br>
+            |d<strong>l</strong>| = √[ (dr)² + (r dθ)² + (r sin θ dϕ)² ]<br><br>
+            <strong>2. เวกเตอร์พื้นที่ผิวส่วนย่อย (Differential Normal Area Vectors):</strong><br>
+            • ผิวทรงกลม (r = const): d<strong>s</strong><sub>r</sub> = (r dθ)(r sin θ dϕ) <strong>a</strong><sub>r</sub>
+            = <strong>r² sin θ dθ dϕ a</strong><sub>r</sub><br>
+            • ผิวกรวยกลม (θ = const): d<strong>s</strong><sub>θ</sub> = (dr)(r sin θ dϕ) <strong>a</strong><sub>θ</sub>
+            = <strong>r sin θ dr dϕ a</strong><sub>θ</sub><br>
+            • ผิวระนาบกึ่ง (ϕ = const): d<strong>s</strong><sub>ϕ</sub> = (dr)(r dθ) <strong>a</strong><sub>ϕ</sub> =
+            <strong>r dr dθ a</strong><sub>ϕ</sub><br><br>
+            <strong>3. ปริมาตรส่วนย่อย (Differential Volume Element):</strong><br>
+            dv = (dr) (r dθ) (r sin θ dϕ) = <strong>r² sin θ dr dθ dϕ</strong>
+          </div>
+        </div>
+
+        <div class="step-card" style="margin-top: 18px;">
+          <h4>ตัวอย่างการอินทิเกรตหาพื้นที่ผิวและปริมาตรทรงกลมสมบูรณ์:</h4>
+          <div class="math-display">
+            <strong>พื้นที่ผิวทรงกลมรัศมี R:</strong><br>
+            <em>S</em> = ∫<sub>0</sub><sup>2π</sup> dϕ ∫<sub>0</sub><sup>π</sup> R² sin θ dθ = R²
+            [ϕ]<sub>0</sub><sup>2π</sup> [-cos θ]<sub>0</sub><sup>π</sup> = R² (2π) (-(-1) - (-1)) = <strong>4π
+              R²</strong><br><br>
+            <strong>ปริมาตรทรงกลมรัศมี R:</strong><br>
+            <em>V</em> = ∫<sub>0</sub><sup>R</sup> r² dr ∫<sub>0</sub><sup>π</sup> sin θ dθ ∫<sub>0</sub><sup>2π</sup>
+            dϕ = [ <span class="math-frac"><span class="math-num">R³</span><span class="math-den">3</span></span> ] × [
+            2 ] × [ 2π ] = <strong><span class="math-frac"><span class="math-num">4</span><span
+                  class="math-den">3</span></span> π R³</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 5: การแปลงพิกัดจุด -->
+      <section id="sec5">
+        <h2 class="section-title">5. การแปลงพิกัดจุด (Point Transformations)</h2>
+
+        <div class="formula-card">
+          <div class="f-title">
+            <span>สมการแปลงจุดระหว่าง Spherical ↔ Cartesian ↔ Cylindrical</span>
+          </div>
+          <div class="math-display">
+            <div style="margin-bottom: 14px;">
+              <strong>จาก Spherical (r, θ, ϕ) สู่ Cartesian (x, y, z):</strong><br>
+              x = r sin θ cos ϕ<br>
+              y = r sin θ sin ϕ<br>
+              z = r cos θ
+            </div>
+            <div style="margin-bottom: 14px;">
+              <strong>จาก Cartesian (x, y, z) สู่ Spherical (r, θ, ϕ):</strong><br>
+              r = √(x² + y² + z²)<br>
+              θ = arccos<span class="math-frac"><span class="math-num">z</span><span class="math-den">√(x² + y² +
+                  z²)</span></span> = arctan<span class="math-frac"><span class="math-num">√(x² + y²)</span><span
+                  class="math-den">z</span></span><br>
+              ϕ = arctan<span class="math-frac"><span class="math-num">y</span><span class="math-den">x</span></span>
+              &nbsp;&nbsp; (พิจารณาควอดรันต์)
+            </div>
+            <div>
+              <strong>ความสัมพันธ์กับพิกัดทรงกระบอก (Cylindrical):</strong><br>
+              ρ = r sin θ , &nbsp;&nbsp; z = r cos θ , &nbsp;&nbsp; r = √(ρ² + z²) , &nbsp;&nbsp; θ = arctan<span
+                class="math-frac"><span class="math-num">ρ</span><span class="math-den">z</span></span> , &nbsp;&nbsp; ϕ
+              = ϕ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 6: การแปลงองค์ประกอบเวกเตอร์และ Table 1.2 -->
+      <section id="sec6">
+        <h2 class="section-title">6. การแปลงองค์ประกอบเวกเตอร์และตารางผลคูณจุด (Table 1.2)</h2>
+        <p>
+          การแปลงสนามเวกเตอร์
+          <code><strong>A</strong> = A<sub>x</sub> <strong>a</strong><sub>x</sub> + A<sub>y</sub> <strong>a</strong><sub>y</sub> + A<sub>z</sub> <strong>a</strong><sub>z</sub></code>
+          เป็น
+          <code><strong>A</strong> = A<sub>r</sub> <strong>a</strong><sub>r</sub> + A<sub>θ</sub> <strong>a</strong><sub>θ</sub> + A<sub>ϕ</sub> <strong>a</strong><sub>ϕ</sub></code>
+          หาได้จาก Dot Product:
+        </p>
+
+        <h3 class="sub-title">ตารางผลคูณจุดของยูนิตเวกเตอร์ Table 1.2 (Hayt & Buck 9th Ed. หน้า 23):</h3>
+        <table class="academic-table" style="text-align: center;">
+          <thead>
+            <tr>
+              <th>• (Dot Product)</th>
+              <th style="color: var(--red);"><strong>a</strong><sub>r</sub></th>
+              <th style="color: var(--green);"><strong>a</strong><sub>θ</sub></th>
+              <th style="color: var(--accent2);"><strong>a</strong><sub>ϕ</sub></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><strong>a</strong><sub>x</sub> •</strong></td>
+              <td><strong>sin θ cos ϕ</strong></td>
+              <td><strong>cos θ cos ϕ</strong></td>
+              <td><strong>-sin ϕ</strong></td>
+            </tr>
+            <tr>
+              <td><strong><strong>a</strong><sub>y</sub> •</strong></td>
+              <td><strong>sin θ sin ϕ</strong></td>
+              <td><strong>cos θ sin ϕ</strong></td>
+              <td><strong>cos ϕ</strong></td>
+            </tr>
+            <tr>
+              <td><strong><strong>a</strong><sub>z</sub> •</strong></td>
+              <td><strong>cos θ</strong></td>
+              <td><strong>-sin θ</strong></td>
+              <td><strong>0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="formula-card">
+          <div class="f-title">
+            <span>เมทริกซ์การแปลงเวกเตอร์สมบูรณ์ [A<sub>rs</sub>] และ [A<sub>sr</sub>]</span>
+            <button class="copy-btn"
+              data-copy="[A_r, A_θ, A_ϕ]^T = [sin θ cos ϕ, sin θ sin ϕ, cos θ; cos θ cos ϕ, cos θ sin ϕ, -sin θ; -sin ϕ, cos ϕ, 0] [A_x, A_y, A_z]^T">คัดลอกเมทริกซ์</button>
+          </div>
+          <div class="math-display" style="flex-direction: column; align-items: flex-start; gap: 16px;">
+            <div style="font-weight: 700; color: var(--accent);">1. เมทริกซ์แปลงจาก Cartesian สู่ Spherical
+              [A<sub>rs</sub>]:</div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>A<sub>r</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>θ</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>ϕ</sub></td>
+                  </tr>
+                </table>
+              </div>
+              <span style="font-size: 1.2rem;">=</span>
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>sin θ cos ϕ</td>
+                    <td>sin θ sin ϕ</td>
+                    <td>cos θ</td>
+                  </tr>
+                  <tr>
+                    <td>cos θ cos ϕ</td>
+                    <td>cos θ sin ϕ</td>
+                    <td>-sin θ</td>
+                  </tr>
+                  <tr>
+                    <td>-sin ϕ</td>
+                    <td>cos ϕ</td>
+                    <td>0</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>A<sub>x</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>y</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>z</sub></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div style="font-weight: 700; color: var(--green); margin-top: 10px;">2. เมทริกซ์แปลงจาก Spherical สู่
+              Cartesian [A<sub>sr</sub>] (ทรานสโพสของ [A<sub>rs</sub>]):</div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>A<sub>x</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>y</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>z</sub></td>
+                  </tr>
+                </table>
+              </div>
+              <span style="font-size: 1.2rem;">=</span>
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>sin θ cos ϕ</td>
+                    <td>cos θ cos ϕ</td>
+                    <td>-sin ϕ</td>
+                  </tr>
+                  <tr>
+                    <td>sin θ sin ϕ</td>
+                    <td>cos θ sin ϕ</td>
+                    <td>cos ϕ</td>
+                  </tr>
+                  <tr>
+                    <td>cos θ</td>
+                    <td>-sin θ</td>
+                    <td>0</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="math-mat">
+                <table class="math-table">
+                  <tr>
+                    <td>A<sub>r</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>θ</sub></td>
+                  </tr>
+                  <tr>
+                    <td>A<sub>ϕ</sub></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 7: ตัวอย่างโจทย์ Drill Problems -->
+      <section id="sec7">
+        <h2 class="section-title">7. ตัวอย่างโจทย์และแบบฝึกหัดเสริมทักษะ (Worked Examples & Drill Problems)</h2>
+
+        <!-- Drill D1.7 -->
+        <div class="drill-box">
+          <div class="drill-header">
+            <span class="drill-title">แบบฝึกหัด D1.7 (Hayt & Buck 9th Edition, หน้า 23)</span>
+            <span class="academic-badge badge-primary">การแปลงจุดและระยะห่างระหว่างจุดในพิกัดทรงกลม</span>
+          </div>
+          <p><strong>โจทย์:</strong></p>
+          <p>(a) จงหาพิกัดฉากของจุด C(r = 4.4, θ = 115°, ϕ = 20°)</p>
+          <p>(b) จงหาพิกัดทรงกลมของจุด D(x = -3.1, y = 2.6, z = -3)</p>
+          <p>(c) จงหาระยะห่างระหว่างจุด C และจุด D (|<strong>R</strong><sub>CD</sub>|)</p>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>แสดงขั้นตอนการคำนวณอย่างละเอียด (Step-by-Step Solution)</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="step-card">
+                <h4>(a) แปลง C(4.4, 115°, 20°) เป็นพิกัดฉาก:</h4>
+                <div class="math-display">
+                  sin(115°) = 0.9063 , &nbsp; cos(115°) = -0.4226 , &nbsp; sin(20°) = 0.3420 , &nbsp; cos(20°) =
+                  0.9397<br>
+                  x = r sin θ cos ϕ = 4.4 × 0.9063 × 0.9397 = <strong>3.747 ≈ 3.75</strong><br>
+                  y = r sin θ sin ϕ = 4.4 × 0.9063 × 0.3420 = <strong>1.364 ≈ 1.36</strong><br>
+                  z = r cos θ = 4.4 × (-0.4226) = <strong>-1.859 ≈ -1.86</strong><br>
+                  <strong>พิกัดฉากของจุด C คือ C(3.75, 1.36, -1.86)</strong>
+                </div>
+              </div>
+              <div class="step-card">
+                <h4>(b) แปลง D(-3.1, 2.6, -3) เป็นพิกัดทรงกลม:</h4>
+                <div class="math-display">
+                  r = √[ (-3.1)² + (2.6)² + (-3)² ] = √(9.61 + 6.76 + 9.0) = √25.37 = <strong>5.037 ≈ 5.04</strong><br>
+                  θ = arccos<span class="math-frac"><span class="math-num">z</span><span
+                      class="math-den">r</span></span> = arccos<span class="math-frac"><span
+                      class="math-num">-3</span><span class="math-den">5.037</span></span> = arccos(-0.5956) =
+                  <strong>126.56° ≈ 126.6°</strong><br>
+                  เนื่องจาก x = -3.1 &lt; 0, y = 2.6 &gt; 0 (ควอดรันต์ที่ 2):<br>
+                  ϕ = 180° - arctan<span class="math-frac"><span class="math-num">|2.6|</span><span
+                      class="math-den">|-3.1|</span></span> = 180° - 39.99° = <strong>140.01° ≈ 140.0°</strong><br>
+                  <strong>พิกัดทรงกลมของจุด D คือ D(r = 5.04, θ = 126.6°, ϕ = 140.0°)</strong>
+                </div>
+              </div>
+              <div class="step-card">
+                <h4>(c) ระยะห่างระหว่างจุด C และจุด D (|<strong>R</strong><sub>CD</sub>|):</h4>
+                <div class="math-display">
+                  C(3.747, 1.364, -1.859) และ D(-3.1, 2.6, -3)<br>
+                  <strong>R</strong><sub>CD</sub> = (-3.1 - 3.747) <strong>a</strong><sub>x</sub> + (2.6 - 1.364)
+                  <strong>a</strong><sub>y</sub> + (-3 - (-1.859)) <strong>a</strong><sub>z</sub><br>
+                  <strong>R</strong><sub>CD</sub> = -6.847 <strong>a</strong><sub>x</sub> + 1.236
+                  <strong>a</strong><sub>y</sub> - 1.141 <strong>a</strong><sub>z</sub><br>
+                  |<strong>R</strong><sub>CD</sub>| = √[ (-6.847)² + (1.236)² + (-1.141)² ] = √(46.88 + 1.53 + 1.30) =
+                  √49.71 = <strong>7.051 ≈ 7.05 เมตร</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 8: เฉลยข้อสอบจริง ข้อที่ 1 -->
+      <section id="sec8">
+        <h2 class="section-title">8. เฉลยข้อสอบกลางภาคฉบับจริง: ข้อที่ 1 (25 คะแนนเต็ม)</h2>
+
+        <!-- ข้อ 1.1 -->
+        <div class="step-card step-essential">
+          <span class="step-badge must-write">ข้อสอบข้อ 1.1 (10 คะแนน)</span>
+          <h4>คำถาม: จงอธิบายข้อจำกัดของเวกเตอร์หน่วยในระบบพิกัดทรงกลม (<strong>a</strong><sub>r</sub>,
+            <strong>a</strong><sub>θ</sub>, <strong>a</strong><sub>ϕ</sub>)
+            พร้อมวาดภาพประกอบและอธิบายเหตุผลทางฟิสิกส์คณิตศาสตร์</h4>
+
+          <div class="math-display">
+            <strong>แนวคำตอบที่ได้คะแนนเต็ม 10/10:</strong><br><br>
+            <strong>1. สาระสำคัญของข้อจำกัด (Core Limitation):</strong><br>
+            เวกเตอร์หน่วยในระบบพิกัดทรงกลมทั้งสามตัว ได้แก่ <code><strong>a</strong><sub>r</sub></code>,
+            <code><strong>a</strong><sub>θ</sub></code>, และ <code><strong>a</strong><sub>ϕ</sub></code>
+            <strong>ไม่ใช่เวกเตอร์คงที่ (Not Constant Vectors)</strong>
+            โดยทิศทางของเวกเตอร์จะเปลี่ยนแปลงไปตามตำแหน่งของจุดสังเกต <code>P(r, θ, ϕ)</code> ในอวกาศ (แปรผันตามมุม
+            <code>θ</code> และ <code>ϕ</code>)<br><br>
+            <strong>2. การพิสูจน์ทางคณิตศาสตร์จากสมการ Table 1.2:</strong><br>
+            •
+            <code><strong>a</strong><sub>r</sub> = sin θ cos ϕ <strong>a</strong><sub>x</sub> + sin θ sin ϕ <strong>a</strong><sub>y</sub> + cos θ <strong>a</strong><sub>z</sub></code>
+            (ขึ้นอยู่กับทั้ง θ และ ϕ)<br>
+            •
+            <code><strong>a</strong><sub>θ</sub> = cos θ cos ϕ <strong>a</strong><sub>x</sub> + cos θ sin ϕ <strong>a</strong><sub>y</sub> - sin θ <strong>a</strong><sub>z</sub></code>
+            (ขึ้นอยู่กับทั้ง θ และ ϕ)<br>
+            •
+            <code><strong>a</strong><sub>ϕ</sub> = -sin ϕ <strong>a</strong><sub>x</sub> + cos ϕ <strong>a</strong><sub>y</sub> + 0 <strong>a</strong><sub>z</sub></code>
+            (ขึ้นอยู่กับมุม ϕ)<br><br>
+            <strong>3. ข้อสรุปเชิงปฏิบัติการ (Engineering Rule):</strong><br>
+            เมื่อมีเวกเตอร์สองตัว <code><strong>A</strong></code> และ <code><strong>B</strong></code>
+            อยู่ที่คนละตำแหน่งจุด <strong>ห้ามนำองค์ประกอบมาบวกกันโดยตรง
+              (<code>A<sub>r</sub> + B<sub>r</sub> ≠ (<strong>A</strong> + <strong>B</strong>)<sub>r</sub></code>)</strong>
+            เพราะยูนิตเวกเตอร์ <code><strong>a</strong><sub>r</sub></code> ของทั้งสองจุดชี้คนละทิศทาง
+            จำเป็นต้องแปลงเวกเตอร์ทั้งหมดให้เป็นระบบพิกัดฉาก (Cartesian) ก่อนทำการรวมเวกเตอร์เสมอ
+          </div>
+        </div>
+
+        <!-- ข้อ 1.2 -->
+        <div class="step-card step-essential" style="margin-top: 20px;">
+          <span class="step-badge must-write">ข้อสอบข้อ 1.2 (15 คะแนน)</span>
+          <h4>คำถาม: กำหนดสนามเวกเตอร์ <strong>A</strong> = 25 <strong>a</strong><sub>r</sub> - 12
+            <strong>a</strong><sub>θ</sub> + 8 <strong>a</strong><sub>ϕ</sub> ณ จุด P(r = 4, θ = 60°, ϕ = 45°)
+            จงแปลงเวกเตอร์ <strong>A</strong> ให้อยู่ในรูปพิกัดฉาก (Cartesian) และพิกัดทรงกระบอก (Cylindrical)</h4>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>แสดงวิธีทำแบบสมบูรณ์ตามเกณฑ์การให้คะแนน (Rubric Solution)</span>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="math-display">
+                <strong>ขั้นที่ 1: หาค่าฟังก์ชันตรีโกณมิติ ณ จุด P(r = 4, θ = 60°, ϕ = 45°):</strong><br>
+                sin(60°) = √3/2 ≈ 0.8660 , &nbsp; cos(60°) = 1/2 = 0.5000<br>
+                sin(45°) = 1/√2 ≈ 0.7071 , &nbsp; cos(45°) = 1/√2 ≈ 0.7071<br><br>
+
+                <strong>ขั้นที่ 2: ใช้เมทริกซ์การแปลง [A<sub>sr</sub>] เพื่อหาพิกัดฉาก:</strong><br>
+                • A<sub>x</sub> = A<sub>r</sub> (sin θ cos ϕ) + A<sub>θ</sub> (cos θ cos ϕ) + A<sub>ϕ</sub> (-sin ϕ)<br>
+                &nbsp;&nbsp;A<sub>x</sub> = 25 (0.8660 × 0.7071) + (-12) (0.5000 × 0.7071) + 8 (-0.7071)<br>
+                &nbsp;&nbsp;A<sub>x</sub> = 25 (0.6124) - 12 (0.3536) - 8 (0.7071) = 15.309 - 4.243 - 5.657 =
+                <strong>5.409</strong><br><br>
+
+                • A<sub>y</sub> = A<sub>r</sub> (sin θ sin ϕ) + A<sub>θ</sub> (cos θ sin ϕ) + A<sub>ϕ</sub> (cos ϕ)<br>
+                &nbsp;&nbsp;A<sub>y</sub> = 25 (0.8660 × 0.7071) + (-12) (0.5000 × 0.7071) + 8 (0.7071)<br>
+                &nbsp;&nbsp;A<sub>y</sub> = 15.309 - 4.243 + 5.657 = <strong>16.723</strong><br><br>
+
+                • A<sub>z</sub> = A<sub>r</sub> (cos θ) + A<sub>θ</sub> (-sin θ) + A<sub>ϕ</sub> (0)<br>
+                &nbsp;&nbsp;A<sub>z</sub> = 25 (0.5000) + (-12) (-0.8660) + 0 = 12.500 + 10.392 =
+                <strong>22.892</strong><br><br>
+
+                <strong>เวกเตอร์ในพิกัดฉาก: <strong>A</strong> = 5.41 <strong>a</strong><sub>x</sub> + 16.72
+                  <strong>a</strong><sub>y</sub> + 22.89 <strong>a</strong><sub>z</sub></strong><br><br>
+
+                <strong>ขั้นที่ 3: แปลงเป็นพิกัดทรงกระบอก (Cylindrical):</strong><br>
+                ความสัมพันธ์ระหว่าง Spherical ↔ Cylindrical:<br>
+                • A<sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ = 25 (0.8660) + (-12)(0.5000) = 21.651 -
+                6.000 = <strong>15.651</strong><br>
+                • A<sub>ϕ</sub> = <strong>8.000</strong> (มุม ϕ เท่ากันในทั้งสองระบบ)<br>
+                • A<sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ = 25 (0.5000) - (-12)(0.8660) = 12.500 +
+                10.392 = <strong>22.892</strong><br><br>
+                <strong>เวกเตอร์ในพิกัดทรงกระบอก: <strong>A</strong> = 15.65 <strong>a</strong><sub>ρ</sub> + 8.00
+                  <strong>a</strong><sub>ϕ</sub> + 22.89 <strong>a</strong><sub>z</sub></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ส่วนที่ 9: แบบทดสอบความเข้าใจสมองประลองปัญญา -->
+      <section id="sec9">
+        <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Test)</h2>
+
+        <div class="quiz-card">
+          <div class="quiz-header">
+            <h4>ข้อที่ 1: เวกเตอร์พื้นที่ส่วนย่อยของผิวทรงกลม</h4>
+            <span class="quiz-points">ประเมินความเข้าใจ</span>
+          </div>
+          <p>ในการอินทิเกรตหากฎของเกาส์รอบผิวทรงกลมสมบูรณ์รัศมี <em>r = R</em> เวกเตอร์พื้นที่ผิวส่วนย่อย
+            d<strong>s</strong><sub>r</sub> ที่ถูกต้องคือข้อใด?</p>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="false">d<strong>s</strong><sub>r</sub> = <em>R</em> dθ dϕ
+              <strong>a</strong><sub>r</sub></div>
+            <div class="quiz-option" data-correct="true">d<strong>s</strong><sub>r</sub> = <em>R</em><sup>2</sup> sin θ
+              dθ dϕ <strong>a</strong><sub>r</sub></div>
+            <div class="quiz-option" data-correct="false">d<strong>s</strong><sub>r</sub> = <em>R</em><sup>2</sup> cos θ
+              dθ dϕ <strong>a</strong><sub>r</sub></div>
+            <div class="quiz-option" data-correct="false">dv = <em>R</em><sup>2</sup> sin θ dr dθ dϕ</div>
+          </div>
+          <div class="quiz-feedback"
+            data-explanation="บนผิวทรงกลม <em>r = R</em> (คงตัว) ด้านทั้งสองคือส่วนโค้งเมริเดียน (<em>R</em> dθ) และส่วนโค้งละติจูด (<em>R</em> sin θ dϕ) คูณกันได้ <em>R</em><sup>2</sup> sin θ dθ dϕ ในแนวรัศมีพุ่งออก <strong>a</strong><sub>r</sub>">
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-header">
+            <h4>ข้อที่ 2: ทิศทางของยูนิตเวกเตอร์ a<sub>r</sub> ที่จุดขั้วเหนือ</h4>
+            <span class="quiz-points">ประเมินความเข้าใจ</span>
+          </div>
+          <p>ณ จุดบนแกน +z (θ = 0°) เวกเตอร์หนึ่งหน่วย <strong>a</strong><sub>r</sub>
+            มีทิศทางเทียบเท่ากับเวกเตอร์ใดในระบบพิกัดฉาก?</p>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="true"><strong>a</strong><sub>z</sub></div>
+            <div class="quiz-option" data-correct="false"><strong>a</strong><sub>x</sub></div>
+            <div class="quiz-option" data-correct="false"><strong>a</strong><sub>y</sub></div>
+            <div class="quiz-option" data-correct="false"><strong>a</strong><sub>θ</sub></div>
+          </div>
+          <div class="quiz-feedback"
+            data-explanation="เมื่อ θ = 0° เวกเตอร์ <strong>a</strong><sub>r</sub> = sin(0°) cos ϕ <strong>a</strong><sub>x</sub> + sin(0°) sin ϕ <strong>a</strong><sub>y</sub> + cos(0°) <strong>a</strong><sub>z</sub> = 0 + 0 + 1 <strong>a</strong><sub>z</sub> = <strong>a</strong><sub>z</sub> ชี้ขึ้นตรงตามแกน +z">
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-header">
+            <h4>ข้อที่ 3: ความสัมพันธ์ระหว่างองค์ประกอบ A<sub>z</sub> และพิกัดทรงกลม</h4>
+            <span class="quiz-points">ประเมินความเข้าใจ</span>
+          </div>
+          <p>องค์ประกอบ <em>A</em><sub>z</sub> ในพิกัดฉาก สัมพันธ์กับองค์ประกอบในพิกัดทรงกลมตามสมการใด?</p>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="false"><em>A</em><sub>z</sub> = <em>A</em><sub>r</sub> sin θ +
+              <em>A</em><sub>θ</sub> cos θ</div>
+            <div class="quiz-option" data-correct="true"><em>A</em><sub>z</sub> = <em>A</em><sub>r</sub> cos θ -
+              <em>A</em><sub>θ</sub> sin θ</div>
+            <div class="quiz-option" data-correct="false"><em>A</em><sub>z</sub> = <em>A</em><sub>r</sub> cos ϕ -
+              <em>A</em><sub>ϕ</sub> sin ϕ</div>
+            <div class="quiz-option" data-correct="false"><em>A</em><sub>z</sub> = <em>A</em><sub>ϕ</sub></div>
+          </div>
+          <div class="quiz-feedback"
+            data-explanation="จาก Table 1.2: <strong>a</strong><sub>z</sub> • <strong>a</strong><sub>r</sub> = cos θ, <strong>a</strong><sub>z</sub> • <strong>a</strong><sub>θ</sub> = -sin θ, <strong>a</strong><sub>z</sub> • <strong>a</strong><sub>ϕ</sub> = 0 ดังนั้น <em>A</em><sub>z</sub> = <strong>A</strong> • <strong>a</strong><sub>z</sub> = <em>A</em><sub>r</sub> cos θ - <em>A</em><sub>θ</sub> sin θ">
+          </div>
+        </div>
+      </section>
+
+      <!-- แถบนำทางไปบทถัดไป -->
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1.5px solid var(--rule);">
+        <a href="../02-cylindrical-coordinates/index.html" class="btn btn-secondary">← บทที่ 2: พิกัดทรงกระบอก</a>
+        <a href="../04-coulombs-law/index.html" class="btn btn-primary">ศึกษาต่อ บทที่ 4: กฎของคูลอมบ์และแรงระหว่างประจุ
+          (ข้อสอบข้อ 2) →</a>
+      </div>
+
+      <footer class="page-footer">
+        <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+        <div>เพื่อการศึกษาวิศวกรรมแม่เหล็กไฟฟ้าอย่างเท่าเทียม</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JavaScript Core & Engines -->
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/engines/vector3d-core.js"></script>
+  <script src="../assets/js/engines/spherical-sim.js"></script>
+  <script src="../assets/js/engines/search-index.js"></script>
+  <script src="../assets/js/engines/site-search.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      new SphericalSimEngine('sph-canvas', 'sph-output');
+    });
+  </script>
+</body>
+
+</html>

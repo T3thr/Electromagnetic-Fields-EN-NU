@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>บทที่ 5: ความเข้มสนามไฟฟ้า E (Electric Field Intensity) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactive.css">
+</head>
+<body>
+
+<!-- ═══════════ Sticky Top Navbar ═══════════ -->
+<header class="site-header">
+  <nav class="site-navbar">
+    <a href="../index.html" class="nav-brand">
+      <span class="course-code">303214</span>
+      <span>สนามแม่เหล็กไฟฟ้า 1</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="../index.html" class="nav-link">หน้าหลัก</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
+          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="dropdown-item active"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
+          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
+          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
+          
+          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
+          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
+      </li>
+      <li class="nav-item">
+        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>ค้นหา</span>
+        <span class="search-kbd-hint">Ctrl K</span>
+      </button>
+      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
+      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Structured Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">เมนูหลัก</div>
+      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
+      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
+      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
+    </div>
+
+    <div class="mobile-nav-group">
+      <div class="mobile-accordion-item open">
+        <div class="mobile-accordion-header">
+          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="mobile-accordion-content">
+          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
+          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
+          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
+          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
+          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link active"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
+          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
+          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
+          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
+          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
+<div class="chapter-container">
+  
+  <!-- Sticky Table of Contents Sidebar -->
+  <aside class="chapter-sidebar">
+    <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
+    <ul class="sidebar-nav">
+      <li><a href="#sec1" class="sidebar-link active">1. นิยามความเข้มสนามไฟฟ้า</a></li>
+      <li><a href="#sec2" class="sidebar-link">2. สนามไฟฟ้าจากกลุ่มจุดประจุ</a></li>
+      <li><a href="#sec3" class="sidebar-link">3. การกระจายตัวของประจุต่อเนื่อง</a></li>
+      <li><a href="#sec-sim" class="sidebar-link">แบบจำลองลวดประจุ (CAD)</a></li>
+      <li><a href="#sec4" class="sidebar-link">4. การพิสูจน์ลวดประจุจำกัด</a></li>
+      <li><a href="#sec5" class="sidebar-link">5. โครงสร้างประจุอนันต์</a></li>
+      <li><a href="#sec6" class="sidebar-link">6. วงแหวนและแผ่นจานประจุ</a></li>
+      <li><a href="#sec7" class="sidebar-link">7. ตัวอย่างโจทย์ Drill Problems</a></li>
+      <li><a href="#sec8" class="sidebar-link">8. เฉลยข้อสอบจริง ข้อที่ 3</a></li>
+      <li><a href="#sec9" class="sidebar-link">9. แบบประเมินความเข้าใจด้วยตนเอง</a></li>
+    </ul>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--rule); font-size: 0.82rem; color: var(--ink-muted);">
+      <div>ตำราอ้างอิง:</div>
+      <strong>Hayt & Buck (9th Edition)</strong><br>Section 2.2–2.5: Electric Field
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="chapter-main">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าหลัก</a>
+      <span class="sep">/</span>
+      <span>บทที่ 5 ความเข้มสนามไฟฟ้า E</span>
+    </div>
+
+    <!-- Course Meta Line -->
+    <div class="course-meta-bar">
+      <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1</strong> · Lecture Set 5 · Hayt & Buck 9th Ed. (Section 2.2–2.5)</div>
+      <span class="academic-badge badge-primary">ข้อสอบข้อ 3 (30 คะแนนเต็ม)</span>
+    </div>
+
+    <h1 class="book-title">บทที่ 5: ความเข้มสนามไฟฟ้า (Electric Field Intensity)</h1>
+    <div class="subtitle">
+      นิยามสนามไฟฟ้า <b>E</b>, การกระจายตัวของประจุต่อเนื่อง (ρ<sub>l</sub>, ρ<sub>s</sub>, ρ<sub>v</sub>), การอินทิเกรตสนามไฟฟ้าจากเส้นลวดประจุจำกัดด้วยการแทนค่าตรีโกณมิติละเอียดทุกขั้นตอน, สนามไฟฟ้าจากโครงสร้างอนันต์ และเฉลยข้อสอบกลางภาคจริง ข้อที่ 3
+    </div>
+
+    <!-- สรุปวัตถุประสงค์ -->
+    <div class="academic-callout">
+      <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
+      <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
+        <li>เข้าใจนิยามทางกายภาพของ <strong>ความเข้มสนามไฟฟ้า (Electric Field Intensity E)</strong> ในฐานะแรงต่อหนึ่งหน่วยประจุทดสอบ (<code><strong>E</strong> = <strong>F</strong> / <em>q</em><sub>t</sub></code>) และความหมายของหน่วย <code>V/m</code> และ <code>N/C</code></li>
+        <li>คำนวณสนามไฟฟ้าจากกลุ่มจุดประจุหลายตัวด้วยหลักการซ้อนทับ (Superposition)</li>
+        <li>จำแนกและเขียนสมการดิฟเฟอเรนเชียลของประจุกระจายตัวแบบต่อเนื่อง 3 ชนิด: ความหนาแน่นเชิงเส้น <code>ρ<sub>l</sub></code> (C/m), เชิงผิว <code>ρ<sub>s</sub></code> (C/m²), และเชิงปริมาตร <code>ρ<sub>v</sub></code> (C/m³)</li>
+        <li><strong>พิสูจน์และคำนวณอินทิกรัลสนามไฟฟ้าจากเส้นลวดประจุจำกัดบนแกน z ได้อย่างสมบูรณ์</strong> ด้วยการแทนค่าตรีโกณมิติ <code>z' = h tan ψ</code> โดยแสดงขั้นตอนละเอียดไม่ข้ามบรรทัดตามเกณฑ์ข้อสอบข้อ 3 (30 คะแนน)</li>
+        <li>ประยุกต์ใช้สูตรสำเร็จของสนามไฟฟ้าจากเส้นลวดยาวอนันต์ (<code><strong>E</strong> = [ρ<sub>l</sub>/(2πε₀ρ)] <strong>a</strong><sub>ρ</sub></code>) และแผ่นประจุระนาบอนันต์ (<code><strong>E</strong> = [ρ<sub>s</sub>/(2ε₀)] <strong>a</strong><sub>n</sub></code>)</li>
+      </ol>
+    </div>
+
+    <!-- ส่วนที่ 1: นิยามความเข้มสนามไฟฟ้า -->
+    <section id="sec1">
+      <h2 class="section-title">1. นิยามความเข้มสนามไฟฟ้า (Electric Field Intensity Definition & Physical Concept)</h2>
+      <p>
+        หากเรามีประจุไฟฟ้า <code>Q</code> วางอยู่ ณ ตำแหน่งหนึ่งในอวกาศ ประจุนี้จะสร้างสภาวะการเปลี่ยนแปลงรอบตัวที่เรียกว่า <strong>สนามไฟฟ้า (Electric Field)</strong> เมื่อเรานำประจุทดสอบบวกขนาดเล็กยิ่งยวด <code><em>q</em><sub>t</sub></code> เข้ามา ณ จุดสังเกต <code>P</code> ประจุทดสอบจะถูกกระทำด้วยแรงไฟฟ้าสถิต <code><strong>F</strong></code>
+      </p>
+      
+      <div class="formula-card">
+        <div class="f-title">
+          <span>นิยามทางคณิตศาสตร์ของความเข้มสนามไฟฟ้า (Electric Field Intensity)</span>
+          <button class="copy-btn" data-copy="E = lim_{q_t -> 0} (F / q_t) = (Q / (4πε_0 |R|²)) a_R = (Q / (4πε_0 |R|³)) R">คัดลอกสูตร</button>
+        </div>
+        <div class="math-display">
+          <div class="math-equation" style="margin: 10px 0;">
+            <strong>E</strong> = lim<sub><em>q</em><sub>t</sub> → 0</sub> <span class="math-frac"><span class="math-num"><strong>F</strong></span><span class="math-den"><em>q</em><sub>t</sub></span></span> = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4πε₀ R²</span></span> <strong>a</strong><sub>R</sub> = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4πε₀ |<strong>R</strong>|³</span></span> <strong>R</strong> &nbsp;&nbsp; (หน่วย: <strong>V/m</strong> หรือ N/C)
+          </div>
+          <div>
+            <strong>ข้อสังเกตสำคัญ:</strong><br>
+            • ประจุทดสอบ <code><em>q</em><sub>t</sub></code> ต้องมีขนาดเล็กยิ่งยวดเข้าใกล้ศูนย์ เพื่อไม่ให้สนามของตัวมันเองไปรบกวนการกระจายตัวของประจุต้นกำเนิด <code>Q</code><br>
+            • ทิศทางของ <code><strong>E</strong></code> จะพุ่งออกจากประจุบวก (+Q) และพุ่งเข้าหาประจุลบ (-Q) เสมอ<br>
+            • หน่วยของสนามไฟฟ้าคือ <strong>โวลต์ต่อเมตร (V/m)</strong> ซึ่งมีค่าเทียบเท่ากับ นิวตันต่อคูลอมบ์ (N/C)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 2: สนามไฟฟ้าจากกลุ่มจุดประจุ -->
+    <section id="sec2">
+      <h2 class="section-title">2. สนามไฟฟ้าจากกลุ่มจุดประจุและหลักการซ้อนทับ (Point Charges & Superposition)</h2>
+      <p>
+        สำหรับกลุ่มจุดประจุ <code>Q₁, Q₂, ..., Q<sub>N</sub></code> ที่ตำแหน่ง <code><strong>r</strong>₁, <strong>r</strong>₂, ..., <strong>r</strong><sub>N</sub></code> สนามไฟฟ้ารวมที่จุดสังเกต <code><strong>r</strong></code> หาได้จากการรวมแบบเวกเตอร์:
+      </p>
+      <div class="math-display">
+        <strong>E</strong>(<strong>r</strong>) = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ∑<sub>i=1</sub><sup>N</sup> <span class="math-frac"><span class="math-num">Q<sub>i</sub></span><span class="math-den">|<strong>r</strong> - <strong>r</strong><sub>i</sub>|³</span></span> (<strong>r</strong> - <strong>r</strong><sub>i</sub>)
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 3: การกระจายตัวของประจุแบบต่อเนื่อง -->
+    <section id="sec3">
+      <h2 class="section-title">3. การกระจายตัวของประจุแบบต่อเนื่อง (Continuous Charge Distributions)</h2>
+      <p>
+        ในทางวิศวกรรมจริง ประจุไฟฟ้ามักกระจายตัวอย่างต่อเนื่องบนวัตถุรูปทรงต่างๆ ซึ่งแบ่งออกเป็น 3 ชนิดหลัก:
+      </p>
+
+      <table class="academic-table">
+        <thead>
+          <tr>
+            <th>ชนิดการกระจายตัว</th>
+            <th>สัญลักษณ์ความหนาแน่น</th>
+            <th>นิยามดิฟเฟอเรนเชียลประจุ (dQ)</th>
+            <th>หน่วย SI</th>
+            <th>สูตรอินทิกรัลสนามไฟฟ้า E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ประจุเชิงเส้น (Line Charge)</strong></td>
+            <td><strong>ρ<sub>l</sub></strong> (Linear Charge Density)</td>
+            <td><code>dQ = ρ<sub>l</sub> dl'</code></td>
+            <td><span class="unit-tag">C/m</span></td>
+            <td><code><strong>E</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ∫<sub>L</sub> <span class="math-frac"><span class="math-num">ρ<sub>l</sub> dl'</span><span class="math-den">R²</span></span> <strong>a</strong><sub>R</sub></code></td>
+          </tr>
+          <tr>
+            <td><strong>ประจุเชิงผิว (Surface Charge)</strong></td>
+            <td><strong>ρ<sub>s</sub></strong> (Surface Charge Density)</td>
+            <td><code>dQ = ρ<sub>s</sub> ds'</code></td>
+            <td><span class="unit-tag">C/m²</span></td>
+            <td><code><strong>E</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ∬<sub>S</sub> <span class="math-frac"><span class="math-num">ρ<sub>s</sub> ds'</span><span class="math-den">R²</span></span> <strong>a</strong><sub>R</sub></code></td>
+          </tr>
+          <tr>
+            <td><strong>ประจุเชิงปริมาตร (Volume Charge)</strong></td>
+            <td><strong>ρ<sub>v</sub></strong> (Volume Charge Density)</td>
+            <td><code>dQ = ρ<sub>v</sub> dv'</code></td>
+            <td><span class="unit-tag">C/m³</span></td>
+            <td><code><strong>E</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ∭<sub>v</sub> <span class="math-frac"><span class="math-num">ρ<sub>v</sub> dv'</span><span class="math-den">R²</span></span> <strong>a</strong><sub>R</sub></code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ส่วนจำลอง Interactive Line Charge Simulator -->
+    <section id="sec-sim">
+      <div class="interactive-workbench">
+        <div class="workbench-header">
+          <div class="workbench-title">
+            <span>โปรแกรมจำลองสนามไฟฟ้าจากเส้นลวดประจุจำกัดบนแกน z (Line Charge Simulator)</span>
+          </div>
+          <span class="workbench-badge">Engineering 3D Simulator</span>
+        </div>
+
+        <div class="workbench-presets-bar">
+          <span class="workbench-presets-label">พรีเซ็ตโจทย์สำคัญ:</span>
+          <button class="btn-preset active" data-efield-preset="exam3">ข้อสอบจริง ข้อ 3 (z: 0 ถึง 4, P(0,3,0))</button>
+          <button class="btn-preset" data-efield-preset="symmetric">เส้นลวดสมมาตร (-3 ถึง +3, P(0,4,0))</button>
+          <button class="btn-preset" data-efield-preset="infinite-approx">จำลองลวดยาวอนันต์ (-8 ถึง +8)</button>
+        </div>
+
+        <div class="workbench-controls">
+          <!-- Card 1: Line Bounds -->
+          <div class="coord-card">
+            <div class="coord-card-header">
+              <span class="coord-card-title">
+                <span class="point-indicator" style="background: var(--accent2);"></span>
+                <span>ขอบเขตเส้นลวดบนแกน z</span>
+              </span>
+              <span class="unit-tag">เมตร (m)</span>
+            </div>
+            <div class="coord-inputs-row grid-2-cols">
+              <div class="input-axis-group">
+                <label class="input-axis-label">ขอบเขตล่าง z₁:</label>
+                <input type="number" id="z1" value="0.0" step="0.5" class="coord-number-input">
+              </div>
+              <div class="input-axis-group">
+                <label class="input-axis-label">ขอบเขตบน z₂:</label>
+                <input type="number" id="z2" value="4.0" step="0.5" class="coord-number-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Point P -->
+          <div class="coord-card">
+            <div class="coord-card-header">
+              <span class="coord-card-title">
+                <span class="point-indicator p-point"></span>
+                <span>จุดสังเกต P(0, y<sub>P</sub>, 0)</span>
+              </span>
+              <span class="unit-tag">เมตร (m)</span>
+            </div>
+            <div class="input-axis-group">
+              <label class="input-axis-label">ระยะตั้งฉาก y<sub>P</sub> (m):</label>
+              <input type="number" id="yp" value="3.0" step="0.5" class="coord-number-input" style="text-align: left; padding: 7px 10px;">
+            </div>
+          </div>
+
+          <!-- Card 3: Charge Density -->
+          <div class="coord-card">
+            <div class="coord-card-header">
+              <span class="coord-card-title">
+                <span class="point-indicator" style="background: var(--purple);"></span>
+                <span>ความหนาแน่นประจุเชิงเส้น</span>
+              </span>
+              <span class="unit-tag">C/m</span>
+            </div>
+            <div class="input-axis-group">
+              <label class="input-axis-label">ความหนาแน่น ρ<sub>l</sub> (C/m):</label>
+              <input type="number" id="rho-l" value="1.0" step="0.5" class="coord-number-input" style="text-align: left; padding: 7px 10px;">
+            </div>
+          </div>
+        </div>
+
+        <div class="viewport-container">
+          <canvas id="line-charge-canvas" class="viewport-canvas"></canvas>
+
+          <!-- Floating HUD Toolbar -->
+          <div class="hud-toolbar">
+            <div class="hud-btn-group">
+              <button id="hud-zoom-in" class="hud-btn" title="ขยายมุมมอง (Zoom In)">+</button>
+              <button id="hud-zoom-out" class="hud-btn" title="ย่อมุมมอง (Zoom Out)">−</button>
+              <button id="hud-reset" class="hud-btn" title="รีเซ็ตมุมมอง (Reset Camera)">↺</button>
+            </div>
+            <div class="hud-btn-group">
+              <button class="hud-btn active" data-preset-view="iso" title="มุมมอง 3 มิติ (ISO)">3D</button>
+              <button class="hud-btn" data-preset-view="top" title="ระนาบด้านบน (XY)">Top</button>
+              <button class="hud-btn" data-preset-view="side" title="ระนาบด้านข้าง (YZ)">Side</button>
+              <button class="hud-btn" data-preset-view="front" title="ระนาบด้านหน้า (XZ)">Front</button>
+            </div>
+          </div>
+
+          <div class="viewport-overlay-hint">หมุนดูเส้นลวดประจุ (ส้มแดงบนแกน z) และเวกเตอร์สนามไฟฟ้า E (ม่วง) ที่จุด P</div>
+        </div>
+
+        <div class="workbench-breakdown">
+          <div class="breakdown-header">
+            <span>ผลการวิเคราะห์สนามไฟฟ้าเชิงวิเคราะห์แบบเรียลไทม์ (Live Analytical Breakdown):</span>
+          </div>
+          <div id="line-charge-output">
+            กำลังคำนวณ...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 4: การพิสูจน์ลวดประจุจำกัด -->
+    <section id="sec4">
+      <h2 class="section-title">4. การพิสูจน์เชิงวิเคราะห์สนามไฟฟ้าจากเส้นลวดประจุจำกัด (Analytical Derivation)</h2>
+      
+      <div class="exam-alert-box">
+        <p style="font-weight: 700; color: var(--red); margin-bottom: 8px;">
+          กฎเหล็กข้อสอบข้อ 3 (30 คะแนนเต็ม): การอินทิเกรตด้วยการแทนค่าตรีโกณมิติด้วยมือ
+        </p>
+        <div>
+          ในการสอบกลางภาค <strong>ห้ามกดเครื่องคิดเลขอินทิเกรตแล้วตอบตัวเลขลอยๆ เด็ดขาด</strong> หากไม่มีขั้นตอนการแทนค่าตรีโกณมิติ <code>z' = h tan ψ</code> จะไม่ได้คะแนนในส่วนการพิสูจน์ (เสีย 20-25 คะแนน)
+        </div>
+      </div>
+
+      <div class="step-card" style="margin-top: 20px;">
+        <h4>ขั้นตอนการพิสูจน์สมการอินทิกรัลอย่างสมบูรณ์:</h4>
+        <div class="math-display">
+          <strong>1. กำหนดพิกัดและเวกเตอร์ระยะทาง:</strong><br>
+          • จุดประจุย่อยบนแกน z: <code>(0, 0, z')</code> มีประจุ <code>dQ = ρ<sub>l</sub> dz'</code><br>
+          • จุดสังเกตบนแกน y: <code>P(0, h, 0)</code> (ให้ <em>h</em> = <em>y</em><sub>P</sub>)<br>
+          • เวกเตอร์ระยะทาง: <strong>R</strong> = <em>h</em> <strong>a</strong><sub>y</sub> - <em>z'</em> <strong>a</strong><sub>z</sub><br>
+          • ขนาดระยะทาง: |<strong>R</strong>| = √(<em>h</em>² + <em>z'</em>²)<br><br>
+
+          <strong>2. ตั้งสมการดิฟเฟอเรนเชียลสนามไฟฟ้า dE:</strong><br>
+          d<strong>E</strong> = <span class="math-frac"><span class="math-num">dQ</span><span class="math-den">4πε₀ |<strong>R</strong>|³</span></span> <strong>R</strong> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub> dz'</span><span class="math-den">4πε₀ (h² + z'²)^{3/2}</span></span> (<em>h</em> <strong>a</strong><sub>y</sub> - <em>z'</em> <strong>a</strong><sub>z</sub>)<br><br>
+
+          <strong>3. เทคนิคการแทนค่าตรีโกณมิติ (Trigonometric Substitution):</strong><br>
+          ให้ <strong><em>z'</em> = <em>h</em> tan ψ</strong><br>
+          หาอนุพันธ์: <strong><em>dz'</em> = <em>h</em> sec² ψ dψ</strong><br>
+          จัดรูปตัวส่วน: <em>h</em>² + <em>z'</em>² = <em>h</em>² (1 + tan² ψ) = <em>h</em>² sec² ψ<br>
+          ดังนั้น (<em>h</em>² + <em>z'</em>²)^{3/2} = (<em>h</em>² sec² ψ)^{3/2} = <strong><em>h</em>³ sec³ ψ</strong><br><br>
+
+          <strong>4. การอินทิเกรตแยกตามแนวแกน:</strong><br>
+          <strong>(ก) องค์ประกอบแนวแกน y (E<sub>y</sub>):</strong><br>
+          E<sub>y</sub> = ∫ <span class="math-frac"><span class="math-num">ρ<sub>l</sub> h dz'</span><span class="math-den">4πε₀ (h² + z'²)^{3/2}</span></span> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫ <span class="math-frac"><span class="math-num">h (h sec² ψ dψ)</span><span class="math-den">h³ sec³ ψ</span></span> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀ h</span></span> ∫ cos ψ dψ<br>
+          เนื่องจาก <strong>∫ cos ψ dψ = sin ψ = <span class="math-frac"><span class="math-num">z'</span><span class="math-den">√(h² + z'²)</span></span></strong><br>
+          <strong>E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀ h</span></span> [ <span class="math-frac"><span class="math-num">z₂</span><span class="math-den">√(h² + z₂²)</span></span> - <span class="math-frac"><span class="math-num">z₁</span><span class="math-den">√(h² + z₁²)</span></span> ]</strong><br><br>
+
+          <strong>(ข) องค์ประกอบแนวแกน z (E<sub>z</sub>):</strong><br>
+          E<sub>z</sub> = ∫ <span class="math-frac"><span class="math-num">-ρ<sub>l</sub> z' dz'</span><span class="math-den">4πε₀ (h² + z'²)^{3/2}</span></span> = -<span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫ <span class="math-frac"><span class="math-num">(h tan ψ)(h sec² ψ dψ)</span><span class="math-den">h³ sec³ ψ</span></span> = -<span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀ h</span></span> ∫ sin ψ dψ<br>
+          เนื่องจาก <strong>∫ -sin ψ dψ = cos ψ = <span class="math-frac"><span class="math-num">h</span><span class="math-den">√(h² + z'²)</span></span></strong><br>
+          <strong>E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">√(h² + z₂²)</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">√(h² + z₁²)</span></span> ]</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 5: โครงสร้างประจุอนันต์ -->
+    <section id="sec5">
+      <h2 class="section-title">5. สูตรสนามไฟฟ้าของโครงสร้างสมมาตรอนันต์ (Infinite Structures)</h2>
+
+      <div class="formula-card">
+        <div class="f-title">
+          <span>สูตรสำเร็จสนามไฟฟ้าของโครงสร้างสมมาตรอนันต์ที่ใช้บ่อย</span>
+        </div>
+        <div class="math-display">
+          <strong>1. เส้นลวดประจุยาวอนันต์บนแกน z (Infinite Line Charge):</strong><br>
+          เมื่อขยายขอบเขต <em>z</em>₁ → -∞ และ <em>z</em>₂ → +∞ จะได้:<br>
+          <div class="math-equation" style="margin: 8px 0;">
+            <strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2πε₀ ρ</span></span> <strong>a</strong><sub>ρ</sub> &nbsp;&nbsp; (สนามไฟฟ้าแปรผกผันกับระยะทางกำลังหนึ่ง 1/ρ)
+          </div><br>
+
+          <strong>2. แผ่นระนาบประจุอนันต์บนระนาบ xy (Infinite Sheet of Charge):</strong><br>
+          <div class="math-equation" style="margin: 8px 0;">
+            <strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2ε₀</span></span> <strong>a</strong><sub>n</sub> &nbsp;&nbsp; (สนามไฟฟ้าสม่ำเสมอ ไม่ขึ้นกับระยะห่าง!)
+          </div>
+          เมื่อ <code><strong>a</strong><sub>n</sub></code> คือเวกเตอร์หนึ่งหน่วยตั้งฉากพุ่งออกจากแผ่นประจุ<br><br>
+
+          <strong>3. สนามไฟฟ้าระหว่างแผ่นคู่ขนานที่มีประจุตรงข้าม (+ρ<sub>s</sub> และ -ρ<sub>s</sub>):</strong><br>
+          • ภายในระหว่างแผ่น: <strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">ε₀</span></span> <strong>a</strong><sub>n</sub><br>
+          • ภายนอกแผ่น: <strong>E</strong> = 0 (สนามไฟฟ้าหักล้างกันหมด)
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 6: วงแหวนและแผ่นจานประจุ -->
+    <section id="sec6">
+      <h2 class="section-title">6. สนามไฟฟ้าจากวงแหวนประจุและแผ่นจานกลม (Ring & Disk Charges)</h2>
+      
+      <div class="step-card">
+        <h4>สนามไฟฟ้าบนแกนสมมาตร z ของวงแหวนและแผ่นจานกลม:</h4>
+        <div class="math-display">
+          <strong>1. วงแหวนประจุรัศมี a บนระนาบ xy (Uniform Ring of Charge):</strong><br>
+          <strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub> a z</span><span class="math-den">2ε₀ (a² + z²)^{3/2}</span></span> <strong>a</strong><sub>z</sub> = <span class="math-frac"><span class="math-num">Q z</span><span class="math-den">4πε₀ (a² + z²)^{3/2}</span></span> <strong>a</strong><sub>z</sub> &nbsp;&nbsp; (เมื่อ Q = 2π a ρ<sub>l</sub>)<br><br>
+
+          <strong>2. แผ่นจานกลมประจุรัศมี a บนระนาบ xy (Uniform Circular Disk):</strong><br>
+          <strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2ε₀</span></span> [ 1 - <span class="math-frac"><span class="math-num">z</span><span class="math-den">√(a² + z²)</span></span> ] <strong>a</strong><sub>z</sub> &nbsp;&nbsp; (สำหรับ z &gt; 0)<br>
+          (เมื่อรัศมี <em>a</em> → ∞ จะลดรูปเป็นแผ่นระนาบอนันต์ <code><strong>E</strong> = [ρ<sub>s</sub>/(2ε₀)] <strong>a</strong><sub>z</sub></code> พอดี)
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 7: ตัวอย่างโจทย์ Drill Problems -->
+    <section id="sec7">
+      <h2 class="section-title">7. ตัวอย่างโจทย์และแบบฝึกหัดเสริมทักษะ (Worked Examples & Drill Problems)</h2>
+
+      <!-- Drill D2.2 -->
+      <div class="drill-box">
+        <div class="drill-header">
+          <span class="drill-title">แบบฝึกหัด D2.2 (Hayt & Buck 9th Edition, หน้า 35)</span>
+          <span class="academic-badge badge-primary">สนามไฟฟ้าจากจุดประจุหลายตัว</span>
+        </div>
+        <p><strong>โจทย์:</strong> จุดประจุ <code>Q₁ = 100 nC</code> วางอยู่ที่ <code>P₁(0, 0, 1)</code> และ <code>Q₂ = -100 nC</code> วางอยู่ที่ <code>P₂(0, 0, -1)</code> จงหาความเข้มสนามไฟฟ้า <strong>E</strong> ที่จุด <code>P(2, 0, 0)</code></p>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>แสดงขั้นตอนการคำนวณอย่างละเอียด (Step-by-Step Solution)</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="step-card">
+              <h4>วิธีทำ:</h4>
+              <div class="math-display">
+                <strong>1. สนามจาก Q₁:</strong><br>
+                <strong>R</strong>₁ = (2 - 0) <strong>a</strong><sub>x</sub> + (0 - 0) <strong>a</strong><sub>y</sub> + (0 - 1) <strong>a</strong><sub>z</sub> = 2 <strong>a</strong><sub>x</sub> - 1 <strong>a</strong><sub>z</sub><br>
+                |<strong>R</strong>₁| = √(2² + (-1)²) = √5 เมตร<br>
+                <strong>E</strong>₁ = (8.988 × 10⁹) × <span class="math-frac"><span class="math-num">100 × 10⁻⁹</span><span class="math-den">(√5)³</span></span> (2 <strong>a</strong><sub>x</sub> - 1 <strong>a</strong><sub>z</sub>) = <span class="math-frac"><span class="math-num">898.8</span><span class="math-den">5√5</span></span> (2 <strong>a</strong><sub>x</sub> - 1 <strong>a</strong><sub>z</sub>) = 80.39 (2 <strong>a</strong><sub>x</sub> - 1 <strong>a</strong><sub>z</sub>) = 160.78 <strong>a</strong><sub>x</sub> - 80.39 <strong>a</strong><sub>z</sub> V/m<br><br>
+
+                <strong>2. สนามจาก Q₂:</strong><br>
+                <strong>R</strong>₂ = (2 - 0) <strong>a</strong><sub>x</sub> + (0 - 0) <strong>a</strong><sub>y</sub> + (0 - (-1)) <strong>a</strong><sub>z</sub> = 2 <strong>a</strong><sub>x</sub> + 1 <strong>a</strong><sub>z</sub><br>
+                |<strong>R</strong>₂| = √5 เมตร<br>
+                <strong>E</strong>₂ = (8.988 × 10⁹) × <span class="math-frac"><span class="math-num">-100 × 10⁻⁹</span><span class="math-den">(√5)³</span></span> (2 <strong>a</strong><sub>x</sub> + 1 <strong>a</strong><sub>z</sub>) = -80.39 (2 <strong>a</strong><sub>x</sub> + 1 <strong>a</strong><sub>z</sub>) = -160.78 <strong>a</strong><sub>x</sub> - 80.39 <strong>a</strong><sub>z</sub> V/m<br><br>
+
+                <strong>3. รวมสนามไฟฟ้า:</strong><br>
+                <strong>E</strong> = <strong>E</strong>₁ + <strong>E</strong>₂ = (160.78 - 160.78) <strong>a</strong><sub>x</sub> + (-80.39 - 80.39) <strong>a</strong><sub>z</sub> = <strong>-160.78 <strong>a</strong><sub>z</sub> ≈ -160.8 <strong>a</strong><sub>z</sub> V/m</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 8: เฉลยข้อสอบจริง ข้อที่ 3 -->
+    <section id="sec8">
+      <h2 class="section-title">8. เฉลยข้อสอบกลางภาคฉบับจริง: ข้อที่ 3 (30 คะแนนเต็ม)</h2>
+
+      <div class="step-card step-essential">
+        <span class="step-badge must-write">ข้อสอบข้อ 3 (30 คะแนนเต็ม — การอินทิเกรตเชิงวิเคราะห์)</span>
+        <h4>คำถาม: เส้นลวดประจุตรงสม่ำเสมอมีความหนาแน่นประจุเชิงเส้น ρ<sub>l</sub> = 1 C/m วางตัวอยู่บนแกน z ตั้งแต่ z = 0 ถึง z = 4 ในอวกาศว่าง จงคำนวณหาความเข้มสนามไฟฟ้า <strong>E</strong> ณ จุดสังเกต P(0, 3, 0) โดยแสดงขั้นตอนการอินทิเกรตอย่างละเอียด</h4>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>แสดงวิธีทำแบบสมบูรณ์ตาม Rubric คะแนนเต็ม 30/30</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="math-display">
+              <strong>ขั้นที่ 1: กำหนดตัวแปรและเวกเตอร์ระยะทาง:</strong><br>
+              • จุดประจุย่อยบนแกน z: <code>(0, 0, z')</code> โดยที่ <code>z' ∈ [0, 4]</code> มีประจุ <code>dQ = ρ<sub>l</sub> dz' = (1) dz'</code><br>
+              • จุดสังเกต: <code>P(0, 3, 0)</code> (ระยะตั้งฉาก <em>h</em> = 3 เมตร)<br>
+              • เวกเตอร์ระยะทาง: <strong>R</strong> = (0 - 0) <strong>a</strong><sub>x</sub> + (3 - 0) <strong>a</strong><sub>y</sub> + (0 - <em>z'</em>) <strong>a</strong><sub>z</sub> = 3 <strong>a</strong><sub>y</sub> - <em>z'</em> <strong>a</strong><sub>z</sub><br>
+              • ขนาดระยะทาง: |<strong>R</strong>| = √(3² + <em>z'</em>²) = √(9 + <em>z'</em>²)<br><br>
+
+              <strong>ขั้นที่ 2: ตั้งสมการดิฟเฟอเรนเชียลสนามไฟฟ้า dE:</strong><br>
+              d<strong>E</strong> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub> dz'</span><span class="math-den">4πε₀ (9 + z'²)^{3/2}</span></span> (3 <strong>a</strong><sub>y</sub> - <em>z'</em> <strong>a</strong><sub>z</sub>)<br><br>
+
+              <strong>ขั้นที่ 3: กำหนดตัวแปรแทนค่าตรีโกณมิติ:</strong><br>
+              ให้ <strong><em>z'</em> = 3 tan ψ</strong> &nbsp; ⇒ &nbsp; <strong><em>dz'</em> = 3 sec² ψ dψ</strong><br>
+              ตัวส่วน: 9 + <em>z'</em>² = 9 (1 + tan² ψ) = 9 sec² ψ &nbsp; ⇒ &nbsp; (9 + <em>z'</em>²)^{3/2} = 27 sec³ ψ<br><br>
+
+              <strong>ขั้นที่ 4: อินทิเกรตหาองค์ประกอบ E<sub>y</sub>:</strong><br>
+              E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫<sub>0</sub><sup>4</sup> <span class="math-frac"><span class="math-num">3 dz'</span><span class="math-den">(9 + z'²)^{3/2}</span></span> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫ <span class="math-frac"><span class="math-num">3 (3 sec² ψ dψ)</span><span class="math-den">27 sec³ ψ</span></span> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀ (3)</span></span> ∫ cos ψ dψ<br>
+              E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> [ sin ψ ]<sub>z'=0</sub><sup>z'=4</sup> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> [ <span class="math-frac"><span class="math-num">z'</span><span class="math-den">√(9 + z'²)</span></span> ]<sub>0</sub><sup>4</sup><br>
+              แทนค่าขอบเขต: E<sub>y</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> [ <span class="math-frac"><span class="math-num">4</span><span class="math-den">√(9 + 16)</span></span> - 0 ] = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> ( <span class="math-frac"><span class="math-num">4</span><span class="math-den">5</span></span> ) = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">15πε₀</span></span> V/m</strong><br><br>
+
+              <strong>ขั้นที่ 5: อินทิเกรตหาองค์ประกอบ E<sub>z</sub>:</strong><br>
+              E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫<sub>0</sub><sup>4</sup> <span class="math-frac"><span class="math-num">-z' dz'</span><span class="math-den">(9 + z'²)^{3/2}</span></span> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ∫ <span class="math-frac"><span class="math-num">-(3 tan ψ)(3 sec² ψ dψ)</span><span class="math-den">27 sec³ ψ</span></span> = -<span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀ (3)</span></span> ∫ sin ψ dψ<br>
+              E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> [ cos ψ ]<sub>z'=0</sub><sup>z'=4</sup> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">12πε₀</span></span> [ <span class="math-frac"><span class="math-num">3</span><span class="math-den">√(9 + z'²)</span></span> ]<sub>0</sub><sup>4</sup> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">√(9 + z'²)</span></span> ]<sub>0</sub><sup>4</sup><br>
+              แทนค่าขอบเขต: E<sub>z</sub> = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den">5</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">3</span></span> ] = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">4πε₀</span></span> ( -<span class="math-frac"><span class="math-num">2</span><span class="math-den">15</span></span> ) = <strong>-<span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">30πε₀</span></span> V/m</strong><br><br>
+
+              <strong>ขั้นที่ 6: สรุปคำตอบสุดท้าย:</strong><br>
+              <strong><strong>E</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">4</span><span class="math-den">15</span></span> <strong>a</strong><sub>y</sub> - <span class="math-frac"><span class="math-num">2</span><span class="math-den">15</span></span> <strong>a</strong><sub>z</sub> ] V/m</strong> &nbsp;&nbsp; (เมื่อ ρ<sub>l</sub> = 1 C/m)<br>
+              หรือ <strong><strong>E</strong> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">15πε₀</span></span> <strong>a</strong><sub>y</sub> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">30πε₀</span></span> <strong>a</strong><sub>z</sub> V/m</strong><br>
+              (ค่าตัวเลขจริง: <strong>E</strong> ≈ <strong>2.397 × 10⁹ <strong>a</strong><sub>y</sub> - 1.198 × 10⁹ <strong>a</strong><sub>z</sub> V/m</strong>)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ส่วนที่ 9: แบบทดสอบความเข้าใจสมองประลองปัญญา -->
+    <section id="sec9">
+      <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Test)</h2>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 1: การลดรูปลวดประจุสมมาตร</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>หากเส้นลวดประจุมีความหนาแน่นสม่ำเสมอวางตัวสมมาตรบนแกน z จาก z = -L ถึง z = +L สนามไฟฟ้าที่จุด P(0, y<sub>P</sub>, 0) ในแนวแกน z (E<sub>z</sub>) จะมีค่าเท่าใด?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="true">0 V/m (หักล้างกันหมด)</div>
+          <div class="quiz-option" data-correct="false">ρ<sub>l</sub> / (2πε₀ y<sub>P</sub>)</div>
+          <div class="quiz-option" data-correct="false">ρ<sub>l</sub> / (4πε₀ L)</div>
+          <div class="quiz-option" data-correct="false">2 ρ<sub>l</sub> / (4πε₀ y<sub>P</sub>)</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="เนื่องจากความสมมาตรรอบระนาบ z = 0 ประจุส่วนที่อยู่เหนือแกน z จะส่งสนามพุ่งลง (-<strong>a</strong><sub>z</sub>) และส่วนที่อยู่ใต้แกน z จะส่งสนามพุ่งขึ้น (+<strong>a</strong><sub>z</sub>) ในขนาดที่เท่ากันทุกประการ ทำให้องค์ประกอบในแนวแกน z หักล้างกันเป็นศูนย์ เหลือเฉพาะแนวแกน y (พุ่งออกจากเส้นลวด)"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 2: สนามไฟฟ้าจากแผ่นระนาบประจุอนันต์</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>แผ่นระนาบอนันต์ที่มีความหนาแน่นประจุเชิงผิวสม่ำเสมอ +ρ<sub>s</sub> วางอยู่บนระนาบ z = 0 สนามไฟฟ้า ณ จุด (0, 0, 5) และจุด (0, 0, 50) จะมีความสัมพันธ์กันอย่างไร?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">สนามที่จุด (0, 0, 50) มีค่าน้อยกว่า 10 เท่า</div>
+          <div class="quiz-option" data-correct="false">สนามที่จุด (0, 0, 50) มีค่าน้อยกว่า 100 เท่า</div>
+          <div class="quiz-option" data-correct="true">มีขนาดเท่ากันทุกประการ คือ E = ρ<sub>s</sub> / (2ε₀)</div>
+          <div class="quiz-option" data-correct="false">สนามที่จุด (0, 0, 5) มีค่าเป็นศูนย์</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="สนามไฟฟ้าจากแผ่นระนาบอนันต์ <strong>E</strong> = [ρ<sub>s</sub> / (2ε₀)] <strong>a</strong><sub>n</sub> เป็นสนามสม่ำเสมอ (Uniform Field) ที่มีขนาดคงที่ ไม่ขึ้นกับระยะทาง <em>z</em> จากแผ่น"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <h4>ข้อที่ 3: เทคนิคการอินทิเกรตลวดประจุ</h4>
+          <span class="quiz-points">ประเมินความเข้าใจ</span>
+        </div>
+        <p>ในการพิสูจน์สนามไฟฟ้าจากเส้นลวดประจุจำกัดบนแกน z ที่จุดสังเกต P ห่างจากแกน z เป็นระยะ h การกำหนดตัวแปรตรีโกณมิติข้อใดถูกต้อง?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-correct="false">z' = h sin ψ</div>
+          <div class="quiz-option" data-correct="true">z' = h tan ψ และ dz' = h sec² ψ dψ</div>
+          <div class="quiz-option" data-correct="false">z' = h cos ψ</div>
+          <div class="quiz-option" data-correct="false">z' = h sec ψ</div>
+        </div>
+        <div class="quiz-feedback" data-explanation="ตามเรขาคณิตสามเหลี่ยมมุมฉาก tan ψ = <em>z'</em> / <em>h</em> ดังนั้น <em>z'</em> = <em>h</em> tan ψ ซึ่งจะช่วยให้จัดรูป <em>h</em><sup>2</sup> + <em>z'</em><sup>2</sup> = <em>h</em><sup>2</sup> sec<sup>2</sup> ψ และตัดทอนกับ <em>dz'</em> = <em>h</em> sec<sup>2</sup> ψ dψ ได้อย่างสมบูรณ์"></div>
+      </div>
+    </section>
+
+    <!-- แถบนำทางไปบทถัดไป -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 24px; border-top: 1.5px solid var(--rule);">
+      <a href="../04-coulombs-law/index.html" class="btn btn-secondary">← บทที่ 4: กฎของคูลอมบ์ (ข้อสอบ 2)</a>
+      <a href="../06-electric-flux-density/index.html" class="btn btn-primary">ศึกษาต่อ บทที่ 6: ฟลักซ์ไฟฟ้าและความหนาแน่น D →</a>
+    </div>
+
+    <footer class="page-footer">
+      <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+      <div>เพื่อการศึกษาวิศวกรรมแม่เหล็กไฟฟ้าอย่างเท่าเทียม</div>
+    </footer>
+  </main>
+</div>
+
+<!-- JavaScript Core & Engines -->
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/engines/vector3d-core.js"></script>
+<script src="../assets/js/engines/electric-field-sim.js"></script>
+<script src="../assets/js/engines/search-index.js"></script>
+<script src="../assets/js/engines/site-search.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    new ElectricFieldSimEngine('line-charge-canvas', 'line-charge-output');
+  });
+</script>
+</body>
+</html>
