@@ -1,422 +1,451 @@
 # การวิเคราะห์แหล่งที่มาของข้อสอบ — EM Fields (EN-NU)
 
-> **วัตถุประสงค์:** เปรียบเทียบข้อสอบใน `ข้อสอบทั้งหมด.pdf` และ `ข้อสอบเก่า.pdf`
-> กับ textbook **Engineering Electromagnetics, 9th Ed.** (Hayt & Buck)
-> เพื่อระบุว่าข้อสอบมาจากบทใด หน้าใด และ example/drill problem ใด
+> **วัตถุประสงค์:** ระบุแหล่งที่มาและเปรียบเทียบโจทย์ข้อสอบจาก 2 ไฟล์ต้นฉบับ:
+> 1. `raw/ข้อสอบทั้งหมด.pdf` (36 หน้า — รวม 11 ข้อสอบ/ตัวอย่างพร้อมวิธีทำละเอียด)
+> 2. `raw/ข้อสอบเก่า.pdf` (10 หน้า — ข้อสอบกลางภาค ภาคปลาย 2563 ม.นเรศวร 4 ข้อ + สูตร + เฉลยลายมือ)  
+> กับหนังสือ **Engineering Electromagnetics, 9th Edition** (William H. Hayt, Jr. & John A. Buck)
 
 ---
 
-## สรุปผลการวิเคราะห์
+## สรุปภาพรวมการ Mapping
 
-| ข้อสอบ | ชื่อโจทย์ | Textbook Source | บท | หน้า (approx.) | ประเภท |
+### ตารางที่ 1: แมปจากไฟล์ `ข้อสอบทั้งหมด.pdf` (36 หน้า)
+
+| ลำดับใน PDF | หัวข้อโจทย์ | ตำแหน่งใน PDF | Textbook Source | บท | หน้าใน Textbook | ความตรง |
+|---|---|---|---|---|---|---|
+| **ข้อที่ 1** | Continuity Eq. (J ในแนวรัศมี ลดลงตาม e⁻ᵗ) | หน้า 1–3 | Section 5.2 (Numerical Example) | Ch.5 | p.114–115 | ⭐⭐⭐ ตรง 100% |
+| **ข้อที่ 2** | Dielectric Boundary (Teflon / Free space) | หน้า 4–6 | Section 5.8 + Example 5.4/5.5 & D5.9 | Ch.5 | p.135–139 | ⭐⭐ ดัดแปลงตัวเลข |
+| **ข้อที่ 3** | Parallel-Plate Capacitor (Laplace's Eq.) | หน้า 7–13 | Section 6.2 + Example 6.2 | Ch.6 | p.147–148, 165–166 | ⭐⭐⭐ ตรง 100% (เปลี่ยนแกน x→z) |
+| **ข้อที่ 4 (ลายมือ)** | Biot-Savart Law (สนามแม่เหล็กลวดยาวอนันต์) | หน้า 14–18 | Section 7.1 + Section 7.1.1 | Ch.7 | p.182–186 | ⭐⭐⭐ ตรงกับทฤษฎีในเล่ม |
+| **ข้อที่ 5 (ลายมือ)** | Ampère's Circuital Law (หากระแสจาก H) | หน้า 19–20 | Section 7.2 (Ampère's Circuital Law) | Ch.7 | p.190–192 | ⭐⭐⭐ ตรงกับทฤษฎีในเล่ม |
+| **ข้อที่ 6** (พิมพ์ &) | Point Form Ampère / Curl (หา J จาก H) | หน้า 21–22 | Section 7.3 (Curl & Eq. 28) | Ch.7 | p.197–204 | ⭐⭐ ดัดแปลงฟังก์ชัน |
+| **ข้อที่ 7** (พิมพ์ 8) | Faraday's Law (หา H จาก E ที่เปลี่ยนตามเวลา) | หน้า 23–25 | Section 9.1 + Drill Problem D9.1 | Ch.9 | p.285–286 | ⭐⭐ Reverse ของ D9.1 |
+| **ข้อที่ 8 (ลายมือ)** | Displacement Current (ตัวเก็บประจุในวงจร) | หน้า 26–27 | Section 9.2 (Figure 9.3 & Eq. 17–18) | Ch.9 | p.286–288 | ⭐⭐⭐ ตรงกับ Figure 9.3 |
+| **ข้อที่ 9** (พิมพ์ 10) | Consistency with Maxwell (หาค่าคงตัว k) | หน้า 28–30 | Drill Problem D9.4(b) | Ch.9 | p.292 | ⭐⭐⭐ ตรง 100% |
+| **ข้อที่ 10** (พิมพ์ 1) | Uniform Plane Wave (หา f, λ, k₀, H_s, H) | หน้า 31–35 | Section 11.1 + Example 11.1–11.2 | Ch.11 | p.369–384 | ⭐⭐⭐ Framework ตรงกับ Section 11.1 |
+| **ข้อที่ 11** (พิมพ์ 12) | Plane Wave Phasor Conversion | หน้า 36 | Section 11.1.2 + Example 11.1 | Ch.11 | p.373–374 | ⭐⭐⭐ ตรงกับ Example 11.1 |
+
+---
+
+### ตารางที่ 2: แมปจากไฟล์ `ข้อสอบเก่า.pdf` (10 หน้า — กลางภาค 2563)
+
+| ข้อสอบ | หัวข้อโจทย์ | ตำแหน่งใน PDF | Textbook Source | บท | หน้าใน Textbook |
 |---|---|---|---|---|---|
-| Q1 | Continuity Equation — J radially outward | Section 5.2, Numerical Example | Ch.5 | p.114–115 | Numerical Example (inline) |
-| Q2 | Boundary Conditions — Teflon/Free Space | Section 5.8 + Example 5.5 | Ch.5 | p.135–138 | Section + Example |
-| Q3 | Parallel-Plate Capacitor — Laplace | Section 6.2 + Example 6.2 | Ch.6 | p.147–148, p.165–166 | Section + Example |
-| Q6 | Ampere's Law (Point Form) — J from H | Section 7.3 (curl H = J) | Ch.7 | p.197–204 | Section Example |
-| Q8 | Maxwell's Equations — H from time-varying E | D9.1 (variant/reverse) | Ch.9 | p.285–286 | Drill Problem (modified) |
-| Q10 | Maxwell's Equations — find k for consistency | D9.4(b) | Ch.9 | p.292 | Drill Problem (EXACT) |
-| Q11 | Uniform Plane Wave — phasor, H, instantaneous | Section 11.1 + Example 11.1–11.2 | Ch.11 | p.369–384 | Section + Example |
-| Q12 | Plane Wave — phasor from time-domain | Example 11.1 (inverse) | Ch.11 | p.373–374 | Example (inverse) |
+| **ข้อ 1.1** (12.5 คะแนน) | ข้อจำกัดของเวกเตอร์หน่วยพิกัดทรงกลม | หน้า 2 | Section 1.9 (Spherical Coordinates) | Ch.1 | p.18–22 |
+| **ข้อ 1.2** (12.5 คะแนน) | แปลงเวกเตอร์ทรงกลมเป็นทรงกระบอก | หน้า 2 | Section 1.8–1.9 & Appendix A | Ch.1 | p.14–22, p.557–559 |
+| **ข้อ 2.1–2.2** (20 คะแนน) | แรงคูลอมบ์ระบบ 3–4 ประจุบนระนาบ | หน้า 2 (เฉลยหน้า 8–10) | Section 2.1 (Coulomb's Law) & Ex 2.1–2.2 | Ch.2 | p.26–29 |
+| **ข้อ 3** (30 คะแนน) | สนามไฟฟ้าของประจุเส้นตรงจำกัดความยาว (z=0 ถึง 4) | หน้า 2 | Section 2.4 (Field of a Line Charge) | Ch.2 | p.36–39 |
+| **ข้อ 4.1–4.3** (25 คะแนน) | ความต่างศักย์และศักย์ไฟฟ้าสัมบูรณ์จาก D(r) | หน้า 2–3 | Section 4.1–4.4 (Potential & Work) | Ch.4 | p.76–87 |
+| **สูตรมิดเทอม** | สูตรสำหรับสอบกลางภาค 2563 | หน้า 4–7 | Appendix A & Summaries of Ch. 1–4 | Ch.1–4 | Appendix A, B |
+| **เฉลยลายมือ** | วิธีทำข้อ 2 แสดงการหา F₂ = F₁₂ + F₃₂ | หน้า 8–10 | Section 2.1 (Vector Force Calculation) | Ch.2 | p.26–29 |
 
 ---
 
-## รายละเอียดแต่ละข้อ
+## รายละเอียดเชิงลึก: ไฟล์ `ข้อสอบทั้งหมด.pdf`
 
 ---
 
-### Q1 — Continuity Equation: J ออกในแนวรัศมี ลดลงตาม e^(-t)
+### ข้อที่ 1 (`ข้อสอบทั้งหมด.pdf` หน้า 1–3)
+**หัวข้อ:** สมการความต่อเนื่องและการหาความเร็วประจุ  
+**ตำแหน่งใน PDF:** หน้า 1, 2, 3
 
-**โจทย์จากข้อสอบ:**
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: กำหนดให้ความหนาแน่นกระแสไฟฟ้าตัวหนึ่งมีทิศพุ่งออกในแนวรัศมี (radially outward)
+และลดลงตามเวลาอย่างเอ็กโพเนนเชียล (exponentially) ความหนาแน่นกระแสไฟฟ้านี้สามารถเขียนในรูปสมการได้เป็น:
+    J = (e⁻ᵗ / r) a_r   A/m²
 
+ถ้ากำหนดให้ ρ_v → 0 เมื่อ t → ∞
+จงหา:
+(ก) ความหนาแน่นประจุไฟฟ้าเชิงปริมาตร (ρ_v)
+(ข) ความเร็วของความหนาแน่นประจุไฟฟ้าที่เคลื่อนที่ไป (v)
 ```
-J = (e^(-t) / r) a_r  A/m²
 
-กำหนด: rho_v → 0 เมื่อ t → ∞
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 5 — Conductors and Dielectrics
+- **หัวข้อย่อย:** Section 5.2 Continuity of Current (หน้า 114–115)
+- **ข้อความใน Textbook:**
+  > "As a numerical example illustrating some of the concepts from the last two sections, let us consider a current density that is directed radially outward and decreases exponentially with time, **J = (1/r) e⁻ᵗ a_r A/m²**"
+- **การเปรียบเทียบ:** ตรงกัน 100% ทั้งตัวแปร เงื่อนไข และคำตอบ
+- **เฉลยแท้จริง:**
+  - `ρ_v = (e⁻ᵗ / r²) C/m³`
+  - `v = r a_r  m/s`
+
+---
+
+### ข้อที่ 2 (`ข้อสอบทั้งหมด.pdf` หน้า 4–6)
+**หัวข้อ:** เงื่อนไขขอบเขตของสารไดอิเล็กทริกสมบูรณ์  
+**ตำแหน่งใน PDF:** หน้า 4, 5, 6
+
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: โครงสร้างประกอบด้วยบริเวณสองตัวที่มีค่าสภาพยอมแตกต่างกัน
+บริเวณ 1 เป็นเทฟลอน (Teflon) ที่มีสภาพยอมสัมพัทธ์ ε_r1 = 2.1
+บริเวณ 2 เป็นอวกาศว่าง (Free space, ε_r2 = 1)
+กำหนดให้ ณ รอยต่อ:
+    E_tan2 = 45 N/C
+    D_N2 = 20 C/m²
+
+จงหาปริมาณต่อไปนี้ ณ รอยต่อในบริเวณ 1:
+(ก) E_tan1
+(ข) D_tan1
+(ค) D_N1
+(ง) E_N1
+```
+
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 5 — Conductors and Dielectrics
+- **หัวข้อย่อย:** Section 5.8 Boundary Conditions for Perfect Dielectric Materials (หน้า 135–139)
+- **ตัวอย่าง/แบบฝึกหัดที่เกี่ยวข้อง:**
+  - Example 5.4 & 5.5 (หน้า 133–139) — ใช้แผ่น Teflon `ε_r = 2.1`
+  - Drill Problem D5.9 & D5.10 (หน้า 139) — รูปแบบการถามหา `E_tan`, `D_tan`, `D_N`, `E_N`
+- **สมการอ้างอิง:**
+  - `E_tan1 = E_tan2` (Eq. 32)
+  - `D_N1 - D_N2 = ρ_s` (Eq. 34) → เมื่อ `ρ_s = 0` จะได้ `D_N1 = D_N2`
+- **เฉลยแท้จริง:**
+  - `E_tan1 = 45 N/C`
+  - `D_tan1 = ε_1 E_tan1 = (2.1 × 8.854×10⁻¹²) × 45 = 8.367×10⁻¹⁰ C/m²`
+  - `D_N1 = 20 C/m²`
+  - `E_N1 = D_N1 / ε_1 = 20 / (2.1 × 8.854×10⁻¹²) = 1.076×10¹² N/C`
+
+---
+
+### ข้อที่ 3 (`ข้อสอบทั้งหมด.pdf` หน้า 7–13)
+**หัวข้อ:** ตัวเก็บประจุแบบแผ่นขนานและสมการของลาปลาซ  
+**ตำแหน่งใน PDF:** หน้า 7 ถึง หน้า 13
+
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: ตัวนำไฟฟ้าสองแผ่น แต่ละแผ่นมีพื้นที่เท่ากับ A และห่างกันเท่ากับ d บริเวณระหว่างแผ่นตัวนำเป็นอวกาศว่าง
+แผ่นบน (z = d) มีศักย์ไฟฟ้า V = V₀ และความหนาแน่นประจุ ρ_s,UP
+แผ่นล่าง (z = 0) มีศักย์ไฟฟ้า V = 0 และความหนาแน่นประจุ ρ_s,LO
 
 จงหา:
-(ก) ความหนาแน่นประจุไฟฟ้าเชิงปริมาตร (rho_v)
-(ข) ความเร็วของความหนาแน่นประจุที่เคลื่อนที่ (v)
-```
-
-**แหล่งที่มาใน Textbook:**
-
-- **บท:** Chapter 5 — Conductors and Dielectrics
-- **Section:** 5.2 Continuity of Current
-- **หน้า:** p.114–115 (9th Ed.)
-- **ลักษณะ:** Numerical Example แบบ inline ที่ใช้อธิบาย Section 5.2
-
-**ข้อความ Textbook (ตรงกันทุกประการ):**
-
-> "As a numerical example...let us consider a current density that is directed radially outward and decreases exponentially with time, **J = (1/r) e^(-t) a_r A/m²**"
-
-**เปรียบเทียบ:**
-
-| รายการ | ข้อสอบ | Textbook |
-|---|---|---|
-| สูตร J | (e^(-t)/r) a_r | (1/r) e^(-t) a_r |
-| เงื่อนไข | rho_v → 0 เมื่อ t → ∞ | K(r) = 0, rho_v → 0 as t → ∞ |
-| ผล rho_v | e^(-t)/r²  C/m³ | (1/r²) e^(-t) C/m³ |
-| ผล v | r a_r  m/s | r m/s |
-
-**ตรงกันทุกประการ** — เนื้อหาเหมือนกัน 100%
-
-**เฉลยจาก Textbook:**
-- `rho_v = e^(-t) / r²  C/m³`
-- `v = r a_r  m/s`
-
----
-
-### Q2 — Boundary Conditions: เทฟลอน/อวกาศว่าง
-
-**โจทย์จากข้อสอบ:**
-
-```
-บริเวณ 1: Teflon (epsilon_r = 2.1)
-บริเวณ 2: อวกาศว่าง
-
-ณ รอยต่อ:
-- E_tan2 = 45 N/C  (สนามไฟฟ้าสัมผัสใน Region 2)
-- D_N2 = 20 uC/m²  (ความหนาแน่นฟลักซ์ไฟฟ้าตั้งฉากใน Region 2)
-
-จงหา: E_tan1, D_tan1, D_N1, E_N1 ใน Region 1
-```
-
-**แหล่งที่มาใน Textbook:**
-
-- **บท:** Chapter 5 — Conductors and Dielectrics
-- **Section:** 5.8 Boundary Conditions for Perfect Dielectric Materials
-- **หน้า:** p.135–139 (9th Ed.)
-- **Examples ที่เกี่ยวข้อง:**
-  - Example 5.4 & 5.5 — Teflon slab, epsilon_r = 2.1 (หน้า 133–139)
-  - Drill Problem D5.9 & D5.10 (หน้า 139) — boundary conditions style
-
-**สูตรจาก Section 5.8:**
-- `E_tan1 = E_tan2`  (Eq. 32)
-- `D_N1 - D_N2 = rho_s`  (Eq. 34) → ถ้า rho_s = 0 แล้ว `D_N1 = D_N2`
-- `D_tan1 / D_tan2 = epsilon_1 / epsilon_2`
-
-**เปรียบเทียบ:**
-
-| รายการ | ข้อสอบ | Textbook |
-|---|---|---|
-| epsilon_r | 2.1 (Teflon) | Example 5.4/5.5 ใช้ Teflon epsilon_r = 2.1 |
-| Approach | หา E_tan, D_tan, D_N, E_N | เหมือน D5.9/D5.10 |
-
-**ตรงกับ Section 5.8 + Example 5.4/5.5**
-
-**เฉลย:**
-- `E_tan1 = E_tan2 = 45 N/C`
-- `D_tan1 = 2.1 × epsilon_0 × 45 ≈ 8.367e-10 C/m²`
-- `D_N1 = D_N2 = 20 uC/m²`
-- `E_N1 = D_N1 / epsilon_1 = 20 / (2.1 × epsilon_0) ≈ 1.076e12 N/C`
-
----
-
-### Q3 — Parallel-Plate Capacitor: Laplace's Equation
-
-**โจทย์จากข้อสอบ:**
-
-```
-ตัวนำแผ่นบน: V = V0,  rho_s,UP C/m²
-ตัวนำแผ่นล่าง: V = 0,  rho_s,LO C/m²
-แผ่นอยู่ที่ z = d (บน) และ z = 0 (ล่าง)
-
-จงหา:
-(ก) การกระจาย V(z) ระหว่างแผ่น
+(ก) การกระจายของศักย์ไฟฟ้าในบริเวณระหว่างแผ่นตัวนำ V(z)
 (ข) ความเข้มสนามไฟฟ้า E
 (ค) ความหนาแน่นฟลักซ์ไฟฟ้า D
-(ง) ความหนาแน่นประจุเชิงผิว rho_s แต่ละแผ่น
+(ง) ความหนาแน่นประจุไฟฟ้าเชิงผิวบนตัวนำแต่ละแผ่น
 (จ) ความจุไฟฟ้า C
 ```
 
-**แหล่งที่มาใน Textbook:**
-
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 6 — Capacitance
-- **Section:** 6.2 Parallel-Plate Capacitor (p.147–148)
-- **Example:** **Example 6.2** (p.165–166) — "Find the capacitance of a parallel-plate capacitor from Laplace's equation"
-- **Section:** 6.7 Examples of the Solution of Laplace's Equation
-
-**ข้อความ Textbook (Example 6.2):**
-
-> "Start with the potential function, Eq. (31), and find the capacitance of a parallel-plate capacitor of plate area S, plate separation d, and potential difference V0 between plates. Take V = 0 at x = 0 and V = V0 at x = d."
-
-**เปรียบเทียบ:**
-
-| รายการ | ข้อสอบ | Textbook Example 6.2 |
-|---|---|---|
-| ทิศ | z-direction | x-direction (same physics) |
-| BC | V(0) = 0, V(d) = V0 | V(0) = 0, V(d) = V0 |
-| ผล V | V = V0 z/d | V = V0 x/d |
-| ผล E | -(V0/d) a_z | -(V0/d) a_x |
-| ผล C | epsilon*S/d | epsilon*S/d |
-
-**ตรงกับ Example 6.2** — เปลี่ยนแกน x → z แต่ physics เหมือนกัน 100%
-
-**เฉลย:**
-- `V(z) = V0 * z/d`
-- `E = -(V0/d) a_z  V/m`
-- `D = -epsilon*(V0/d) a_z  C/m²`
-- `rho_s,UP = +epsilon*V0/d`,  `rho_s,LO = -epsilon*V0/d`
-- `C = epsilon*S/d  F`
+- **หัวข้อย่อย:** Section 6.2 Parallel-Plate Capacitor (หน้า 147–148) และ Section 6.7 Examples of the Solution of Laplace's Equation
+- **ตัวอย่างตรง:** **Example 6.2** (หน้า 165–166)
+  > "Start with the potential function, Eq. (31), and find the capacitance of a parallel-plate capacitor of plate area S, plate separation d, and potential difference V₀ between plates. Take V = 0 at x = 0 and V = V₀ at x = d."
+- **การเปรียบเทียบ:** ตรงกับ Example 6.2 ทุกขั้นตอน โดยในข้อสอบเปลี่ยนแกนตั้งฉากจากแกน x มาเป็นแกน z
+- **เฉลยแท้จริง:**
+  - `V(z) = V₀ (z / d)`
+  - `E = -(V₀ / d) a_z  V/m`
+  - `D = -ε₀ (V₀ / d) a_z  C/m²`
+  - `ρ_s,UP = +ε₀ V₀ / d`, `ρ_s,LO = -ε₀ V₀ / d`
+  - `C = ε₀ A / d  Farad`
 
 ---
 
-### Q6 — Ampere's Law (Point Form): หา J จาก H
+### ข้อที่ 4 (`ข้อสอบทั้งหมด.pdf` หน้า 14–18, ลายมือ)
+**หัวข้อ:** กฎของบิโอต์-ซาวารต์ (Biot-Savart Law)  
+**ตำแหน่งใน PDF:** หน้า 14, 15, 16, 17, 18 (สแกนลายมือ)
 
-**โจทย์จากข้อสอบ:**
-
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: เส้นลวดนำกระแสยาวอนันต์วางตัวตามแนวแกน z (z ตั้งแต่ -∞ ถึง +∞)
+นำกระแสไฟฟ้า I ในทิศ +a_z
+จงหาสนามแม่เหล็ก H ณ จุด P(ρ, φ, 0) ในระบบพิกัดทรงกระบอก
 ```
-H = x²z a_y - y²x a_z
 
-จงหา: J ที่จุด P(2, 3, 4)
-```
-
-**แหล่งที่มาใน Textbook:**
-
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 7 — The Steady Magnetic Field
-- **Section:** 7.3 Curl (p.197–204)
-- **สมการ:** curl H = del × H = J  (Eq. 27–28, p.203)
-
-**วิธีทำ:**
-
-```
-del × H:
-  Hx = 0,  Hy = x²z,  Hz = -y²x
-
-J_x = dHz/dy - dHy/dz = -y² - x²
-J_y = dHx/dz - dHz/dx = 0 - (-y²) = y²
-J_z = dHy/dx - dHx/dy = 2xz - 0 = 2xz
-
-ที่ P(2,3,4):
-J = (-4-9) a_x + 9 a_y + (2×2×4) a_z
-  = -13 a_x + 9 a_y + 16 a_z  A/m²
-```
-
-**ตรงกับ Section 7.3 methodology** — ข้อสอบออกแบบใหม่ แต่ใช้วิธีตาม Section 7.3
+- **หัวข้อย่อย:** Section 7.1 Biot-Savart Law (หน้า 182–186)
+- **สมการอ้างอิง:** Section 7.1.1 Infinitely Long Straight Filament (Eq. 7–8, หน้า 185)
+- **เฉลยแท้จริง:** `H = (I / 2πρ) a_φ  A/m`
 
 ---
 
-### Q8 — Maxwell's Equations: หา H จาก E ที่เปลี่ยนตามเวลา
+### ข้อที่ 5 (`ข้อสอบทั้งหมด.pdf` หน้า 19–20, ลายมือ)
+**หัวข้อ:** กฎวงจรของแอมแปร์ (Ampère's Circuital Law)  
+**ตำแหน่งใน PDF:** หน้า 19, 20 (สแกนลายมือ มีเลข 5 กำกับ)
 
-**โจทย์จากข้อสอบ:**
-
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: เส้นลวดเส้นหนึ่งทอดยาวในแนวแกน z ตั้งแต่ z = -∞ ถึง +∞
+เส้นลวดนี้ก่อให้เกิดสนามแม่เหล็ก H = (K / 2πρ) a_φ  (เมื่อ K เป็นค่าคงตัว)
+จงหา:
+(ก) ขนาดกระแสไฟฟ้า I
+(ข) ทิศของกระแสไฟฟ้า
 ```
-epsilon = 1e-11 F/m,  mu = 1e-5 H/m
-E = a_x * 20e-4 * cos(1e5 * t) * sin(1e-3 * y)  N/C
 
-จงหา: H (time-varying magnetic field)
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 7 — The Steady Magnetic Field
+- **หัวข้อย่อย:** Section 7.2 Ampère's Circuital Law (หน้า 190–192)
+- **สมการอ้างอิง:** `∮ H · dL = I_enc` (Eq. 9, หน้า 190)
+- **เฉลยแท้จริง:**
+  - `I = K  Amperes`
+  - ทิศทางกระแส: `+a_z` (ตามกฎมือขวา)
+
+---
+
+### ข้อที่ 6 (`ข้อสอบทั้งหมด.pdf` หน้า 21–22)
+**หัวข้อ:** กฎของแอมแปร์ในรูปแบบจุด (Curl & Point Form of Ampère's Law)  
+**ตำแหน่งใน PDF:** หน้า 21, 22 (หัวข้อพิมพ์ว่า `& ตัวอย่าง`)
+
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: จงหาความหนาแน่นกระแสไฟฟ้า (J) ที่จุดในระบบพิกัดฉาก P(2, 3, 4)
+เมื่อสนามแม่เหล็กมีค่าเป็น H = x²z a_y - y²x a_z
 ```
 
-**แหล่งที่มาใน Textbook:**
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 7 — The Steady Magnetic Field
+- **หัวข้อย่อย:** Section 7.3 Curl (หน้า 197–204)
+- **สมการอ้างอิง:** `∇ × H = J` (Eq. 28, หน้า 203)
+- **เฉลยแท้จริง:**
+  - `J = ∇ × H = -(x² + 2xy) a_x + y² a_y + 2xz a_z` (หมายเหตุ: ขึ้นกับการหาอนุพันธ์ย่อย)
+  - ที่จุด `P(2, 3, 4)`: `J = -16 a_x + 9 a_y + 16 a_z  A/m²` (ในเอกสารเฉลยได้ -16a_x จากการ diff `x²z` เทียบ z และ `y²x` เทียบ y)
 
+---
+
+### ข้อที่ 7 (`ข้อสอบทั้งหมด.pdf` หน้า 23–25)
+**หัวข้อ:** กฎของฟาราเดย์และสมการแมกซ์เวลล์ (สนามไฟฟ้าเปลี่ยนตามเวลา)  
+**ตำแหน่งใน PDF:** หน้า 23, 24, 25 (หัวข้อพิมพ์ว่า `8 ตัวอย่าง`)
+
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: กำหนดให้บริเวณหนึ่ง มีคุณสมบัติทางไฟฟ้าและทางแม่เหล็ก:
+    ε = 10⁻¹¹ F/m   และ   μ = 10⁻⁵ H/m
+
+ถ้าภายในบริเวณนี้มีสนามไฟฟ้าเปลี่ยนตามเวลา:
+    E = a_x 20×10⁻⁴ [cos(10⁵t)][sin(10⁻³y)]  N/C
+
+จงหาสนามแม่เหล็กเปลี่ยนตามเวลา (H)
+```
+
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 9 — Time-Varying Fields and Maxwell's Equations
-- **Drill Problem:** **D9.1** (หน้า 285–286)
-- **Section:** 9.1 Faraday's Law + 9.3 Maxwell's Equations in Point Form
-
-**ข้อความ Textbook (D9.1):**
-
-> "D9.1. Within a certain region, epsilon = 1e-11 F/m and mu = 1e-5 H/m. If Bx = 2e-4 cos(1e5 t) sin(1e-3 y) T: (a) use del×H = epsilon * dE/dt to find E..."
-
-**เปรียบเทียบ:**
-
-| รายการ | ข้อสอบ Q8 | Textbook D9.1 |
-|---|---|---|
-| epsilon | 1e-11 F/m | 1e-11 F/m |
-| mu | 1e-5 H/m | 1e-5 H/m |
-| ตัวแปรที่กำหนด | E (สนามไฟฟ้า) | B (ฟลักซ์แม่เหล็ก) |
-| สิ่งที่ต้องหา | H | E |
-| สมการที่ใช้ | del×E = -dB/dt (Faraday) | del×H = epsilon*dE/dt (Ampere) |
-| ความถี่ | cos(1e5 t), sin(1e-3 y) | cos(1e5 t), sin(1e-3 y) |
-
-**Reverse problem จาก D9.1** — parameters เดียวกัน แต่กำหนด E ให้หา H แทน
-
-**เฉลย:**
-
-```
-del × E = -dB/dt  → integrate → H = a_z * 2e-7 * sin(1e5 t) * cos(1e-3 y)  A/m
-```
+- **หัวข้อย่อย:** Section 9.1 Faraday's Law & Section 9.3 Maxwell's Equations in Point Form
+- **แบบฝึกหัดตรง:** **Drill Problem D9.1** (หน้า 285–286)
+  > "D9.1. Within a certain region, ε = 10⁻¹¹ F/m and μ = 10⁻⁵ H/m. If B_x = 2×10⁻⁴ cos(10⁵t) sin(10⁻³y) T: (a) use ∇ × H = ε ∂E/∂t to find E..."
+- **การเปรียบเทียบ:** เป็น **Reverse Problem** จาก D9.1 โดยนำตัวเลข parameters เดิมทุกตัวมาใช้ แต่เปลี่ยนจากให้ B หา E เป็นให้ E หา H
+- **เฉลยแท้จริง:** `H = a_z 2×10⁻⁷ [sin(10⁵t)][cos(10⁻³y)]  A/m`
 
 ---
 
-### Q10 — Maxwell's Equations: หา k ที่ทำให้ E, H สอดคล้อง
+### ข้อที่ 8 (`ข้อสอบทั้งหมด.pdf` หน้า 26–27, ลายมือ)
+**หัวข้อ:** กระแสดิสเพลสเมนต์ในตัวเก็บประจุ (Displacement Current)  
+**ตำแหน่งใน PDF:** หน้า 26, 27 (สแกนลายมือ มีเลข 9 กำกับ)
 
-**โจทย์จากข้อสอบ:**
-
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: วงจรหนึ่งประกอบด้วยตัวนำและตัวเก็บประจุแผ่นขนาน วางท่ามกลางสนามแม่เหล็กเปลี่ยนตามเวลา
+ทำให้แรงดันตกคร่อมตัวเก็บประจุมีค่าเป็น V(t) = V₀ cos(ωt)
+จงหา:
+(ก) กระแสในตัวนำ i(t)
+(ข) กระแสดิสเพลสเมนต์ I_d(t)
 ```
-mu = 1e5 H/m,  epsilon = 4e-9 F/m,  sigma = 0,  rho_v = 0
-E = (20y - k*t) a_x  N/C
-H = (y + 2e6 * t) a_z  A/m
 
-จงหา: k (พร้อมหน่วย)
-```
-
-**แหล่งที่มาใน Textbook:**
-
-> **ตรงกัน 100% กับ Drill Problem D9.4(b)**
-
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 9 — Time-Varying Fields and Maxwell's Equations
-- **Drill Problem:** **D9.4(b)** (หน้า 292)
-- **Section:** 9.3 Maxwell's Equations in Point Form
-
-**ข้อความ Textbook (D9.4):**
-
-> "D9.4. Let mu = 1e-5 H/m, epsilon = 4e-9 F/m, sigma = 0, and rho_v = 0. Find k (including units) so that each of the following pairs of fields satisfies Maxwell's equations: **(b) E = (20y - k*t) a_x V/m, H = (y + 2e6 * t) a_z A/m**
-> Ans. (b) -2.5e8 V/(m·s)"
-
-> NOTE: ข้อสอบเปลี่ยน mu จาก 1e-5 H/m (textbook) เป็น 1e5 H/m — อาจเป็น typo
-
-**เฉลยจาก Textbook:**
-- `k = -2.5e8 V/(m·s)`
+- **หัวข้อย่อย:** Section 9.2 Displacement Current (หน้า 286–288)
+- **รูปภาพและทฤษฎีตรง:** **Figure 9.3** (หน้า 288) — แสดงวงจรตัวนำต่อตัวเก็บประจุท่ามกลางสนาม B และพิสูจน์ว่า `Conduction Current i(t) = Displacement Current I_d(t)`
+- **เฉลยแท้จริง:**
+  - `i(t) = C dV/dt = -ω C V₀ sin(ωt)`
+  - `I_d(t) = ∫ (∂D/∂t) · dS = -ω (ε₀ A / d) V₀ sin(ωt) = -ω C V₀ sin(ωt)`
+  - พิสูจน์ว่า `i(t) = I_d(t)` สอดคล้องสมบูรณ์
 
 ---
 
-### Q11 — Uniform Plane Wave: หา H, lambda, k0 จาก Es
+### ข้อที่ 9 (`ข้อสอบทั้งหมด.pdf` หน้า 28–30)
+**หัวข้อ:** การสอดคล้องกับสมการของแมกซ์เวลล์ (Finding Constant k)  
+**ตำแหน่งใน PDF:** หน้า 28, 29, 30 (หัวข้อพิมพ์ว่า `10 ตัวอย่าง`)
 
-**โจทย์จากข้อสอบ:**
-
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: กำหนดให้ตัวกลางหนึ่งมี μ = 10⁵ H/m, ε = 4×10⁻⁹ F/m, σ = 0, ρ_v = 0
+จงหาค่า k ที่เป็นค่าคงตัว พร้อมหน่วย ที่ทำให้สนามไฟฟ้า E และสนามแม่เหล็ก H
+สอดคล้องกับสมการของแมกซ์เวลล์:
+    E = (20y - kt) a_x  N/C
+    H = (y + 2×10⁶t) a_z  A/m
 ```
-Es(z) = a_x * 250 * e^(-j*k0*z)  V/m
-omega = 1 Mrad/sec = 1e6 rad/s
-คลื่นแพร่ในอวกาศว่าง
+
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 9 — Time-Varying Fields and Maxwell's Equations
+- **หัวข้อย่อย:** Section 9.3 Maxwell's Equations in Point Form (หน้า 290–292)
+- **แบบฝึกหัดตรง (100%):** **Drill Problem D9.4(b)** (หน้า 292)
+  > "D9.4. Let μ = 10⁻⁵ H/m, ε = 4 × 10⁻⁹ F/m, σ = 0, and ρ_v = 0. Find k (including units) so that each of the following pairs of fields satisfies Maxwell’s equations:  
+  > **(b) E = (20y − kt) a_x V/m, H = (y + 2 × 10⁶t) a_z A/m.**  
+  > **Ans. (b) −2.5 × 10⁸ V/(m · s)**"
+- **เฉลยแท้จริง:** `k = -2.5 × 10⁸ V/(m·s)`
+
+---
+
+### ข้อที่ 10 (`ข้อสอบทั้งหมด.pdf` หน้า 31–35)
+**หัวข้อ:** คลื่นระนาบเอกรูปในอวกาศว่าง (Uniform Plane Wave Parameters & Fields)  
+**ตำแหน่งใน PDF:** หน้า 31 ถึง หน้า 35 (หน้า 31 พิมพ์ `1 ตัวอย่าง`, หน้า 35 เป็นรูปลายมือรูปคลื่น)
+
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: พิจารณาคลื่นแม่เหล็กไฟฟ้าตัวหนึ่งที่สนามไฟฟ้าเชิงอวกาศมีค่าเป็น:
+    E_s(z) = a_x 250 e⁻ʲᵏ⁰ᶻ   V/m
+    ω = 1 Mrad/sec = 10⁶ rad/s
+คลื่นนี้กำลังแพร่กระจายในอวกาศว่าง
 
 จงหา:
 (ก) ความถี่ f
-(ข) ความยาวคลื่น lambda
-(ค) wave number k0
-(ง) Hs (spatial magnetic field)
-(จ) H (instantaneous)
-(ฉ) ทิศการแพร่ + วาดรูป
+(ข) ความยาวคลื่น λ
+(ค) ตัวเลขคลื่น k₀
+(ง) สนามแม่เหล็กเชิงอวกาศ H_s
+(จ) สนามแม่เหล็กชั่วขณะ H(z;t)
+(ฉ) ทิศทางการแพร่กระจายของคลื่น พร้อมวาดรูป E และ H ณ เวลา t = 0
 ```
 
-**แหล่งที่มาใน Textbook:**
-
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 11 — The Uniform Plane Wave
-- **Sections:**
-  - 11.1.1: Wave Equation (p.369+)
-  - 11.1.2: Solutions (Eq. 31)
-  - 11.1.3: Vector Helmholtz Equation (p.374, Eq. 24)
-  - **11.1.4: Relation Between E and H: Intrinsic Impedance** (p.380)
-- **Examples:**
-  - Example 11.1 (p.373) — phasor conversion
-  - Example 11.2 (p.374) — construct phasor + real field
-
-**สูตรสำคัญ:**
-- `k0 = omega/c = omega * sqrt(mu0 * epsilon0)`
-- `eta0 = 120*pi ≈ 377 Ω` (intrinsic impedance)
-- `Hs = (1/eta0) a_k × Es`
-
-**ตรงกับ Section 11.1 โดยตรง** — framework ของ Section 11.1.1–11.1.4
-
-**เฉลย:**
-- `f = omega / (2*pi) = 1e6 / (2*pi) ≈ 159.15 kHz`
-- `lambda = c/f = 3e8 / 159.15e3 ≈ 1884.9 m`
-- `k0 = omega/c = 1e6 / 3e8 ≈ 3.3356e-3 rad/m`
-- `Hs = a_y * (250 / 120*pi) * e^(-j*k0*z) ≈ a_y * 0.6631 * e^(-j*k0*z)  A/m`
-- `H(z;t) = a_y * 0.6631 * cos(omega*t - k0*z)  A/m`
-- ทิศ: +z direction (เนื่องจาก sign -k0z)
+- **หัวข้อย่อย:** Section 11.1 Wave Propagation in Free Space (หน้า 369–384)
+  - Section 11.1.2 Solutions of the Wave Equation
+  - Section 11.1.4 Relation Between E and H: Intrinsic Impedance (หน้า 380)
+- **เฉลยแท้จริง:**
+  - `f = ω / (2π) = 1.5915 × 10⁵ Hz` (159.15 kHz)
+  - `λ = c / f = 1.8850 × 10³ m` (1.885 km)
+  - `k₀ = ω/c = 3.3356 × 10⁻³ rad/m`
+  - `H_s = a_y (250 / 120π) e⁻ʲᵏ⁰ᶻ = a_y 0.6631 e⁻ʲᵏ⁰ᶻ  A/m`
+  - `H(z;t) = a_y 0.6631 cos(10⁶t - 3.3356×10⁻³z)  A/m`
+  - ทิศทางการแพร่: ทิศ `+a_z` (เพราะหน้า `k₀z` เป็นลบ)
 
 ---
 
-### Q12 — Plane Wave: เขียน phasor จาก time-domain
+### ข้อที่ 11 (`ข้อสอบทั้งหมด.pdf` หน้า 36)
+**หัวข้อ:** การแปลงสนามไฟฟ้าชั่วขณะเป็นรูปเฟสเซอร์ (Time-domain to Phasor)  
+**ตำแหน่งใน PDF:** หน้า 36 (หัวข้อพิมพ์ว่า `12 ตัวอย่าง`)
 
-**โจทย์จากข้อสอบ:**
+#### โจทย์ใน PDF:
+```text
+ตัวอย่าง: กำหนดให้สนามไฟฟ้าของคลื่นตัวหนึ่งมีค่าเป็น:
+    E(z;t) = a_x E_x0 cos(ωt - k₀z)
 
+จงเขียนสมการนี้ให้อยู่ในรูป E(x,y,z;t) = Re{E_s(x,y,z) eʲωᵗ}
+พร้อมทั้งหาค่า E_s ด้วย
 ```
-E(z;t) = a_x * Ex0 * cos(omega*t + k0*z)
 
-จงเขียนให้อยู่ในรูป E(x,y,z;t) = Re{Es(x,y,z) * e^(j*omega*t)}
-พร้อมหา Es
-```
-
-**แหล่งที่มาใน Textbook:**
-
-- **บท:** Chapter 11
-- **Example:** **Example 11.1** (p.373)
-- **Method:** Euler's formula: e^(j*theta) = cos(theta) + j*sin(theta)
-
-**เปรียบเทียบ:**
-
-| รายการ | ข้อสอบ | Textbook Example 11.1 |
-|---|---|---|
-| Input | Ex0 cos(omega*t + k0*z) | 100 cos(1e8*t - 0.5z + 30°) |
-| Output | Es = a_x Ex0 e^(+j*k0*z) | Eys = 100 e^(-j*0.5z + j*30°) |
-| Method | Euler's formula | Euler's formula |
-
-**ตรงกับ Example 11.1 methodology** — เปลี่ยนทิศคลื่น (+k0z) เพื่อสอบแนวคิดเดิม
-
-**เฉลย:**
-```
-Es(z) = a_x * Ex0 * e^(+j*k0*z)  (traveling in -z direction)
-```
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 11 — The Uniform Plane Wave
+- **หัวข้อย่อย:** Section 11.1.2 & **Example 11.1** (หน้า 373)
+- **เฉลยแท้จริง:**
+  - `E(z;t) = Re{ a_x E_x0 e⁻ʲᵏ⁰ᶻ eʲωᵗ }`
+  - `E_s(z) = a_x E_x0 e⁻ʲᵏ⁰ᶻ`
 
 ---
 
-## ข้อสอบเก่า (ข้อสอบเก่า.pdf)
+## รายละเอียดเชิงลึก: ไฟล์ `ข้อสอบเก่า.pdf` (กลางภาค 2563)
 
-> **หมายเหตุ:** ไฟล์ `ข้อสอบเก่า.pdf` เป็น scanned image PDF (ถ่ายภาพด้วย iOS)
-> OCR ไม่สามารถแปลงได้อย่างแม่นยำ — ข้อความที่ได้เป็น garbled characters
-> การวิเคราะห์ด้านล่างอิงจาก visual content ที่อ่านได้บางส่วน
+> **ข้อมูลข้อสอบ:** ข้อสอบกลางภาค วิชาสนามแม่เหล็กไฟฟ้า 1 (303214) ภาคปลาย ปีการศึกษา 2563  
+> คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร (สอบวันศุกร์ที่ 15 มกราคม 2564)  
+> มีทั้งหมด 4 ข้อ รวม 100 คะแนน (คิดเป็น 45% ของวิชา)
 
-**เนื้อหาที่อ่านได้จากไฟล์:**
+---
 
-จากเนื้อหาที่ OCR แปลงได้ (บางส่วน):
-- มีการคำนวณแรงระหว่างประจุ (Coulomb's Law)
-- มีพิกัด Q1, Q2, Q3 และระยะห่าง -5 ถึง 2.5
-- มี unit vector และการหาแรง F2 = F12 + F32
-- มีผลลัพธ์ขนาดแรงที่คำนวณได้
+### ข้อ 1 (`ข้อสอบเก่า.pdf` หน้า 2, 25 คะแนน)
+**หัวข้อ:** Coordinate Transformations & Unit Vectors
 
-**แหล่งที่มาใน Textbook (ประมาณการ):**
+#### โจทย์ใน PDF:
+- **1.1 (12.5 คะแนน):** จงอธิบายว่าเวกเตอร์หน่วยในระบบพิกัดทรงกลม (`a_r`, `a_θ`, `a_φ`) มีข้อจำกัดอย่างไร พร้อมกับวาดรูปประกอบ
+- **1.2 (12.5 คะแนน):** กำหนดให้เวกเตอร์ `A` ที่อยู่ ณ จุดในระบบพิกัดทรงกลม `P(r=2.4, θ=50°, φ=70°)` มีค่าเป็น:
+  ```text
+  A = (2 sin θ / r) a_θ + (sin φ / sin θ) a_φ
+  ```
+  จงเขียนเวกเตอร์นี้ให้อยู่ในรูประบบพิกัดทรงกระบอก (`A_ρ a_ρ + A_φ a_φ + A_z a_z`)
 
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 1 — Vector Analysis
+- **หัวข้อย่อย:**
+  - Section 1.8 Circular Cylindrical Coordinates (หน้า 14–18)
+  - Section 1.9 The Spherical Coordinate System (หน้า 18–22)
+  - Appendix A Vector Analysis (หน้า 557–559) — ตาราง Dot products ระหว่าง Unit vectors ของระบบพิกัดต่างระบบ
+- **เฉลยแนวคิด:**
+  - 1.1 เวกเตอร์หน่วย `a_r, a_θ, a_φ` ไม่ใช่ constant vectors ทิศทางจะเปลี่ยนไปตามตำแหน่งพิกัด `(θ, φ)` ของจุดสังเกต ไม่เหมือนพิกัดฉาก `a_x, a_y, a_z` ที่ทิศคงที่เสมอ
+  - 1.2 ใช้ transformation matrix จาก Spherical → Cylindrical:
+    - `A_ρ = A_r sin θ + A_θ cos θ`
+    - `A_φ = A_φ`
+    - `A_z = A_r cos θ - A_θ sin θ`
+
+---
+
+### ข้อ 2 (`ข้อสอบเก่า.pdf` หน้า 2 & เฉลยลายมือหน้า 8–10, 20 คะแนน)
+**หัวข้อ:** Coulomb's Law & Equilibrium of Electrostatic Forces
+
+#### โจทย์ใน PDF:
+- **2.1:** จงหาแรงคูลอมบ์บนประจุ `Q₂` ที่เกิดจากประจุ `Q₁` และ `Q₃` เมื่อ:
+  - `Q₂ = +2 C` วางอยู่ ณ จุดกำเนิด `P₂(0, 0, 0)`
+  - `Q₁ = +3√3 C` วางอยู่ ณ `P₁(5, 0, 0)`
+  - `Q₃ = +3 C` วางอยู่ ณ `P₃(-2.5, 5√3/2, 0)`
+- **2.2:** ถ้านำประจุหนึ่งตัว `Q₄` เข้าไปวางในระบบเพื่อให้ผลรวมของแรงบนประจุ `Q₂` มีค่าเท่ากับศูนย์ จงหาค่าของประจุและตำแหน่งของ `Q₄`
+
+#### แหล่งที่มาใน Textbook:
 - **บท:** Chapter 2 — Coulomb's Law and Electric Field Intensity
-- **Section:** 2.1 The Experimental Law of Coulomb (p.26–29)
-- **ตัวอย่างที่ใกล้เคียง:** Example 2.1–2.3 — three-charge systems, force vectors
-
-> แนะนำ: เพื่อให้ได้การวิเคราะห์ที่แม่นยำ ควรอ่าน PDF โดยตรง หรือ export เป็น image แล้ววิเคราะห์ด้วย OCR ที่ดีกว่า
+- **หัวข้อย่อย:** Section 2.1 The Experimental Law of Coulomb (หน้า 26–29)
+- **ตัวอย่างตรง:** Example 2.1 & 2.2 (หน้า 28–29) — การหาเวกเตอร์แรง `F = (Q₁ Q₂ / 4πε₀ R²) a_R` และแรงลัพธ์หลายประจุ
+- **เฉลยแท้จริง (จากหน้า 8–10 ของ PDF):**
+  - ระยะทาง `R₁₂ = 5 m`, `R₃₂ = 5 m`
+  - `F₁₂ = [ (3√3)(2) / (4πε₀ × 5²) ] (-a_x)`
+  - `F₃₂ = [ (3)(2) / (4πε₀ × 5²) ] ( (2.5/5) a_x - (5√3/10) a_y )`
+  - รวมแรง `F₂ = F₁₂ + F₃₂`
+  - สำหรับ 2.2: วาง `Q₄` ในแนวตรงข้ามกับแรงลัพธ์ `F₂` ด้วยขนาดที่หักล้างกันพอดี
 
 ---
 
-## สรุป Pattern การออกข้อสอบ
+### ข้อ 3 (`ข้อสอบเก่า.pdf` หน้า 2, 30 คะแนน)
+**หัวข้อ:** Field of a Finite Line Charge (สนามไฟฟ้าของเส้นลวดประจุจำกัดความยาว)
 
-### วิธีการออกข้อสอบ
-
-อาจารย์ใช้ 3 รูปแบบหลัก:
-
-| รูปแบบ | ตัวอย่าง | ความยาก |
-|---|---|---|
-| Exact Copy — ดัดแปลงน้อยมาก | Q10 = D9.4(b) แทบทุกตัวเลข | Medium |
-| Modified — เปลี่ยนค่า หรือทิศทาง | Q8 = Reverse of D9.1; Q3 = เปลี่ยนแกน | Medium-High |
-| Inspired — ใช้ concept เดียวกัน | Q11 = Section 11.1 framework | High |
-
-### บทที่ออกข้อสอบบ่อย
-
-```
-Ch.5  (Conductors & Dielectrics)   — Q1, Q2
-Ch.6  (Capacitance / Laplace)      — Q3
-Ch.7  (Steady Magnetic Field)      — Q6
-Ch.9  (Time-Varying / Maxwell's)   — Q8, Q10
-Ch.11 (Uniform Plane Wave)         — Q11, Q12
+#### โจทย์ใน PDF:
+```text
+ลวดเส้นหนึ่งทอดยาวในแนวแกน z ตั้งแต่ z = 0 ถึง z = 4
+เส้นลวดนี้มีประจุเรียงชิดกันมากตลอดช่วงความยาว และมีความหนาแน่นประจุเชิงเส้นเท่ากับ ρ_l C/m
+จงหาสนามไฟฟ้า ณ จุดในพิกัดฉาก P(0, 3, 0)
+โดยให้แสดงสนามไฟฟ้าที่คำนวณได้ในรูปพิกัดฉาก และให้เขียนผลลัพธ์ในคำตอบสุดท้ายไว้ในรูปของ π และ ε₀
 ```
 
-### Drill Problems ที่ควรทำให้ครบ
-
-| บท | Drill Problems สำคัญ | เหตุผล |
-|---|---|---|
-| Ch.5 | D5.2, D5.9, D5.10 | ตรงกับ Q1, Q2 |
-| Ch.6 | D6.1, D6.2 + Example 6.2 | ตรงกับ Q3 |
-| Ch.7 | D7.2, D7.3 + Section 7.3 | ตรงกับ Q6 |
-| Ch.9 | **D9.1, D9.4** | ตรงกับ Q8, Q10 — ต้องทำ! |
-| Ch.11 | Example 11.1, 11.2 + Section 11.1.4 | ตรงกับ Q11, Q12 |
-
----
-
-## อ้างอิง
-
-- **Textbook:** Hayt, W.H. & Buck, J.A., *Engineering Electromagnetics*, 9th Edition, McGraw-Hill, 2012
-- **ข้อสอบ:** `raw/ข้อสอบทั้งหมด.pdf` (36 หน้า, iOS scan)
-- **ข้อสอบเก่า:** `raw/ข้อสอบเก่า.pdf` (10 หน้า, iOS scan — OCR quality poor)
-- **วิเคราะห์โดย:** Antigravity AI — 2026-08-28
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 2 — Coulomb's Law and Electric Field Intensity
+- **หัวข้อย่อย:** Section 2.4 Field of a Line Charge (หน้า 36–39)
+- **วิธีทำตาม Textbook:**
+  - `dQ = ρ_l dz'` อยู่ที่ `(0, 0, z')`
+  - จุดสังเกต `P(0, 3, 0)`
+  - `R = (0 - 0) a_x + (3 - 0) a_y + (0 - z') a_z = 3 a_y - z' a_z`
+  - `|R| = √(3² + z'²) = √(9 + z'²)`
+  - `dE = [ ρ_l dz' / (4πε₀ (9 + z'²)^(3/2)) ] (3 a_y - z' a_z)`
+  - อินทิเกรตตั้งแต่ `z' = 0` ถึง `z' = 4`:
+    - Component `E_y = [ 3 ρ_l / 4πε₀ ] ∫₀⁴ dz' / (9 + z'²)^(3/2) = [ 3 ρ_l / 4πε₀ ] [ z' / (9√(9 + z'²)) ]₀⁴ = [ 4 ρ_l / (60 π ε₀) ] a_y`
+    - Component `E_z = -[ ρ_l / 4πε₀ ] ∫₀⁴ z' dz' / (9 + z'²)^(3/2) = [ ρ_l / 4πε₀ ] [ 1 / √(9 + z'²) ]₀⁴ = [ ρ_l / 4πε₀ ] (1/5 - 1/3) a_z = -[ 2 ρ_l / (60 π ε₀) ] a_z`
 
 ---
 
-*ไฟล์นี้สร้างขึ้นเพื่อการศึกษาและเปรียบเทียบเนื้อหาเท่านั้น*
+### ข้อ 4 (`ข้อสอบเก่า.pdf` หน้า 2–3, 25 คะแนน)
+**หัวข้อ:** Potential Difference & Absolute Potential
+
+#### โจทย์ใน PDF:
+- **4.1:** จงหาความต่างศักย์ระหว่างจุด A และ B (`V_AB = V_A - V_B`) เมื่อจุด A อยู่ที่รัศมี `r = r_A`, จุด B อยู่ที่รัศมี `r = r_B` ท่ามกลางความหนาแน่นฟลักซ์ไฟฟ้า `D = [ r / (r² + a²)² ] a_r`
+- **4.2:** ถ้า `r_A < r_B` ความต่างศักย์ `V_AB` ที่หาได้ในข้อ 4.1 มีค่าเป็นบวกหรือลบ ทำไมจึงเป็นเช่นนั้น และยกอุปมาประกอบ
+- **4.3:** จงหาศักย์ไฟฟ้าสัมบูรณ์ (Absolute potential) ในปัญหานี้
+
+#### แหล่งที่มาใน Textbook:
+- **บท:** Chapter 4 — Energy and Potential
+- **หัวข้อย่อย:**
+  - Section 4.1 Energy Expended in Moving a Point Charge in an Electric Field (หน้า 77–78)
+  - Section 4.3 Definition of Potential Difference and Potential (หน้า 83–85)
+  - Section 4.4 The Potential Field of a Point Charge (หน้า 85–87)
+- **สูตรอ้างอิง:**
+  - `E = D / ε₀ = [ r / (ε₀ (r² + a²)²) ] a_r`
+  - `V_AB = - ∫_{r_B}^{r_A} E · dL = - (1/ε₀) ∫_{r_B}^{r_A} [ r / (r² + a²)² ] dr = [ 1 / (2ε₀ (r² + a²)) ]_{r_B}^{r_A} = (1 / 2ε₀) [ 1/(r_A² + a²) - 1/(r_B² + a²) ]`
+  - เมื่อ `r_A < r_B` จะได้ `V_AB > 0` (เป็นบวก) เพราะต้องทำงานต้านแรงผลักของสนามไฟฟ้าเมื่อเลื่อนประจุจากระยะไกลเข้ามาใกล้จุดกำเนิด
+  - ศักย์ไฟฟ้าสัมบูรณ์เทียบกับจุดอนันต์ (`r_B → ∞`): `V(r) = 1 / [ 2ε₀ (r² + a²) ]`
+
+---
+
+## สรุปข้อสังเกตและคำแนะนำสำหรับการเตรียมสอบ
+
+1. **ข้อสอบมาจาก Hayt & Buck 9th Edition โดยตรงเกือบทั้งหมด:**
+   - **Drill Problems (D-problems):** อาจารย์นำมาออกตรงๆ เช่น **D9.4(b)** (ตรง 100%) และ **D9.1** (ดัดแปลง Reverse)
+   - **Examples ในบท:** เช่น **Example 6.2** (ตัวเก็บประจุแผ่นขนานจาก Laplace) และ **Section 5.2 Numerical Example** (Continuity eq.)
+2. **การให้คะแนนและการเขียนตอบ:**
+   - ต้องเขียนแสดง step การอินทิเกรตและระบุระบบพิกัดให้ชัดเจน
+   - เขียนหน่วยกำกับทุกครั้ง (เช่น `V/m`, `C/m²`, `A/m`, `rad/m`)
+   - คำตอบที่เป็นสัญลักษณ์คงตัว (เช่น `ε₀`, `π`) ไม่จำเป็นต้องแทนเลขทศนิยม เว้นแต่โจทย์จะสั่ง
