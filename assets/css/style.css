@@ -806,6 +806,15 @@ code {
   white-space: normal;
 }
 
+.math-display code {
+  font-family: inherit;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+}
+
 .math-display b {
   font-family: var(--font-sans);
   font-weight: 800;
@@ -1374,6 +1383,18 @@ code {
   border: 1px solid var(--red);
 }
 
+.formula-ref-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  margin-bottom: 10px;
+}
+
 .step-card.step-essential {
   border-left: 3.5px solid var(--red);
 }
@@ -1439,6 +1460,18 @@ code {
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   animation: modalSlideUp 0.25s ease;
+}
+
+.confirm-modal-box {
+  background: var(--paper);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-lg);
+  animation: modalSlideUp 0.2s ease;
+  position: relative;
 }
 
 .formula-modal-header {

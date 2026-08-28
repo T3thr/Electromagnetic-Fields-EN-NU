@@ -121,9 +121,9 @@
     </div>
   </div>
 
-  <h1 class="book-title">📑 ใบสูตรสำหรับสอบกลางภาคแบบ Interactive</h1>
+  <h1 class="book-title">ใบสูตรสำหรับสอบกลางภาค (Midterm Formula Sheet)</h1>
   <div class="subtitle">
-    รวบรวมสูตรทางการและเมทริกซ์การแปลงทั้งหมดจากเอกสารข้อสอบจริง (หน้า 1 ถึง หน้า 4) จัดรูปแบบด้วยมาตรฐานคณิตศาสตร์สากล พร้อมระบบค้นหาด่วนและปุ่มคัดลอกรูปทั่วไป
+    รวบรวมสูตรทางการและเมทริกซ์การแปลงทั้งหมดจากเอกสารแจกในห้องสอบจริง (หน้า 1 ถึง หน้า 4) จัดรูปแบบด้วยมาตรฐานคณิตศาสตร์สากล พร้อมระบบค้นหาด่วนและปุ่มคัดลอกรูปทั่วไป
   </div>
 
   <!-- Category Filter Pills -->
@@ -140,8 +140,15 @@
 
   <!-- Search Filter Bar -->
   <div class="formula-filter-bar" style="display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;">
-    <input type="text" id="formula-search" class="formula-filter-input" placeholder="🔍 พิมพ์ชื่อสูตร ตัวแปร หรือหัวข้อที่ต้องการค้นหา (เช่น ไดเวอร์เจนซ์, ทรงกลม, เมทริกซ์, คูลอมบ์, dL)..." style="flex-grow: 1; min-width: 260px; padding: 12px 18px; border: 1.5px solid var(--rule); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.96rem; background: var(--card-bg); color: var(--ink);">
-    <button class="btn btn-secondary" onclick="window.print()" type="button">🖨️ พิมพ์ใบสูตร (Print A4)</button>
+    <input type="text" id="formula-search" class="formula-filter-input" placeholder="พิมพ์ชื่อสูตร ตัวแปร หรือหัวข้อที่ต้องการค้นหา (เช่น ไดเวอร์เจนซ์, ทรงกลม, เมทริกซ์, คูลอมบ์, dL)..." style="flex-grow: 1; min-width: 260px; padding: 12px 18px; border: 1.5px solid var(--rule); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.96rem; background: var(--card-bg); color: var(--ink);">
+    <button class="btn btn-secondary" onclick="window.print()" type="button" style="display: inline-flex; align-items: center; gap: 6px;">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      <span>พิมพ์ใบสูตร (Print A4)</span>
+    </button>
   </div>
 
   <!-- ═══════════ Section 1: เวกเตอร์และพิกัดฉาก ═══════════ -->
@@ -545,7 +552,13 @@
 
   <footer class="page-footer">
     <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
-    <a href="../index.html" class="btn btn-secondary">🏠 กลับสู่หน้าหลัก</a>
+    <a href="../index.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 6px;">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>กลับสู่หน้าหลัก</span>
+    </a>
   </footer>
 </div>
 

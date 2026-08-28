@@ -1,10 +1,10 @@
-# ⚡ 303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I) — คลังบทเรียนและระบบจำลองข้อสอบกลางภาค
+# 303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I) — คลังบทเรียนและระบบจำลองข้อสอบกลางภาค
 
 คลังเอกสารสรุปบทเรียน ทฤษฎีสนามแม่เหล็กไฟฟ้า และ **ระบบจำลองข้อสอบกลางภาคเสมือนจริงแบบ Interactive พร้อมเฉลยเชิงวิเคราะห์ละเอียดทุกขั้นตอน** ประจำรายวิชา **303214 Electromagnetic Fields 1** ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร
 
 ---
 
-## 🎯 สรุปข้อมูลการสอบกลางภาค (Midterm Profile)
+## สรุปข้อมูลการสอบกลางภาค (Midterm Profile)
 - **น้ำหนักคะแนน:** **45%** (100 คะแนนเต็ม)
 - **ระยะเวลาทำข้อสอบ:** **3 ชั่วโมง**
 - **โครงสร้างข้อสอบ:** อัตนัย 4 ข้อใหญ่
@@ -16,25 +16,25 @@
 
 ---
 
-## 🧭 สารบัญบทเรียน 9 บทติวเข้มกลางภาค (Curriculum Hub)
+## สารบัญบทเรียน 9 บทติวเข้มกลางภาค (Curriculum Hub)
 
 | บทที่ | โฟลเดอร์เนื้อหา | ชื่อบทเรียนภาษาไทย | เครื่องมือ Interactive & ประเด็นข้อสอบ | ลิงก์เว็บแอป |
 | :---: | :--- | :--- | :--- | :---: |
-| **01** | [`01-vector-algebra/`](01-vector-algebra/) | **เวกเตอร์และระบบพิกัดฉาก** | ตัวจำลองเวกเตอร์ 3D, Dot/Cross Product, Differential Elements | [🌐 เปิดบทเรียน](01-vector-algebra/index.html) |
-| **02** | [`02-cylindrical-coordinates/`](02-cylindrical-coordinates/) | **ระบบพิกัดทรงกระบอก** | เมทริกซ์แปลงพิกัดและเวกเตอร์ [A_rc], ส่วนย่อย dl, ds, dv | [🌐 เปิดบทเรียน](02-cylindrical-coordinates/index.html) |
-| **03** | [`03-spherical-coordinates/`](03-spherical-coordinates/) | **ระบบพิกัดทรงกลม** | **🔥 ข้อสอบข้อ 1 (25 คะแนน):** ข้อจำกัด a_r, a_θ, a_ϕ + แปลงเวกเตอร์ A ณ จุด P | [🌐 เปิดบทเรียน](03-spherical-coordinates/index.html) |
-| **04** | [`04-coulombs-law/`](04-coulombs-law/) | **กฎของคูลอมบ์** | **🔥 ข้อสอบข้อ 2 (20 คะแนน):** รวมแรงเวกเตอร์ F_net + หาประจุ Q₄ ให้ F_net = 0 | [🌐 เปิดบทเรียน](04-coulombs-law/index.html) |
-| **05** | [`05-electric-field-intensity/`](05-electric-field-intensity/) | **ความเข้มสนามไฟฟ้า E** | **🔥 ข้อสอบข้อ 3 (30 คะแนน):** อินทิเกรตตรีโกณมิติ z=3 tan ψ ลวดประจุจำกัด | [🌐 เปิดบทเรียน](05-electric-field-intensity/index.html) |
-| **06** | [`06-electric-flux-density/`](06-electric-flux-density/) | **ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D** | แบบจำลองการทดลองทรงกลมตัวนำซ้อนของฟาราเดย์, D = ε₀ E | [🌐 เปิดบทเรียน](06-electric-flux-density/index.html) |
-| **07** | [`07-gauss-law/`](07-gauss-law/) | **กฎของเกาส์** | ตัวเลือกผิวเกาส์เซียนสมมาตร 3 รูปแบบ (ทรงกลม, ทรงกระบอก, แผ่นระนาบ) | [🌐 เปิดบทเรียน](07-gauss-law/index.html) |
-| **08** | [`08-divergence-theorem/`](08-divergence-theorem/) | **ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์** | เครื่องคำนวณ ∇ • D = ρ_v (สมการแมกซ์เวลล์ข้อ 1) ใน 3 ระบบพิกัด | [🌐 เปิดบทเรียน](08-divergence-theorem/index.html) |
-| **09** | [`09-electric-potential/`](09-electric-potential/) | **ศักย์ไฟฟ้าและพลังงาน V** | **🔥 ข้อสอบข้อ 4 (25 คะแนน):** V_AB = -∫ E • dl, อุปมาฟิสิกส์เครื่องหมายบวก/ลบ | [🌐 เปิดบทเรียน](09-electric-potential/index.html) |
-| **Sim**| [`exam-simulator/`](exam-simulator/) | **ระบบจำลองสอบกลางภาคเสมือนจริง** | จับเวลา 3 ชั่วโมง, ตรวจตามเกณฑ์อย่างเข้มงวด, โหมดสุ่มโจทย์ | [🎯 เข้าห้องสอบ](exam-simulator/index.html) |
-| **Ref**| [`formula-sheet/`](formula-sheet/) | **ใบสูตรกลางภาคดิจิทัล** | รวบรวมสูตร 4 หน้าเต็ม ค้นหาด่วน คัดลอกเมทริกซ์ พิมพ์ A4 | [📑 เปิดใบสูตร](formula-sheet/index.html) |
+| **01** | [`01-vector-algebra/`](01-vector-algebra/) | **เวกเตอร์และระบบพิกัดฉาก** | ตัวจำลองเวกเตอร์ 3D, Dot/Cross Product, Differential Elements | [เปิดบทเรียน](01-vector-algebra/index.html) |
+| **02** | [`02-cylindrical-coordinates/`](02-cylindrical-coordinates/) | **ระบบพิกัดทรงกระบอก** | เมทริกซ์แปลงพิกัดและเวกเตอร์ [A_rc], ส่วนย่อย dl, ds, dv | [เปิดบทเรียน](02-cylindrical-coordinates/index.html) |
+| **03** | [`03-spherical-coordinates/`](03-spherical-coordinates/) | **ระบบพิกัดทรงกลม** | **ข้อสอบข้อ 1 (25 คะแนน):** ข้อจำกัด a_r, a_θ, a_ϕ + แปลงเวกเตอร์ A ณ จุด P | [เปิดบทเรียน](03-spherical-coordinates/index.html) |
+| **04** | [`04-coulombs-law/`](04-coulombs-law/) | **กฎของคูลอมบ์** | **ข้อสอบข้อ 2 (20 คะแนน):** รวมแรงเวกเตอร์ F_net + หาประจุ Q₄ ให้ F_net = 0 | [เปิดบทเรียน](04-coulombs-law/index.html) |
+| **05** | [`05-electric-field-intensity/`](05-electric-field-intensity/) | **ความเข้มสนามไฟฟ้า E** | **ข้อสอบข้อ 3 (30 คะแนน):** อินทิเกรตตรีโกณมิติ z=3 tan ψ ลวดประจุจำกัด | [เปิดบทเรียน](05-electric-field-intensity/index.html) |
+| **06** | [`06-electric-flux-density/`](06-electric-flux-density/) | **ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D** | แบบจำลองการทดลองทรงกลมตัวนำซ้อนของฟาราเดย์, D = ε₀ E | [เปิดบทเรียน](06-electric-flux-density/index.html) |
+| **07** | [`07-gauss-law/`](07-gauss-law/) | **กฎของเกาส์** | ตัวเลือกผิวเกาส์เซียนสมมาตร 3 รูปแบบ (ทรงกลม, ทรงกระบอก, แผ่นระนาบ) | [เปิดบทเรียน](07-gauss-law/index.html) |
+| **08** | [`08-divergence-theorem/`](08-divergence-theorem/) | **ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์** | เครื่องคำนวณ ∇ • D = ρ_v (สมการแมกซ์เวลล์ข้อ 1) ใน 3 ระบบพิกัด | [เปิดบทเรียน](08-divergence-theorem/index.html) |
+| **09** | [`09-electric-potential/`](09-electric-potential/) | **ศักย์ไฟฟ้าและพลังงาน V** | **ข้อสอบข้อ 4 (25 คะแนน):** V_AB = -∫ E • dl, อุปมาฟิสิกส์เครื่องหมายบวก/ลบ | [เปิดบทเรียน](09-electric-potential/index.html) |
+| **Sim**| [`exam-simulator/`](exam-simulator/) | **ระบบจำลองสอบกลางภาคเสมือนจริง** | จับเวลา 3 ชั่วโมง, ตรวจตามเกณฑ์อย่างเข้มงวด, โหมดสุ่มโจทย์ | [เข้าห้องสอบ](exam-simulator/index.html) |
+| **Ref**| [`formula-sheet/`](formula-sheet/) | **ใบสูตรกลางภาคดิจิทัล** | รวบรวมสูตร 4 หน้าเต็ม ค้นหาด่วน คัดลอกเมทริกซ์ พิมพ์ A4 | [เปิดใบสูตร](formula-sheet/index.html) |
 
 ---
 
-## 🌲 แผนผังโครงสร้างโฟลเดอร์ (Directory Tree)
+## แผนผังโครงสร้างโฟลเดอร์ (Directory Tree)
 
 ```text
 electromagnetic-fields/
@@ -66,10 +66,11 @@ electromagnetic-fields/
 
 ---
 
-## 🚀 วิธีการเปิดใช้งานเว็บแอปพลิเคชัน
+## วิธีการเปิดใช้งานเว็บแอปพลิเคชัน
 1. เปิดไฟล์ `index.html` ผ่านเว็บเบราว์เซอร์มาตรฐาน (Chrome, Edge, Safari, Firefox)
 2. หรือรันผ่าน Local HTTP Server:
    ```bash
    python3 -m http.server 8080
    ```
    จากนั้นเข้าใช้งานที่ `http://localhost:8080`
+
