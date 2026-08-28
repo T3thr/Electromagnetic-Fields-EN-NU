@@ -148,6 +148,15 @@
   - ลิงก์เมนูนำทางหลัก: หน้าหลัก, สารบัญรายวิชา ▾, ใบสูตรกลางภาค, ระบบจำลองการสอบ
   - ปุ่มฟังก์ชันขวา: ปุ่มค้นหา Wiki Search (Ctrl+K), ปุ่มสลับธีม (Icon-Only), ปุ่มเมนูมือถือ (Mobile Hamburger)
 
+### 3.4 มาตรฐานการแสดงผล Navbar และป้องกันการล้นขอบจอบนมือถือ (Zero Horizontal Overflow Standard)
+
+> [!IMPORTANT]
+> **กฎเหล็กป้องกันปัญหาจอล้านและต้อง Zoom Out บนมือถือ (Anti-Viewport Blowout Rules):**
+> 1. **การบังคับใช้ Overflow Containment:** ทั้ง `html` และ `body` ต้องกำหนด `overflow-x: hidden; width: 100%; max-width: 100%;` เพื่อป้องกัน Safari iOS และ Mobile Browsers ยืด Canvas ออกจนเกิดช่องว่างสีขาวด้านขวา
+> 2. **Mobile Icon-Only Actions Bar:** บนหน้าจอมือถือ (`≤ 768px`) ปุ่มค้นหา (`.search-trigger-btn`) ต้องซ่อนข้อความ "ค้นหา" ให้เหลือเฉพาะไอคอนแว่นขยาย (`36×36px`) เช่นเดียวกับปุ่มเปลี่ยนธีมและปุ่มเมนู เพื่อให้กลุ่มปุ่มขวาใช้พื้นที่ไม่เกิน `120px`
+> 3. **Brand Shrink & Ellipsis:** ข้อความแบรนด์และรหัสวิชา (`.nav-brand`) ต้องมี `min-width: 0; flex-shrink: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;` ป้องกันชื่อวิชาดันแถบ Navbar ให้กว้างเกินหน้าจอ
+> 4. **Flex Wrap บน Metadata Bar:** แถบหัวกระดาษ `.course-meta-bar` ต้องมี `flex-wrap: wrap;` เพื่อให้ Badge ป้ายรหัสและฉบับอ้างอิงตัดขึ้นบรรทัดใหม่ได้ ไม่ดันความกว้างหน้าจอทะลุขอบขวา
+
 ---
 
 ## 4. มาตรฐานการแสดงผลเครื่องมือจำลอง 3 มิติ (Interactive 3D CAD Workbench Standards)
