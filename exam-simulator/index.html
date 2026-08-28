@@ -105,129 +105,231 @@
   </div>
 </header>
 
-<div class="page">
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <a href="../index.html">หน้าแรก</a>
-    <span class="sep">/</span>
-    <span>ระบบจำลองการสอบกลางภาคเสมือนจริง (Exam Simulator)</span>
-  </div>
-
-  <!-- Course Meta Line -->
-  <div class="course-meta-bar">
-    <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I)</strong> · มหาวิทยาลัยนเรศวร</div>
-    <div style="display: flex; gap: 8px;">
-      <span class="academic-badge badge-midterm">ข้อสอบกลางภาค 100 คะแนนเต็ม (น้ำหนัก 45%)</span>
-    </div>
-  </div>
-
-  <h1 class="book-title">ระบบจำลองการสอบกลางภาคเสมือนจริง</h1>
-  <div class="subtitle">
-    จำลองสถานการณ์การสอบจริง 4 ข้อใหญ่ 100 คะแนนเต็ม (เวลา 3 ชั่วโมง) พร้อมระบบตรวจสอบเกณฑ์การตรวจอย่างเข้มงวด (Strict Rubric Assessment) และหน้าต่างเปิดใบสูตรแบบ Modal โดยไม่ต้องสลับหน้าจอ
-  </div>
-
-  <!-- Exam HUD (Sticky Timer & Quick Action Controls) -->
-  <div class="exam-hud">
-    <div class="timer-box">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polyline points="12 6 12 12 16 14"></polyline>
-      </svg>
-      <span>เวลาที่เหลือ:</span>
-      <span class="timer-display" id="exam-timer">03:00:00</span>
+<div class="chapter-container">
+  <!-- ═══════════ Sticky Exam Control Sidebar (Timer & Navigator Hub) ═══════════ -->
+  <aside class="chapter-sidebar exam-sidebar collapsed" id="exam-sidebar">
+    <!-- Header with Title and Collapse / Expand Toggle Button -->
+    <div class="exam-sidebar-header">
+      <div class="exam-sidebar-title">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>แผงควบคุมการสอบ</span>
+      </div>
+      <button class="exam-sidebar-toggle-btn" id="btn-toggle-sidebar" type="button" title="ย่อเป็นแถบเครื่องมือแนวตั้ง">
+        <span class="toggle-icon">◀</span>
+        <span class="toggle-text">ย่อ</span>
+      </button>
     </div>
 
-    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-      <button class="btn btn-primary" id="btn-pause-timer" type="button" style="padding: 7px 14px; font-size: 0.86rem; display: inline-flex; align-items: center; gap: 6px;">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+    <!-- Full Content when Expanded -->
+    <div class="exam-sidebar-full-content">
+      <!-- Exam Timer Card -->
+      <div class="exam-timer-card">
+        <div class="exam-timer-label">
+          <span class="timer-pulse-dot paused" id="timer-pulse"></span>
+          <span>เวลาสอบที่เหลือ (3 ชม.)</span>
+        </div>
+        <div class="exam-timer-display-sidebar" id="exam-timer">03:00:00</div>
+        <div class="exam-timer-actions">
+          <button class="btn btn-primary" id="btn-pause-timer" type="button" style="padding: 6px 10px; font-size: 0.82rem; justify-content: center;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>เริ่มสอบ</span>
+          </button>
+          <button class="btn btn-secondary" id="btn-restart-timer" type="button" style="padding: 6px 10px; font-size: 0.82rem; justify-content: center;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>รีเซ็ต</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Exam Total Score Card -->
+      <div class="exam-score-card">
+        <div class="exam-score-header">
+          <span class="exam-score-title">คะแนนรวมที่ประเมินได้</span>
+          <span class="exam-score-value"><span id="sidebar-total-score">0</span> / 100</span>
+        </div>
+        <div class="exam-progress-bar-bg">
+          <div class="exam-progress-bar-fill" id="sidebar-score-progress"></div>
+        </div>
+      </div>
+
+      <!-- Question List Navigator in Sidebar -->
+      <div style="font-size: 0.80rem; font-weight: 800; color: var(--ink-soft); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em;">
+        เลือกข้อสอบ (4 ข้อใหญ่)
+      </div>
+      <div class="sidebar-q-list" id="sidebar-q-list"></div>
+
+      <!-- Quick Action Buttons -->
+      <div class="exam-sidebar-quick-actions">
+        <button class="btn btn-primary" id="btn-open-formula-modal" type="button" style="width: 100%; justify-content: center; padding: 8px 12px; font-size: 0.84rem; gap: 6px;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>เปิดใบสูตรกลางภาค (Modal)</span>
+        </button>
+      </div>
+
+      <!-- Reference Citation & Rules -->
+      <div style="padding-top: 14px; border-top: 1.5px solid var(--rule); font-size: 0.80rem; color: var(--ink-muted); line-height: 1.6;">
+        <div><strong>กติกาห้องสอบ:</strong></div>
+        <div>• เวลาทำข้อสอบ 180 นาทีเต็ม</div>
+        <div>• ต้องเขียนสูตรตั้งต้นทั่วไปก่อน</div>
+        <div>• อินทิเกรตเชิงวิเคราะห์ด้วยมือ</div>
+      </div>
+    </div>
+
+    <!-- Mini Content when Collapsed (Strict Vertical Tool Palette) -->
+    <div class="exam-sidebar-mini-content">
+      <!-- Expand Arrow Button -->
+      <button class="mini-tool-btn mini-expand-btn" id="mini-btn-expand" type="button" title="ขยายแผงควบคุมการสอบ">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="mini-divider"></div>
+
+      <!-- Mini Timer Capsule (Vertical Stack) -->
+      <div class="mini-timer-capsule" id="mini-timer-capsule" title="เวลาสอบที่เหลือ">
+        <span class="timer-pulse-dot paused" id="mini-timer-pulse"></span>
+        <span class="mini-timer-text" id="mini-exam-timer">03:00</span>
+      </div>
+
+      <!-- Play / Pause Tool Button -->
+      <button class="mini-tool-btn" id="mini-btn-pause" type="button" title="เริ่ม / พักเวลา">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" id="mini-pause-icon">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
         </svg>
-        <span>เริ่มจับเวลา</span>
       </button>
-      <button class="btn btn-secondary" id="btn-restart-timer" type="button" style="padding: 7px 14px; font-size: 0.86rem; display: inline-flex; align-items: center; gap: 6px;">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="1 4 1 10 7 10"></polyline>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-        <span>เริ่มจับเวลาใหม่</span>
-      </button>
-      <button class="btn btn-primary" id="btn-open-formula-modal" type="button" style="padding: 7px 16px; font-size: 0.86rem; display: inline-flex; align-items: center; gap: 6px;">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+
+      <div class="mini-divider"></div>
+
+      <!-- Vertical Single-Column Question Tool Buttons -->
+      <div class="mini-q-column" id="mini-q-column">
+        <button class="mini-q-tool-btn active" data-mini-q="0" title="ข้อ 1: แปลงพิกัด (25 คะแนน)">Q1</button>
+        <button class="mini-q-tool-btn" data-mini-q="1" title="ข้อ 2: กฎคูลอมบ์ (20 คะแนน)">Q2</button>
+        <button class="mini-q-tool-btn" data-mini-q="2" title="ข้อ 3: ลวดประจุ E (30 คะแนน)">Q3</button>
+        <button class="mini-q-tool-btn" data-mini-q="3" title="ข้อ 4: ศักย์ไฟฟ้า V (25 คะแนน)">Q4</button>
+      </div>
+
+      <div class="mini-divider"></div>
+
+      <!-- Mini Total Score Indicator Badge -->
+      <div class="mini-score-indicator" id="mini-score-indicator" title="คะแนนสะสมปัจจุบัน">
+        <span class="mini-score-val" id="mini-total-score">0</span>
+        <span class="mini-score-unit">pts</span>
+      </div>
+
+      <!-- Mini Formula Tool Button -->
+      <button class="mini-tool-btn" id="mini-btn-formula" type="button" title="เปิดใบสูตรกลางภาค (Modal)">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
           <polyline points="14 2 14 8 20 8"></polyline>
           <line x1="16" y1="13" x2="8" y2="13"></line>
           <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        <span>เปิดใบสูตรกลางภาค (Modal)</span>
       </button>
     </div>
-  </div>
+  </aside>
 
-  <!-- คำชี้แจงการสอบตามหัวกระดาษข้อสอบจริง -->
-  <div class="exam-alert-box">
-    <h3 style="font-weight: 800; font-size: 1.05rem; color: var(--accent2); margin-bottom: 8px;">
-      คำสั่งและข้อบังคับในการสอบกลางภาค (คำชี้แจงหัวกระดาษข้อสอบจริง):
-    </h3>
-    <ol style="margin-left: 20px; font-size: 0.95rem; line-height: 1.85; color: var(--ink);">
-      <li>ข้อสอบมีทั้งหมด 4 ข้อใหญ่ รวม 100 คะแนน คิดเป็นน้ำหนัก <strong>45% ของคะแนนรวมทั้งรายวิชา</strong></li>
-      <li>ให้เวลาทำข้อสอบ <strong>3 ชั่วโมงเต็ม (180 นาที)</strong></li>
-      <li><strong>ต้องเขียนสูตรตั้งต้นทั่วไปก่อนแทนค่าตัวแปรเสมอ</strong> (หากไม่แสดงสูตรเริ่มต้น ส่วนที่หายไปจะได้ 0 คะแนน)</li>
-      <li><strong>การอินทิเกรตให้ทำด้วยวิธีเชิงวิเคราะห์เท่านั้น (Analytical Hand-Integration)</strong> ห้ามกดเครื่องคิดเลขใส่ผลลัพธ์ตัวเลขตรงๆ</li>
-      <li>ให้แสดงการแก้ปัญหาทุกขั้นตอนอย่างละเอียด พร้อมระบุหน่วยกำกับทุกครั้งเพื่อที่จะได้คะแนนเต็มในแต่ละข้อ</li>
-    </ol>
-  </div>
+  <!-- ═══════════ Main Exam Problem Content Area ═══════════ -->
+  <main class="chapter-main">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">หน้าแรก</a>
+      <span class="sep">/</span>
+      <span>ระบบจำลองการสอบกลางภาคเสมือนจริง (Exam Simulator)</span>
+    </div>
 
-  <!-- Navigation Grid for Questions -->
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--ink);">เลือกข้อสอบที่ต้องการทำ:</h3>
-    <span style="font-size: 0.86rem; color: var(--ink-soft);">คลิกเพื่อสลับไปยังข้อสอบและเกณฑ์การตรวจของแต่ละข้อ</span>
-  </div>
-  <div class="question-nav-grid" id="exam-nav-grid"></div>
-
-  <!-- Dynamic Question Content Area -->
-  <div id="exam-question-content" style="min-height: 380px; margin-top: 20px;">
-    กำลังโหลดข้อสอบและระบบประเมินผล...
-  </div>
-
-  <!-- Randomized Practice Mode Generator -->
-  <div class="summary-box" style="margin-top: 48px; border: 1.5px solid var(--accent); background: var(--card-bg);">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
-      <div>
-        <h3 style="font-size: 1.22rem; font-weight: 800; color: var(--accent); margin: 0 0 4px;">
-          โหมดฝึกทำโจทย์แบบสุ่มตัวเลข (Randomized Practice Generator)
-        </h3>
-        <p style="font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); margin: 0;">
-          สุ่มค่าตัวเลข พิกัด และขนาดประจุเพื่อฝึกฝนทักษะการคำนวณข้อสอบเสมือนจริงแบบไม่รู้ล่วงหน้า
-        </p>
-      </div>
-      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-        <button class="btn btn-secondary rand-q-select active" data-rand-type="q1" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 1 (แปลงพิกัด)</button>
-        <button class="btn btn-secondary rand-q-select" data-rand-type="q2" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 2 (คูลอมบ์/สมดุล)</button>
-        <button class="btn btn-secondary rand-q-select" data-rand-type="q3" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 3 (ลวดประจุ E)</button>
-        <button class="btn btn-secondary rand-q-select" data-rand-type="q4" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 4 (ศักย์ไฟฟ้า V)</button>
+    <!-- Course Meta Line -->
+    <div class="course-meta-bar">
+      <div><strong>303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I)</strong> · มหาวิทยาลัยนเรศวร</div>
+      <div style="display: flex; gap: 8px;">
+        <span class="academic-badge badge-midterm">ข้อสอบกลางภาค 100 คะแนนเต็ม (น้ำหนัก 45%)</span>
       </div>
     </div>
 
-    <button class="btn btn-primary" id="btn-randomize-problem" type="button" style="width: 100%; justify-content: center; padding: 10px 18px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px;">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
-      </svg>
-      <span>สร้างโจทย์สุ่มชุดใหม่และวิธีทำละเอียด (Generate Practice Problem)</span>
-    </button>
-    <div id="random-problem-box" style="display: none; margin-top: 20px; padding: 22px; background: var(--paper2); border-radius: var(--radius-md); border: 1.5px dashed var(--accent);"></div>
-  </div>
+    <h1 class="book-title">ระบบจำลองการสอบกลางภาคเสมือนจริง</h1>
+    <div class="subtitle">
+      จำลองสถานการณ์การสอบจริง 4 ข้อใหญ่ 100 คะแนนเต็ม (เวลา 3 ชั่วโมง) พร้อมระบบตรวจสอบเกณฑ์การตรวจอย่างเข้มงวด (Strict Rubric Assessment), แถบควบคุมเวลาด้านข้างแบบย่อ/ขยายได้ และหน้าต่างเปิดใบสูตรแบบ Modal
+    </div>
 
-  <footer class="page-footer">
-    <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
-    <a href="../index.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 6px;">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-      </svg>
-      <span>กลับสู่หน้าหลัก</span>
-    </a>
-  </footer>
+    <!-- คำชี้แจงการสอบตามหัวกระดาษข้อสอบจริง -->
+    <div class="exam-alert-box">
+      <h3 style="font-weight: 800; font-size: 1.05rem; color: var(--accent2); margin-bottom: 8px;">
+        คำสั่งและข้อบังคับในการสอบกลางภาค (คำชี้แจงหัวกระดาษข้อสอบจริง):
+      </h3>
+      <ol style="margin-left: 20px; font-size: 0.95rem; line-height: 1.85; color: var(--ink);">
+        <li>ข้อสอบมีทั้งหมด 4 ข้อใหญ่ รวม 100 คะแนน คิดเป็นน้ำหนัก <strong>45% ของคะแนนรวมทั้งรายวิชา</strong></li>
+        <li>ให้เวลาทำข้อสอบ <strong>3 ชั่วโมงเต็ม (180 นาที)</strong></li>
+        <li><strong>ต้องเขียนสูตรตั้งต้นทั่วไปก่อนแทนค่าตัวแปรเสมอ</strong> (หากไม่แสดงสูตรเริ่มต้น ส่วนที่หายไปจะได้ 0 คะแนน)</li>
+        <li><strong>การอินทิเกรตให้ทำด้วยวิธีเชิงวิเคราะห์เท่านั้น (Analytical Hand-Integration)</strong> ห้ามกดเครื่องคิดเลขใส่ผลลัพธ์ตัวเลขตรงๆ</li>
+        <li>ให้แสดงการแก้ปัญหาทุกขั้นตอนอย่างละเอียด พร้อมระบุหน่วยกำกับทุกครั้งเพื่อที่จะได้คะแนนเต็มในแต่ละข้อ</li>
+      </ol>
+    </div>
+
+    <!-- Navigation Grid for Questions -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--ink);">เลือกข้อสอบที่ต้องการทำ:</h3>
+      <span style="font-size: 0.86rem; color: var(--ink-soft);">คลิกเพื่อสลับไปยังข้อสอบและเกณฑ์การตรวจของแต่ละข้อ</span>
+    </div>
+    <div class="question-nav-grid" id="exam-nav-grid"></div>
+
+    <!-- Dynamic Question Content Area -->
+    <div id="exam-question-content" style="min-height: 380px; margin-top: 20px;">
+      กำลังโหลดข้อสอบและระบบประเมินผล...
+    </div>
+
+    <!-- Randomized Practice Mode Generator -->
+    <div class="summary-box" style="margin-top: 48px; border: 1.5px solid var(--accent); background: var(--card-bg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+        <div>
+          <h3 style="font-size: 1.22rem; font-weight: 800; color: var(--accent); margin: 0 0 4px;">
+            โหมดฝึกทำโจทย์แบบสุ่มตัวเลข (Randomized Practice Generator)
+          </h3>
+          <p style="font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); margin: 0;">
+            สุ่มค่าตัวเลข พิกัด และขนาดประจุเพื่อฝึกฝนทักษะการคำนวณข้อสอบเสมือนจริงแบบไม่รู้ล่วงหน้า
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-secondary rand-q-select active" data-rand-type="q1" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 1 (แปลงพิกัด)</button>
+          <button class="btn btn-secondary rand-q-select" data-rand-type="q2" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 2 (คูลอมบ์/สมดุล)</button>
+          <button class="btn btn-secondary rand-q-select" data-rand-type="q3" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 3 (ลวดประจุ E)</button>
+          <button class="btn btn-secondary rand-q-select" data-rand-type="q4" type="button" style="padding: 6px 12px; font-size: 0.84rem;">ข้อ 4 (ศักย์ไฟฟ้า V)</button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="btn-randomize-problem" type="button" style="width: 100%; justify-content: center; padding: 10px 18px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+        </svg>
+        <span>สร้างโจทย์สุ่มชุดใหม่และวิธีทำละเอียด (Generate Practice Problem)</span>
+      </button>
+      <div id="random-problem-box" style="display: none; margin-top: 20px; padding: 22px; background: var(--paper2); border-radius: var(--radius-md); border: 1.5px dashed var(--accent);"></div>
+    </div>
+
+    <footer class="page-footer">
+      <div>ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร · 303214 สนามแม่เหล็กไฟฟ้า 1</div>
+      <a href="../index.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 6px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>กลับสู่หน้าหลัก</span>
+      </a>
+    </footer>
+  </main>
 </div>
 
 <!-- ═══════════ Reset Timer Confirmation Modal ═══════════ -->
@@ -441,23 +543,57 @@
     exam = new ExamEngine();
 
     const pauseBtn = document.getElementById('btn-pause-timer');
-    if (pauseBtn) {
-      pauseBtn.addEventListener('click', () => {
-        if (!exam.timerStarted) {
-          exam.startTimer();
-          pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg><span>พักเวลา</span>';
+    const miniPauseBtn = document.getElementById('mini-btn-pause');
+    const timerPulse = document.getElementById('timer-pulse');
+
+    function syncTimerButtons() {
+      if (!exam.timerStarted) {
+        if (pauseBtn) {
+          pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>เริ่มสอบ</span>';
+          pauseBtn.classList.remove('btn-secondary');
+          pauseBtn.classList.add('btn-primary');
+        }
+        if (miniPauseBtn) miniPauseBtn.textContent = '▶';
+        if (timerPulse) {
+          timerPulse.classList.add('paused');
+          timerPulse.classList.remove('running');
+        }
+      } else if (exam.isPaused) {
+        if (pauseBtn) {
+          pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>ทำต่อ</span>';
+          pauseBtn.classList.remove('btn-secondary');
+          pauseBtn.classList.add('btn-primary');
+        }
+        if (miniPauseBtn) miniPauseBtn.textContent = '▶';
+        if (timerPulse) {
+          timerPulse.classList.add('paused');
+          timerPulse.classList.remove('running');
+        }
+      } else {
+        if (pauseBtn) {
+          pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg><span>พักเวลา</span>';
           pauseBtn.classList.remove('btn-primary');
           pauseBtn.classList.add('btn-secondary');
-        } else {
-          exam.isPaused = !exam.isPaused;
-          pauseBtn.innerHTML = exam.isPaused 
-            ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>ทำต่อ</span>' 
-            : '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg><span>พักเวลา</span>';
-          pauseBtn.classList.toggle('btn-primary', exam.isPaused);
-          pauseBtn.classList.toggle('btn-secondary', !exam.isPaused);
         }
-      });
+        if (miniPauseBtn) miniPauseBtn.textContent = '❚❚';
+        if (timerPulse) {
+          timerPulse.classList.remove('paused');
+          timerPulse.classList.add('running');
+        }
+      }
     }
+
+    function toggleTimer() {
+      if (!exam.timerStarted) {
+        exam.startTimer();
+      } else {
+        exam.isPaused = !exam.isPaused;
+      }
+      syncTimerButtons();
+    }
+
+    if (pauseBtn) pauseBtn.addEventListener('click', toggleTimer);
+    if (miniPauseBtn) miniPauseBtn.addEventListener('click', toggleTimer);
 
     const restartBtn = document.getElementById('btn-restart-timer');
     const resetModal = document.getElementById('reset-confirm-modal');
@@ -496,11 +632,7 @@
         exam.isPaused = true;
         exam.timerStarted = false;
         exam.updateTimerDisplay();
-        if (pauseBtn) {
-          pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>เริ่มจับเวลา</span>';
-          pauseBtn.classList.remove('btn-secondary');
-          pauseBtn.classList.add('btn-primary');
-        }
+        syncTimerButtons();
         closeResetModal();
       });
     }
@@ -508,6 +640,7 @@
     // Formula Modal Event Handlers
     const modalBackdrop = document.getElementById('formula-modal-backdrop');
     const openModalBtn = document.getElementById('btn-open-formula-modal');
+    const miniFormulaBtn = document.getElementById('mini-btn-formula');
     const closeModalBtn = document.getElementById('btn-close-formula-modal');
 
     function openModal() {
@@ -525,6 +658,7 @@
     }
 
     if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+    if (miniFormulaBtn) miniFormulaBtn.addEventListener('click', openModal);
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (modalBackdrop) {
       modalBackdrop.addEventListener('click', (e) => {

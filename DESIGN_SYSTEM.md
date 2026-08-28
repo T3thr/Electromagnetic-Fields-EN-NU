@@ -77,6 +77,37 @@
 </div>
 ```
 
+### 6.4 มาตรฐานแถบควบคุมการสอบและการจำลองแบบแนวตั้ง (Exam Simulator Vertical Tool Palette Standard)
+
+ระบบจำลองการสอบ (`exam-simulator/`) มีฟังก์ชันควบคุมเวลา (Countdown Timer), เกณฑ์การตรวจคะแนนสด (Live Rubric Score), และรายการข้อสอบ 4 ข้อ ซึ่งต้องเข้าถึงได้ตลอดเวลาโดยไม่บดบังหรือรบกวนพื้นที่การอ่านโจทย์ จึงกำหนดมาตรฐานพิเศษดังนี้:
+
+1. **โหมดย่อแถบเครื่องมือแนวตั้ง (Vertical Tool Palette · Collapsed Mode):**
+   - แถบควบคุมเมื่อย่อ (`.exam-sidebar.collapsed`) ต้องจัดเรียงไอคอนเครื่องมือทั้งหมดใน **แนวตั้งคอลัมน์เดี่ยว 100% (Strict Vertical Single Column)** เลียนแบบแถบเครื่องมือในโปรแกรม CAD / Drawing Software (เช่น Figma, Photoshop, Illustrator) **ห้ามจัดเรียงเป็นแนวนอน (No Horizontal Wrap/Grid) เด็ดขาด**
+   - ความกว้างในโหมดย่อ: `44px` (Mobile) / `56px` (Desktop)
+   - ลำดับไอคอนแนวตั้ง:
+     1. ปุ่มลูกศรขยาย (`▶` `.mini-expand-btn`)
+     2. เส้นคั่นบาง (`.mini-divider`)
+     3. แคปซูลตัวจับเวลาแนวตั้งพร้อมไฟสถานะ (`.mini-timer-capsule` + `.timer-pulse-dot`)
+     4. ปุ่มเริ่ม/พักเวลา (`▶` / `❚❚` `.mini-tool-btn`)
+     5. เส้นคั่นบาง (`.mini-divider`)
+     6. ปุ่มเลือกข้อสอบแนวตั้งเดี่ยว (`Q1`, `Q2`, `Q3`, `Q4` ใน `.mini-q-column`)
+     7. เส้นคั่นบาง (`.mini-divider`)
+     8. ป้ายแสดงคะแนนสะสมแนวตั้ง (`.mini-score-indicator` แสดงคะแนนรวมสด เช่น `25 pts`)
+     9. ปุ่มเปิดใบสูตรด่วน (`📄` `.mini-tool-btn`)
+
+2. **พฤติกรรมบนหน้าจอมือถือ (Mobile Centered Floating Dock · No Backdrop Dim):**
+   - บนหน้าจอมือถือ (`≤ 768px`) แถบ `.exam-sidebar` ต้องเป็น **Floating Vertical Dock** ตรึงอยู่กึ่งกลางแนวตั้งของขอบซ้ายจออย่างสมบูรณ์ (`position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 1000;`)
+   - **ไม่ใช้ Backdrop Dim** เพื่อให้ผู้สอบสามารถอ่านโจทย์และคำนวณได้อย่างต่อเนื่องโดยไม่มีเงาดำบดบังเนื้อหา
+   - เพื่อป้องกันไม่ให้ floating dock ทับตัวหนังสือ เนื้อหา `.chapter-container:has(.exam-sidebar)` บน mobile จะมี `padding-left: 56px` ทำให้ข้อความทั้งหมดเริ่มต้นอยู่ถัดจาก dock พอดีอย่างสวยงาม
+   - โดยเริ่มต้นบน Mobile จะอยู่ในสถานะย่อ (`.collapsed`) เพื่อประหยัดพื้นที่หน้าจอ
+   - เมื่อผู้ใช้กดปุ่มลูกศร `▶` หรือแคปซูลเวลา แถบจะขยายออกเป็น Drawer Card ลอยตัว (`width: min(290px, calc(100vw - 24px))`) พร้อมปุ่ม `◀ ย่อ` ที่มุมบนขวาของการ์ดเพื่อกดหุบกลับเป็น dock ได้ทันที
+
+3. **พฤติกรรมบนหน้าจอ Desktop / Tablet:**
+   - บน Desktop เมื่อขยาย จะเป็น Sticky Sidebar ปกติ (`290px`) อยู่ใน Grid flow
+   - เมื่อย่อ `.exam-sidebar.collapsed` คอนเทนเนอร์ Grid ของหน้าจะปรับสัดส่วนอัตโนมัติผ่าน `:has(.exam-sidebar.collapsed)` ให้คอลัมน์ซ้ายหดเหลือ `56px` คืนพื้นที่ 95%+ ของหน้าจอให้กับตัวโจทย์และสมการ
+
+---
+
 ### 2.2 ลำดับขั้นของตัวอักษร (Modular Typographic Scale)
 | ระดับ | แท็ก / คลาส | ขนาด Font Size | Line Height | Font Weight | Spacing Margin Bottom |
 | :--- | :--- | :--- | :--- | :--- | :--- |

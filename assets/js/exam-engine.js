@@ -2,6 +2,7 @@
  * 303214 สนามแม่เหล็กไฟฟ้า 1 (Electromagnetic Fields I) · มหาวิทยาลัยนเรศวร
  * Midterm Exam Simulation & Strict Rubric Assessment Engine
  * ออกแบบตามมาตรฐาน DESIGN_SYSTEM.md และ MATH_STANDARDS.md (Zero-Dollar-Sign Policy)
+ * อิงสูตรทางการจากสูตรมิดเทอม.pdf (Midterm Formula Sheet) 100%
  */
 
 class ExamEngine {
@@ -13,11 +14,13 @@ class ExamEngine {
     this.timerStarted = false; // Timer has never been started yet
     this.currentQIndex = 0;
     this.openAccordions = new Set(); // Track which accordions are open
+    this.isSidebarCollapsed = false;
 
     this.questions = this.getExamQuestions();
     this.userScores = {}; // Key: rubric id -> boolean
 
     this.initDOM();
+    this.initSidebarToggle();
   }
 
   getExamQuestions() {
@@ -121,7 +124,9 @@ class ExamEngine {
                 <div class="math-display">
                   <strong>a</strong><sub>r</sub> = sin θ cos ϕ <strong>a</strong><sub>x</sub> + sin θ sin ϕ <strong>a</strong><sub>y</sub> + cos θ <strong>a</strong><sub>z</sub> &nbsp; (ทิศทางแปรผันตาม θ และ ϕ)<br>
                   <strong>a</strong><sub>θ</sub> = cos θ cos ϕ <strong>a</strong><sub>x</sub> + cos θ sin ϕ <strong>a</strong><sub>y</sub> - sin θ <strong>a</strong><sub>z</sub> &nbsp; (ทิศทางแปรผันตาม θ และ ϕ)<br>
-                  <strong>a</strong><sub>ϕ</sub> = -sin ϕ <strong>a</strong><sub>x</sub> + cos ϕ <strong>a</strong><sub>y</sub> &nbsp; (ทิศทางแปรผันตาม ϕ)
+                  <strong>a</strong><sub>ϕ</sub> = -sin ϕ <strong>a</strong><sub>x</sub> + cos ϕ <strong>a</strong><sub>y</sub> &nbsp; (ทิศทางแปรผันตาม ϕ)<br><br>
+                  <em>การอนุพันธ์เทียบมุมยืนยันการเปลี่ยนทิศ:</em><br>
+                  <span class="math-frac"><span class="math-num">∂<strong>a</strong><sub>r</sub></span><span class="math-den">∂θ</span></span> = <strong>a</strong><sub>θ</sub> &nbsp; , &nbsp;&nbsp; <span class="math-frac"><span class="math-num">∂<strong>a</strong><sub>r</sub></span><span class="math-den">∂ϕ</span></span> = sin θ <strong>a</strong><sub>ϕ</sub> &nbsp;&nbsp; (มีค่าไม่เป็นศูนย์ แสดงว่าเวกเตอร์ฐานหมุนไปตามมุม)
                 </div>
 
                 <p><strong>3. ผลกระทบและข้อห้ามในการคำนวณทางวิศวกรรม:</strong></p>
@@ -155,18 +160,43 @@ class ExamEngine {
                 <p>ความสัมพันธ์ระหว่างองค์ประกอบของเวกเตอร์ในระบบพิกัดทรงกระบอก <code>(A<sub>ρ</sub>, A<sub>ϕ</sub>, A<sub>z</sub>)</code> และพิกัดทรงกลม <code>(A<sub>r</sub>, A<sub>θ</sub>, A<sub>ϕ</sub>)</code> จากใบสูตรทางการ:</p>
                 <div class="math-display">
                   A<sub>ρ</sub> = <strong>A</strong> • <strong>a</strong><sub>ρ</sub> = A<sub>r</sub> sin θ + A<sub>θ</sub> cos θ<br>
-                  A<sub>ϕ</sub> = <strong>A</strong> • <strong>a</strong><sub>ϕ</sub> = A<sub>ϕ</sub> &nbsp;&nbsp; (แกนมุมหมุน ϕ ในทั้งสองระบบเป็นแนวเดียวกัน)<br>
+                  A<sub>ϕ</sub> = <strong>A</strong> • <strong>a</strong><sub>ϕ</sub> = A<sub>ϕ</sub> &nbsp;&nbsp; (แกนมุมหมุน ϕ ในทั้งสองระบบเป็นแนวราบเดียวกัน)<br>
                   A<sub>z</sub> = <strong>A</strong> • <strong>a</strong><sub>z</sub> = A<sub>r</sub> cos θ - A<sub>θ</sub> sin θ
+                </div>
+                <p>หรือเขียนในรูปการคูณเมทริกซ์แปลงทางวิศวกรรม:</p>
+                <div class="math-equation">
+                  <div class="math-mat">
+                    <table class="math-table" style="font-size: 0.90rem;">
+                      <tr><td>A<sub>ρ</sub></td></tr>
+                      <tr><td>A<sub>ϕ</sub></td></tr>
+                      <tr><td>A<sub>z</sub></td></tr>
+                    </table>
+                  </div>
+                  <span>=</span>
+                  <div class="math-mat">
+                    <table class="math-table" style="font-size: 0.90rem;">
+                      <tr><td>sin θ</td><td>cos θ</td><td>0</td></tr>
+                      <tr><td>0</td><td>0</td><td>1</td></tr>
+                      <tr><td>cos θ</td><td>-sin θ</td><td>0</td></tr>
+                    </table>
+                  </div>
+                  <div class="math-mat">
+                    <table class="math-table" style="font-size: 0.90rem;">
+                      <tr><td>A<sub>r</sub></td></tr>
+                      <tr><td>A<sub>θ</sub></td></tr>
+                      <tr><td>A<sub>ϕ</sub></td></tr>
+                    </table>
+                  </div>
                 </div>
               </div>
 
               <div class="step-card">
                 <span class="step-badge">ขั้นที่ 2: คำนวณค่าองค์ประกอบ ณ จุด P(r = 2.4, θ = 50°, ϕ = 70°)</span>
-                <p>ค่าฟังก์ชันตรีโกณมิติ: <code>sin(50°) ≈ 0.766044</code>, <code>cos(50°) ≈ 0.642788</code>, <code>sin(70°) ≈ 0.939693</code></p>
+                <p>ค่าฟังก์ชันตรีโกณมิติความแม่นยำสูง (6 ตำแหน่ง): <code>sin(50°) ≈ 0.766044</code>, <code>cos(50°) ≈ 0.642788</code>, <code>sin(70°) ≈ 0.939693</code>, <code>cos(70°) ≈ 0.342020</code></p>
                 <div class="math-display">
                   • A<sub>r</sub> = <strong>0</strong> &nbsp; (โจทย์ไม่มีองค์ประกอบในแนว a<sub>r</sub>)<br>
-                  • A<sub>θ</sub> = <span class="math-frac"><span class="math-num">2 sin(50°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">2(0.766044)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">1.532088</span><span class="math-den">2.4</span></span> ≈ <strong>0.63837</strong><br>
-                  • A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">sin(70°)</span><span class="math-den">sin(50°)</span></span> = <span class="math-frac"><span class="math-num">0.939693</span><span class="math-den">0.766044</span></span> ≈ <strong>1.22668</strong>
+                  • A<sub>θ</sub> = <span class="math-frac"><span class="math-num">2 sin(50°)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">2(0.766044)</span><span class="math-den">2.4</span></span> = <span class="math-frac"><span class="math-num">1.532088</span><span class="math-den">2.4</span></span> = <strong>0.638370</strong><br>
+                  • A<sub>ϕ</sub> = <span class="math-frac"><span class="math-num">sin(70°)</span><span class="math-den">sin(50°)</span></span> = <span class="math-frac"><span class="math-num">0.939693</span><span class="math-den">0.766044</span></span> = <strong>1.226683</strong>
                 </div>
               </div>
 
@@ -174,17 +204,24 @@ class ExamEngine {
                 <span class="step-badge must-write">ขั้นที่ 3: แทนค่าหาองค์ประกอบในระบบพิกัดทรงกระบอกและสรุปคำตอบ</span>
                 <div class="math-display">
                   1) องค์ประกอบแนวรัศมีทรงกระบอก (A<sub>ρ</sub>):<br>
-                  A<sub>ρ</sub> = A<sub>r</sub> sin(50°) + A<sub>θ</sub> cos(50°) = 0 + (0.63837 × 0.642788) ≈ <strong>0.41033</strong><br><br>
+                  A<sub>ρ</sub> = A<sub>r</sub> sin(50°) + A<sub>θ</sub> cos(50°) = 0 + (0.638370 × 0.642788) = <strong>0.410336</strong><br><br>
                   2) องค์ประกอบแนวราบมุมหมุน (A<sub>ϕ</sub>):<br>
-                  A<sub>ϕ</sub> = A<sub>ϕ</sub> ≈ <strong>1.22668</strong><br><br>
+                  A<sub>ϕ</sub> = A<sub>ϕ</sub> = <strong>1.226683</strong><br><br>
                   3) องค์ประกอบแนวแกนดิ่ง (A<sub>z</sub>):<br>
-                  A<sub>z</sub> = A<sub>r</sub> cos(50°) - A<sub>θ</sub> sin(50°) = 0 - (0.63837 × 0.766044) ≈ <strong>-0.48902</strong>
+                  A<sub>z</sub> = A<sub>r</sub> cos(50°) - A<sub>θ</sub> sin(50°) = 0 - (0.638370 × 0.766044) = <strong>-0.489019</strong>
+                </div>
+
+                <p><strong>การตรวจสอบความไม่แปรเปลี่ยนของขนาดเวกเตอร์ (Invariant Magnitude Cross-Check):</strong></p>
+                <div class="math-display">
+                  • |<strong>A</strong>|<sub>spherical</sub> = √[ (0)² + (0.638370)² + (1.226683)² ] = √[ 0 + 0.407516 + 1.504751 ] = √1.912267 = <strong>1.382847</strong><br>
+                  • |<strong>A</strong>|<sub>cylindrical</sub> = √[ (0.410336)² + (1.226683)² + (-0.489019)² ] = √[ 0.168376 + 1.504751 + 0.239140 ] = √1.912267 = <strong>1.382847</strong><br>
+                  <em>(ขนาดเวกเตอร์ทั้ง 2 ระบบเท่ากันสมบูรณ์ 100%)</em>
                 </div>
 
                 <div class="math-display" style="border-left-color: var(--accent);">
                   <strong>คำตอบสุดท้าย (Final Answer):</strong><br>
-                  <strong>A</strong> = <strong>0.410 a</strong><sub>ρ</sub> + <strong>1.227 a</strong><sub>ϕ</sub> - <strong>0.489 a</strong><sub>z</sub><br>
-                  <em>(หรือในรูปความแม่นยำสูง 4 ตำแหน่ง: <strong>A</strong> ≈ 0.4103 <strong>a</strong><sub>ρ</sub> + 1.2267 <strong>a</strong><sub>ϕ</sub> - 0.4890 <strong>a</strong><sub>z</sub>)</em>
+                  <strong>A</strong> = <strong>0.4103 a</strong><sub>ρ</sub> + <strong>1.2267 a</strong><sub>ϕ</sub> - <strong>0.4890 a</strong><sub>z</sub><br>
+                  <em>(หรือรูปทศนิยม 3 ตำแหน่ง: <strong>A</strong> ≈ 0.410 <strong>a</strong><sub>ρ</sub> + 1.227 <strong>a</strong><sub>ϕ</sub> - 0.489 <strong>a</strong><sub>z</sub>)</em>
                 </div>
               </div>
             `
@@ -211,7 +248,7 @@ class ExamEngine {
                 <p>จากใบสูตรกลางภาค กฎของคูลอมบ์สำหรับแรงกระทำระหว่างประจุจุด:</p>
                 <div class="math-display">
                   <strong>F</strong><sub>2</sub> = <em>k</em> <span class="math-frac"><span class="math-num">Q₁ Q₂</span><span class="math-den">R₁₂²</span></span> <strong>a</strong>̂₁₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> <span class="math-frac"><span class="math-num">Q₁ Q₂</span><span class="math-den">|<strong>R</strong>₁₂|³</span></span> <strong>R</strong>₁₂<br>
-                  โดย <strong>R</strong>₁₂ = <strong>r</strong>₂ - <strong>r</strong>₁ , &nbsp; <em>k</em> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ≈ 8.988 × 10⁹ N·m²/C²
+                  โดย <strong>R</strong>₁₂ = <strong>r</strong>₂ - <strong>r</strong>₁ , &nbsp; <em>k</em> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> ≈ 8.98755 × 10⁹ N·m²/C²
                 </div>
 
                 <div class="technical-diagram-box" style="margin: 18px 0; padding: 18px; background: var(--card-bg); border-radius: var(--radius-md); border: 1px solid var(--rule); text-align: center;">
@@ -261,7 +298,7 @@ class ExamEngine {
                 <div class="math-display">
                   • <strong>r</strong>₁ = 5 <strong>a</strong><sub>x</sub> , &nbsp; <strong>r</strong>₂ = 0 <strong>a</strong><sub>x</sub><br>
                   • <strong>R</strong>₁₂ = <strong>r</strong>₂ - <strong>r</strong>₁ = (0 - 5) <strong>a</strong><sub>x</sub> = -5 <strong>a</strong><sub>x</sub> &nbsp; (|<strong>R</strong>₁₂| = 5 m)<br>
-                  • <strong>F</strong>₁₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">(3√3)(2)</span><span class="math-den">5³</span></span> (-5 <strong>a</strong><sub>x</sub>) ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ -<span class="math-frac"><span class="math-num">6√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> ] N ≈ -0.41569 <em>k</em> <strong>a</strong><sub>x</sub> N
+                  • <strong>F</strong>₁₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">(3√3)(2)</span><span class="math-den">5³</span></span> (-5 <strong>a</strong><sub>x</sub>) ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ -<span class="math-frac"><span class="math-num">6√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> ] N = -0.415692 <em>k</em> <strong>a</strong><sub>x</sub> N
                 </div>
 
                 <p><strong>2) แรง F₃₂ จากประจุ Q₃ กระทำต่อ Q₂:</strong></p>
@@ -270,7 +307,7 @@ class ExamEngine {
                   • <strong>R</strong>₃₂ = <strong>r</strong>₂ - <strong>r</strong>₃ = (0 - (-2.5)) <strong>a</strong><sub>x</sub> + (0 - <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span>) <strong>a</strong><sub>y</sub> = 2.5 <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span> <strong>a</strong><sub>y</sub><br>
                   • |<strong>R</strong>₃₂| = √[ (2.5)² + (<span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span>)² ] = √[ 6.25 + 18.75 ] = √25 = <strong>5 m</strong><br>
                   • <strong>F</strong>₃₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">(3)(2)</span><span class="math-den">5³</span></span> (2.5 <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span> <strong>a</strong><sub>y</sub>) ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N<br>
-                  &nbsp;&nbsp;<strong>F</strong>₃₂ ≈ <em>k</em> (0.12000 <strong>a</strong><sub>x</sub> - 0.20785 <strong>a</strong><sub>y</sub>) N
+                  &nbsp;&nbsp;<strong>F</strong>₃₂ = <em>k</em> (0.120000 <strong>a</strong><sub>x</sub> - 0.207846 <strong>a</strong><sub>y</sub>) N
                 </div>
               </div>
 
@@ -280,8 +317,9 @@ class ExamEngine {
                   <strong>F</strong>₂ = <strong>F</strong>₁₂ + <strong>F</strong>₃₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ (-<span class="math-frac"><span class="math-num">6√3</span><span class="math-den">25</span></span> + <span class="math-frac"><span class="math-num">3</span><span class="math-den">25</span></span>) <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N<br><br>
                   <strong>ตอบ (รูปเศษส่วนและค่าคงตัว):</strong><br>
                   <strong>F</strong>₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ (<span class="math-frac"><span class="math-num">3 - 6√3</span><span class="math-den">25</span></span>) <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N<br><br>
-                  <strong>ตอบ (รูปตัวเลขแม่นยำ):</strong><br>
-                  <strong>F</strong>₂ = <em>k</em> [ -0.29569 <strong>a</strong><sub>x</sub> - 0.20785 <strong>a</strong><sub>y</sub> ] N = <strong>-2.658 × 10⁹ <strong>a</strong><sub>x</sub> - 1.868 × 10⁹ <strong>a</strong><sub>y</sub> นิวตัน (N)</strong>
+                  <strong>ตอบ (รูปตัวเลขแม่นยำ 4 ตำแหน่ง):</strong><br>
+                  <strong>F</strong>₂ = <em>k</em> [ -0.2957 <strong>a</strong><sub>x</sub> - 0.2078 <strong>a</strong><sub>y</sub> ] N = <strong>-2.658 × 10⁹ <strong>a</strong><sub>x</sub> - 1.868 × 10⁹ <strong>a</strong><sub>y</sub> นิวตัน (N)</strong><br>
+                  ขนาดแรงลัพธ์: |<strong>F</strong>₂| = √[ (-2.65755 × 10⁹)² + (-1.86803 × 10⁹)² ] ≈ <strong>3.248 × 10⁹ N (3.248 GN)</strong>
                 </div>
               </div>
             `
@@ -300,15 +338,15 @@ class ExamEngine {
                 <span class="step-badge must-write">ขั้นที่ 1: ตั้งสมการเงื่อนไขสมดุลแรง (Equilibrium Condition)</span>
                 <div class="math-display">
                   <strong>F</strong><sub>2,net</sub> = <strong>F</strong>₂ + <strong>F</strong>₄₂ = <strong>0</strong> &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong>F</strong>₄₂ = -<strong>F</strong>₂<br><br>
-                  <strong>F</strong>₄₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">6√3 - 3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> + <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N = <em>k</em> (0.29569 <strong>a</strong><sub>x</sub> + 0.20785 <strong>a</strong><sub>y</sub>) N
+                  <strong>F</strong>₄₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">6√3 - 3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> + <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N = <em>k</em> (0.295692 <strong>a</strong><sub>x</sub> + 0.207846 <strong>a</strong><sub>y</sub>) N
                 </div>
               </div>
 
               <div class="step-card">
                 <span class="step-badge">ขั้นที่ 2: วิเคราะห์ขนาดและทิศทางของแรงต้าน</span>
                 <div class="math-display">
-                  • ขนาดแรงต้าน: |<strong>F</strong>₄₂| = <em>k</em> √[(0.29569)² + (0.20785)²] = <em>k</em> √(0.08743 + 0.04320) = <strong>0.36143 <em>k</em> N</strong><br>
-                  • ทิศทางแรงต้านชี้ไปในควอดรันต์ที่ 1: θ = arctan(<span class="math-frac"><span class="math-num">0.20785</span><span class="math-den">0.29569</span></span>) ≈ <strong>35.10°</strong> (เทียบแกน +x)
+                  • ขนาดแรงต้าน: |<strong>F</strong>₄₂| = <em>k</em> √[(0.295692)² + (0.207846)²] = <em>k</em> √(0.087434 + 0.043200) = <strong>0.361433 <em>k</em> N</strong> = <strong>3.248 × 10⁹ N</strong><br>
+                  • ทิศทางแรงต้านชี้ไปในควอดรันต์ที่ 1: θ = arctan(<span class="math-frac"><span class="math-num">0.207846</span><span class="math-den">0.295692</span></span>) = arctan(0.70291) ≈ <strong>35.104°</strong> (เทียบแกน +x)
                 </div>
               </div>
 
@@ -316,11 +354,15 @@ class ExamEngine {
                 <span class="step-badge must-write">ขั้นที่ 3: กำหนดขนาด ชนิด และพิกัดตำแหน่งของประจุ Q₄</span>
                 <p>จากกฎของคูลอมบ์ <strong>F</strong>₄₂ = <span class="math-frac"><span class="math-num">Q₄ Q₂</span><span class="math-den">4πε₀ |<strong>R</strong>₄₂|³</span></span> <strong>R</strong>₄₂ โดย <strong>r</strong>₂ = (0,0,0) ดังนั้น <strong>R</strong>₄₂ = -<strong>r</strong>₄</p>
                 <div class="math-display">
-                  หากเลือกวางประจุที่ระยะรัศมีสมมาตร <em>d</em> = 5 เมตร (เท่ากับ Q₁ และ Q₃):<br>
-                  • เพื่อให้เกิดแรงผลักชี้ไปที่มุม 35.10° ประจุ Q₄ ต้องวางอยู่ที่มุมตรงข้าม (180° + 35.10° = 215.10°)<br>
-                  • <strong>ตำแหน่งของ Q₄:</strong> P₄(-5 cos 35.10°, -5 sin 35.10°, 0) = <strong>P₄(-4.091 m, -2.875 m, 0 m)</strong><br><br>
+                  เนื่องจาก Q₂ = +2 C เป็นประจุบวก และแรงต้านต้องผลัก Q₂ ไปที่มุม 35.104° (ควอดรันต์ 1):<br>
+                  • ประจุ Q₄ ต้องเป็น <strong>ประจุบวก (+)</strong> วางอยู่ที่มุมตรงข้าม (ควอดรันต์ 3: 180° + 35.104° = <strong>215.104°</strong>)<br>
+                  • หากเลือกวางประจุที่ระยะรัศมีสมมาตร <em>d</em> = 5 เมตร (เท่ากับ Q₁ และ Q₃):<br>
+                  &nbsp;&nbsp;x₄ = 5 cos(215.104°) = -5 cos(35.104°) = -5(0.81812) = <strong>-4.0906 m</strong><br>
+                  &nbsp;&nbsp;y₄ = 5 sin(215.104°) = -5 sin(35.104°) = -5(0.57507) = <strong>-2.8754 m</strong><br>
+                  &nbsp;&nbsp;z₄ = <strong>0 m</strong><br>
+                  &nbsp;&nbsp;<strong>ตำแหน่งของ Q₄:</strong> <strong>P₄(-4.091 m, -2.875 m, 0 m)</strong><br><br>
                   • <strong>คำนวณหาขนาดประจุ Q₄:</strong><br>
-                  <span class="math-frac"><span class="math-num">|Q₄| (2)</span><span class="math-den">5²</span></span> = 0.36143 &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong>Q₄ = <span class="math-frac"><span class="math-num">0.36143 × 25</span><span class="math-den">2</span></span> = +4.518 คูลอมบ์ (C)</strong> (ประจุบวก)
+                  <span class="math-frac"><span class="math-num">|Q₄| (2)</span><span class="math-den">5²</span></span> = 0.361433 &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong>Q₄ = <span class="math-frac"><span class="math-num">0.361433 × 25</span><span class="math-den">2</span></span> = +4.518 คูลอมบ์ (C)</strong> (ประจุบวก)
                 </div>
               </div>
             `
@@ -550,15 +592,15 @@ class ExamEngine {
             solutionHtml: `
               <div class="step-card step-essential">
                 <span class="step-badge must-write">คำตอบและเหตุผลทางฟิสิกส์ (Physical Meaning)</span>
-                <p><strong>1) เครื่องหมายของ V<sub>AB</sub>:</strong> มีค่าเป็น <strong>บวก (+)</strong></p>
+                <p><strong>1) เครื่องหมายของ V<sub>AB</sub>:</strong> มีค่าเป็น <strong>บวก (+) เสมอ</strong></p>
                 <div class="math-display">
                   เมื่อ <em>r</em><sub>A</sub> &lt; <em>r</em><sub>B</sub> จะได้ <em>r</em><sub>A</sub>² + <em>a</em>² &lt; <em>r</em><sub>B</sub>² + <em>a</em>²<br>
                   ทำให้ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>² + <em>a</em>²</span></span> &gt; <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>² + <em>a</em>²</span></span><br><br>
-                  ส่งผลให้ <strong>V<sub>AB</sub> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>² + <em>a</em>²</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>² + <em>a</em>²</span></span> ] &gt; 0</strong> (เป็นบวกเสมอ)
+                  ส่งผลให้ <strong>V<sub>AB</sub> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>² + <em>a</em>²</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>² + <em>a</em>²</span></span> ] &gt; 0</strong> (เป็นบวก)
                 </div>
 
                 <p><strong>2) เหตุผลทางฟิสิกส์ (Physical Reason):</strong></p>
-                <p>สนามไฟฟ้า <strong>E</strong> มีทิศพุ่งออกจากจุดศูนย์กลาง (ตามแนว +<strong>a</strong><sub>r</sub>) เมื่อเราเลื่อนประจุทดสอบบวกจากจุด B เข้าสู่จุด A ซึ่งอยู่ใกล้ศูนย์กลางมากกว่า (<em>r</em><sub>A</sub> &lt; <em>r</em><sub>B</sub>) ทิศทางการเคลื่อนที่ d<strong>l</strong> จะสวนทางกับแรงของสนามไฟฟ้า จึงต้องมี <strong>แรงภายนอกทำงานต้านสนามไฟฟ้า (External Work Done)</strong> พลังงานนี้จะถูกสะสมเป็นพลังงานศักย์ไฟฟ้า ทำให้ศักย์ที่จุดปลายทางสูงกว่าจุดเริ่มต้น (V<sub>A</sub> &gt; V<sub>B</sub> ⇒ V<sub>AB</sub> = V<sub>A</sub> - V<sub>B</sub> &gt; 0)</p>
+                <p>สนามไฟฟ้า <strong>E</strong> มีทิศพุ่งออกจากจุดศูนย์กลาง (ตามแนว +<strong>a</strong><sub>r</sub>) เมื่อเราเลื่อนประจุทดสอบบวกจากจุด B เข้าสู่จุด A ซึ่งอยู่ใกล้ศูนย์กลางมากกว่า (<em>r</em><sub>A</sub> &lt; <em>r</em><sub>B</sub>) ทิศทางการเคลื่อนที่ d<strong>l</strong> จะสวนทางกับแรงของสนามไฟฟ้า จึงต้องมี <strong>แรงภายนอกทำงานต้านสนามไฟฟ้า (External Work Done, W<sub>ext</sub> &gt; 0)</strong> พลังงานนี้จะถูกสะสมเป็นพลังงานศักย์ไฟฟ้า ทำให้ศักย์ที่จุดปลายทางสูงกว่าจุดเริ่มต้น (V<sub>A</sub> &gt; V<sub>B</sub> ⇒ V<sub>AB</sub> = V<sub>A</sub> - V<sub>B</sub> &gt; 0)</p>
 
                 <p><strong>3) อุปมาประกอบ (Physical Analogy):</strong></p>
                 <p>เปรียบเสมือน <strong>การเข็นลูกบอลขึ้นภูเขาต้านแรงโน้มถ่วงของโลก</strong> หรือ <strong>การออกแรงดันลูกสูบเพื่ออัดสปริงให้หดตัว</strong> งานที่แรงภายนอกทำเพื่อต้านแรงสนามจะถูกเก็บสะสมเป็นพลังงานศักย์ที่มีค่าเพิ่มขึ้นเป็นบวก</p>
@@ -592,24 +634,109 @@ class ExamEngine {
 
   initDOM() {
     this.timerEl = document.getElementById('exam-timer');
-    this.progressBarEl = document.getElementById('exam-progress-bar');
+    this.miniTimerEl = document.getElementById('mini-exam-timer');
+    this.timerPulseEl = document.getElementById('timer-pulse');
+    this.miniTimerPulseEl = document.getElementById('mini-timer-pulse');
+    this.sidebarTotalScoreEl = document.getElementById('sidebar-total-score');
+    this.miniTotalScoreEl = document.getElementById('mini-total-score');
+    this.sidebarProgressEl = document.getElementById('sidebar-score-progress');
+    this.sidebarQListEl = document.getElementById('sidebar-q-list');
+
     this.qContentEl = document.getElementById('exam-question-content');
     this.qNavGridEl = document.getElementById('exam-nav-grid');
 
-    if (this.qNavGridEl) {
-      this.renderNavGrid();
-      this.renderQuestion(0);
-      // Timer starts paused — user must click to begin
-      this.updateTimerDisplay();
+    // Responsive initial collapse state
+    const sidebar = document.getElementById('exam-sidebar');
+    if (window.innerWidth <= 768) {
+      if (sidebar) sidebar.classList.add('collapsed');
+      this.isSidebarCollapsed = true;
+    } else {
+      if (sidebar) sidebar.classList.remove('collapsed');
+      this.isSidebarCollapsed = false;
     }
+
+    this.renderSidebarQList();
+    this.renderNavGrid();
+    this.renderQuestion(0);
+    this.updateTimerDisplay();
+    this.updateScoreDisplays();
   }
 
-  // Timer controls are managed by the inline script in index.html to avoid duplicate listeners
+  initSidebarToggle() {
+    const toggleBtn = document.getElementById('btn-toggle-sidebar');
+    const miniExpandBtn = document.getElementById('mini-btn-expand');
+    const miniTimerCapsule = document.getElementById('mini-timer-capsule');
+    const sidebar = document.getElementById('exam-sidebar');
+
+    const setCollapsedState = (collapsed) => {
+      this.isSidebarCollapsed = collapsed;
+      if (sidebar) sidebar.classList.toggle('collapsed', collapsed);
+
+      if (toggleBtn) {
+        const iconSpan = toggleBtn.querySelector('.toggle-icon');
+        const textSpan = toggleBtn.querySelector('.toggle-text');
+        if (collapsed) {
+          if (iconSpan) iconSpan.innerText = '▶';
+          if (textSpan) textSpan.innerText = 'ขยาย';
+        } else {
+          if (iconSpan) iconSpan.innerText = '◀';
+          if (textSpan) textSpan.innerText = 'ย่อ';
+        }
+      }
+    };
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        setCollapsedState(!this.isSidebarCollapsed);
+      });
+    }
+
+    if (miniExpandBtn) {
+      miniExpandBtn.addEventListener('click', () => {
+        setCollapsedState(false);
+      });
+    }
+
+    if (miniTimerCapsule) {
+      miniTimerCapsule.addEventListener('click', () => {
+        setCollapsedState(false);
+      });
+    }
+
+    // Mini question selectors (Vertical Tool Palette items)
+    const miniQBtns = document.querySelectorAll('[data-mini-q]');
+    miniQBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const qIdx = parseInt(btn.getAttribute('data-mini-q'), 10);
+        this.renderQuestion(qIdx);
+      });
+    });
+
+    // Mini timer play button
+    const miniPauseBtn = document.getElementById('mini-btn-pause');
+    const mainPauseBtn = document.getElementById('btn-pause-timer');
+    if (miniPauseBtn && mainPauseBtn) {
+      miniPauseBtn.addEventListener('click', () => {
+        mainPauseBtn.click();
+      });
+    }
+
+    // Mini formula modal button
+    const miniFormulaBtn = document.getElementById('mini-btn-formula');
+    const mainFormulaBtn = document.getElementById('btn-open-formula-modal');
+    if (miniFormulaBtn && mainFormulaBtn) {
+      miniFormulaBtn.addEventListener('click', () => {
+        mainFormulaBtn.click();
+      });
+    }
+  }
 
   startTimer() {
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.isPaused = false;
     this.timerStarted = true;
+    if (this.timerPulseEl) this.timerPulseEl.classList.remove('paused');
+    if (this.miniTimerPulseEl) this.miniTimerPulseEl.classList.remove('paused');
     this.timerInterval = setInterval(() => {
       if (!this.isPaused && this.remainingSeconds > 0) {
         this.remainingSeconds--;
@@ -621,12 +748,62 @@ class ExamEngine {
     }, 1000);
   }
 
+  pauseTimer() {
+    this.isPaused = true;
+    if (this.timerPulseEl) this.timerPulseEl.classList.add('paused');
+    if (this.miniTimerPulseEl) this.miniTimerPulseEl.classList.add('paused');
+  }
+
   updateTimerDisplay() {
-    if (!this.timerEl) return;
     const hrs = Math.floor(this.remainingSeconds / 3600);
     const mins = Math.floor((this.remainingSeconds % 3600) / 60);
     const secs = this.remainingSeconds % 60;
-    this.timerEl.innerText = `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    const fullTimeStr = `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    const miniTimeStr = `${String(hrs * 60 + mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    
+    if (this.timerEl) this.timerEl.innerText = fullTimeStr;
+    if (this.miniTimerEl) this.miniTimerEl.innerText = miniTimeStr;
+
+    if (this.timerPulseEl) {
+      this.timerPulseEl.classList.toggle('paused', this.isPaused || !this.timerStarted);
+    }
+    if (this.miniTimerPulseEl) {
+      this.miniTimerPulseEl.classList.toggle('paused', this.isPaused || !this.timerStarted);
+    }
+
+    const miniPauseIcon = document.getElementById('mini-pause-icon');
+    if (miniPauseIcon) {
+      if (!this.timerStarted || this.isPaused) {
+        miniPauseIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+      } else {
+        miniPauseIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+      }
+    }
+  }
+
+  renderSidebarQList() {
+    if (!this.sidebarQListEl) return;
+    this.sidebarQListEl.innerHTML = '';
+    this.questions.forEach((q, idx) => {
+      const totalQPoints = q.parts.reduce((sum, p) => sum + p.points, 0);
+      const earnedQPoints = this.calculateQuestionEarnedPoints(idx);
+
+      const item = document.createElement('button');
+      item.className = `sidebar-q-item ${idx === this.currentQIndex ? 'active' : ''}`;
+      item.type = 'button';
+      item.innerHTML = `
+        <span>ข้อ ${q.id}</span>
+        <span class="sidebar-q-pts-badge">${earnedQPoints}/${totalQPoints} คะแนน</span>
+      `;
+      item.addEventListener('click', () => this.renderQuestion(idx));
+      this.sidebarQListEl.appendChild(item);
+    });
+
+    // Update mini q buttons in vertical tool palette
+    const miniQBtns = document.querySelectorAll('[data-mini-q]');
+    miniQBtns.forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === this.currentQIndex);
+    });
   }
 
   renderNavGrid() {
@@ -668,11 +845,27 @@ class ExamEngine {
     return total;
   }
 
+  updateScoreDisplays() {
+    const totalExamEarned = this.calculateTotalEarnedPoints();
+    if (this.sidebarTotalScoreEl) this.sidebarTotalScoreEl.innerText = totalExamEarned;
+    if (this.miniTotalScoreEl) this.miniTotalScoreEl.innerText = totalExamEarned;
+    if (this.sidebarProgressEl) {
+      const pct = Math.min(100, (totalExamEarned / 100) * 100);
+      this.sidebarProgressEl.style.width = `${pct}%`;
+    }
+    const mainTotalScore = document.getElementById('total-score-display');
+    if (mainTotalScore) mainTotalScore.innerText = totalExamEarned;
+
+    this.renderSidebarQList();
+    this.renderNavGrid();
+  }
+
   renderQuestion(index) {
     this.currentQIndex = index;
     const q = this.questions[index];
     if (!this.qContentEl || !q) return;
 
+    this.renderSidebarQList();
     this.renderNavGrid();
 
     const totalExamEarned = this.calculateTotalEarnedPoints();
@@ -738,7 +931,7 @@ class ExamEngine {
       ${partsHtml}
     `;
 
-    // Add Rubric checkbox listeners — TARGETED update (no full re-render)
+    // Add Rubric checkbox listeners
     const checkboxes = this.qContentEl.querySelectorAll('.rubric-checkbox');
     checkboxes.forEach(cb => {
       cb.addEventListener('change', (e) => {
@@ -746,7 +939,7 @@ class ExamEngine {
         const isChecked = e.target.checked;
         this.userScores[rId] = isChecked;
 
-        // Update ONLY the rubric-item visual style (no DOM re-render)
+        // Update ONLY the rubric-item visual style
         const rubricItem = e.target.closest('.rubric-item');
         if (rubricItem) {
           rubricItem.style.background = isChecked ? 'rgba(46,125,50,0.08)' : 'var(--paper)';
@@ -755,34 +948,26 @@ class ExamEngine {
           if (ptsSpan) ptsSpan.style.color = isChecked ? 'var(--green)' : 'var(--accent)';
         }
 
-        // Update score displays without re-rendering the whole page
+        // Update score displays
         const currentQEarned = this.calculateQuestionEarnedPoints(this.currentQIndex);
-        const totalExamEarned = this.calculateTotalEarnedPoints();
         const currentQMax = this.questions[this.currentQIndex].parts.reduce((s, p) => s + p.points, 0);
-
-        // Update total score display
-        const totalScoreEl = document.getElementById('total-score-display');
-        if (totalScoreEl) totalScoreEl.textContent = totalExamEarned;
 
         // Update question-level score display
         const qScoreEl = this.qContentEl.querySelector('[data-current-q-score]');
-        if (qScoreEl) qScoreEl.innerHTML = `<strong style="color: var(--accent);">${currentQEarned} / ${currentQMax}</strong>`;
+        if (qScoreEl) qScoreEl.innerHTML = `คะแนนในข้อนี้: <strong style="color: var(--accent);">${currentQEarned} / ${currentQMax}</strong>`;
 
-        // Update nav grid buttons scores
-        this.renderNavGrid();
+        this.updateScoreDisplays();
       });
     });
 
     // Re-init accordions and restore open state
     if (window.initAccordions) window.initAccordions();
-    // Restore previously open accordions
     const allAccordions = this.qContentEl.querySelectorAll('.accordion');
     allAccordions.forEach((acc, idx) => {
       const key = `${this.currentQIndex}_${idx}`;
       if (this.openAccordions.has(key)) {
         acc.classList.add('open');
       }
-      // Track open/close state
       const header = acc.querySelector('.accordion-header');
       if (header) {
         header.addEventListener('click', () => {
