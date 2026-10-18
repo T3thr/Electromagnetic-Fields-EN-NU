@@ -111,10 +111,10 @@ class GaussSimEngine {
 
   renderSphericalPoint(q_nC, r) {
     // 1. Center Point Charge
-    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, `+Q (${q_nC} nC)`);
+    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, ("+Q (").concat(q_nC).concat(" nC)"));
 
     // 2. Closed Gaussian Sphere Surface (dashed)
-    this.drawSphereSurface(r, '#B45309', `ผิวเกาส์เซียนทรงกลมสมมติ (r = ${r.toFixed(1)} m)`);
+    this.drawSphereSurface(r, '#B45309', ("ผิวเกาส์เซียนทรงกลมสมมติ (r = ").concat(r.toFixed(1)).concat(" m)"));
 
     // 3. Normal area vector ds and Flux vectors D
     const angles = [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2];
@@ -123,17 +123,17 @@ class GaussSimEngine {
       const py = r * Math.sin(ang);
       const pz = 0;
       const dVec = 0.8;
-      this.core.addVector({ x: px, y: py, z: pz }, { x: px + dVec * Math.cos(ang), y: py + dVec * Math.sin(ang), z: pz }, '#047857', 'D', 2);
-      this.core.addVector({ x: px, y: py, z: pz }, { x: px + 0.4 * Math.cos(ang), y: py + 0.4 * Math.sin(ang), z: pz }, '#DC2626', 'ds', 1.5);
+      this.core.addVector({ x: px, y: py, z: pz }, { x: px + dVec * Math.cos(ang), y: py + dVec * Math.sin(ang), z: pz }, '#047857', '<b>D</b>', 2);
+      this.core.addVector({ x: px, y: py, z: pz }, { x: px + 0.4 * Math.cos(ang), y: py + 0.4 * Math.sin(ang), z: pz }, '#DC2626', 'd<b>s</b>', 1.5);
     });
   }
 
   renderSphericalBall(rho_v, r, a) {
     // 1. Charge Ball radius a
-    this.drawSphereSurface(a, '#1E40AF', `ลูกบอลประจุรัศมี a = ${a.toFixed(1)} m`, false);
+    this.drawSphereSurface(a, '#1E40AF', ("ลูกบอลประจุรัศมี a = ").concat(a.toFixed(1)).concat(" m"), false);
 
     // 2. Gaussian Sphere radius r
-    this.drawSphereSurface(r, '#B45309', `ผิวเกาส์เซียน r = ${r.toFixed(1)} m`, true);
+    this.drawSphereSurface(r, '#B45309', ("ผิวเกาส์เซียน r = ").concat(r.toFixed(1)).concat(" m"), true);
 
     // 3. Normal vectors
     const angles = [Math.PI / 4, (3 * Math.PI) / 4, (5 * Math.PI) / 4, (7 * Math.PI) / 4];
@@ -141,7 +141,7 @@ class GaussSimEngine {
       const px = r * Math.cos(ang) * 0.707;
       const py = r * Math.sin(ang) * 0.707;
       const pz = r * 0.707;
-      this.core.addVector({ x: px, y: py, z: pz }, { x: px * 1.3, y: py * 1.3, z: pz * 1.3 }, '#047857', 'D', 1.8);
+      this.core.addVector({ x: px, y: py, z: pz }, { x: px * 1.3, y: py * 1.3, z: pz * 1.3 }, '#047857', '<b>D</b>', 1.8);
     });
   }
 
@@ -149,7 +149,7 @@ class GaussSimEngine {
     // 1. Central Infinite Line Charge on Z-axis
     const halfL = len / 2;
     this.core.addLine({ x: 0, y: 0, z: -halfL - 1 }, { x: 0, y: 0, z: halfL + 1 }, '#DC2626', 3.0);
-    this.core.addCustomLabel({ x: 0.1, y: 0.1, z: halfL }, `ลวดประจุแกน z (ρ_l = ${rho_l} nC/m)`, '#DC2626');
+    this.core.addLabel({ x: 0.1, y: 0.1, z: halfL }, ("ลวดประจุแกน z (ρ<sub>l</sub> = ").concat(rho_l).concat(" nC/m)"), '#DC2626');
 
     // 2. Gaussian Cylinder of radius rho and length len
     this.drawCylinderSurface(rho, len, '#B45309');
@@ -161,7 +161,7 @@ class GaussSimEngine {
       const x = rho * Math.cos(ang);
       const y = rho * Math.sin(ang);
       const z = 0;
-      this.core.addVector({ x, y, z }, { x: x * 1.4, y: y * 1.4, z }, '#047857', i === 0 ? 'D_ρ' : '', 2);
+      this.core.addVector({ x, y, z }, { x: x * 1.4, y: y * 1.4, z }, '#047857', i === 0 ? '<b>D</b><sub>ρ</sub>' : '', 2);
     }
   }
 
@@ -178,15 +178,15 @@ class GaussSimEngine {
     for (let i = 0; i < sheetCorners.length - 1; i++) {
       this.core.addLine(sheetCorners[i], sheetCorners[i + 1], '#1E40AF', 2.0);
     }
-    this.core.addCustomLabel({ x: size * 0.7, y: size * 0.7, z: 0 }, `แผ่นระนาบประจุ z = 0 (ρ_s = ${rho_s} nC/m²)`, '#1E40AF');
+    this.core.addLabel({ x: size * 0.7, y: size * 0.7, z: 0 }, ("แผ่นระนาบประจุ z = 0 (ρ<sub>s</sub> = ").concat(rho_s).concat(" nC/m²)"), '#1E40AF');
 
     // 2. Gaussian Pillbox Box (crossing z=0 from -zDist to +zDist)
     const boxSize = 1.2;
     this.drawPillbox(boxSize, zDist, '#B45309');
 
     // 3. Flux vectors piercing top and bottom caps
-    this.core.addVector({ x: 0, y: 0, z: zDist }, { x: 0, y: 0, z: zDist + 1.0 }, '#047857', 'D_top = (ρ_s / 2) a_z', 2);
-    this.core.addVector({ x: 0, y: 0, z: -zDist }, { x: 0, y: 0, z: -zDist - 1.0 }, '#047857', 'D_bottom = -(ρ_s / 2) a_z', 2);
+    this.core.addVector({ x: 0, y: 0, z: zDist }, { x: 0, y: 0, z: zDist + 1.0 }, '#047857', '<b>D</b><sub>top</sub> = (ρ<sub>s</sub>/2) <b>a</b><sub>z</sub>', 2);
+    this.core.addVector({ x: 0, y: 0, z: -zDist }, { x: 0, y: 0, z: -zDist - 1.0 }, '#047857', '<b>D</b><sub>bottom</sub> = −(ρ<sub>s</sub>/2) <b>a</b><sub>z</sub>', 2);
   }
 
   drawSphereSurface(radius, color, label, dashed = true) {
@@ -224,7 +224,7 @@ class GaussSimEngine {
     }
 
     if (label) {
-      this.core.addCustomLabel({ x: radius * 0.7, y: radius * 0.7, z: 0 }, label, color);
+      this.core.addLabel({ x: radius * 0.7, y: radius * 0.7, z: 0 }, label, color);
     }
   }
 
@@ -253,7 +253,7 @@ class GaussSimEngine {
       this.core.addLine({ x, y, z: -halfL }, { x, y, z: halfL }, color, 1.2, [4, 3]);
     });
 
-    this.core.addCustomLabel({ x: rho, y: 0, z: halfL }, `ผิวเกาส์เซียนทรงกระบอก L = ${len} m, ρ = ${rho} m`, color);
+    this.core.addLabel({ x: rho, y: 0, z: halfL }, ("ผิวเกาส์เซียนทรงกระบอก L = ").concat(len).concat(" m, ρ = ").concat(rho).concat(" m"), color);
   }
 
   drawPillbox(sideA, zDist, color) {
@@ -284,8 +284,8 @@ class GaussSimEngine {
       this.core.addLine(topFace[i], botFace[i], color, 1.0, [3, 3]);
     }
 
-    this.core.addCustomLabel({ x: halfS, y: halfS, z: zTop }, `ฝากล่องบน ΔS (z = +${zDist.toFixed(1)} m)`, color);
-    this.core.addCustomLabel({ x: halfS, y: halfS, z: zBot }, `ฝากล่องล่าง ΔS (z = -${zDist.toFixed(1)} m)`, color);
+    this.core.addLabel({ x: halfS, y: halfS, z: zTop }, ("ฝากล่องบน ΔS (z = +").concat(zDist.toFixed(1)).concat(" m)"), color);
+    this.core.addLabel({ x: halfS, y: halfS, z: zBot }, ("ฝากล่องล่าง ΔS (z = -").concat(zDist.toFixed(1)).concat(" m)"), color);
   }
 
   renderAnalytics(type, val, r, a, len, eps0) {
@@ -304,10 +304,10 @@ class GaussSimEngine {
       const D_val_nC = (q_C / S_area) * 1e9;
       const E_val = (q_C / (4 * Math.PI * eps0 * r * r));
 
-      gaussIntegralHtml = `∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>r</sub> (4π r²) = D<sub>r</sub> (${S_area.toFixed(3)} m²)`;
-      qEncHtml = `Q<sub>enc</sub> = ${val.toFixed(2)} nC = ${(q_C).toExponential(3)} C`;
-      resultDHtml = `<b>D</b>(r) = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4π r²</span></span> <b>a</b><sub>r</sub> = <strong>${D_val_nC.toFixed(4)} <b>a</b><sub>r</sub> nC/m²</strong>`;
-      resultEHtml = `<b>E</b>(r) = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4πε₀ r²</span></span> <b>a</b><sub>r</sub> = <strong>${E_val.toFixed(2)} <b>a</b><sub>r</sub> V/m</strong>`;
+      gaussIntegralHtml = ("∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>r</sub> (4π r²) = D<sub>r</sub> (").concat(S_area.toFixed(3)).concat(" m²)");
+      qEncHtml = ("Q<sub>enc</sub> = ").concat(val.toFixed(2)).concat(" nC = ").concat((q_C).toExponential(3)).concat(" C");
+      resultDHtml = ("<b>D</b>(r) = <span class=\"math-frac\"><span class=\"math-num\">Q</span><span class=\"math-den\">4π r²</span></span> <b>a</b><sub>r</sub> = <strong>").concat(D_val_nC.toFixed(4)).concat(" <b>a</b><sub>r</sub> nC/m²</strong>");
+      resultEHtml = ("<b>E</b>(r) = <span class=\"math-frac\"><span class=\"math-num\">Q</span><span class=\"math-den\">4πε₀ r²</span></span> <b>a</b><sub>r</sub> = <strong>").concat(E_val.toFixed(2)).concat(" <b>a</b><sub>r</sub> V/m</strong>");
     } else if (type === 'sphere-ball') {
       symmetryName = '2. สมมาตรทรงกลม — ลูกบอลประจุสม่ำเสมอ (Uniform Volume Charge Ball)';
       const rho_v_C = val * 1e-9;
@@ -321,20 +321,20 @@ class GaussSimEngine {
         const vol = (4 / 3) * Math.PI * Math.pow(r, 3);
         q_enc_C = rho_v_C * vol;
         D_val_nC = (rho_v_C * r / 3) * 1e9;
-        formulaD = `<b>D</b>(r) = <span class="math-frac"><span class="math-num">ρ<sub>v</sub> r</span><span class="math-den">3</span></span> <b>a</b><sub>r</sub>`;
+        formulaD = ("<b>D</b>(r) = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>v</sub> r</span><span class=\"math-den\">3</span></span> <b>a</b><sub>r</sub>");
       } else {
         // r > a
         const totalVol = (4 / 3) * Math.PI * Math.pow(a, 3);
         q_enc_C = rho_v_C * totalVol;
         D_val_nC = ((rho_v_C * Math.pow(a, 3)) / (3 * r * r)) * 1e9;
-        formulaD = `<b>D</b>(r) = <span class="math-frac"><span class="math-num">ρ<sub>v</sub> a³</span><span class="math-den">3 r²</span></span> <b>a</b><sub>r</sub> = <span class="math-frac"><span class="math-num">Q<sub>total</sub></span><span class="math-den">4π r²</span></span> <b>a</b><sub>r</sub>`;
+        formulaD = ("<b>D</b>(r) = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>v</sub> a³</span><span class=\"math-den\">3 r²</span></span> <b>a</b><sub>r</sub> = <span class=\"math-frac\"><span class=\"math-num\">Q<sub>total</sub></span><span class=\"math-den\">4π r²</span></span> <b>a</b><sub>r</sub>");
       }
       const E_val = (D_val_nC * 1e-9) / eps0;
 
-      gaussIntegralHtml = `∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>r</sub> (4π r²)`;
-      qEncHtml = `Q<sub>enc</sub> = ${isInside ? `ρ<sub>v</sub> (4/3 π r³)` : `ρ<sub>v</sub> (4/3 π a³)`} = ${(q_enc_C * 1e9).toFixed(3)} nC`;
-      resultDHtml = `${formulaD} = <strong>${D_val_nC.toFixed(4)} <b>a</b><sub>r</sub> nC/m²</strong> (${isInside ? 'ภายในลูกบอล r ≤ a' : 'ภายนอกลูกบอล r > a'})`;
-      resultEHtml = `<b>E</b>(r) = <strong>${E_val.toFixed(2)} <b>a</b><sub>r</sub> V/m</strong>`;
+      gaussIntegralHtml = ("∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>r</sub> (4π r²)");
+      qEncHtml = ("Q<sub>enc</sub> = ").concat(isInside ? ("ρ<sub>v</sub> (4/3 π r³)") : ("ρ<sub>v</sub> (4/3 π a³)")).concat(" = ").concat((q_enc_C * 1e9).toFixed(3)).concat(" nC");
+      resultDHtml = ("").concat(formulaD).concat(" = <strong>").concat(D_val_nC.toFixed(4)).concat(" <b>a</b><sub>r</sub> nC/m²</strong> (").concat(isInside ? 'ภายในลูกบอล r ≤ a' : 'ภายนอกลูกบอล r > a').concat(")");
+      resultEHtml = ("<b>E</b>(r) = <strong>").concat(E_val.toFixed(2)).concat(" <b>a</b><sub>r</sub> V/m</strong>");
     } else if (type === 'cylinder') {
       symmetryName = '3. สมมาตรทรงกระบอก — ลวดประจุอนันต์ (Infinite Line Charge)';
       const rho_l_C = val * 1e-9;
@@ -343,48 +343,22 @@ class GaussSimEngine {
       const D_val_nC = (rho_l_C / (2 * Math.PI * r)) * 1e9;
       const E_val = (rho_l_C / (2 * Math.PI * eps0 * r));
 
-      gaussIntegralHtml = `∮<sub>S</sub> <b>D</b> • d<b>s</b> = 0 (ฝาบน-ล่าง) + D<sub>ρ</sub> (2π ρ L) = D<sub>ρ</sub> (${S_side.toFixed(3)} m²)`;
-      qEncHtml = `Q<sub>enc</sub> = ρ<sub>l</sub> L = (${val} nC/m) × (${len} m) = ${(q_enc_C * 1e9).toFixed(2)} nC`;
-      resultDHtml = `<b>D</b>(ρ) = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2π ρ</span></span> <b>a</b><sub>ρ</sub> = <strong>${D_val_nC.toFixed(4)} <b>a</b><sub>ρ</sub> nC/m²</strong>`;
-      resultEHtml = `<b>E</b>(ρ) = <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2πε₀ ρ</span></span> <b>a</b><sub>ρ</sub> = <strong>${E_val.toFixed(2)} <b>a</b><sub>ρ</sub> V/m</strong>`;
+      gaussIntegralHtml = ("∮<sub>S</sub> <b>D</b> • d<b>s</b> = 0 (ฝาบน-ล่าง) + D<sub>ρ</sub> (2π ρ L) = D<sub>ρ</sub> (").concat(S_side.toFixed(3)).concat(" m²)");
+      qEncHtml = ("Q<sub>enc</sub> = ρ<sub>l</sub> L = (").concat(val).concat(" nC/m) × (").concat(len).concat(" m) = ").concat((q_enc_C * 1e9).toFixed(2)).concat(" nC");
+      resultDHtml = ("<b>D</b>(ρ) = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>l</sub></span><span class=\"math-den\">2π ρ</span></span> <b>a</b><sub>ρ</sub> = <strong>").concat(D_val_nC.toFixed(4)).concat(" <b>a</b><sub>ρ</sub> nC/m²</strong>");
+      resultEHtml = ("<b>E</b>(ρ) = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>l</sub></span><span class=\"math-den\">2πε₀ ρ</span></span> <b>a</b><sub>ρ</sub> = <strong>").concat(E_val.toFixed(2)).concat(" <b>a</b><sub>ρ</sub> V/m</strong>");
     } else if (type === 'sheet') {
       symmetryName = '4. สมมาตรแผ่นระนาบ — แผ่นประจุอนันต์ (Infinite Sheet of Charge)';
       const rho_s_C = val * 1e-9;
       const D_val_nC = (val / 2); // rho_s / 2
       const E_val = (rho_s_C / (2 * eps0));
 
-      gaussIntegralHtml = `∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>top</sub> ΔS + D<sub>bottom</sub> ΔS + 0 (ขอบข้าง) = 2 D<sub>n</sub> ΔS`;
-      qEncHtml = `Q<sub>enc</sub> = ρ<sub>s</sub> ΔS`;
-      resultDHtml = `<b>D</b> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2</span></span> <b>a</b><sub>n</sub> = <strong>${D_val_nC.toFixed(4)} <b>a</b><sub>n</sub> nC/m²</strong> (ไม่ขึ้นกับระยะห่าง z!)`;
-      resultEHtml = `<b>E</b> = <span class="math-frac"><span class="math-num">ρ<sub>s</sub></span><span class="math-den">2ε₀</span></span> <b>a</b><sub>n</sub> = <strong>${E_val.toFixed(2)} <b>a</b><sub>n</sub> V/m</strong>`;
+      gaussIntegralHtml = ("∮<sub>S</sub> <b>D</b> • d<b>s</b> = D<sub>top</sub> ΔS + D<sub>bottom</sub> ΔS + 0 (ขอบข้าง) = 2 D<sub>n</sub> ΔS");
+      qEncHtml = ("Q<sub>enc</sub> = ρ<sub>s</sub> ΔS");
+      resultDHtml = ("<b>D</b> = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>s</sub></span><span class=\"math-den\">2</span></span> <b>a</b><sub>n</sub> = <strong>").concat(D_val_nC.toFixed(4)).concat(" <b>a</b><sub>n</sub> nC/m²</strong> (ไม่ขึ้นกับระยะห่าง z!)");
+      resultEHtml = ("<b>E</b> = <span class=\"math-frac\"><span class=\"math-num\">ρ<sub>s</sub></span><span class=\"math-den\">2ε₀</span></span> <b>a</b><sub>n</sub> = <strong>").concat(E_val.toFixed(2)).concat(" <b>a</b><sub>n</sub> V/m</strong>");
     }
 
-    this.outputEl.innerHTML = `
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-        <div class="result-item">
-          <div class="res-label">ชนิดโครงสร้างสมมาตร</div>
-          <div class="res-val">${symmetryName}</div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            หลักการเลือกผิว: ขนาด |<b>D</b>| ต้องคงที่บนผิว และ <b>D</b> ตั้งฉากหรือขนานกับผิวเสมอ
-          </p>
-        </div>
-
-        <div class="result-item">
-          <div class="res-label">การอินทิเกรตฟลักซ์รอบผิวปิด ∮ D • ds</div>
-          <div class="res-val">${gaussIntegralHtml}</div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            ${qEncHtml}
-          </p>
-        </div>
-
-        <div class="result-item" style="border-left-color: var(--accent); grid-column: 1 / -1;">
-          <div class="res-label">ผลลัพธ์สนามความหนาแน่นฟลักซ์ D และสนามไฟฟ้า E</div>
-          <div class="res-val" style="color: var(--accent); line-height: 2.0;">
-            • ${resultDHtml}<br>
-            • ${resultEHtml}
-          </div>
-        </div>
-      </div>
-    `;
+    this.outputEl.innerHTML = ("\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;\">\n        <div class=\"result-item\">\n          <div class=\"res-label\">ชนิดโครงสร้างสมมาตร</div>\n          <div class=\"res-val\">").concat(symmetryName).concat("</div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            หลักการเลือกผิว: ขนาด |<b>D</b>| ต้องคงที่บนผิว และ <b>D</b> ตั้งฉากหรือขนานกับผิวเสมอ\n          </p>\n        </div>\n\n        <div class=\"result-item\">\n          <div class=\"res-label\">การอินทิเกรตฟลักซ์รอบผิวปิด ∮ D • ds</div>\n          <div class=\"res-val\">").concat(gaussIntegralHtml).concat("</div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            ").concat(qEncHtml).concat("\n          </p>\n        </div>\n\n        <div class=\"result-item\" style=\"border-left-color: var(--accent); grid-column: 1 / -1;\">\n          <div class=\"res-label\">ผลลัพธ์สนามความหนาแน่นฟลักซ์ D และสนามไฟฟ้า E</div>\n          <div class=\"res-val\" style=\"color: var(--accent); line-height: 2.0;\">\n            • ").concat(resultDHtml).concat("<br>\n            • ").concat(resultEHtml).concat("\n          </div>\n        </div>\n      </div>\n    ");
   }
 }

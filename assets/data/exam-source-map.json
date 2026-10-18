@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 1,
+  "physicalPages": {
+    "midterm": 10,
+    "final": 36
+  },
+  "final": [
+    {
+      "code": "ALL-Q01",
+      "problemId": "continuity",
+      "pages": [
+        1,
+        3
+      ],
+      "note": "ตัวอย่างต่อเนื่อง",
+      "dependsOn": null,
+      "sources": [
+        [
+          "ตัวอย่าง Set 10",
+          "lecture/final/set10_Current/set10_eg_Current.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          1
+        ],
+        [
+          "Hayt §5.2 · ตัวอย่าง J รัศมี",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          127
+        ],
+        [
+          "Sadiku สมการความต่อเนื่อง",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          191
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q02",
+      "problemId": "boundary",
+      "pages": [
+        4,
+        6
+      ],
+      "note": "ตัวอย่างขอบเขต",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 12 พร้อมเฉลย",
+          "lecture/final/set12_Boundary/set12_eg_BC.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          4
+        ],
+        [
+          "Hayt D5.9–D5.10 · วิธีรอยต่อ (คนละข้อมูล)",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          151
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q03",
+      "problemId": "laplace",
+      "pages": [
+        7,
+        13
+      ],
+      "note": "ลาปลาสแผ่นขนาน",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 14 เฉลยครบ",
+          "lecture/final/set14_Laplace/set14_eg_Capacitance.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          7
+        ],
+        [
+          "Hayt ตัวอย่างแผ่นขนาน",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          177
+        ],
+        [
+          "Sadiku วิธีลาปลาสสำหรับแผ่นขนาน",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          248
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q04",
+      "problemId": "wire",
+      "pages": [
+        14,
+        18
+      ],
+      "note": "บิโอต์–ซาวารต์",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 15 เฉลยลายมือ",
+          "lecture/final/set15_Stdy_Mag/set15_eg_biot_COR.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          14
+        ],
+        [
+          "Hayt ลวดอนันต์",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          196
+        ],
+        [
+          "Sadiku §7.2 พิสูจน์ลวดตรง",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          274
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q05",
+      "problemId": "ampere",
+      "pages": [
+        19,
+        19
+      ],
+      "note": "ตั้งวงแอมแปร์",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 16",
+          "lecture/final/set16_Ampere/set16_eg_Ampere.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          19
+        ],
+        [
+          "Hayt §7.2",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          202
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q06",
+      "problemId": "ampere-continuation",
+      "pages": [
+        20,
+        20
+      ],
+      "note": "หน้าต่อเนื่อง ALL-Q05",
+      "dependsOn": "ALL-Q05",
+      "sources": [
+        [
+          "ALL-Q06 · หน้าต่อเนื่อง",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          20
+        ],
+        [
+          "Set 16 · ตั้งวงและทิศ",
+          "lecture/final/set16_Ampere/set16_eg_Ampere.pdf",
+          2
+        ],
+        [
+          "Hayt §7.2",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          202
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q07",
+      "problemId": "curl",
+      "pages": [
+        21,
+        22
+      ],
+      "note": "เคิร์ล ณ จุด",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 17",
+          "lecture/final/set17_Curl/set17_eg_Curl.pdf",
+          1
+        ],
+        [
+          "Hayt D7.5(a)",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          216
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          21
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q08",
+      "problemId": "raw-faraday",
+      "pages": [
+        23,
+        25
+      ],
+      "note": "E สัมประสิทธิ์ 20",
+      "dependsOn": null,
+      "sources": [
+        [
+          "ALL-Q08 · สัมประสิทธิ์ 20",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          23
+        ],
+        [
+          "Set 20 · ฉบับสัมประสิทธิ์ 2",
+          "lecture/final/set20_Time_Varying/set20_eg_Time_varying.pdf",
+          1
+        ],
+        [
+          "Hayt D9.1 · สนาม B คนละโจทย์",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          297
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q09",
+      "problemId": "displacement",
+      "pages": [
+        26,
+        27
+      ],
+      "note": "ตัวเก็บประจุ",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 21 เฉลยลายมือ",
+          "lecture/final/set21_Displacement_Current/set21_eg_Cap_current.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          26
+        ],
+        [
+          "Hayt Figure 9.3 · ตัวเก็บประจุ",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          300
+        ],
+        [
+          "Sadiku §9.4 สองผิวตัวเก็บประจุ",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          390
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q10",
+      "problemId": "raw-consistency",
+      "pages": [
+        28,
+        30
+      ],
+      "note": "ตรวจข้อมูล μ ขัดแย้ง",
+      "dependsOn": null,
+      "sources": [
+        [
+          "ALL-Q10 · ข้อมูล μ ที่พิมพ์",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          28
+        ],
+        [
+          "Set 21 · เฉลยที่เกี่ยวข้อง",
+          "lecture/final/set21_Displacement_Current/set21_eg_jd.pdf",
+          1
+        ],
+        [
+          "Hayt D9.4(b) · μ=10⁻⁵",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          304
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q11",
+      "problemId": "wave",
+      "pages": [
+        31,
+        35
+      ],
+      "note": "คลื่นเชิงตัวเลข",
+      "dependsOn": null,
+      "sources": [
+        [
+          "Set 22 เฉลย",
+          "lecture/final/set22_Maxwell_time_harmonic/set22_eg_Maxwell_time_harmonic_COMPLETE.pdf",
+          1
+        ],
+        [
+          "ชุดโจทย์เดิม",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          31
+        ],
+        [
+          "Sadiku Example 10.1 สนามคลื่นระนาบ",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          424
+        ]
+      ]
+    },
+    {
+      "code": "ALL-Q12",
+      "problemId": "raw-phasor",
+      "pages": [
+        36,
+        36
+      ],
+      "note": "แปลงเฟสเซอร์",
+      "dependsOn": null,
+      "sources": [
+        [
+          "ALL-Q12 · หน้าโจทย์และเฉลย",
+          "raw/ข้อสอบทั้งหมด.pdf",
+          36
+        ],
+        [
+          "Set 22 · ตัวอย่างเฟสเซอร์",
+          "lecture/final/set22_Maxwell_time_harmonic/set22_eg_Spatial_field.pdf",
+          1
+        ],
+        [
+          "Hayt §11.1 · คลื่นและเฟสเซอร์",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          385
+        ]
+      ]
+    }
+  ],
+  "midterm": [
+    {
+      "code": "MID-Q01",
+      "problemId": "mid-q01",
+      "sources": [
+        [
+          "MID-Q01 · หน้าโจทย์",
+          "raw/ข้อสอบเก่า.pdf",
+          2
+        ],
+        [
+          "Set 3 · ฐานทรงกลม",
+          "lecture/set3_Vector3_for_prnt.pdf",
+          8
+        ],
+        [
+          "Hayt D1.6 · วิธีแปลงฐาน (คนละข้อมูล)",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          30
+        ],
+        [
+          "Hayt §1.9 · ทรงกลม",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          31
+        ]
+      ]
+    },
+    {
+      "code": "MID-Q02",
+      "problemId": "mid-q02",
+      "sources": [
+        [
+          "MID-Q02 · หน้าโจทย์",
+          "raw/ข้อสอบเก่า.pdf",
+          2
+        ],
+        [
+          "Set 4 · เวกเตอร์ระยะทาง",
+          "lecture/set4_Coulomb_for_prnt.pdf",
+          8
+        ],
+        [
+          "Hayt D2.1 · คูลอมบ์เวกเตอร์ (คนละข้อมูล)",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          41
+        ],
+        [
+          "Hayt Example 2.2 · การซ้อนทับ (คนละข้อมูล)",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          44
+        ]
+      ]
+    },
+    {
+      "code": "MID-Q03",
+      "problemId": "mid-q03",
+      "sources": [
+        [
+          "MID-Q03 · หน้าโจทย์",
+          "raw/ข้อสอบเก่า.pdf",
+          2
+        ],
+        [
+          "Set 5 · สนามจากประจุต่อเนื่อง",
+          "lecture/set5_E_field_for_prnt.pdf",
+          37
+        ],
+        [
+          "Sadiku §4.3 · ลวดประจุจำกัด",
+          "textbook/Elements Of Electromagnetics - Sadiku - 3rd ed.pdf",
+          124
+        ],
+        [
+          "Hayt §2.4 · การกระจายประจุ",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          47
+        ]
+      ]
+    },
+    {
+      "code": "MID-Q04",
+      "problemId": "mid-q04",
+      "sources": [
+        [
+          "MID-Q04 · หน้าโจทย์และต่อหน้า 3",
+          "raw/ข้อสอบเก่า.pdf",
+          2
+        ],
+        [
+          "MID-Q04 · ข้อย่อยและรูปต่อเนื่อง",
+          "raw/ข้อสอบเก่า.pdf",
+          3
+        ],
+        [
+          "Set 9 · นิยามความต่างศักย์",
+          "lecture/set9_Potential_for_prnt.pdf",
+          8
+        ],
+        [
+          "Hayt §4.3 · นิยามศักย์",
+          "textbook/engineering-electromagnetics-9th-ed.pdf",
+          96
+        ]
+      ]
+    }
+  ]
+}

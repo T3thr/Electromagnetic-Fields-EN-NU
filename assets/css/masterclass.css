@@ -1,0 +1,80 @@
+.masterclass { margin: 48px 0; }
+.lesson-anchor { font-size: 1.16rem; font-weight: 600; }
+.why-step { border-left: 3px solid var(--accent); padding-left: 14px; }
+.bridge-links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.master-lab-controls { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 16px; margin: 20px 0; }
+.master-lab-controls label { display: grid; gap: 6px; min-width: 0; }
+.master-lab-controls input { width: 100%; accent-color: #2563eb; }
+.master-lab-result { display: block; margin: 14px 0; font-size: 1.06rem; }
+.master-lab-view svg { display: block; width: 100%; height: auto; max-height: 270px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper2); }
+.roadmap-trigger { white-space: normal; }
+.roadmap-dialog { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(820px,94vw); height: 100dvh; max-height: 100dvh; max-width: 100vw; padding: 0; border: 0; color: var(--ink); background: var(--paper); }
+.roadmap-dialog::backdrop { background: #0f172a88; }
+.roadmap-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--rule); }
+.roadmap-heading h2 { margin: 0; font-size: 1.18rem; }
+.roadmap-body { padding: 24px; height: calc(100% - 82px); overflow-y: auto; overscroll-behavior: contain; }
+.roadmap-map { display: grid; grid-template-columns: repeat(auto-fit,minmax(135px,1fr)); gap: 8px; margin-bottom: 20px; }
+.roadmap-node { text-align: left; display: flex; gap: 8px; align-items: center; padding: 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper2); color: inherit; cursor: pointer; font: inherit; }
+.roadmap-node[aria-current="true"] { border: 2px solid #2563eb; background: var(--paper); }
+.roadmap-node.is-complete { border-left: 5px solid #16a34a; }
+.roadmap-node-number { flex: 0 0 24px; font-weight: 700; }
+.roadmap-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.roadmap-tabs [aria-selected="true"] { background: #2563eb; color: #fff; }
+.roadmap-tabs [aria-selected="false"] { background: var(--paper2); color: var(--ink); }
+.roadmap-map-disclosure { margin: 14px 0; }
+.roadmap-map-disclosure summary { cursor: pointer; font-weight: 600; }
+.roadmap-map-disclosure[open] .roadmap-map { margin-top: 18px; }
+.roadmap-progress { font-size: .9rem; }
+.roadmap-panel .card,.roadmap-panel .summary-box { margin: 14px 0; }
+.roadmap-trail summary { cursor: pointer; font-weight: 600; }
+.roadmap-trail .math-display { font-size: .94rem; }
+.roadmap-panel ul { padding-left: 22px; }
+.nav-roadmap { display: inline-flex; align-items: center; gap: 8px; font-size: .84rem; border-radius: 999px; padding: 9px 14px; white-space: nowrap; }
+.nav-roadmap svg { flex-shrink: 0; }
+.roadmap-heading { background: var(--paper2); }
+.roadmap-dialog[open] { animation: drawer-enter .2s ease-out; }
+.roadmap-progress { padding: 12px 16px; border-radius: 10px; background: var(--accent-bg); color: var(--accent); }
+.roadmap-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; padding: 6px; border: 1px solid var(--rule); border-radius: 12px; background: var(--paper2); }
+.roadmap-tabs .btn { padding: 10px 8px; font-size: .85rem; white-space: normal; }
+.roadmap-node { transition: border-color .15s, background .15s; }
+.roadmap-node:hover { border-color: var(--accent); }
+.roadmap-panel h4 { margin-top: 24px; }
+.masterclass-reading p { line-height: 1.95; }
+.masterclass-group { margin: 48px 0; }
+.masterclass-group > h2 { font-size: 1.4rem; margin-bottom: 24px; }
+.derivation-line h3 { font-size: 1.05rem; }
+.masterclass .why-step { background: var(--paper2); padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: .91rem; }
+.master-lab .btn { margin-top: 36px; }
+.source-reference-list { display: grid; gap: 12px; }
+.source-reference-list a, .bridge-links a { text-decoration: none; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper2); color: var(--accent); line-height: 1.7; }
+.source-reference-list a:hover, .bridge-links a:hover { border-color: var(--accent); }
+.step-number { color: var(--accent); font-family: var(--font-mono); }
+.assumption-line { color: var(--ink-soft); padding-top: 20px; border-top: 1px solid var(--rule); }
+.master-lab-view, .lab-chart { max-width: 100%; overflow-x: auto; }
+.master-lab-view svg, .lab-chart svg { min-width: 420px; }
+@keyframes drawer-enter { from { transform: translateX(40px); opacity: .5; } to { transform: translateX(0); opacity: 1; } }
+.chapter-main,.chapter-sidebar { min-width: 0; }
+.exam-control-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.exam-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.exam-toolbar output { font: 700 1.5rem var(--font-mono); color: var(--accent); }
+.formula-dialog[open] { display: flex; flex-direction: column; }
+.formula-dialog > .formula-dialog-toolbar { height: auto; flex: 0 0 auto; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; border-radius: 0; }
+.formula-dialog-toolbar h2 { font-size: 1.18rem; margin: 0; }
+.formula-dialog iframe { flex: 1 1 0; height: 100%; min-height: 0; margin: 0; }
+.solution-step .lab-chart { overflow-x: auto; }
+.solution-step .lab-chart svg { min-width: 430px; }
+@media(max-width:768px) {
+ html:has(.chapter-sidebar) { scroll-padding-top: calc(var(--header-height) + 220px); }
+ .roadmap-dialog { width: 100vw; }
+ .roadmap-body { padding: 18px 16px; }
+ .roadmap-heading { padding: 18px 16px; }
+ .roadmap-map { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .roadmap-node { font-size: .85rem; }
+ .nav-roadmap { padding: 7px 9px; }
+ .nav-roadmap { font-size: .74rem; gap: 5px; }
+ .nav-roadmap svg { width: 15px; height: 15px; }
+ .nav-brand span:not(.course-code) { display: none; }
+ .roadmap-tabs .btn { font-size: .76rem; }
+ .exam-control-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
+ .masterclass .card,.masterclass .summary-box,.masterclass .practice-generator-card,.roadmap-panel .card { padding: 18px 16px; }
+}

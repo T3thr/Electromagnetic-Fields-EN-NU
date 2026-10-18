@@ -1,0 +1,942 @@
+{
+  "method": "Latest targeted observations replace earlier observations for the same page and viewport.",
+  "reports": [
+    {
+      "width": 1440,
+      "path": "01-vector-algebra/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "02-cylindrical-coordinates/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "03-spherical-coordinates/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "04-coulombs-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "05-electric-field-intensity/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "06-electric-flux-density/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "07-gauss-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "08-divergence-theorem/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 1440,
+      "path": "09-electric-potential/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 1440,
+      "path": "10-current-and-conductors/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "11-dielectrics/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "12-boundary-conditions/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "13-capacitance/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "14-poisson-laplace/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "15-steady-magnetic-field/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "16-amperes-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "17-curl-stokes/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "width": 1440,
+      "path": "18-magnetic-flux/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "19-maxwell-static/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "20-faradays-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "21-displacement-current/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 1440,
+      "path": "22-maxwell-time-harmonic/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 1440,
+      "path": "exam-simulator/final/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 1440,
+      "path": "exam-simulator/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "width": 1440,
+      "path": "exam-simulator/midterm/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "width": 1440,
+      "path": "formula-sheet-final/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 1440,
+      "path": "formula-sheet/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "width": 1440,
+      "path": "index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "width": 390,
+      "path": "01-vector-algebra/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "02-cylindrical-coordinates/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "03-spherical-coordinates/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "04-coulombs-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "05-electric-field-intensity/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "06-electric-flux-density/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "07-gauss-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "08-divergence-theorem/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 390,
+      "path": "09-electric-potential/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 390,
+      "path": "10-current-and-conductors/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "11-dielectrics/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "12-boundary-conditions/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "13-capacitance/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "14-poisson-laplace/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "15-steady-magnetic-field/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "16-amperes-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "17-curl-stokes/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "width": 390,
+      "path": "18-magnetic-flux/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "19-maxwell-static/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "20-faradays-law/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "21-displacement-current/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84
+    },
+    {
+      "width": 390,
+      "path": "22-maxwell-time-harmonic/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 390,
+      "path": "exam-simulator/final/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 390,
+      "path": "exam-simulator/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "width": 390,
+      "path": "exam-simulator/midterm/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "width": 390,
+      "path": "formula-sheet-final/index.html",
+      "overflow": false,
+      "raw": false,
+      "side": {
+        "position": "sticky",
+        "top": "84px"
+      },
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0,
+      "stickyTop": 84,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "width": 390,
+      "path": "formula-sheet/index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "width": 390,
+      "path": "index.html",
+      "overflow": false,
+      "raw": [],
+      "side": null,
+      "wrongPadding": [],
+      "mathFlex": false,
+      "imgMissing": 0
+    },
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    }
+  ],
+  "errors": []
+}

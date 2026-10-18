@@ -16,6 +16,8 @@ class SiteSearchController {
   }
 
   getBasePath() {
+    const root = document.querySelector('meta[name="emf-root"]');
+    if (root) return root.content;
     const path = window.location.pathname;
     if (path.includes('/01-') || path.includes('/02-') || path.includes('/03-') || 
         path.includes('/04-') || path.includes('/05-') || path.includes('/06-') || 
@@ -29,30 +31,7 @@ class SiteSearchController {
   initDOM() {
     if (document.getElementById('site-search-modal')) return;
 
-    const modalHtml = `
-      <div id="site-search-modal" class="search-modal-backdrop" style="display: none;">
-        <div class="search-modal-container" role="dialog" aria-modal="true" aria-label="ค้นหาคลังความรู้">
-          <div class="search-input-wrapper">
-            <svg class="search-icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" id="site-search-input" class="search-input-field" placeholder="ค้นหาบทเรียน ทฤษฎี สูตร กฎ หรือข้อสอบ..." autocomplete="off">
-            <button id="site-search-close-btn" class="search-close-btn" type="button" aria-label="ปิดกล่องค้นหา">✕</button>
-          </div>
-
-          <div id="site-search-results" class="search-results-list">
-            <!-- Dynamic Category Results -->
-          </div>
-
-          <div class="search-modal-footer">
-            <span><strong>ESC</strong> ปิด</span>
-            <span><strong>↑ ↓</strong> นำทาง</span>
-            <span><strong>Enter</strong> เปิดอ่าน</span>
-          </div>
-        </div>
-      </div>
-    `;
+    const modalHtml = ("\n      <div id=\"site-search-modal\" class=\"search-modal-backdrop\" style=\"display: none;\">\n        <div class=\"search-modal-container\" role=\"dialog\" aria-modal=\"true\" aria-label=\"ค้นหาคลังความรู้\">\n          <div class=\"search-input-wrapper\">\n            <svg class=\"search-icon-svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <circle cx=\"11\" cy=\"11\" r=\"8\"></circle>\n              <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line>\n            </svg>\n            <input type=\"text\" id=\"site-search-input\" class=\"search-input-field\" placeholder=\"ค้นหาบทเรียน ทฤษฎี สูตร กฎ หรือข้อสอบ...\" autocomplete=\"off\">\n            <button id=\"site-search-close-btn\" class=\"search-close-btn\" type=\"button\" aria-label=\"ปิดกล่องค้นหา\">✕</button>\n          </div>\n\n          <div id=\"site-search-results\" class=\"search-results-list\">\n            <!-- Dynamic Category Results -->\n          </div>\n\n          <div class=\"search-modal-footer\">\n            <span><strong>ESC</strong> ปิด</span>\n            <span><strong>↑ ↓</strong> นำทาง</span>\n            <span><strong>Enter</strong> เปิดอ่าน</span>\n          </div>\n        </div>\n      </div>\n    ");
 
     document.body.insertAdjacentHTML('beforeend', modalHtml);
 
@@ -137,12 +116,14 @@ class SiteSearchController {
     if (!this.resultsEl) return;
 
     if (this.filteredResults.length === 0) {
-      this.resultsEl.innerHTML = `
-        <div class="search-empty-state">
-          <div>ไม่พบข้อมูลสำหรับ "<strong>${query}</strong>"</div>
-          <div style="font-size: 0.82rem; color: var(--ink-muted); margin-top: 4px;">ลองค้นหาด้วยคำสำคัญ เช่น เวกเตอร์, พิกัดทรงกระบอก, คูลอมบ์, เกาส์, ศักย์ไฟฟ้า</div>
-        </div>
-      `;
+      const empty = document.createElement('div');
+      empty.className = 'card search-empty-state';
+      const heading = document.createElement('p');
+      heading.textContent = 'ไม่พบข้อมูลสำหรับ "' + query + '"';
+      const hint = document.createElement('p');
+      hint.textContent = 'ลองค้นหาคำว่า เวกเตอร์ กระแส เคิร์ล แมกซ์เวลล์ หรือปลายภาค';
+      empty.append(heading, hint);
+      this.resultsEl.replaceChildren(empty);
       return;
     }
 
@@ -150,15 +131,7 @@ class SiteSearchController {
     this.filteredResults.forEach((item, idx) => {
       const isSelected = idx === this.selectedIndex;
       const fullUrl = basePath + item.url;
-      html += `
-        <a href="${fullUrl}" class="search-result-item ${isSelected ? 'selected' : ''}" data-index="${idx}">
-          <div class="result-header">
-            <span class="result-title">${item.title}</span>
-            <span class="result-category-badge">${item.category}</span>
-          </div>
-          <div class="result-snippet">${item.snippet}</div>
-        </a>
-      `;
+      html += ("\n        <a href=\"").concat(fullUrl).concat("\" class=\"search-result-item ").concat(isSelected ? 'selected' : '').concat("\" data-index=\"").concat(idx).concat("\">\n          <div class=\"result-header\">\n            <span class=\"result-title\">").concat(item.title).concat("</span>\n            <span class=\"result-category-badge\">").concat(item.category).concat("</span>\n          </div>\n          <div class=\"result-snippet\">").concat(item.snippet).concat("</div>\n        </a>\n      ");
     });
 
     this.resultsEl.innerHTML = html;

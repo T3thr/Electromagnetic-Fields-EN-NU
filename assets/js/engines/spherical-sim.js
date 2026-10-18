@@ -52,8 +52,8 @@ class SphericalSimEngine {
     const lblTheta = document.getElementById('lbl-theta');
     const lblPhi = document.getElementById('lbl-phi');
     if (lblR) lblR.innerText = r.toFixed(1);
-    if (lblTheta) lblTheta.innerText = `${thetaDeg}°`;
-    if (lblPhi) lblPhi.innerText = `${phiDeg}°`;
+    if (lblTheta) lblTheta.innerText = ("").concat(thetaDeg).concat("°");
+    if (lblPhi) lblPhi.innerText = ("").concat(phiDeg).concat("°");
 
     const thetaRad = thetaDeg * (Math.PI / 180);
     const phiRad = phiDeg * (Math.PI / 180);
@@ -71,8 +71,8 @@ class SphericalSimEngine {
     this.core.clear();
 
     // 1. Position Vector r_P
-    this.core.addVector({ x: 0, y: 0, z: 0 }, { x: px, y: py, z: pz }, '#64748B', 'r_P', 2.0);
-    this.core.addCharge({ x: px, y: py, z: pz }, 1, `P(${r.toFixed(1)}, ${thetaDeg}°, ${phiDeg}°)`);
+    this.core.addVector({ x: 0, y: 0, z: 0 }, { x: px, y: py, z: pz }, '#64748B', '<b>r</b><sub>P</sub>', 2.0);
+    this.core.addCharge({ x: px, y: py, z: pz }, 1, ("P(").concat(r.toFixed(1)).concat(", ").concat(thetaDeg).concat("°, ").concat(phiDeg).concat("°)"));
 
     // Projection on XY Plane
     this.core.addLine({ x: 0, y: 0, z: 0 }, { x: px, y: py, z: 0 }, '#94A3B8', 1, true);
@@ -85,7 +85,7 @@ class SphericalSimEngine {
     this.core.addVector(
       { x: px, y: py, z: pz },
       { x: px + arX * 1.5, y: py + arY * 1.5, z: pz + arZ * 1.5 },
-      '#DC2626', 'a_r', 3.0
+      '#DC2626', '<b>a</b><sub>r</sub>', 3.0
     );
 
     // 3. Unit Vector a_θ (Green) - Points in direction of increasing θ (downward along meridian)
@@ -95,7 +95,7 @@ class SphericalSimEngine {
     this.core.addVector(
       { x: px, y: py, z: pz },
       { x: px + atX * 1.5, y: py + atY * 1.5, z: pz + atZ * 1.5 },
-      '#059669', 'a_theta', 3.0
+      '#059669', '<b>a</b><sub>θ</sub>', 3.0
     );
 
     // 4. Unit Vector a_ϕ (Blue) - Points tangentially along parallel of latitude
@@ -105,7 +105,7 @@ class SphericalSimEngine {
     this.core.addVector(
       { x: px, y: py, z: pz },
       { x: px + apX * 1.5, y: py + apY * 1.5, z: pz },
-      '#2563EB', 'a_phi', 3.0
+      '#2563EB', '<b>a</b><sub>ϕ</sub>', 3.0
     );
 
     // 5. Reference wireframe arcs:
@@ -147,29 +147,7 @@ class SphericalSimEngine {
     this.core.render();
 
     if (this.outputEl) {
-      this.outputEl.innerHTML = `
-        <div class="breakdown-grid">
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">1. พิกัดฉากของจุด P (Cartesian Coordinates)</div>
-            <div class="breakdown-card-value">
-              • x = r sin θ cos ϕ = ${r.toFixed(1)} × sin(${thetaDeg}°) × cos(${phiDeg}°) = <strong>${px.toFixed(3)}</strong> m
-              <br>• y = r sin θ sin ϕ = ${r.toFixed(1)} × sin(${thetaDeg}°) × sin(${phiDeg}°) = <strong>${py.toFixed(3)}</strong> m
-              <br>• z = r cos θ = ${r.toFixed(1)} × cos(${thetaDeg}°) = <strong>${pz.toFixed(3)}</strong> m
-              <br>• พิกัดฉาก: <strong>P(${px.toFixed(3)}, ${py.toFixed(3)}, ${pz.toFixed(3)})</strong>
-              <br>• รัศมีในแนวระนาบ ρ = r sin θ = <strong>${rho.toFixed(3)}</strong> m
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">2. เวกเตอร์หนึ่งหน่วยฐาน ณ จุด P (Spherical Basis Vectors)</div>
-            <div class="breakdown-card-value">
-              • <strong>a</strong><sub>r</sub> (แนวรัศมี): <strong>${arX.toFixed(3)} a</strong><sub>x</sub> <strong>${arY >= 0 ? '+' : ''}${arY.toFixed(3)} a</strong><sub>y</sub> <strong>${arZ >= 0 ? '+' : ''}${arZ.toFixed(3)} a</strong><sub>z</sub>
-              <br>• <strong>a</strong><sub>θ</sub> (แนวละติจูด): <strong>${atX.toFixed(3)} a</strong><sub>x</sub> <strong>${atY >= 0 ? '+' : ''}${atY.toFixed(3)} a</strong><sub>y</sub> <strong>${atZ >= 0 ? '+' : ''}${atZ.toFixed(3)} a</strong><sub>z</sub>
-              <br>• <strong>a</strong><sub>ϕ</sub> (แนวลองจิจูด): <strong>${apX.toFixed(3)} a</strong><sub>x</sub> <strong>${apY >= 0 ? '+' : ''}${apY.toFixed(3)} a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>
-            </div>
-          </div>
-        </div>
-      `;
+      this.outputEl.innerHTML = ("\n        <div class=\"breakdown-grid\">\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">1. พิกัดฉากของจุด P (Cartesian Coordinates)</div>\n            <div class=\"breakdown-card-value\">\n              • x = r sin θ cos ϕ = ").concat(r.toFixed(1)).concat(" × sin(").concat(thetaDeg).concat("°) × cos(").concat(phiDeg).concat("°) = <strong>").concat(px.toFixed(3)).concat("</strong> m\n              <br>• y = r sin θ sin ϕ = ").concat(r.toFixed(1)).concat(" × sin(").concat(thetaDeg).concat("°) × sin(").concat(phiDeg).concat("°) = <strong>").concat(py.toFixed(3)).concat("</strong> m\n              <br>• z = r cos θ = ").concat(r.toFixed(1)).concat(" × cos(").concat(thetaDeg).concat("°) = <strong>").concat(pz.toFixed(3)).concat("</strong> m\n              <br>• พิกัดฉาก: <strong>P(").concat(px.toFixed(3)).concat(", ").concat(py.toFixed(3)).concat(", ").concat(pz.toFixed(3)).concat(")</strong>\n              <br>• รัศมีในแนวระนาบ ρ = r sin θ = <strong>").concat(rho.toFixed(3)).concat("</strong> m\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">2. เวกเตอร์หนึ่งหน่วยฐาน ณ จุด P (Spherical Basis Vectors)</div>\n            <div class=\"breakdown-card-value\">\n              • <strong>a</strong><sub>r</sub> (แนวรัศมี): <strong>").concat(arX.toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(arY >= 0 ? '+' : '').concat("").concat(arY.toFixed(3)).concat(" a</strong><sub>y</sub> <strong>").concat(arZ >= 0 ? '+' : '').concat("").concat(arZ.toFixed(3)).concat(" a</strong><sub>z</sub>\n              <br>• <strong>a</strong><sub>θ</sub> (แนวละติจูด): <strong>").concat(atX.toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(atY >= 0 ? '+' : '').concat("").concat(atY.toFixed(3)).concat(" a</strong><sub>y</sub> <strong>").concat(atZ >= 0 ? '+' : '').concat("").concat(atZ.toFixed(3)).concat(" a</strong><sub>z</sub>\n              <br>• <strong>a</strong><sub>ϕ</sub> (แนวลองจิจูด): <strong>").concat(apX.toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(apY >= 0 ? '+' : '').concat("").concat(apY.toFixed(3)).concat(" a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>\n            </div>\n          </div>\n        </div>\n      ");
     }
   }
 }

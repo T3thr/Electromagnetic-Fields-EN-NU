@@ -5,105 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:,">
 <title>บทที่ 4: กฎของคูลอมบ์และแรงระหว่างประจุ (Coulomb's Law & Electric Forces) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/interactive.css">
-</head>
+<link rel="stylesheet" href="../assets/css/style.css?v=ac8ca7ccf42a">
+<link rel="stylesheet" href="../assets/css/interactive.css?v=88e5a71cd689">
+<meta name="emf-root" content="../">
+<link rel="stylesheet" href="../assets/css/final.css?v=89a32acfcb86">
+<link rel="stylesheet" href="../assets/css/masterclass.css?v=05ec3264c7e7"><meta name="emf-chapter" content="4"></head>
 <body>
 
 <!-- ═══════════ Sticky Top Navbar ═══════════ -->
-<header class="site-header">
-  <nav class="site-navbar">
-    <a href="../index.html" class="nav-brand">
-      <span class="course-code">303214</span>
-      <span>สนามแม่เหล็กไฟฟ้า 1</span>
-    </a>
-
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="../index.html" class="nav-link">หน้าหลัก</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
-          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="dropdown-item active"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
-          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
-          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
-          
-          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
-      </li>
-      <li class="nav-item">
-        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
-      </li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <span>ค้นหา</span>
-        <span class="search-kbd-hint">Ctrl K</span>
-      </button>
-      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
-      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
-    </div>
-  </nav>
-
-  <!-- Structured Mobile Drawer -->
-  <div class="mobile-nav-drawer">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-title">เมนูหลัก</div>
-      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
-      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
-      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
-    </div>
-
-    <div class="mobile-nav-group">
-      <div class="mobile-accordion-item open">
-        <div class="mobile-accordion-header">
-          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
-          <span class="accordion-icon">▼</span>
-        </div>
-        <div class="mobile-accordion-content">
-          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="mobile-ch-link active"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
-          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
-          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<header class="site-header"><nav class="site-navbar" aria-label="เมนูหลัก"><a href="../index.html" class="nav-brand"><span class="course-code">303214</span><span>สนามแม่เหล็กไฟฟ้า 1</span></a><ul class="nav-menu"><li><a class="nav-link" href="../index.html">หน้าหลัก</a></li><li class="nav-item"><button type="button" class="nav-link nav-dropdown-button" aria-expanded="false">สารบัญรายวิชา ▾</button><div class="dropdown-menu"><div class="dropdown-header">กลางภาค · Sets 01–09</div><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a><div class="dropdown-header">ปลายภาค · Sets 10–22</div><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ใบสูตร ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="dropdown-item" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ห้องสอบ ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="dropdown-item" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a></div></li></ul><div class="nav-actions"><button class="search-trigger-btn" type="button" aria-label="ค้นหาคลังความรู้"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"></circle><path d="m16 16 6 6"></path></svg><span>ค้นหา</span><span class="search-kbd-hint">Ctrl K</span></button><button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนธีม"></button><button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button></div></nav><div class="mobile-nav-drawer"><a class="mobile-nav-link" href="../index.html">หน้าหลัก</a><a class="mobile-nav-link" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="mobile-nav-link" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a><a class="mobile-nav-link" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="mobile-nav-link" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a><details class="mobile-course-group accordion-solution"><summary>กลางภาค · Sets 01–09</summary><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a></details><details class="mobile-course-group accordion-solution"><summary>ปลายภาค · Sets 10–22</summary><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></details></div></header>
 
 <!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
 <div class="chapter-container">
@@ -111,7 +21,7 @@
   <!-- Sticky Table of Contents Sidebar -->
   <aside class="chapter-sidebar">
     <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
-    <ul class="sidebar-nav">
+    <ul class="sidebar-nav"><li><a class="sidebar-link" href="#masterclass">ภาพรวมและการพิสูจน์</a></li>
       <li><a href="#sec1" class="sidebar-link active">1. ประวัติและการค้นพบเชิงทดลอง</a></li>
       <li><a href="#sec2" class="sidebar-link">2. นิยามกฎของคูลอมบ์ & ค่าคงตัว</a></li>
       <li><a href="#sec3" class="sidebar-link">3. กฎข้อที่สาม & การซ้อนทับ</a></li>
@@ -144,13 +54,13 @@
       <span class="academic-badge badge-primary">ข้อสอบข้อ 2 (20 คะแนน)</span>
     </div>
 
-    <h1 class="book-title">บทที่ 4: กฎของคูลอมบ์และแรงระหว่างประจุ</h1>
+    <h1 class="book-title">บทที่ 4: กฎของคูลอมบ์และแรงระหว่างประจุ</h1><!-- BEGIN MASTERCLASS --><section id="masterclass" class="masterclass"><div class="card academic-callout masterclass-reading"><span class="academic-badge badge-primary">SET 04 · จากภาพกายภาพสู่การพิสูจน์</span><h2>คำถามที่บทนี้กำลังตอบ</h2><p class="lesson-anchor">ประจุหลายตัวผลักหรือดึงประจุเป้าหมายไปทิศใด และจะวางประจุเพิ่มให้แรงหายไปได้อย่างไร?</p><div class="bridge-links"><a class="topic-pill" href="../01-vector-algebra/index.html">Set 1 · พีชคณิตเวกเตอร์</a></div></div><div class="masterclass-group masterclass-reading"><h2>01 · สร้างภาพในใจก่อนใช้สมการ</h2><div class="card"><p>กฎคูลอมบ์เป็นกฎเชิงประจักษ์ของแรงระหว่างประจุจุด ไม่ใช่สูตรที่อนุมานจากการรวมเวกเตอร์เพียงอย่างเดียว หลังรับกฎนี้แล้ว เราใช้เรขาคณิตเพื่อคำนวณขนาดและทิศ แรงจากแหล่งหลายตัวรวมกันเป็นลูกศรที่ประจุเป้าหมายเดียว</p><p>ประจุชนิดเดียวกันผลักออกจากแหล่ง ประจุต่างชนิดดึงกลับหาแหล่ง เลือกเวกเตอร์จากแหล่งไปผู้รับก่อน แล้วให้เครื่องหมายผลคูณประจุจัดการกลับทิศ การกลับทั้งเวกเตอร์และเครื่องหมายซ้ำจะทำให้แรงผิด</p><p class="assumption-line"><b>ขอบเขตแบบจำลอง:</b> ประจุอยู่นิ่ง แหล่งเป็นจุดและระยะไม่เป็นศูนย์ ใช้ตัวกลางเนื้อเดียวเชิงเส้น</p></div></div><div class="masterclass-group"><h2>02 · พิสูจน์ทีละบรรทัดพร้อมเหตุผล</h2><article class="card derivation-line"><h3><span class="step-number">01</span> กฎทั่วไปก่อนข้อมูลตำแหน่ง</h3><div class="math-display"><b>F</b><sub>2←1</sub>=<span class="math-frac"><span class="math-num"><em>q</em><sub>1</sub><em>q</em><sub>2</sub></span><span class="math-den">4πε<em>R</em>²</span></span><b>a</b><sub>R</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ใช้ประจุจุดในตัวกลางเนื้อเดียว เลขห้อยบอกชัดว่าหาแรงบนผู้รับ 2 จากแหล่ง 1</p></article><article class="card derivation-line"><h3><span class="step-number">02</span> สร้างระยะจากแหล่งไปผู้รับ</h3><div class="math-display"><b>R</b>=<b>r</b><sub>2</sub>−<b>r</b><sub>1</sub>; <em>R</em>=√[(<em>x</em><sub>2</sub>−<em>x</em><sub>1</sub>)²+(<em>y</em><sub>2</sub>−<em>y</em><sub>1</sub>)²+(<em>z</em><sub>2</sub>−<em>z</em><sub>1</sub>)²]</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> การลบตำแหน่งกำหนดทิศระยะ ใช้ระยะบวก R ในตัวส่วนเสมอ</p></article><article class="card derivation-line"><h3><span class="step-number">03</span> แทนเวกเตอร์หน่วยอย่างครบถ้วน</h3><div class="math-display"><b>a</b><sub>R</sub>=<span class="math-frac"><span class="math-num"><b>R</b></span><span class="math-den"><em>R</em></span></span> ⇒ <b>F</b><sub>2←1</sub>=<span class="math-frac"><span class="math-num"><em>q</em><sub>1</sub><em>q</em><sub>2</sub></span><span class="math-den">4πε<em>R</em>³</span></span><b>R</b></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> R ที่เป็นเวกเตอร์มีขนาด R จึงต้องหารกำลังสามเพื่อให้ขนาดแรงยังแปรผกผันระยะกำลังสอง</p></article><article class="card derivation-line"><h3><span class="step-number">04</span> ใช้การซ้อนทับ</h3><div class="math-display"><b>F</b><sub>2</sub>=Σ<sub>i≠2</sub><span class="math-frac"><span class="math-num"><em>q</em><sub>i</sub><em>q</em><sub>2</sub></span><span class="math-den">4πε|<b>R</b><sub>i2</sub>|³</span></span><b>R</b><sub>i2</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ไม่รวมแรงที่ประจุกระทำกับตนเอง ต้องสร้างระยะใหม่สำหรับแต่ละแหล่ง</p></article><article class="card derivation-line"><h3><span class="step-number">05</span> ตัวอย่างเพื่อเห็นเครื่องหมาย</h3><div class="math-display"><em>q</em><sub>1</sub>=1 nC ที่ (0,0,0), <em>q</em><sub>2</sub>=−2 nC ที่ (0.1,0,0) m<br><b>R</b>=0.1<b>a</b><sub>x</sub> m; <b>F</b><sub>2←1</sub>≈−1.798×10<sup>−6</sup><b>a</b><sub>x</sub> N</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> แปลง nC เป็น 10⁻⁹ C ทั้งสองประจุ แล้วใช้ ε₀ ผลติดลบชี้กลับหาแหล่งตามแรงดึง</p></article><article class="card derivation-line"><h3><span class="step-number">06</span> ตั้งสมดุลทุกองค์ประกอบ</h3><div class="math-display"><b>F</b><sub>เพิ่ม</sub>=−<b>F</b><sub>เดิม</sub> ⇒ F<sub>x,รวม</sub>=F<sub>y,รวม</sub>=F<sub>z,รวม</sub>=0</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> การหักล้างต้องตรงทั้งทิศและขนาด หากไม่กำหนดประจุเพิ่ม ระยะที่เลือกเปลี่ยนได้เมื่อปรับประจุตามระยะกำลังสอง</p></article><article class="card derivation-line"><h3><span class="step-number">07</span> ตรวจขนาดด้วยการเพิ่มระยะ</h3><div class="math-display">R → 2R ⇒ |<b>F</b>| → <span class="math-frac"><span class="math-num">|<b>F</b>|</span><span class="math-den">4</span></span></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ตรวจสัดส่วนได้โดยไม่ต้องคำนวณใหม่ ช่วยจับการใช้ R³ กับเวกเตอร์หน่วยผิดรูป</p></article></div><div class="masterclass-group"><h2>03 · กับดักที่ทำให้เสียคะแนน</h2><div class="summary-box exam-trap"><ul><li>ต้นฉบับ MID-Q02 ใช้ C ห้ามเปลี่ยนเป็น µC เพราะคุ้นกับโจทย์ตำรา</li><li>ระบุแรงบนประจุตัวใดก่อนลบตำแหน่ง</li><li>คำตอบตำแหน่ง Q₄ มีหลายกรณีเมื่อขนาด Q₄ ยังเลือกได้ ต้องระบุค่ากับตำแหน่งคู่กัน</li></ul><p>เขียนสูตรทั่วไป → ระบุพิกัดและทิศ → วิเคราะห์ด้วยมือ → ใช้ขอบเขต → ตรวจหน่วย SI และความหมาย</p></div></div><div class="masterclass-group masterclass-reading"><h2>04 · สนามนี้อยู่ในงานวิศวกรรมอย่างไร</h2><div class="card"><p>การซ้อนทับเป็นฐานของสนามประจุต่อเนื่อง เพราะเมื่อแบ่งแหล่งเล็กลง ผลรวมแรงจะกลายเป็นปริพันธ์</p><p>แรงไฟฟ้าในเครื่องแยกฝุ่นไฟฟ้าสถิตขึ้นกับสนามและประจุอนุภาค ความเข้าใจทิศแรงสำคัญเมื่อประจุอนุภาคเป็นลบ</p><p class="why-step"><b>ลองอธิบายด้วยคำของตนเอง:</b> ถ้ากลับเครื่องหมายทั้งสองประจุพร้อมกัน แรงระหว่างคู่เดิมเปลี่ยนหรือไม่?</p></div></div><div class="masterclass-group"><h2>05 · ทำนาย ทดลอง และตรวจเหตุผล</h2><div class="practice-generator-card master-lab" data-chapter="4"><h3>ห้องทดลอง Set 4</h3><p>กลับเครื่องหมายประจุแหล่งหนึ่งตัวโดยคงตำแหน่งเดิม ทำนายการกลับลูกศรแรงของคู่นั้น ก่อนตรวจผลลัพธ์</p><div class="master-lab-controls"></div><div class="master-lab-view"></div><output class="master-lab-result" aria-live="polite"></output><p class="master-lab-assumptions"></p><details class="accordion-solution"><summary>บันทึกสิ่งที่ทำนายและสิ่งที่สังเกต</summary><label for="reflection-4">อธิบายเหตุและผลพร้อมเงื่อนไขที่ตรึง</label><div class="worksheet-editor"><p class="worksheet-hint">ก่อนปรับ: ทำนายทิศและขนาด · หลังปรับ: อธิบายด้วยสมการและเงื่อนไข</p><textarea id="reflection-4" class="learning-input learning-reflection" rows="4" placeholder="ฉันตรึง… ปรับ… จึงทำนายว่า… ผลที่เห็นคือ… เพราะ…"></textarea></div><p class="reflection-status" role="status"></p></details></div></div><div class="card"><h3>สะพานสู่บทถัดไป</h3><p>แนวคิดของบทนี้เป็นฐานให้ Set 5, Set 9</p><div class="bridge-links"><a class="topic-pill" href="../05-electric-field-intensity/index.html">Set 5 · ความเข้มสนามไฟฟ้า</a><a class="topic-pill" href="../09-electric-potential/index.html">Set 9 · ศักย์ไฟฟ้า</a></div><details class="accordion-solution"><summary>ตรวจวิธีจากสไลด์และตำราต้นฉบับ</summary><div class="source-reference-list"><a href="../lecture/set4_Coulomb_for_prnt.pdf#page=8" target="_blank" rel="noopener">Set 4 · เวกเตอร์ระยะทาง · PDF 8</a><a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=41" target="_blank" rel="noopener">Hayt D2.1 · คูลอมบ์เวกเตอร์ (คนละข้อมูล) · PDF 41</a><a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=44" target="_blank" rel="noopener">Hayt Example 2.2 · การซ้อนทับ (คนละข้อมูล) · PDF 44</a></div><p class="source-line">เลขหน้าทั้งหมดนับหน้า PDF รวมปก ตำราเป็นแหล่งตรวจวิธีและนิยาม ไม่ได้กล่าวว่าข้อมูลทุกตัวอย่างตรงกับข้อสอบ บทอธิบายและการพิสูจน์ด้านบนเรียบเรียงเพื่อการสอน</p></details></div></section><!-- END MASTERCLASS -->
     <div class="subtitle">
       แรงไฟฟ้าสถิตระหว่างจุดประจุในอวกาศว่าง: กฎกำลังสองผกผัน, เวกเตอร์ระยะทาง (<b>R</b><sub>12</sub> = <b>r</b><sub>2</sub> - <b>r</b><sub>1</sub>), กฎการซ้อนทับ (Superposition Principle), การคำนวณแรงลัพธ์ในอวกาศ 3 มิติ และการหาสภาวะสมดุลแรง
     </div>
 
     <!-- สรุปวัตถุประสงค์ -->
-    <div class="academic-callout">
+    <div class="academic-callout card">
       <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
       <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
         <li>เข้าใจรากฐานทางฟิสิกส์ของการค้นพบ <strong>กฎของคูลอมบ์ (Coulomb's Law)</strong> และความสัมพันธ์ของแรงไฟฟ้าสถิตที่เป็นไปตามกฎกำลังสองผกผัน (Inverse-Square Law)</li>
@@ -181,7 +91,7 @@
     <section id="sec2">
       <h2 class="section-title">2. นิยามกฎของคูลอมบ์ในรูปเวกเตอร์และค่าคงตัวทางฟิสิกส์ (Vector Formulation & Constants)</h2>
       
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>สมการกฎของคูลอมบ์ในรูปเวกเตอร์ (Coulomb's Law Vector Form)</span>
           <button class="copy-btn" data-copy="F_12 = (1 / (4πε_0)) * (Q_1 * Q_2 / |R_12|²) * a_R12 = (1 / (4πε_0)) * (Q_1 * Q_2 / |R_12|³) * R_12">คัดลอกสูตร</button>
@@ -258,7 +168,7 @@
         เมื่อมีกลุ่มจุดประจุ <code>Q₁, Q₂, Q₃, ..., Q<sub>N</sub></code> อยู่ในอวกาศ แรงลัพธ์รวมที่กระทำต่อประจุทดสอบ <code>q</code> ณ ตำแหน่ง <code><strong>r</strong></code> หาได้จาก <strong>ผลรวมทางเวกเตอร์ (Vector Sum)</strong> ของแรงที่เกิดจากประจุแต่ละตัวแยกกันโดยอิสระ:
       </p>
       
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>สมการแรงลัพธ์แบบการซ้อนทับ (Superposition Net Force)</span>
         </div>
@@ -392,7 +302,7 @@
             </div>
           </div>
 
-          <div class="viewport-overlay-hint">หมุนดูแนวแรงผลัก F₁₂ (ส้ม), F₃₂ (เขียว) และแรงลัพธ์รวม F_net (ม่วง) บนประจุ Q₂</div>
+          <div class="viewport-overlay-hint">หมุนดูแนวแรงผลัก <b>F</b>₁₂ (ส้ม), <b>F</b>₃₂ (เขียว) และแรงลัพธ์รวม <b>F</b><sub>net</sub> (ม่วง) บนประจุ Q₂</div>
         </div>
 
         <div class="workbench-breakdown">
@@ -444,7 +354,7 @@
             <span class="accordion-icon">▼</span>
           </div>
           <div class="accordion-body">
-            <div class="step-card">
+            <div class="step-card card">
               <h4>ขั้นตอนการคำนวณ:</h4>
               <div class="math-display">
                 <strong>ขั้นที่ 1: หาเวกเตอร์ระยะทาง R₂₁ (ชี้จาก N สู่ M):</strong><br>
@@ -467,84 +377,13 @@
     </section>
 
     <!-- ส่วนที่ 6: เฉลยข้อสอบจริง ข้อที่ 2 -->
-    <section id="sec6">
-      <h2 class="section-title">6. เฉลยข้อสอบกลางภาคฉบับจริง: ข้อที่ 2 (20 คะแนนเต็ม)</h2>
-
-      <!-- ข้อ 2.1 -->
-      <div class="step-card step-essential">
-        <span class="step-badge must-write">ข้อสอบข้อ 2.1 (10 คะแนน)</span>
-        <h4>คำถาม: จงหาแรงคูลอมบ์บนประจุ Q₂ ที่เกิดจากประจุ Q₁ และ Q₃ เมื่อ
-          <br>• Q₂ = 2 C อยู่ที่จุดกำเนิด P₂(0, 0, 0)
-          <br>• Q₁ = 3√3 C อยู่ที่ตำแหน่ง P₁(5, 0, 0)
-          <br>• Q₃ = 3 C อยู่ที่ตำแหน่ง P₃(-2.5, <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span>, 0)
-        </h4>
-
-        <div class="accordion">
-          <div class="accordion-header">
-            <span>แสดงขั้นตอนการคำนวณเวกเตอร์แรงอย่างละเอียด (Full Step-by-Step Solution)</span>
-            <span class="accordion-icon">▼</span>
-          </div>
-          <div class="accordion-body">
-            <div class="math-display">
-              <strong>ขั้นที่ 1: คำนวณแรง F₁₂ บนประจุ Q₂ จากประจุ Q₁:</strong><br>
-              • <strong>r</strong>₁ = 5 <strong>a</strong><sub>x</sub> , &nbsp; <strong>r</strong>₂ = 0 <strong>a</strong><sub>x</sub><br>
-              • <strong>R</strong>₁₂ = <strong>r</strong>₂ - <strong>r</strong>₁ = (0 - 5) <strong>a</strong><sub>x</sub> = -5 <strong>a</strong><sub>x</sub><br>
-              • |<strong>R</strong>₁₂| = 5 เมตร<br>
-              • <strong>F</strong>₁₂ = <span class="math-frac"><span class="math-num">Q₁ Q₂</span><span class="math-den">4πε₀ |<strong>R</strong>₁₂|³</span></span> <strong>R</strong>₁₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">(3√3)(2)</span><span class="math-den">5³</span></span> (-5 <strong>a</strong><sub>x</sub>) ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ -<span class="math-frac"><span class="math-num">6√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> ] N<br><br>
-
-              <strong>ขั้นที่ 2: คำนวณแรง F₃₂ บนประจุ Q₂ จากประจุ Q₃:</strong><br>
-              • <strong>r</strong>₃ = -2.5 <strong>a</strong><sub>x</sub> + <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span> <strong>a</strong><sub>y</sub> , &nbsp; <strong>r</strong>₂ = 0<br>
-              • <strong>R</strong>₃₂ = <strong>r</strong>₂ - <strong>r</strong>₃ = 2.5 <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span> <strong>a</strong><sub>y</sub><br>
-              • |<strong>R</strong>₃₂| = √[ (2.5)² + (<span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span>)² ] = √[ 6.25 + 18.75 ] = √25 = <strong>5 เมตร</strong><br>
-              • <strong>F</strong>₃₂ = <span class="math-frac"><span class="math-num">Q₃ Q₂</span><span class="math-den">4πε₀ |<strong>R</strong>₃₂|³</span></span> <strong>R</strong>₃₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">(3)(2)</span><span class="math-den">5³</span></span> (2.5 <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span> <strong>a</strong><sub>y</sub>) ]<br>
-              &nbsp;&nbsp;<strong>F</strong>₃₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">15</span><span class="math-den">125</span></span> <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">15√3</span><span class="math-den">125</span></span> <strong>a</strong><sub>y</sub> ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N<br><br>
-
-              <strong>ขั้นที่ 3: รวมแรงลัพธ์บน Q₂ ด้วยหลักการซ้อนทับ:</strong><br>
-              • <strong>F</strong>₂ = <strong>F</strong>₁₂ + <strong>F</strong>₃₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ (-<span class="math-frac"><span class="math-num">6√3</span><span class="math-den">25</span></span> + <span class="math-frac"><span class="math-num">3</span><span class="math-den">25</span></span>) <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ]<br>
-              <strong>ตอบ: <strong>F</strong>₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ (<span class="math-frac"><span class="math-num">3 - 6√3</span><span class="math-den">25</span></span>) <strong>a</strong><sub>x</sub> - <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N</strong><br>
-              (หรือในรูปทศนิยม: <strong>F</strong>₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ -0.2957 <strong>a</strong><sub>x</sub> - 0.2078 <strong>a</strong><sub>y</sub> ] N ≈ <strong>-2.658 × 10⁹ <strong>a</strong><sub>x</sub> - 1.868 × 10⁹ <strong>a</strong><sub>y</sub> N</strong>)
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ข้อ 2.2 -->
-      <div class="step-card step-essential" style="margin-top: 20px;">
-        <span class="step-badge must-write">ข้อสอบข้อ 2.2 (10 คะแนน)</span>
-        <h4>คำถาม: จงหาขนาด ชนิด และพิกัดตำแหน่งของประจุ Q₄ ที่ต้องวางเพิ่มเติมในระบบ เพื่อทำให้แรงลัพธ์รวมที่กระทำต่อประจุ Q₂ เป็นศูนย์ (สภาวะสมดุล <strong>F</strong><sub>total</sub> = 0)</h4>
-
-        <div class="accordion">
-          <div class="accordion-header">
-            <span>แสดงขั้นตอนการคำนวณหาประจุเพื่อสร้างสมดุล (Rubric Solution)</span>
-            <span class="accordion-icon">▼</span>
-          </div>
-          <div class="accordion-body">
-            <div class="math-display">
-              <strong>เงื่อนไขสภาวะสมดุลบนประจุ Q₂:</strong><br>
-              <strong>F</strong><sub>total</sub> = <strong>F</strong>₂ + <strong>F</strong>₄₂ = 0 &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong>F</strong>₄₂ = -<strong>F</strong>₂<br><br>
-              <strong>แรงที่ต้องการจาก Q₄:</strong><br>
-              <strong>F</strong>₄₂ = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> [ <span class="math-frac"><span class="math-num">6√3 - 3</span><span class="math-den">25</span></span> <strong>a</strong><sub>x</sub> + <span class="math-frac"><span class="math-num">3√3</span><span class="math-den">25</span></span> <strong>a</strong><sub>y</sub> ] N<br><br>
-
-              <strong>การกำหนดตำแหน่งและขนาดประจุ Q₄:</strong><br>
-              จากสมการ <strong>F</strong>₄₂ = <span class="math-frac"><span class="math-num">Q₄ Q₂</span><span class="math-den">4πε₀ |<strong>R</strong>₄₂|³</span></span> <strong>R</strong>₄₂ โดยที่ Q₂ = 2 C และ <strong>r</strong>₂ = (0,0,0) จะได้ <strong>R</strong>₄₂ = -<strong>r</strong>₄<br>
-              ดังนั้น เวกเตอร์ตำแหน่งของ Q₄ จะต้องอยู่บนแนวแกนเดียวกับแรงต้าน:<br>
-              ให้วาง Q₄ ห่างจากจุดกำเนิดเป็นระยะ <em>d</em> เมตร โดยเลือก <em>d</em> = 5 เมตร (เพื่อให้สอดคล้องกับรัศมีของ Q₁ และ Q₃):<br>
-              <strong>r</strong>₄ = - <span class="math-frac"><span class="math-num">5</span><span class="math-den">|<strong>F</strong>₄₂|</span></span> <strong>F</strong>₄₂<br>
-              ขนาดแรง |<strong>F</strong>₄₂| = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> √[ (0.2957)² + (0.2078)² ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">4πε₀</span></span> (0.3614) N<br><br>
-              เมื่อแทนค่า <em>d</em> = 5 m และ Q₂ = 2 C จะได้:<br>
-              <span class="math-frac"><span class="math-num">2 Q₄</span><span class="math-den">5²</span></span> = 0.3614 &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <strong>Q₄ = <span class="math-frac"><span class="math-num">0.3614 × 25</span><span class="math-den">2</span></span> = 4.518 C</strong> (เป็นประจุบวก)<br>
-              และตำแหน่งของ Q₄ คือ <strong>P₄(x₄ = -4.091 m, y₄ = -2.875 m, z₄ = 0 m)</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="sec6"><h2 class="section-title">เฉลยข้อสอบเก่าที่ตรวจสอบจากไฟล์จริง</h2><article class="card"><h3>MID-Q02 · แรงคูลอมบ์และประจุที่ทำให้สมดุล</h3><p>Q2=+2 C ที่ (0,0,0), Q1=3√3 C ที่ (5,0,0), Q3=3 C ที่ (−2.5,5√3/2,0) (พิกัด m) ในอวกาศว่าง หาแรงบน Q2 และให้หนึ่งตัวอย่างตำแหน่ง/ประจุ Q4 ที่ทำให้แรงรวมศูนย์ พร้อมอธิบายว่าคำตอบมีเอกลักษณ์หรือไม่</p><p class="source-line">ข้อสอบเก่าต้นฉบับ · ปีการศึกษา 2563 · <a href="../raw/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2.pdf#page=2" target="_blank" rel="noopener">MID-Q02 · หน้าโจทย์ · หน้า PDF 2</a> · <a href="../lecture/set4_Coulomb_for_prnt.pdf#page=8" target="_blank" rel="noopener">Set 4 · เวกเตอร์ระยะทาง · หน้า PDF 8</a> · <a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=41" target="_blank" rel="noopener">Hayt D2.1 · คูลอมบ์เวกเตอร์ (คนละข้อมูล) · หน้า PDF 41</a> · <a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=44" target="_blank" rel="noopener">Hayt Example 2.2 · การซ้อนทับ (คนละข้อมูล) · หน้า PDF 44</a></p><details class="accordion-solution"><summary>เปิดการพิสูจน์และเหตุผลทุกขั้น</summary><div class="card solution-step"><h4>1. สูตรทั่วไปและทิศ</h4><div class="math-display"><b>F</b><sub>2←i</sub> = <span class="math-frac"><span class="math-num"><em>Q</em><sub>2</sub><em>Q</em><sub>i</sub></span><span class="math-den">4πε<sub>0</sub><em>R</em><sub>i2</sub>³</span></span><b>R</b><sub>i2</sub>; <b>R</b><sub>i2</sub> = <b>r</b><sub>2</sub> − <b>r</b><sub>i</sub></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ทุกประจุเริ่มต้นเป็นบวก แรงจึงชี้ออกจากแหล่งไปผู้รับ กำหนด k=1/(4πε0) และไม่แปลง C เป็น µC</p></div><div class="card solution-step"><h4>2. หาแรงสองแหล่ง</h4><div class="math-display"><b>R</b><sub>12</sub>=−5<b>a</b><sub>x</sub>; <b>R</b><sub>32</sub>=2.5<b>a</b><sub>x</sub>−<span class="math-frac"><span class="math-num">5√3</span><span class="math-den">2</span></span><b>a</b><sub>y</sub>; <em>R</em><sub>12</sub>=<em>R</em><sub>32</sub>=5 m<br><b>F</b><sub>21</sub>=−<span class="math-frac"><span class="math-num">6√3k</span><span class="math-den">25</span></span><b>a</b><sub>x</sub><br><b>F</b><sub>23</sub>=<span class="math-frac"><span class="math-num">3k</span><span class="math-den">25</span></span><b>a</b><sub>x</sub>−<span class="math-frac"><span class="math-num">3√3k</span><span class="math-den">25</span></span><b>a</b><sub>y</sub></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ระยะทั้งสองเป็น 5 m แต่หน่วยเวกเตอร์ต่างกัน ต้องแจกแจงองค์ประกอบก่อนรวม</p></div><div class="card solution-step"><h4>3. รวมแรงและตั้งสมดุล</h4><div class="math-display"><b>F</b><sub>2</sub>=<span class="math-frac"><span class="math-num">3k</span><span class="math-den">25</span></span>[(1−2√3)<b>a</b><sub>x</sub>−√3<b>a</b><sub>y</sub>] N<br><b>F</b><sub>24</sub>=−<b>F</b><sub>2</sub></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> แรงเดิมชี้ x ลบและ y ลบ ประจุเพิ่มต้องให้แรงกลับทั้งสององค์ประกอบ ไม่ใช่ชดเชยเฉพาะขนาด</p></div><div class="card solution-step"><h4>4. สร้างครอบครัวคำตอบ</h4><div class="math-display"><b>c</b>=(2√3−1)<b>a</b><sub>x</sub>+√3<b>a</b><sub>y</sub>; c=√(16−4√3)<br><b>r</b><sub>4</sub>=−<span class="math-frac"><span class="math-num">d</span><span class="math-den">c</span></span><b>c</b>; <em>Q</em><sub>4</sub>=<span class="math-frac"><span class="math-num">3c</span><span class="math-den">50</span></span>(d/1 m)² C, d&gt;0</div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ถ้าเลือก d=1 m ประจุ Q4=3c/50 C และตำแหน่ง r4=−c-vector/c m จะให้ F24=(3k/25)c-vector ตรงพอดี เลือก d อื่นได้โดยปรับประจุตาม d² จึงไม่ใช่ตำแหน่งเดียว ตรวจหน่วยด้วยระยะ d ใน m</p></div></details><p><a href="../exam-simulator/midterm/index.html#problem-mid-q02">ฝึกข้อนี้พร้อม Checklist ในห้องสอบ</a></p></article></section>
 
     <!-- ส่วนที่ 7: แบบทดสอบความเข้าใจสมองประลองปัญญา -->
     <section id="sec7">
       <h2 class="section-title">7. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Test)</h2>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 1: เวกเตอร์ระยะทางในกฎของคูลอมบ์</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
@@ -559,7 +398,7 @@
         <div class="quiz-feedback" data-explanation="<strong>R</strong>₁₂ = <strong>r</strong>₂ - <strong>r</strong>₁ = (4 - 1) <strong>a</strong><sub>x</sub> + (6 - 2) <strong>a</strong><sub>y</sub> + (3 - 3) <strong>a</strong><sub>z</sub> = 3 <strong>a</strong><sub>x</sub> + 4 <strong>a</strong><sub>y</sub> เวกเตอร์ต้องชี้จากประจุต้นเหตุ (1) ไปยังประจุที่ถูกกระทำ (2)"></div>
       </div>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 2: ผลของระยะทางต่อขนาดแรงคูลอมบ์</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
@@ -574,12 +413,12 @@
         <div class="quiz-feedback" data-explanation="ตามกฎกำลังสองผกผัน <em>F</em> ∝ 1/<em>R</em><sup>2</sup> เมื่อ <em>R</em> เพิ่มเป็น 3 เท่า แรงจะกลายเป็น 1/(3<sup>2</sup>) = 1/9 เท่าของค่าเดิม"></div>
       </div>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 3: สภาวะสมดุลแรงบนประจุทดสอบ</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
         </div>
-        <p>ประจุ +4Q และประจุ +Q วางห่างกันเป็นระยะ L จุดที่ประจุทดสอบ +q จะอยู่ในสภาวะสมดุลแรง (F_net = 0) อยู่ที่ตำแหน่งใด?</p>
+        <p>ประจุ +4Q และประจุ +Q วางห่างกันเป็นระยะ L จุดที่ประจุทดสอบ +q จะอยู่ในสภาวะสมดุลแรง (<b>F</b><sub>net</sub> = <b>0</b>) อยู่ที่ตำแหน่งใด?</p>
         <div class="quiz-options">
           <div class="quiz-option" data-correct="true">อยู่ระหว่างประจุทั้งสอง ห่างจากประจุ +4Q เป็นระยะ (2/3)L</div>
           <div class="quiz-option" data-correct="false">อยู่ตรงกึ่งกลางระหว่างประจุทั้งสอง (L/2)</div>
@@ -604,15 +443,15 @@
 </div>
 
 <!-- JavaScript Core & Engines -->
-<script src="../assets/js/common.js"></script>
-<script src="../assets/js/engines/vector3d-core.js"></script>
-<script src="../assets/js/engines/coulomb-sim.js"></script>
-<script src="../assets/js/engines/search-index.js"></script>
-<script src="../assets/js/engines/site-search.js"></script>
+<script src="../assets/js/roadmap-data.js?v=3aaa1712c262"></script><script src="../assets/js/common.js?v=73398137ac34"></script>
+<script src="../assets/js/engines/vector3d-core.js?v=575e736c3dce"></script>
+<script src="../assets/js/engines/coulomb-sim.js?v=96bf379ecc0d"></script>
+<script src="../assets/js/engines/search-index.js?v=40e72b6683fe"></script>
+<script src="../assets/js/engines/site-search.js?v=20965619ab46"></script>
 <script>
   window.addEventListener('load', () => {
     new CoulombSimEngine('coulomb-canvas', 'coulomb-output');
   });
 </script>
-</body>
+<script src="../assets/js/masterclass-labs.js?v=ce486e12f5c8"></script></body>
 </html>

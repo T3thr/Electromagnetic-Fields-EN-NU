@@ -142,9 +142,9 @@ class CoulombSimEngine {
     this.core.clear();
 
     // Add charges
-    this.core.addCharge({ x: q1.x, y: q1.y, z: q1.z }, q1.q, `Q₁ (${q1.q > 0 ? '+' : ''}${q1.q} C)`);
-    this.core.addCharge({ x: q2.x, y: q2.y, z: q2.z }, q2.q, `Q₂ (${q2.q > 0 ? '+' : ''}${q2.q} C)`);
-    this.core.addCharge({ x: q3.x, y: q3.y, z: q3.z }, q3.q, `Q₃ (${q3.q > 0 ? '+' : ''}${q3.q} C)`);
+    this.core.addCharge({ x: q1.x, y: q1.y, z: q1.z }, q1.q, ("<em>Q</em><sub>1</sub> (").concat(q1.q > 0 ? '+' : '').concat("").concat(q1.q).concat(" C)"));
+    this.core.addCharge({ x: q2.x, y: q2.y, z: q2.z }, q2.q, ("<em>Q</em><sub>2</sub> (").concat(q2.q > 0 ? '+' : '').concat("").concat(q2.q).concat(" C)"));
+    this.core.addCharge({ x: q3.x, y: q3.y, z: q3.z }, q3.q, ("<em>Q</em><sub>3</sub> (").concat(q3.q > 0 ? '+' : '').concat("").concat(q3.q).concat(" C)"));
 
     // Add distance dashed lines
     this.core.addLine({ x: q1.x, y: q1.y, z: q1.z }, { x: q2.x, y: q2.y, z: q2.z }, '#CBD5E1', 1, true);
@@ -159,7 +159,7 @@ class CoulombSimEngine {
       this.core.addVector(
         { x: q2.x, y: q2.y, z: q2.z },
         { x: q2.x + f12x * visualScale, y: q2.y + f12y * visualScale, z: q2.z + f12z * visualScale },
-        '#D97706', 'F_12', 2.5
+        '#D97706', '<b>F</b><sub>12</sub>', 2.5
       );
     }
 
@@ -168,7 +168,7 @@ class CoulombSimEngine {
       this.core.addVector(
         { x: q2.x, y: q2.y, z: q2.z },
         { x: q2.x + f32x * visualScale, y: q2.y + f32y * visualScale, z: q2.z + f32z * visualScale },
-        '#059669', 'F_32', 2.5
+        '#059669', '<b>F</b><sub>32</sub>', 2.5
       );
     }
 
@@ -177,7 +177,7 @@ class CoulombSimEngine {
       this.core.addVector(
         { x: q2.x, y: q2.y, z: q2.z },
         { x: q2.x + fnetx * visualScale, y: q2.y + fnety * visualScale, z: q2.z + fnetz * visualScale },
-        '#7C3AED', 'F_net', 3.8
+        '#7C3AED', '<b>F</b><sub>net</sub>', 3.8
       );
     }
 
@@ -196,31 +196,7 @@ class CoulombSimEngine {
     };
 
     if (this.outputEl) {
-      this.outputEl.innerHTML = `
-        <div class="breakdown-grid">
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">1. เวกเตอร์ระยะทางและแรงย่อยกระทำบนประจุ Q₂</div>
-            <div class="breakdown-card-value">
-              • <strong>R</strong><sub>12</sub> = <strong>r</strong>₂ - <strong>r</strong>₁ = (${r12x.toFixed(2)}) <strong>a</strong><sub>x</sub> + (${r12y.toFixed(2)}) <strong>a</strong><sub>y</sub> + (${r12z.toFixed(2)}) <strong>a</strong><sub>z</sub> | |<strong>R</strong><sub>12</sub>| = <strong>${d12.toFixed(3)}</strong> m
-              <br>• <strong>R</strong><sub>32</sub> = <strong>r</strong>₂ - <strong>r</strong>₃ = (${r32x.toFixed(2)}) <strong>a</strong><sub>x</sub> + (${r32y.toFixed(2)}) <strong>a</strong><sub>y</sub> + (${r32z.toFixed(2)}) <strong>a</strong><sub>z</sub> | |<strong>R</strong><sub>32</sub>| = <strong>${d32.toFixed(3)}</strong> m
-              <br>• <strong>F</strong><sub>12</sub> (จาก Q₁): [${fmt4pieps0(f12x)} <strong>a</strong><sub>x</sub> ${fmt4pieps0(f12y) >= 0 ? '+' : ''}${fmt4pieps0(f12y)} <strong>a</strong><sub>y</sub>] / (4πε₀) N
-              <br>&nbsp;&nbsp;&nbsp;⇒ ขนาด |<strong>F</strong><sub>12</sub>| = <strong>${fmt(f12_mag)}</strong> N (${(f12_mag / 1e9).toFixed(3)} × 10⁹ N)
-              <br>• <strong>F</strong><sub>32</sub> (จาก Q₃): [${fmt4pieps0(f32x)} <strong>a</strong><sub>x</sub> ${fmt4pieps0(f32y) >= 0 ? '+' : ''}${fmt4pieps0(f32y)} <strong>a</strong><sub>y</sub>] / (4πε₀) N
-              <br>&nbsp;&nbsp;&nbsp;⇒ ขนาด |<strong>F</strong><sub>32</sub>| = <strong>${fmt(f32_mag)}</strong> N (${(f32_mag / 1e9).toFixed(3)} × 10⁹ N)
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">2. แรงลัพธ์รวมบนประจุ Q₂ (Net Superposition Force F₂):</div>
-            <div class="breakdown-card-value" style="font-size: 0.95rem;">
-              • <strong>F</strong><sub>net</sub> = <strong>F</strong><sub>12</sub> + <strong>F</strong><sub>32</sub>
-              <br>• <strong>F</strong><sub>net</sub> = <strong>[ ${fmt4pieps0(fnetx)} <strong>a</strong><sub>x</sub> ${fmt4pieps0(fnety) >= 0 ? '+' : ''}${fmt4pieps0(fnety)} <strong>a</strong><sub>y</sub> ${fmt4pieps0(fnetz) >= 0 ? '+' : ''}${fmt4pieps0(fnetz)} <strong>a</strong><sub>z</sub> ] / (4πε₀)</strong> N
-              <br>• ขนาดแรงลัพธ์ |<strong>F</strong><sub>net</sub>| = <strong>${fmt(fnet_mag)}</strong> N 
-              <br>• สถานะสมดุล: ${fnet_mag < 1e-4 ? '<span style="color: var(--green); font-weight:800;">อยู่ในสภาวะสมดุลแรง (F_net ≈ 0)</span>' : '<span style="color: var(--purple); font-weight:700;">มีแรงลัพธ์กระทำ (ไม่สมดุล)</span>'}
-            </div>
-          </div>
-        </div>
-      `;
+      this.outputEl.innerHTML = ("\n        <div class=\"breakdown-grid\">\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">1. เวกเตอร์ระยะทางและแรงย่อยกระทำบนประจุ Q₂</div>\n            <div class=\"breakdown-card-value\">\n              • <strong>R</strong><sub>12</sub> = <strong>r</strong>₂ - <strong>r</strong>₁ = (").concat(r12x.toFixed(2)).concat(") <strong>a</strong><sub>x</sub> + (").concat(r12y.toFixed(2)).concat(") <strong>a</strong><sub>y</sub> + (").concat(r12z.toFixed(2)).concat(") <strong>a</strong><sub>z</sub> | |<strong>R</strong><sub>12</sub>| = <strong>").concat(d12.toFixed(3)).concat("</strong> m\n              <br>• <strong>R</strong><sub>32</sub> = <strong>r</strong>₂ - <strong>r</strong>₃ = (").concat(r32x.toFixed(2)).concat(") <strong>a</strong><sub>x</sub> + (").concat(r32y.toFixed(2)).concat(") <strong>a</strong><sub>y</sub> + (").concat(r32z.toFixed(2)).concat(") <strong>a</strong><sub>z</sub> | |<strong>R</strong><sub>32</sub>| = <strong>").concat(d32.toFixed(3)).concat("</strong> m\n              <br>• <strong>F</strong><sub>12</sub> (จาก Q₁): [").concat(fmt4pieps0(f12x)).concat(" <strong>a</strong><sub>x</sub> ").concat(fmt4pieps0(f12y) >= 0 ? '+' : '').concat("").concat(fmt4pieps0(f12y)).concat(" <strong>a</strong><sub>y</sub>] / (4πε₀) N\n              <br>&nbsp;&nbsp;&nbsp;⇒ ขนาด |<strong>F</strong><sub>12</sub>| = <strong>").concat(fmt(f12_mag)).concat("</strong> N (").concat((f12_mag / 1e9).toFixed(3)).concat(" × 10⁹ N)\n              <br>• <strong>F</strong><sub>32</sub> (จาก Q₃): [").concat(fmt4pieps0(f32x)).concat(" <strong>a</strong><sub>x</sub> ").concat(fmt4pieps0(f32y) >= 0 ? '+' : '').concat("").concat(fmt4pieps0(f32y)).concat(" <strong>a</strong><sub>y</sub>] / (4πε₀) N\n              <br>&nbsp;&nbsp;&nbsp;⇒ ขนาด |<strong>F</strong><sub>32</sub>| = <strong>").concat(fmt(f32_mag)).concat("</strong> N (").concat((f32_mag / 1e9).toFixed(3)).concat(" × 10⁹ N)\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">2. แรงลัพธ์รวมบนประจุ <em>Q</em><sub>2</sub> (Net Superposition Force F₂):</div>\n            <div class=\"breakdown-card-value\" style=\"font-size: 0.95rem;\">\n              • <strong>F</strong><sub>net</sub> = <strong>F</strong><sub>12</sub> + <strong>F</strong><sub>32</sub>\n              <br>• <strong>F</strong><sub>net</sub> = <strong>[ ").concat(fmt4pieps0(fnetx)).concat(" <strong>a</strong><sub>x</sub> ").concat(fmt4pieps0(fnety) >= 0 ? '+' : '').concat("").concat(fmt4pieps0(fnety)).concat(" <strong>a</strong><sub>y</sub> ").concat(fmt4pieps0(fnetz) >= 0 ? '+' : '').concat("").concat(fmt4pieps0(fnetz)).concat(" <strong>a</strong><sub>z</sub> ] / (4πε₀)</strong> N\n              <br>• ขนาดแรงลัพธ์ |<strong>F</strong><sub>net</sub>| = <strong>").concat(fmt(fnet_mag)).concat("</strong> N \n              <br>• สถานะสมดุล: ").concat(fnet_mag < 1e-4 ? '<span style="color: var(--green); font-weight:800;">อยู่ในสภาวะสมดุลแรง (F_net ≈ 0)</span>' : '<span style="color: var(--purple); font-weight:700;">มีแรงลัพธ์กระทำ (ไม่สมดุล)</span>').concat("\n            </div>\n          </div>\n        </div>\n      ");
     }
   }
 }

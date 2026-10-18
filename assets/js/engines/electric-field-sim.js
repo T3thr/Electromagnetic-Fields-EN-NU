@@ -139,11 +139,11 @@ class ElectricFieldSimEngine {
     }
 
     // Line charge endpoints markers
-    this.core.addCharge({ x: 0, y: 0, z: z1 }, rhoL, `z₁ = ${z1}`);
-    this.core.addCharge({ x: 0, y: 0, z: z2 }, rhoL, `z₂ = ${z2}`);
+    this.core.addCharge({ x: 0, y: 0, z: z1 }, rhoL, ("z₁ = ").concat(z1).concat(""));
+    this.core.addCharge({ x: 0, y: 0, z: z2 }, rhoL, ("z₂ = ").concat(z2).concat(""));
 
     // 2. Draw observation point P(0, yp, 0)
-    this.core.addCharge({ x: 0, y: yp, z: 0 }, 0.5, `P(0, ${yp}, 0)`);
+    this.core.addCharge({ x: 0, y: yp, z: 0 }, 0.5, ("P(0, ").concat(yp).concat(", 0)"));
 
     // 3. Distance vector from z1 and z2 to P
     this.core.addLine({ x: 0, y: 0, z: z1 }, { x: 0, y: yp, z: 0 }, '#94A3B8', 1, true);
@@ -166,32 +166,7 @@ class ElectricFieldSimEngine {
     };
 
     if (this.outputEl) {
-      this.outputEl.innerHTML = `
-        <div class="breakdown-grid">
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">1. ผลการคำนวณเชิงวิเคราะห์ (Analytical Solution Breakdown)</div>
-            <div class="breakdown-card-value">
-              • ขอบเขตเส้นลวด: <code>z' ∈ [${z1}, ${z2}]</code>, รัศมีตั้งฉาก <code>h = y<sub>P</sub> = ${yp}</code> m
-              <br>• <strong>องค์ประกอบแนวแกน y (E<sub>y</sub>):</strong>
-              <br>&nbsp;&nbsp;E<sub>y</sub> = [ρ<sub>l</sub> / (4πε₀ y<sub>P</sub>)] [ sin α₂ - sin α₁ ]
-              <br>&nbsp;&nbsp;E<sub>y</sub> = [(${rhoL}) / (4πε₀ × ${yp})] [ (${term1_y.toFixed(3)}) - (${term2_y.toFixed(3)}) ]
-              <br>&nbsp;&nbsp;E<sub>y</sub> = <strong>[ ${Ey_analytical_coeff.toFixed(4)} ] / (4πε₀)</strong> V/m = <strong>${fmt(Ey_analytical)}</strong> V/m
-              <br>• <strong>องค์ประกอบแนวแกน z (E<sub>z</sub>):</strong>
-              <br>&nbsp;&nbsp;E<sub>z</sub> = [ρ<sub>l</sub> / (4πε₀)] [ 1/R₂ - 1/R₁ ] = <strong>[ ${Ez_analytical_coeff.toFixed(4)} ] / (4πε₀)</strong> V/m = <strong>${fmt(Ez_analytical)}</strong> V/m
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">2. เวกเตอร์ความเข้มสนามไฟฟ้ารวม (Total Field Vector E):</div>
-            <div class="breakdown-card-value" style="font-size: 0.95rem;">
-              • <strong>E</strong> = <strong>[ ${Ey_analytical_coeff.toFixed(3)} <strong>a</strong><sub>y</sub> ${Ez_analytical_coeff >= 0 ? '+' : ''}${Ez_analytical_coeff.toFixed(3)} <strong>a</strong><sub>z</sub> ] / (4πε₀)</strong> V/m
-              <br>• ค่าเชิงตัวเลขจริง: <strong>E</strong> = <strong>${fmt(Ey_analytical)} <strong>a</strong><sub>y</sub> ${Ez_analytical >= 0 ? '+' : ''}${fmt(Ez_analytical)} <strong>a</strong><sub>z</sub></strong> V/m
-              <br>• ขนาดสนามไฟฟ้ารวม |<strong>E</strong>| = <strong>${fmt(Emag)}</strong> V/m
-              <br>• ${Math.abs(Ez_analytical_coeff) < 1e-3 ? '<span style="color: var(--green); font-weight:700;">เส้นลวดสมมาตร: สนามไฟฟ้าหักล้างในแนวแกน z เหลือเฉพาะแนวรัศมีพุ่งออก</span>' : '<span style="color: var(--accent2); font-weight:700;">เส้นลวดไม่สมมาตร: มีสนามไฟฟ้าทั้งแนวรัศมีและแนวดิ่ง</span>'}
-            </div>
-          </div>
-        </div>
-      `;
+      this.outputEl.innerHTML = ("\n        <div class=\"breakdown-grid\">\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">1. ผลการคำนวณเชิงวิเคราะห์ (Analytical Solution Breakdown)</div>\n            <div class=\"breakdown-card-value\">\n              • ขอบเขตเส้นลวด: <code>z' ∈ [").concat(z1).concat(", ").concat(z2).concat("]</code>, รัศมีตั้งฉาก <code>h = y<sub>P</sub> = ").concat(yp).concat("</code> m\n              <br>• <strong>องค์ประกอบแนวแกน y (E<sub>y</sub>):</strong>\n              <br>&nbsp;&nbsp;E<sub>y</sub> = [ρ<sub>l</sub> / (4πε₀ y<sub>P</sub>)] [ sin α₂ - sin α₁ ]\n              <br>&nbsp;&nbsp;E<sub>y</sub> = [(").concat(rhoL).concat(") / (4πε₀ × ").concat(yp).concat(")] [ (").concat(term1_y.toFixed(3)).concat(") - (").concat(term2_y.toFixed(3)).concat(") ]\n              <br>&nbsp;&nbsp;E<sub>y</sub> = <strong>[ ").concat(Ey_analytical_coeff.toFixed(4)).concat(" ] / (4πε₀)</strong> V/m = <strong>").concat(fmt(Ey_analytical)).concat("</strong> V/m\n              <br>• <strong>องค์ประกอบแนวแกน z (E<sub>z</sub>):</strong>\n              <br>&nbsp;&nbsp;E<sub>z</sub> = [ρ<sub>l</sub> / (4πε₀)] [ 1/R₂ - 1/R₁ ] = <strong>[ ").concat(Ez_analytical_coeff.toFixed(4)).concat(" ] / (4πε₀)</strong> V/m = <strong>").concat(fmt(Ez_analytical)).concat("</strong> V/m\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">2. เวกเตอร์ความเข้มสนามไฟฟ้ารวม (Total Field Vector E):</div>\n            <div class=\"breakdown-card-value\" style=\"font-size: 0.95rem;\">\n              • <strong>E</strong> = <strong>[ ").concat(Ey_analytical_coeff.toFixed(3)).concat(" <strong>a</strong><sub>y</sub> ").concat(Ez_analytical_coeff >= 0 ? '+' : '').concat("").concat(Ez_analytical_coeff.toFixed(3)).concat(" <strong>a</strong><sub>z</sub> ] / (4πε₀)</strong> V/m\n              <br>• ค่าเชิงตัวเลขจริง: <strong>E</strong> = <strong>").concat(fmt(Ey_analytical)).concat(" <strong>a</strong><sub>y</sub> ").concat(Ez_analytical >= 0 ? '+' : '').concat("").concat(fmt(Ez_analytical)).concat(" <strong>a</strong><sub>z</sub></strong> V/m\n              <br>• ขนาดสนามไฟฟ้ารวม |<strong>E</strong>| = <strong>").concat(fmt(Emag)).concat("</strong> V/m\n              <br>• ").concat(Math.abs(Ez_analytical_coeff) < 1e-3 ? '<span style="color: var(--green); font-weight:700;">เส้นลวดสมมาตร: สนามไฟฟ้าหักล้างในแนวแกน z เหลือเฉพาะแนวรัศมีพุ่งออก</span>' : '<span style="color: var(--accent2); font-weight:700;">เส้นลวดไม่สมมาตร: มีสนามไฟฟ้าทั้งแนวรัศมีและแนวดิ่ง</span>').concat("\n            </div>\n          </div>\n        </div>\n      ");
     }
   }
 }

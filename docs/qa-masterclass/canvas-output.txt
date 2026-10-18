@@ -1,0 +1,26 @@
+### Result
+{"reports":[{"path":"01-vector-algebra","painted":48,"raw":[]},{"path":"02-cylindrical-coordinates","painted":36,"raw":[]},{"path":"03-spherical-coordinates","painted":36,"raw":[]},{"path":"04-coulombs-law","painted":54,"raw":[]},{"path":"08-divergence-theorem","painted":51,"raw":[]}],"mobile":[{"width":320,"overflow":false,"cardFullyVisible":true,"questionClearsSidebar":true,"anchorGap":18.328125},{"width":390,"overflow":false,"cardFullyVisible":true,"questionClearsSidebar":true,"anchorGap":18.3125}]}
+### Ran Playwright code
+```js
+await (async(page)=>{
+ await page.addInitScript(()=>{
+  window.emfPaintedText=[];
+  const original=CanvasRenderingContext2D.prototype.fillText;
+  CanvasRenderingContext2D.prototype.fillText=function(text,...args){if(window.emfPaintedText.length<2000)window.emfPaintedText.push(String(text));return original.call(this,text,...args);};
+ });
+ const reports=[];
+ for(const path of ['01-vector-algebra','02-cylindrical-coordinates','03-spherical-coordinates','04-coulombs-law','08-divergence-theorem']){
+  await page.goto('http://127.0.0.1:8765/'+path+'/index.html');await page.waitForTimeout(250);
+  reports.push(await page.evaluate(path=>({path,painted:window.emfPaintedText.length,raw:[...new Set(window.emfPaintedText.filter(t=>t.includes('_')||t.includes(String.fromCharCode(36))||t.includes('<sub>')))]}),path));
+ }
+ const mobile=[];
+ for(const width of [320,390]){
+  await page.setViewportSize({width,height:900});await page.goto('http://127.0.0.1:8765/exam-simulator/final/index.html#problem-continuity');await page.waitForTimeout(350);
+  mobile.push(await page.evaluate(width=>{const side=document.querySelector('.chapter-sidebar'),card=document.querySelector('.question-card'),q=document.querySelector('#problem-continuity');return {width,overflow:document.documentElement.scrollWidth>innerWidth,cardFullyVisible:card.getBoundingClientRect().bottom<=side.getBoundingClientRect().bottom,questionClearsSidebar:q.getBoundingClientRect().top>=side.getBoundingClientRect().bottom,anchorGap:q.getBoundingClientRect().top-side.getBoundingClientRect().bottom};},width));
+ }
+ return {reports,mobile};
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8765/exam-simulator/final/index.html#problem-continuity
+- Page Title: ห้องสอบปลายภาค · 303214

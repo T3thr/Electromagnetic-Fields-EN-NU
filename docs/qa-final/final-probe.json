@@ -1,0 +1,265 @@
+{
+  "reports": [
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 1440,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 900,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 390,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "08-divergence-theorem/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "09-electric-potential/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "17-curl-stokes/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "sourceImage": true
+    },
+    {
+      "path": "22-maxwell-time-harmonic/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "formula-sheet-final/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    },
+    {
+      "path": "exam-simulator/midterm/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true,
+      "expandedOverflow": false
+    },
+    {
+      "path": "exam-simulator/final/index.html",
+      "width": 320,
+      "overflow": false,
+      "raw": false,
+      "sidebar": "sticky",
+      "top": "84px",
+      "rootClip": true
+    }
+  ],
+  "errors": []
+}

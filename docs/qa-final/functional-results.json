@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "balanced mock has four questions",
+    "17 exam exercises plus one labeled reading exercise",
+    "complete analytic checklist scores 25",
+    "missing general formula gates dependent marks",
+    "numerical integration gates analysis and dependent marks",
+    "missing intermediate steps gates dependent marks",
+    "written notes persist on reload",
+    "revealed solution remains labeled",
+    "formula opens inside exam",
+    "embedded official formula search works",
+    "Escape closes formula dialog",
+    "timer counts down and pauses",
+    "paused timer persists",
+    "expiry locks written work",
+    "expiry shows completion and review",
+    "attempt exports as JSON",
+    "new mock resets and archives previous attempt",
+    "search respects nested simulator path",
+    "wave lab updates with explicit phasor convention",
+    "wave animation advances phase",
+    "formula search filters digital cards"
+  ],
+  "errors": []
+}

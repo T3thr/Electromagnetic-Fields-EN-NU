@@ -9,7 +9,7 @@ class Vector3DCore {
   constructor(canvasId, options = {}) {
     this.canvas = typeof canvasId === 'string' ? document.getElementById(canvasId) : canvasId;
     if (!this.canvas) {
-      console.warn(`Vector3DCore: Canvas with ID '${canvasId}' not found.`);
+      console.warn(("Vector3DCore: Canvas with ID '").concat(canvasId).concat("' not found."));
       return;
     }
     this.ctx = this.canvas.getContext('2d');
@@ -212,6 +212,27 @@ class Vector3DCore {
     this.customLabels.push({ pos, text, color });
   }
 
+  drawSemanticLabel(text, x, y) {
+    const parser = document.createElement('span');
+    parser.innerHTML = text;
+    const baseFont = this.ctx.font;
+    const baseSize = Number.parseFloat(baseFont.match(/([0-9.]+)px/)?.[1] || '13');
+    const family = baseFont.slice(baseFont.indexOf('px')+2);
+    const draw = (node, shift = 0, small = false, bold = false, italic = false) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.ctx.font = (italic?'italic ':'')+(bold?'700 ':'500 ')+(small?baseSize*.75:baseSize)+'px'+family;
+        this.ctx.fillText(node.textContent, x, y + shift);
+        x += this.ctx.measureText(node.textContent).width;
+      } else {
+        const sub = node.nodeName === 'SUB';
+        const sup = node.nodeName === 'SUP';
+        node.childNodes.forEach(child => draw(child, sub ? baseSize * .28 : sup ? -baseSize * .35 : shift, small || sub || sup, bold || ['B','STRONG'].includes(node.nodeName), italic || ['EM','I'].includes(node.nodeName)));
+      }
+    };
+    parser.childNodes.forEach(node => draw(node));
+    this.ctx.font = baseFont;
+  }
+
   // 3D to 2D Perspective Projection
   project(p) {
     const x = p.x;
@@ -361,7 +382,7 @@ class Vector3DCore {
         const midY = (pFrom.y + pTo.y) / 2;
         this.ctx.font = 'bold 13px "JetBrains Mono", "Times New Roman", sans-serif';
         this.ctx.fillStyle = v.color;
-        this.ctx.fillText(v.label, midX + 6, midY - 6);
+        this.drawSemanticLabel(v.label, midX + 6, midY - 6);
       }
     });
 
@@ -381,7 +402,7 @@ class Vector3DCore {
       if (c.label) {
         this.ctx.font = 'bold 13px -apple-system, sans-serif';
         this.ctx.fillStyle = isDark ? '#F8FAFC' : '#0F172A';
-        this.ctx.fillText(c.label, pt.x + 10, pt.y - 6);
+        this.drawSemanticLabel(c.label, pt.x + 10, pt.y - 6);
       }
     });
 
@@ -390,7 +411,7 @@ class Vector3DCore {
       const pt = this.project(lbl.pos);
       this.ctx.font = '12px "JetBrains Mono", sans-serif';
       this.ctx.fillStyle = lbl.color;
-      this.ctx.fillText(lbl.text, pt.x + 6, pt.y + 4);
+      this.drawSemanticLabel(lbl.text, pt.x + 6, pt.y + 4);
     });
   }
 

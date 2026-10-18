@@ -93,67 +93,28 @@ class VectorSandboxEngine {
     this.core.clear();
 
     // Position Vector r_P (Blue)
-    this.core.addVector({ x: 0, y: 0, z: 0 }, p, '#2563EB', 'r_P', 2.5);
-    this.core.addCharge(p, 1, `P(${p.x}, ${p.y}, ${p.z})`);
+    this.core.addVector({ x: 0, y: 0, z: 0 }, p, '#2563EB', '<b>r</b><sub>P</sub>', 2.5);
+    this.core.addCharge(p, 1, ("P(").concat(p.x).concat(", ").concat(p.y).concat(", ").concat(p.z).concat(")"));
 
     // Position Vector r_Q (Green)
-    this.core.addVector({ x: 0, y: 0, z: 0 }, q, '#059669', 'r_Q', 2.5);
-    this.core.addCharge(q, -1, `Q(${q.x}, ${q.y}, ${q.z})`);
+    this.core.addVector({ x: 0, y: 0, z: 0 }, q, '#059669', '<b>r</b><sub>Q</sub>', 2.5);
+    this.core.addCharge(q, -1, ("Q(").concat(q.x).concat(", ").concat(q.y).concat(", ").concat(q.z).concat(")"));
 
     // Distance Vector R_PQ (Orange)
-    this.core.addVector(p, q, '#D97706', 'R_PQ', 3.0);
+    this.core.addVector(p, q, '#D97706', '<b>R</b><sub>PQ</sub>', 3.0);
 
     // Cross Product Vector r_P × r_Q (Purple - starting from Origin)
     if (crossMag > 0.0001) {
-      this.core.addVector({ x: 0, y: 0, z: 0 }, { x: cx, y: cy, z: cz }, '#7C3AED', 'r_P × r_Q', 2.2);
+      this.core.addVector({ x: 0, y: 0, z: 0 }, { x: cx, y: cy, z: cz }, '#7C3AED', '<b>r</b><sub>P</sub> × <b>r</b><sub>Q</sub>', 2.2);
     }
 
     this.core.render();
 
     // Render Clean Breakdown HTML
     if (this.outputEl) {
-      const formatSign = (val) => (val >= 0 ? `+ ${val.toFixed(2)}` : `- ${Math.abs(val).toFixed(2)}`);
+      const formatSign = (val) => (val >= 0 ? ("+ ").concat(val.toFixed(2)).concat("") : ("- ").concat(Math.abs(val).toFixed(2)).concat(""));
       
-      this.outputEl.innerHTML = `
-        <div class="breakdown-grid">
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">1. เวกเตอร์ระยะทาง (Distance Vector R<sub>PQ</sub> = r<sub>Q</sub> - r<sub>P</sub>)</div>
-            <div class="breakdown-card-value">
-              <strong>R</strong><sub>PQ</sub> = (${q.x.toFixed(2)} - ${p.x.toFixed(2)}) <strong>a</strong><sub>x</sub> + (${q.y.toFixed(2)} - ${p.y.toFixed(2)}) <strong>a</strong><sub>y</sub> + (${q.z.toFixed(2)} - ${p.z.toFixed(2)}) <strong>a</strong><sub>z</sub>
-              <br>= <strong>${rx.toFixed(2)} a</strong><sub>x</sub> <strong>${formatSign(ry)} a</strong><sub>y</sub> <strong>${formatSign(rz)} a</strong><sub>z</sub>
-              <br>• ระยะห่าง |<strong>R</strong><sub>PQ</sub>| = <strong>${dist.toFixed(4)}</strong> เมตร (m)
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">2. เวกเตอร์หนึ่งหน่วยในทิศทางจาก P ไป Q (Unit Vector a<sub>PQ</sub>)</div>
-            <div class="breakdown-card-value">
-              <strong>a</strong><sub>PQ</sub> = <strong>R</strong><sub>PQ</sub> / |<strong>R</strong><sub>PQ</sub>|
-              <br>= <strong>${ax.toFixed(3)} a</strong><sub>x</sub> <strong>${formatSign(ay)} a</strong><sub>y</sub> <strong>${formatSign(az)} a</strong><sub>z</sub>
-              <br>• ขนาด |<strong>a</strong><sub>PQ</sub>| = <strong>${Math.hypot(ax, ay, az).toFixed(3)}</strong> (เวกเตอร์ 1 หน่วยสมบูรณ์)
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">3. ผลคูณจุดและมุมระหว่างเวกเตอร์ (Dot Product & Angle)</div>
-            <div class="breakdown-card-value">
-              • <strong>r</strong><sub>P</sub> • <strong>r</strong><sub>Q</sub> = (${p.x})(${q.x}) + (${p.y})(${q.y}) + (${p.z})(${q.z}) = <strong>${dot.toFixed(2)}</strong>
-              <br>• ขนาด |<strong>r</strong><sub>P</sub>| = ${magP.toFixed(3)} , |<strong>r</strong><sub>Q</sub>| = ${magQ.toFixed(3)}
-              <br>• cos θ = ${dot.toFixed(2)} / (${magP.toFixed(3)} × ${magQ.toFixed(3)}) = ${cosTheta.toFixed(4)}
-              <br>• มุม θ<sub>PQ</sub> = <strong>${thetaDeg.toFixed(2)}°</strong>
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">4. ผลคูณไขว้และพื้นที่สามเหลี่ยม (Cross Product & Area)</div>
-            <div class="breakdown-card-value">
-              • <strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub> = <strong>${cx.toFixed(2)} a</strong><sub>x</sub> <strong>${formatSign(cy)} a</strong><sub>y</sub> <strong>${formatSign(cz)} a</strong><sub>z</sub>
-              <br>• ขนาด |<strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub>| = <strong>${crossMag.toFixed(3)}</strong>
-              <br>• พื้นที่รูปสามเหลี่ยม OPQ = (1/2)|<strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub>| = <strong>${triArea.toFixed(3)}</strong> ตร.ม.
-            </div>
-          </div>
-        </div>
-      `;
+      this.outputEl.innerHTML = ("\n        <div class=\"breakdown-grid\">\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">1. เวกเตอร์ระยะทาง (Distance Vector R<sub>PQ</sub> = r<sub>Q</sub> - r<sub>P</sub>)</div>\n            <div class=\"breakdown-card-value\">\n              <strong>R</strong><sub>PQ</sub> = (").concat(q.x.toFixed(2)).concat(" - ").concat(p.x.toFixed(2)).concat(") <strong>a</strong><sub>x</sub> + (").concat(q.y.toFixed(2)).concat(" - ").concat(p.y.toFixed(2)).concat(") <strong>a</strong><sub>y</sub> + (").concat(q.z.toFixed(2)).concat(" - ").concat(p.z.toFixed(2)).concat(") <strong>a</strong><sub>z</sub>\n              <br>= <strong>").concat(rx.toFixed(2)).concat(" a</strong><sub>x</sub> <strong>").concat(formatSign(ry)).concat(" a</strong><sub>y</sub> <strong>").concat(formatSign(rz)).concat(" a</strong><sub>z</sub>\n              <br>• ระยะห่าง |<strong>R</strong><sub>PQ</sub>| = <strong>").concat(dist.toFixed(4)).concat("</strong> เมตร (m)\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">2. เวกเตอร์หนึ่งหน่วยในทิศทางจาก P ไป Q (Unit Vector a<sub>PQ</sub>)</div>\n            <div class=\"breakdown-card-value\">\n              <strong>a</strong><sub>PQ</sub> = <strong>R</strong><sub>PQ</sub> / |<strong>R</strong><sub>PQ</sub>|\n              <br>= <strong>").concat(ax.toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(formatSign(ay)).concat(" a</strong><sub>y</sub> <strong>").concat(formatSign(az)).concat(" a</strong><sub>z</sub>\n              <br>• ขนาด |<strong>a</strong><sub>PQ</sub>| = <strong>").concat(Math.hypot(ax, ay, az).toFixed(3)).concat("</strong> (เวกเตอร์ 1 หน่วยสมบูรณ์)\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">3. ผลคูณจุดและมุมระหว่างเวกเตอร์ (Dot Product & Angle)</div>\n            <div class=\"breakdown-card-value\">\n              • <strong>r</strong><sub>P</sub> • <strong>r</strong><sub>Q</sub> = (").concat(p.x).concat(")(").concat(q.x).concat(") + (").concat(p.y).concat(")(").concat(q.y).concat(") + (").concat(p.z).concat(")(").concat(q.z).concat(") = <strong>").concat(dot.toFixed(2)).concat("</strong>\n              <br>• ขนาด |<strong>r</strong><sub>P</sub>| = ").concat(magP.toFixed(3)).concat(" , |<strong>r</strong><sub>Q</sub>| = ").concat(magQ.toFixed(3)).concat("\n              <br>• cos θ = ").concat(dot.toFixed(2)).concat(" / (").concat(magP.toFixed(3)).concat(" × ").concat(magQ.toFixed(3)).concat(") = ").concat(cosTheta.toFixed(4)).concat("\n              <br>• มุม θ<sub>PQ</sub> = <strong>").concat(thetaDeg.toFixed(2)).concat("°</strong>\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">4. ผลคูณไขว้และพื้นที่สามเหลี่ยม (Cross Product & Area)</div>\n            <div class=\"breakdown-card-value\">\n              • <strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub> = <strong>").concat(cx.toFixed(2)).concat(" a</strong><sub>x</sub> <strong>").concat(formatSign(cy)).concat(" a</strong><sub>y</sub> <strong>").concat(formatSign(cz)).concat(" a</strong><sub>z</sub>\n              <br>• ขนาด |<strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub>| = <strong>").concat(crossMag.toFixed(3)).concat("</strong>\n              <br>• พื้นที่รูปสามเหลี่ยม OPQ = (1/2)|<strong>r</strong><sub>P</sub> × <strong>r</strong><sub>Q</sub>| = <strong>").concat(triArea.toFixed(3)).concat("</strong> ตร.ม.\n            </div>\n          </div>\n        </div>\n      ");
     }
   }
 }

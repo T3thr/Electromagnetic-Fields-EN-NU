@@ -1,0 +1,145 @@
+{
+  "checks": [
+    {
+      "name": "Set 3 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 4 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 5 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 6 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 7 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 8 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 9 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 10 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 11 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 13 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 14 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 16 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 17 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 18 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 19 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 20 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "Set 21 numeric plotted sample",
+      "pass": true
+    },
+    {
+      "name": "doubling distance quarters Coulomb force",
+      "pass": true
+    },
+    {
+      "name": "negative source reverses force",
+      "pass": true
+    },
+    {
+      "name": "fixed charge field halves when permittivity doubles",
+      "pass": true
+    },
+    {
+      "name": "solid wire interior field linear in radius",
+      "pass": true
+    },
+    {
+      "name": "outside wire field inversely proportional to radius",
+      "pass": true
+    },
+    {
+      "name": "flux maximum has zero induced emf",
+      "pass": true
+    },
+    {
+      "name": "100 MHz peak near half wavelength is negative",
+      "pass": true
+    },
+    {
+      "name": "frequency slider changes spatial wavelength",
+      "pass": true
+    },
+    {
+      "name": "half period reverses instantaneous field",
+      "pass": true
+    },
+    {
+      "name": "portal roadmap stays inside course root",
+      "pass": true
+    },
+    {
+      "name": "source entries retain physical file order",
+      "pass": true
+    },
+    {
+      "name": "old source attempts migrate to physical order",
+      "pass": true
+    },
+    {
+      "name": "source migration preserves worksheet",
+      "pass": true
+    },
+    {
+      "name": "exam roadmap follows selected problem",
+      "pass": true
+    },
+    {
+      "name": "worksheet updates question status",
+      "pass": true
+    },
+    {
+      "name": "complete checklist updates points badge",
+      "pass": true
+    },
+    {
+      "name": "complete status is separate from active state",
+      "pass": true
+    },
+    {
+      "name": "removing general formula removes dependent points",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

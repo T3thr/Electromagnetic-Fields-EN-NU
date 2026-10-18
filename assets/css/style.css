@@ -75,7 +75,7 @@ html {
   scroll-padding-top: calc(var(--header-height) + 28px);
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -89,7 +89,7 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ═══════════ Sticky Header & Navigation Bar ═══════════ */
@@ -550,6 +550,7 @@ body {
   gap: 48px;
   box-sizing: border-box;
   position: relative;
+  align-items: start;
 }
 
 .portal-container {
@@ -981,6 +982,55 @@ code {
   font-weight: 700;
 }
 
+/* ═══════════ Universal Card & Content Box Standards ═══════════ */
+.card,
+.summary-box,
+.practice-generator-card,
+.feature-box,
+.content-box {
+  background: var(--card-bg);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin: 28px 0;
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.summary-box.accent-border,
+.practice-generator-card {
+  border: 1.5px solid var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.summary-box-header,
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summary-box-title,
+.card-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
+.summary-box-desc,
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
 /* ═══════════ Callouts & Formula Cards ═══════════ */
 .academic-callout {
   background: var(--card-bg);
@@ -1252,7 +1302,7 @@ code {
 .exam-sidebar {
   position: -webkit-sticky;
   position: sticky;
-  top: calc(var(--header-height) + 20px);
+  top: calc(var(--header-height) + 24px);
   height: fit-content;
   max-height: calc(100vh - var(--header-height) - 40px);
   overflow-y: auto;
@@ -1642,18 +1692,24 @@ code {
 }
 
 @media (max-width: 768px) {
-  /* Prevent exam-sidebar from taking flow in container */
+  /* Keep the compact exam palette in the sticky grid flow. */
   .chapter-container:has(.exam-sidebar) {
-    display: block !important;
-    padding-left: 56px !important; /* Leave room for floating dock on left edge */
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 12px;
+    padding-left: 10px !important;
+    align-items: start;
+  }
+  .chapter-container:has(.exam-sidebar:not(.collapsed)) {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   aside.chapter-sidebar.exam-sidebar {
-    position: fixed !important;
-    left: 0 !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 1000 !important;
+    position: sticky !important;
+    left: auto !important;
+    top: calc(var(--header-height) + 24px) !important;
+    transform: none !important;
+    z-index: 90 !important;
     max-height: calc(100vh - var(--header-height) - 32px);
     overflow-y: auto;
     margin: 0 !important;
@@ -1701,7 +1757,8 @@ code {
     border: 1.5px solid var(--accent) !important;
     border-left: none !important;
     box-shadow: 8px 0 32px rgba(0, 0, 0, 0.28), 0 0 15px rgba(21, 101, 192, 0.2) !important;
-    z-index: 1001 !important;
+    max-height: 180px;
+    z-index: 90 !important;
   }
 }
 
@@ -2013,14 +2070,14 @@ footer.page-footer {
 /* Tablet: keep 2-column layout with a narrower sticky sidebar */
 @media (max-width: 1024px) and (min-width: 769px) {
   .chapter-container {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 220px minmax(0, 1fr);
     gap: 28px;
   }
   /* Sidebar stays sticky on tablet */
   .chapter-sidebar {
     position: -webkit-sticky;
     position: sticky;
-    top: calc(var(--header-height) + 16px);
+    top: calc(var(--header-height) + 24px);
     height: fit-content;
     max-height: calc(100vh - var(--header-height) - 32px);
     padding: 16px;
@@ -2040,9 +2097,10 @@ footer.page-footer {
     gap: 24px;
   }
   .chapter-sidebar:not(.exam-sidebar) {
-    position: static;
-    max-height: none;
-    overflow-y: visible;
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    max-height: 180px;
+    overflow-y: auto;
   }
 }
 
@@ -2130,6 +2188,14 @@ footer.page-footer {
     word-break: break-word;
     overflow-wrap: break-word;
   }
+  .card,
+  .summary-box,
+  .practice-generator-card,
+  .feature-box,
+  .content-box {
+    padding: 18px 16px;
+    margin: 20px 0;
+  }
 }
 
 @media (max-width: 420px) {
@@ -2160,4 +2226,44 @@ footer.page-footer {
   .portal-container, .page {
     padding: 16px 10px 50px;
   }
+}
+
+/* Shared reading rhythm and input components. */
+:root { --section-space: 48px; --action-space: 36px; }
+a { color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.chapter-main p a:not(.btn), .portal-container p a:not(.btn) { text-decoration: none; border-bottom: 1px solid var(--rule); }
+.chapter-main p a:not(.btn):hover, .portal-container p a:not(.btn):hover { border-bottom-color: var(--accent); }
+.chapter-main > section, .portal-container > section, .page > section { margin-block: var(--section-space); }
+.curriculum-grid + .action-row, .action-row { margin-top: var(--action-space); }
+.card, .summary-box, .practice-generator-card, .feature-box, .content-box { padding: 24px 28px; }
+.worksheet-editor { margin: 20px 0 32px; border: 1.5px solid var(--rule); border-radius: var(--radius-md); overflow: hidden; background: var(--paper); }
+.worksheet-hint { margin: 0; padding: 12px 16px; background: var(--paper2); border-bottom: 1px solid var(--rule); color: var(--ink-soft); font-size: .82rem; line-height: 1.7; }
+.worksheet-editor textarea { display: block; width: 100%; min-height: 150px; margin: 0; padding: 18px 16px; border: 0; border-radius: 0; background: var(--paper); color: var(--ink); font-family: var(--font-mono); line-height: 1.9; resize: vertical; }
+.worksheet-editor:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+.rubric-card-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; margin: 10px 0; border: 1.5px solid var(--rule); border-radius: var(--radius-sm); background: var(--paper); cursor: pointer; transition: border-color .18s, background .18s, transform .18s; }
+.rubric-card-item:hover { border-color: var(--accent); transform: translateY(-1px); }
+.rubric-card-item:has(input:checked) { border-color: var(--green); background: var(--green-bg); }
+.rubric-card-item input[type="checkbox"] { appearance: none; flex: 0 0 22px; width: 22px; height: 22px; margin: 3px 0 0; border: 1.5px solid var(--rule); border-radius: 6px; background: var(--paper); display: grid; place-items: center; }
+.rubric-card-item input:checked { background: var(--green); border-color: var(--green); }
+.rubric-card-item input:checked::after { content: '✓'; color: white; font-weight: 800; font-size: 15px; }
+.rubric-label { flex: 1; min-width: 0; font-size: .91rem; line-height: 1.75; }
+.rubric-points { flex: 0 0 auto; font: 700 .8rem var(--font-sans); border-radius: 20px; padding: 4px 9px; background: var(--accent-bg); color: var(--accent); white-space: nowrap; }
+.rubric-card-item:has(input:checked) .rubric-points { color: var(--green); background: var(--paper); }
+.accordion-solution { border: 1.5px solid var(--rule); border-radius: var(--radius-md); padding: 18px 20px; margin: 20px 0; background: var(--paper); }
+.accordion-solution > summary { display: flex; align-items: center; gap: 12px; list-style: none; cursor: pointer; font-weight: 700; color: var(--accent); line-height: 1.7; }
+.accordion-solution > summary::-webkit-details-marker { display: none; }
+.accordion-solution > summary::before { content: '+'; display: grid; place-items: center; flex: 0 0 26px; height: 26px; border-radius: 8px; background: var(--accent-bg); font-size: 1.1rem; }
+.accordion-solution[open] > summary { margin-bottom: 24px; }
+.accordion-solution[open] > summary::before { content: '−'; }
+.embedded-formula .site-header { display: none; }
+.embedded-formula .portal-container, .embedded-formula .chapter-container, .embedded-formula .page { margin-top: 0; }
+@media (max-width:768px) {
+  .card, .summary-box, .practice-generator-card, .feature-box, .content-box { padding: 18px 16px; }
+  .rubric-card-item { padding: 12px; flex-wrap: wrap; }
+  .rubric-card-item .rubric-points { margin-left: 34px; }
+  .rubric-card-item .rubric-label { flex-basis: calc(100% - 34px); }
+  .accordion-solution { padding: 16px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

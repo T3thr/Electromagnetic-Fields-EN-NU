@@ -19,7 +19,7 @@
 
 3. **มาตรฐานการแสดงผลทางคณิตศาสตร์ (Strict Mathematical Standards):**
    - อ้างอิงตามเอกสารมาตรฐาน **[`MATH_STANDARDS.md`](./MATH_STANDARDS.md)** อย่างเคร่งครัด
-   - ห้ามใช้ Dollar Sign (`$` หรือ `$$`) หรือรหัส KaTeX/LaTeX ใน Markdown/Chat (Zero-Dollar-Sign Policy ตาม `GEMINI.md`)
+   - ห้ามใช้ Dollar Sign (ตัวคั่นเดี่ยว หรือ ตัวคั่นคู่) หรือรหัส KaTeX/LaTeX ใน Markdown/Chat (Zero-Dollar-Sign Policy ตาม `GEMINI.md`)
    - **คอนเทนเนอร์สมการ (`.math-display`):** ต้องเป็น `display: block` เสมอ ห้ามใส่ `display: flex; flex-wrap: wrap;` เด็ดขาด เพราะจะทำให้ข้อความ ตัวห้อย และเวกเตอร์กระจัดกระจาย หากต้องการจัดแถวเฉพาะให้ใช้ `<div class="math-equation">`
    - **เศษส่วน (Fractions):** ห้ามใช้เครื่องหมายขีดทับ `/` ในการแสดงสูตรหลัก ให้ใช้ `<span class="math-frac"><span class="math-num">...</span><span class="math-den">...</span></span>`
    - **ดีเทอร์มิแนนต์และเมทริกซ์:** ต้องใช้คลาส `.math-det`, `.math-mat` (ปีกกาสมมาตรซ้ายขวาด้วย gradient) และ `.math-table`
@@ -46,8 +46,8 @@
 | ขนาดหน้าจอ | Grid Layout | พฤติกรรม Sidebar |
 | :--- | :--- | :--- |
 | **Desktop** (> 1024px) | `290px + minmax(0, 1fr)` | `position: sticky; top: calc(var(--header-height) + 24px)` |
-| **Tablet** (769px – 1024px) | `220px + minmax(0, 1fr)` | `position: sticky; top: calc(var(--header-height) + 16px)` — ยังคง sticky แต่ขนาดคอลัมน์เล็กลง |
-| **Mobile** (≤ 768px) | `1fr` (single column) | `position: static` — Sidebar ปรากฏเป็น section นำทางด้านบนก่อนเนื้อหาหลัก |
+| **Tablet** (769px – 1024px) | `220px + minmax(0, 1fr)` | `position: sticky; top: calc(var(--header-height) + 24px)` — ยังคง sticky แต่ขนาดคอลัมน์เล็กลง |
+| **Mobile** (≤ 768px) | `1fr` (single column) | `position: sticky` ที่ระยะหัวเว็บ + 24px และสูงไม่เกิน 180px — สารบัญเลื่อนได้ภายในกล่อง |
 
 ### 6.2 กฎเหล็กสำหรับ Sticky Sidebar
 
@@ -95,12 +95,11 @@
      8. ป้ายแสดงคะแนนสะสมแนวตั้ง (`.mini-score-indicator` แสดงคะแนนรวมสด เช่น `25 pts`)
      9. ปุ่มเปิดใบสูตรด่วน (`📄` `.mini-tool-btn`)
 
-2. **พฤติกรรมบนหน้าจอมือถือ (Mobile Centered Floating Dock · No Backdrop Dim):**
-   - บนหน้าจอมือถือ (`≤ 768px`) แถบ `.exam-sidebar` ต้องเป็น **Floating Vertical Dock** ตรึงอยู่กึ่งกลางแนวตั้งของขอบซ้ายจออย่างสมบูรณ์ (`position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 1000;`)
-   - **ไม่ใช้ Backdrop Dim** เพื่อให้ผู้สอบสามารถอ่านโจทย์และคำนวณได้อย่างต่อเนื่องโดยไม่มีเงาดำบดบังเนื้อหา
-   - เพื่อป้องกันไม่ให้ floating dock ทับตัวหนังสือ เนื้อหา `.chapter-container:has(.exam-sidebar)` บน mobile จะมี `padding-left: 56px` ทำให้ข้อความทั้งหมดเริ่มต้นอยู่ถัดจาก dock พอดีอย่างสวยงาม
-   - โดยเริ่มต้นบน Mobile จะอยู่ในสถานะย่อ (`.collapsed`) เพื่อประหยัดพื้นที่หน้าจอ
-   - เมื่อผู้ใช้กดปุ่มลูกศร `▶` หรือแคปซูลเวลา แถบจะขยายออกเป็น Drawer Card ลอยตัว (`width: min(290px, calc(100vw - 24px))`) พร้อมปุ่ม `◀ ย่อ` ที่มุมบนขวาของการ์ดเพื่อกดหุบกลับเป็น dock ได้ทันที
+2. **พฤติกรรมบนหน้าจอมือถือ (Sticky Grid Palette):**
+   - ตามข้อกำหนดปลายภาค Sidebar ทุกหน้าต้องอยู่ใน Grid flow และใช้ `position: sticky; top: calc(var(--header-height) + 24px)`
+   - ห้องกลางภาคที่ย่อใช้คอลัมน์ `44px + minmax(0, 1fr)` เมื่อขยายเปลี่ยนเป็นคอลัมน์เดียวและจำกัดความสูง 180px
+   - ห้องปลายภาคใช้สารบัญและเครื่องมือที่เลื่อนภายในกล่องได้ ไม่มีเงาฉากหลังที่รบกวนการอ่านโจทย์
+   - บทเรียนบนมือถือใช้สารบัญสูงไม่เกิน 180px เพื่อให้เนื้อหายังมีพื้นที่อ่าน
 
 3. **พฤติกรรมบนหน้าจอ Desktop / Tablet:**
    - บน Desktop เมื่อขยาย จะเป็น Sticky Sidebar ปกติ (`290px`) อยู่ใน Grid flow
@@ -145,17 +144,58 @@
   - เมนู Dropdown สารบัญรายวิชาต้องแบ่งออกเป็น 2 หมวดหมู่อย่างชัดเจน:
     1. **เนื้อหาส่วนกลางภาค (Midterm Coursework · Sets 01–09)**
     2. **เนื้อหาส่วนปลายภาค (Final Coursework · Sets 10–22 อิงจากโฟลเดอร์ `lecture/final`)**
-  - ลิงก์เมนูนำทางหลัก: หน้าหลัก, สารบัญรายวิชา ▾, ใบสูตรกลางภาค, ระบบจำลองการสอบ
+  - ลิงก์เมนูนำทางหลัก: หน้าหลัก, สารบัญรายวิชา ▾, ใบสูตร ▾ (กลางภาค/ปลายภาค), ห้องสอบ ▾ (กลางภาค/ปลายภาค)
   - ปุ่มฟังก์ชันขวา: ปุ่มค้นหา Wiki Search (Ctrl+K), ปุ่มสลับธีม (Icon-Only), ปุ่มเมนูมือถือ (Mobile Hamburger)
 
 ### 3.4 มาตรฐานการแสดงผล Navbar และป้องกันการล้นขอบจอบนมือถือ (Zero Horizontal Overflow Standard)
 
 > [!IMPORTANT]
 > **กฎเหล็กป้องกันปัญหาจอล้านและต้อง Zoom Out บนมือถือ (Anti-Viewport Blowout Rules):**
-> 1. **การบังคับใช้ Overflow Containment:** ทั้ง `html` และ `body` ต้องกำหนด `overflow-x: hidden; width: 100%; max-width: 100%;` เพื่อป้องกัน Safari iOS และ Mobile Browsers ยืด Canvas ออกจนเกิดช่องว่างสีขาวด้านขวา
+> 1. **การบังคับใช้ Overflow Containment ด้วย `overflow-x: clip;` (CRITICAL):**
+>    - ทั้ง `html` และ `body` ต้องกำหนด `overflow-x: clip; width: 100%; max-width: 100%;`
+>    - 🚫 **ห้ามใช้ `overflow-x: hidden;` บน `html` หรือ `body` เด็ดขาด**: ตามมาตรฐาน CSS Overflow Module Level 3 เมื่อระบุ `overflow-x: hidden` เบราว์เซอร์จะคำนวณ `overflow-y` เป็น `auto` โดยอัตโนมัติ ซึ่งจะเปลี่ยน `body` ให้กลายเป็น scroll container ภายใน และทำให้ `position: sticky` บนแถบ Sidebar (`.chapter-sidebar` และ `#exam-sidebar`) **หยุดทำงานและไม่เลื่อนตามหน้าจอทันที**
+>    - การใช้ `overflow-x: clip;` สามารถตัดเนื้อหาที่ล้นขอบจอแนวนอนได้อย่างสมบูรณ์ โดยไม่สร้าง scroll container ภายใน จึงรักษาการทำงานของ `position: sticky` ไว้ได้ 100%
 > 2. **Mobile Icon-Only Actions Bar:** บนหน้าจอมือถือ (`≤ 768px`) ปุ่มค้นหา (`.search-trigger-btn`) ต้องซ่อนข้อความ "ค้นหา" ให้เหลือเฉพาะไอคอนแว่นขยาย (`36×36px`) เช่นเดียวกับปุ่มเปลี่ยนธีมและปุ่มเมนู เพื่อให้กลุ่มปุ่มขวาใช้พื้นที่ไม่เกิน `120px`
 > 3. **Brand Shrink & Ellipsis:** ข้อความแบรนด์และรหัสวิชา (`.nav-brand`) ต้องมี `min-width: 0; flex-shrink: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;` ป้องกันชื่อวิชาดันแถบ Navbar ให้กว้างเกินหน้าจอ
 > 4. **Flex Wrap บน Metadata Bar:** แถบหัวกระดาษ `.course-meta-bar` ต้องมี `flex-wrap: wrap;` เพื่อให้ Badge ป้ายรหัสและฉบับอ้างอิงตัดขึ้นบรรทัดใหม่ได้ ไม่ดันความกว้างหน้าจอทะลุขอบขวา
+
+---
+
+### 3.5 มาตรฐานกล่องเนื้อหาและการ์ดส่วนกลาง (Universal Content Box & Card Standards)
+
+เพื่อป้องกันปัญหาการสร้างกล่องข้อความหรือการ์ดแบบ Ad-hoc ที่ไม่มี Padding, Margin เบี้ยว หรือสีขอบไม่เข้ากับ Design System กำหนดมาตรฐานสถาปัตยกรรมคลาสการ์ดกลางใน `assets/css/style.css` ดังนี้:
+
+1. **คลาสมาตรฐานส่วนกลาง (Centralized Card Classes):**
+   - `.card` — การ์ดเนื้อหาทั่วไป
+   - `.summary-box` — กล่องสรุปประเด็นสำคัญ หรือบล็อกฟังก์ชันพิเศษ
+   - `.practice-generator-card` — กล่องเครื่องมือฝึกทำโจทย์และสุ่มตัวเลข
+   - `.feature-box` / `.content-box` — กล่องเน้นข้อความทางวิชาการ
+
+2. **สเกล Padding และ Margin มาตรฐาน (Breathing Room Guarantee):**
+   | Viewport | Padding | Margin | Border & Radius |
+   | :--- | :--- | :--- | :--- |
+   | **Desktop (> 768px)** | `24px 28px` | `28px 0` | `1.5px solid var(--rule)`, `border-radius: var(--radius-md)` |
+   | **Mobile (≤ 768px)** | `18px 16px` | `20px 0` | `1.5px solid var(--rule)`, `border-radius: var(--radius-md)` |
+
+3. **โครงสร้างสับคอมโพเนนต์ภายใน (Inner Semantic Hierarchy):**
+   ```html
+   <div class="summary-box practice-generator-card">
+     <div class="summary-box-header">
+       <div>
+         <h3 class="summary-box-title">ชื่อกล่องหรือการ์ด</h3>
+         <p class="summary-box-desc">คำอธิบายการใช้งานหรือบริบทเนื้อหา</p>
+       </div>
+       <!-- ปุ่ม Action หรือ Badge ทางขวา (ถ้ามี) -->
+     </div>
+     <div class="summary-box-body">
+       <!-- เนื้อหา, ฟอร์ม, หรือปุ่มควบคุม -->
+     </div>
+   </div>
+   ```
+
+4. **กฎเหล็กสำหรับหน้ารายวิชาใหม่ (Future-Proofing Architecture Rule):**
+   - 🚫 **ห้ามเขียน `<div>` กล่องเนื้อหาด้วยสไตล์ inline หรือข้าม padding เด็ดขาด**
+   - ✅ ต้องเรียกใช้ `.card` หรือ `.summary-box` หรือ `.academic-callout` จาก `assets/css/style.css` เสมอ เพื่อรับประกันว่าทุกหน้าเว็บจะได้รับการจัดระยะห่าง (Breathing Room) ที่ถูกต้องตามมาตรฐานโดยอัตโนมัติ
 
 ---
 

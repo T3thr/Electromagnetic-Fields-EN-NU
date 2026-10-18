@@ -5,105 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:,">
 <title>บทที่ 8: ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์ (Divergence & Divergence Theorem) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/interactive.css">
-</head>
+<link rel="stylesheet" href="../assets/css/style.css?v=ac8ca7ccf42a">
+<link rel="stylesheet" href="../assets/css/interactive.css?v=88e5a71cd689">
+<meta name="emf-root" content="../">
+<link rel="stylesheet" href="../assets/css/final.css?v=89a32acfcb86">
+<link rel="stylesheet" href="../assets/css/masterclass.css?v=05ec3264c7e7"><meta name="emf-chapter" content="8"></head>
 <body>
 
 <!-- ═══════════ Sticky Top Navbar ═══════════ -->
-<header class="site-header">
-  <nav class="site-navbar">
-    <a href="../index.html" class="nav-brand">
-      <span class="course-code">303214</span>
-      <span>สนามแม่เหล็กไฟฟ้า 1</span>
-    </a>
-
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="../index.html" class="nav-link">หน้าหลัก</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
-          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
-          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="dropdown-item active"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
-          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
-          
-          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
-      </li>
-      <li class="nav-item">
-        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
-      </li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <span>ค้นหา</span>
-        <span class="search-kbd-hint">Ctrl K</span>
-      </button>
-      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
-      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
-    </div>
-  </nav>
-
-  <!-- Structured Mobile Drawer -->
-  <div class="mobile-nav-drawer">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-title">เมนูหลัก</div>
-      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
-      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
-      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
-    </div>
-
-    <div class="mobile-nav-group">
-      <div class="mobile-accordion-item open">
-        <div class="mobile-accordion-header">
-          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
-          <span class="accordion-icon">▼</span>
-        </div>
-        <div class="mobile-accordion-content">
-          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
-          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link active"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
-          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<header class="site-header"><nav class="site-navbar" aria-label="เมนูหลัก"><a href="../index.html" class="nav-brand"><span class="course-code">303214</span><span>สนามแม่เหล็กไฟฟ้า 1</span></a><ul class="nav-menu"><li><a class="nav-link" href="../index.html">หน้าหลัก</a></li><li class="nav-item"><button type="button" class="nav-link nav-dropdown-button" aria-expanded="false">สารบัญรายวิชา ▾</button><div class="dropdown-menu"><div class="dropdown-header">กลางภาค · Sets 01–09</div><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a><div class="dropdown-header">ปลายภาค · Sets 10–22</div><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ใบสูตร ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="dropdown-item" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ห้องสอบ ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="dropdown-item" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a></div></li></ul><div class="nav-actions"><button class="search-trigger-btn" type="button" aria-label="ค้นหาคลังความรู้"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"></circle><path d="m16 16 6 6"></path></svg><span>ค้นหา</span><span class="search-kbd-hint">Ctrl K</span></button><button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนธีม"></button><button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button></div></nav><div class="mobile-nav-drawer"><a class="mobile-nav-link" href="../index.html">หน้าหลัก</a><a class="mobile-nav-link" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="mobile-nav-link" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a><a class="mobile-nav-link" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="mobile-nav-link" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a><details class="mobile-course-group accordion-solution"><summary>กลางภาค · Sets 01–09</summary><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a></details><details class="mobile-course-group accordion-solution"><summary>ปลายภาค · Sets 10–22</summary><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></details></div></header>
 
 <!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
 <div class="chapter-container">
@@ -111,7 +21,7 @@
   <!-- Sticky Table of Contents Sidebar -->
   <aside class="chapter-sidebar">
     <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
-    <ul class="sidebar-nav">
+    <ul class="sidebar-nav"><li><a class="sidebar-link" href="#masterclass">ภาพรวมและการพิสูจน์</a></li>
       <li><a href="#sec1" class="sidebar-link active">1. การประยุกต์กฎเกาส์กับปริมาตรเล็ก</a></li>
       <li><a href="#sec2" class="sidebar-link">2. การพิสูจน์เทย์เลอร์ 6 ด้าน</a></li>
       <li><a href="#sec3" class="sidebar-link">3. นิยามไดเวอร์เจนซ์ (div D)</a></li>
@@ -146,13 +56,13 @@
       <span class="academic-badge badge-primary">บทเรียนที่ 8/9</span>
     </div>
 
-    <h1 class="book-title">บทที่ 8: ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์ (Divergence & Divergence Theorem)</h1>
+    <h1 class="book-title">บทที่ 8: ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์ (Divergence & Divergence Theorem)</h1><!-- BEGIN MASTERCLASS --><section id="masterclass" class="masterclass"><div class="card academic-callout masterclass-reading"><span class="academic-badge badge-primary">SET 08 · จากภาพกายภาพสู่การพิสูจน์</span><h2>คำถามที่บทนี้กำลังตอบ</h2><p class="lesson-anchor">กฎที่กล่าวถึงผิวปิดขนาดใหญ่จะบอกแหล่งประจุ ณ จุดเล็ก ๆ ได้อย่างไร?</p><div class="bridge-links"><a class="topic-pill" href="../06-electric-flux-density/index.html">Set 6 · ความหนาแน่นฟลักซ์ไฟฟ้า</a><a class="topic-pill" href="../07-gauss-law/index.html">Set 7 · กฎของเกาส์</a></div></div><div class="masterclass-group masterclass-reading"><h2>01 · สร้างภาพในใจก่อนใช้สมการ</h2><div class="card"><p>ไดเวอร์เจนซ์ถามว่ากล่องเล็กมีสนามไหลออกมากกว่าไหลเข้าเท่าใดต่อปริมาตร คำว่าแหล่งจึงหมายถึงความไม่สมดุลของฟลักซ์ในบริเวณเล็ก ไม่ใช่ดูเพียงลูกศรที่ยาวหรือโค้ง</p><p>เมื่อเอากล่องเล็กหลายกล่องมาต่อกัน ฟลักซ์ผ่านผิวภายในถูกนับออกจากกล่องหนึ่งและเข้าอีกกล่องหนึ่ง จึงตัดกัน เหลือแต่ผิวด้านนอก นี่คือภาพกายภาพของทฤษฎีบทไดเวอร์เจนซ์</p><p class="assumption-line"><b>ขอบเขตแบบจำลอง:</b> สนามเรียบในบริเวณที่ใช้อนุพันธ์ ผิวปิดวางปกติออก</p></div></div><div class="masterclass-group"><h2>02 · พิสูจน์ทีละบรรทัดพร้อมเหตุผล</h2><article class="card derivation-line"><h3><span class="step-number">01</span> นิยามทั่วไปของตัวดำเนินการ</h3><div class="math-display">∇ • <b>D</b>=lim<sub>Δv→0</sub><span class="math-frac"><span class="math-num">∯<sub>∂Δv</sub><b>D</b> • d<b>s</b></span><span class="math-den">Δv</span></span></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> นิยามเป็นยอดออกต่อปริมาตร ใช้ปกติออกจากกล่องทุกหน้า</p></article><article class="card derivation-line"><h3><span class="step-number">02</span> เทียบหน้าซ้ายและขวา</h3><div class="math-display">ΔΨ<sub>x</sub>=[<em>D</em><sub>x</sub>(<em>x</em>+Δx/2)−<em>D</em><sub>x</sub>(<em>x</em>−Δx/2)]ΔyΔz</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> หน้าขวามีปกติ +x หน้าซ้าย −x จึงเป็นผลต่างขององค์ประกอบ ไม่ใช่ผลบวก</p></article><article class="card derivation-line"><h3><span class="step-number">03</span> ขยายเทย์เลอร์และตัดค่าคงที่</h3><div class="math-display"><em>D</em><sub>x</sub>(<em>x</em>±Δx/2)≈<em>D</em><sub>x</sub>(<em>x</em>)±<span class="math-frac"><span class="math-num">Δx</span><span class="math-den">2</span></span><span class="math-frac"><span class="math-num">∂<em>D</em><sub>x</sub></span><span class="math-den">∂<em>x</em></span></span><br>ΔΨ<sub>x</sub>≈<span class="math-frac"><span class="math-num">∂<em>D</em><sub>x</sub></span><span class="math-den">∂<em>x</em></span></span>ΔxΔyΔz</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> พจน์ D ที่จุดกลางหักล้าง เหลืออัตราเปลี่ยนตามแนวปกติคูณปริมาตร</p></article><article class="card derivation-line"><h3><span class="step-number">04</span> รวมสามแกนและหารปริมาตร</h3><div class="math-display">∇ • <b>D</b>=<span class="math-frac"><span class="math-num">∂<em>D</em><sub>x</sub></span><span class="math-den">∂<em>x</em></span></span>+<span class="math-frac"><span class="math-num">∂<em>D</em><sub>y</sub></span><span class="math-den">∂<em>y</em></span></span>+<span class="math-frac"><span class="math-num">∂<em>D</em><sub>z</sub></span><span class="math-den">∂<em>z</em></span></span></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> เมื่อหาร ΔxΔyΔz แล้วให้กล่องเล็กลง พจน์อันดับสูงหายไป เหลืออนุพันธ์ทั้งสามแกน</p></article><article class="card derivation-line"><h3><span class="step-number">05</span> เชื่อมกับประจุที่จุด</h3><div class="math-display">∯<sub>S</sub><b>D</b> • d<b>s</b>=∫<sub>v</sub><em>ρ</em><sub>v</sub>dv ⇒ ∇ • <b>D</b>=<em>ρ</em><sub>v</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ใช้เกาส์กับกล่องเล็กทุกตำแหน่ง ปริมาณต่อปริมาตรด้านขวาคือความหนาแน่นประจุ</p></article><article class="card derivation-line"><h3><span class="step-number">06</span> รวมกล่องเป็นทฤษฎีบท</h3><div class="math-display">∫<sub>v</sub>(∇ • <b>D</b>)dv=∯<sub>∂v</sub><b>D</b> • d<b>s</b></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ผิวภายในมีปกติสวนกันจึงตัดกัน เหลือฟลักซ์ผ่านผิวปิดด้านนอก</p></article><article class="card derivation-line"><h3><span class="step-number">07</span> ตัวอย่างที่แยกสนามจากแหล่ง</h3><div class="math-display"><b>D</b>=kx<b>a</b><sub>x</sub>+ky<b>a</b><sub>y</sub>+kz<b>a</b><sub>z</sub> ⇒ ∇ • <b>D</b>=<em>k</em>+<em>k</em>+<em>k</em>=3k</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> k มีหน่วย C/m³ แต่สนามมีหน่วย C/m² หาก D เป็นค่าคงที่ทั้งบริเวณ divergence จะเป็นศูนย์แม้สนามไม่ศูนย์</p></article></div><div class="masterclass-group"><h2>03 · กับดักที่ทำให้เสียคะแนน</h2><div class="summary-box exam-trap"><ul><li>ไดเวอร์เจนซ์ให้สเกลาร์ ส่วน curl ให้เวกเตอร์</li><li>พิกัดโค้งมีตัวประกอบสเกล ห้ามใช้สูตรฉากแทน</li><li>จุดเอกฐานของประจุจุดต้องแยกออกจากบริเวณที่สนามเรียบ</li></ul><p>เขียนสูตรทั่วไป → ระบุพิกัดและทิศ → วิเคราะห์ด้วยมือ → ใช้ขอบเขต → ตรวจหน่วย SI และความหมาย</p></div></div><div class="masterclass-group masterclass-reading"><h2>04 · สนามนี้อยู่ในงานวิศวกรรมอย่างไร</h2><div class="card"><p>การอนุรักษ์ประจุในตัวนำจะเขียนเป็น divergence ของ J เท่ากับอัตราประจุลด การเข้าใจกล่องเล็กทำให้เครื่องหมายลบของสมการต่อเนื่องเป็นเหตุผลแทนการท่อง</p><p>การตรวจผลจำลองสนามใช้ยอดฟลักซ์กับประจุในเซลล์เป็นตัวตรวจสมดุลเชิงกายภาพ ก่อนเชื่อภาพลูกศรที่ดูสวย</p><p class="why-step"><b>ลองอธิบายด้วยคำของตนเอง:</b> สนาม D คงที่มี divergence เท่าใด และเหตุใดฟลักซ์ออกจากด้านหนึ่งจึงไม่ทำให้มีแหล่งสุทธิ?</p></div></div><div class="masterclass-group"><h2>05 · ทำนาย ทดลอง และตรวจเหตุผล</h2><div class="practice-generator-card master-lab" data-chapter="8"><h3>ห้องทดลอง Set 8</h3><p>ปรับสนามให้สม่ำเสมอแล้วเพิ่มขนาดสนาม ตรวจว่าลูกศรยาวขึ้นได้โดยไดเวอร์เจนซ์ยังเป็นศูนย์</p><div class="master-lab-controls"></div><div class="master-lab-view"></div><output class="master-lab-result" aria-live="polite"></output><p class="master-lab-assumptions"></p><details class="accordion-solution"><summary>บันทึกสิ่งที่ทำนายและสิ่งที่สังเกต</summary><label for="reflection-8">อธิบายเหตุและผลพร้อมเงื่อนไขที่ตรึง</label><div class="worksheet-editor"><p class="worksheet-hint">ก่อนปรับ: ทำนายทิศและขนาด · หลังปรับ: อธิบายด้วยสมการและเงื่อนไข</p><textarea id="reflection-8" class="learning-input learning-reflection" rows="4" placeholder="ฉันตรึง… ปรับ… จึงทำนายว่า… ผลที่เห็นคือ… เพราะ…"></textarea></div><p class="reflection-status" role="status"></p></details></div></div><div class="card"><h3>สะพานสู่บทถัดไป</h3><p>แนวคิดของบทนี้เป็นฐานให้ Set 10, Set 14, Set 17, Set 19</p><div class="bridge-links"><a class="topic-pill" href="../10-current-and-conductors/index.html">Set 10 · กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="topic-pill" href="../14-poisson-laplace/index.html">Set 14 · สมการปัวซงและลาปลาส</a><a class="topic-pill" href="../17-curl-stokes/index.html">Set 17 · เคิร์ลและทฤษฎีบทสโตกส์</a><a class="topic-pill" href="../19-maxwell-static/index.html">Set 19 · สมการแมกซ์เวลล์สำหรับสนามสถิต</a></div><details class="accordion-solution"><summary>ตรวจวิธีจากสไลด์และตำราต้นฉบับ</summary><div class="source-reference-list"><a href="../lecture/set8_Divergence_for_prnt.pdf#page=1" target="_blank" rel="noopener">Set 8 · สไลด์หลัก · เปิดขอบเขตบท · PDF 1</a></div><p class="source-line">เลขหน้าทั้งหมดนับหน้า PDF รวมปก ตำราเป็นแหล่งตรวจวิธีและนิยาม ไม่ได้กล่าวว่าข้อมูลทุกตัวอย่างตรงกับข้อสอบ บทอธิบายและการพิสูจน์ด้านบนเรียบเรียงเพื่อการสอน</p></details></div></section><!-- END MASTERCLASS -->
     <div class="subtitle">
       การพิสูจน์การกระจายอนุกรมเทย์เลอร์บนกล่องส่วนย่อย 6 ด้าน, นิยามตัวดำเนินการไดเวอร์เจนซ์ ∇ • <b>D</b>, <strong>สมการของแมกซ์เวลล์ข้อที่ 1 ในรูปแบบจุด (Point Form of Gauss's Law: ∇ • <b>D</b> = ρ<sub>v</sub>)</strong>, สูตรใน 3 ระบบพิกัด และทฤษฎีบทไดเวอร์เจนซ์
     </div>
 
     <!-- สรุปวัตถุประสงค์ -->
-    <div class="academic-callout">
+    <div class="academic-callout card">
       <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
       <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
         <li>เข้าใจการพิสูจน์ทางคณิตศาสตร์ของการประยุกต์กฎของเกาส์กับปริมาตรส่วนย่อย <code>Δv = Δx Δy Δz</code> ด้วยการประมาณค่าเชิงเส้นของอนุกรมเทย์เลอร์ (Taylor Series Linear Approximation) ครบทั้ง 6 ผิว</li>
@@ -189,7 +99,7 @@
 
       <div class="step-container">
         <!-- คู่ที่ 1: หน้าและหลัง -->
-        <div class="step-card step-essential">
+        <div class="step-card step-essential card">
           <span class="step-badge must-write">คู่ที่ 1: ผิวหน้า (Front) และผิวหลัง (Back)</span>
           <p>• ผิวหน้า (Front) ตั้งฉากกับแกน x อยู่ที่ <code>x = x₀ + Δx/2</code> และมี <code>d<b>s</b><sub>front</sub> = Δy Δz <b>a</b><sub>x</sub></code></p>
           <p>• ผิวหลัง (Back) ตั้งฉากกับแกน x อยู่ที่ <code>x = x₀ - Δx/2</code> และมี <code>d<b>s</b><sub>back</sub> = -Δy Δz <b>a</b><sub>x</sub></code></p>
@@ -209,7 +119,7 @@
         </div>
 
         <!-- คู่ที่ 2 และ 3 -->
-        <div class="step-card step-essential">
+        <div class="step-card step-essential card">
           <span class="step-badge must-write">คู่ที่ 2 และ 3: ซ้าย-ขวา และ บน-ล่าง</span>
           <p>ด้วยกระบวนการเดียวกันบนแกน y และแกน z:</p>
           <div class="math-display">
@@ -232,7 +142,7 @@
         นำปริมาตร <code>Δv</code> หารตลอดทั้งสองข้าง แล้วเทคลิมิตเมื่อปริมาตรมีขนาดเล็กลงเรื่อยๆ จนยุบตัวกลายเป็นจุด (<code>Δv → 0</code>):
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>นิยามทางการของตัวดำเนินการไดเวอร์เจนซ์ (Divergence Definition)</span>
           <button class="copy-btn" data-copy="div D = ∇ • D = lim_(Δv→0) [ (∮ D • ds) / Δv ]">คัดลอกสูตร</button>
@@ -270,10 +180,10 @@
           <div class="control-group">
             <label for="div-preset">เลือกฟังก์ชันสนาม D:</label>
             <select id="div-preset">
-              <option value="lecture-ex">ตัวอย่างสไลด์: D = e⁻ˣ sin y a_x - e⁻ˣ cos y a_y + 2z a_z</option>
-              <option value="lecture-hw">การบ้านสไลด์ 10 คะแนน: D = (2xyz - y²) a_x + (x²z - 2xy) a_y + x²y a_z</option>
-              <option value="radial-uniform">สนามแผ่จากประจุบวก: D = (ρ₀ r / 3) a_r</option>
-              <option value="solenoidal">สนามไร้ไดเวอร์เจนซ์ (div = 0): D = y a_x + x a_y</option>
+              <option value="lecture-ex">ตัวอย่างสนามจากสไลด์</option>
+              <option value="lecture-hw">โจทย์การบ้านไดเวอร์เจนซ์</option>
+              <option value="radial-uniform">สนามรัศมีจากประจุปริมาตรสม่ำเสมอ</option>
+              <option value="solenoidal">สนามไร้การลู่ออก</option>
             </select>
           </div>
           <div class="control-group">
@@ -342,7 +252,7 @@
         เมื่อแทนความสัมพันธ์ <code>lim<sub>Δv→0</sub> [ <em>Q</em><sub>enc</sub> / Δv ] = ρ<sub>v</sub></code> ลงในนิยามไดเวอร์เจนซ์ เราจะได้สมการที่เป็นหนึ่งในเสาหลักที่สำคัญที่สุดของวิชาแม่เหล็กไฟฟ้า:
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>สมการของแมกซ์เวลล์ข้อที่ 1 (Maxwell's 1st Equation / Point Form of Gauss's Law)</span>
           <button class="copy-btn" data-copy="∇ • D = ρ_v">คัดลอกสูตร</button>
@@ -419,7 +329,7 @@
         <strong>ทฤษฎีบทไดเวอร์เจนซ์</strong> เป็นสะพานเชื่อมโยงทางคณิตศาสตร์ที่สำคัญที่สุดระหว่าง <strong>มุมมองมหภาคบนผิวปิด (Surface Flux Integral)</strong> และ <strong>มุมมองจุลภาคภายในปริมาตร (Volume Integral of Divergence)</strong>:
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>ทฤษฎีบทไดเวอร์เจนซ์ (Divergence Theorem)</span>
           <button class="copy-btn" data-copy="∮_S D • ds = ∫_v (∇ • D) dv = Q_enc">คัดลอกสูตร</button>
@@ -441,7 +351,7 @@
 
       <div class="step-container">
         <!-- ตัวอย่างในห้องเรียน -->
-        <div class="step-card step-essential">
+        <div class="step-card step-essential card">
           <span class="step-badge must-write">ตัวอย่างในห้องเรียน (Lecture Set 8 Slide 28)</span>
           <h4>โจทย์: กำหนดสนามความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> = e⁻ˣ sin y <b>a</b><sub>x</sub> - e⁻ˣ cos y <b>a</b><sub>y</sub> + 2z <b>a</b><sub>z</sub> C/m² จงหาความหนาแน่นประจุเชิงปริมาตร ρ<sub>v</sub> ณ จุดกำเนิด (0, 0, 0)</h4>
           
@@ -474,7 +384,7 @@
         </div>
 
         <!-- การบ้าน 10 คะแนน -->
-        <div class="step-card step-essential">
+        <div class="step-card step-essential card">
           <span class="step-badge must-write">การบ้าน 10 คะแนนเต็ม (Lecture Set 8 Slide 29)</span>
           <h4>โจทย์: จงหาความหนาแน่นประจุไฟฟ้าเชิงปริมาตร ρ<sub>v</sub> ณ จุด P(2, 3, -1) ในระบบพิกัดฉาก เมื่อกำหนดความหนาแน่นฟลักซ์ไฟฟ้า <b>D</b> = (2xyz - y²) <b>a</b><sub>x</sub> + (x²z - 2xy) <b>a</b><sub>y</sub> + x²y <b>a</b><sub>z</sub> C/m²</h4>
           
@@ -514,7 +424,7 @@
 
       <div class="step-container">
         <!-- Drill Problem 3.6 -->
-        <div class="step-card">
+        <div class="step-card card">
           <span class="step-badge">Drill Problem 3.6</span>
           <h4>กำหนดสนามความหนาแน่นฟลักซ์ในระบบพิกัดทรงกระบอก <b>D</b> = [ (2ρ + z²) sin ϕ ] <b>a</b><sub>ρ</sub> + ρ cos ϕ <b>a</b><sub>ϕ</sub> + 2ρz sin ϕ <b>a</b><sub>z</sub> C/m² จงหาค่าไดเวอร์เจนซ์ ∇ • <b>D</b> ณ จุด P(ρ=2, ϕ=110°, z=-1)</h4>
           <p><strong>วิธีทำ:</strong></p>
@@ -553,15 +463,15 @@
       <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Quiz)</h2>
 
       <!-- Quiz 1 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>คำถามที่ 1: ความหมายทางฟิสิกส์ของ ∇ • D = 0</h4>
           <span class="quiz-points">5 คะแนน</span>
         </div>
         <p>หากการคำนวณไดเวอร์เจนซ์ของสนามฟลักซ์ไฟฟ้าในบริเวณหนึ่งได้ค่าเป็น <code>∇ • <b>D</b> = 0</code> ตลอดทั่วทั้งบริเวณ ข้อสรุปใดถูกต้องที่สุด?</p>
         <div class="quiz-options">
-          <div class="quiz-option" data-correct="false">บริเวณนั้นไม่มีสนามไฟฟ้าเลย (E = 0)</div>
-          <div class="quiz-option" data-correct="true">บริเวณนั้นไม่มีความหนาแน่นประจุสุทธิ (ρ_v = 0) ฟลักซ์ที่ไหลเข้าเท่ากับไหลออก</div>
+          <div class="quiz-option" data-correct="false">บริเวณนั้นไม่มีสนามไฟฟ้าเลย (<b>E</b> = <b>0</b>)</div>
+          <div class="quiz-option" data-correct="true">บริเวณนั้นไม่มีความหนาแน่นประจุสุทธิ (ρ<sub>v</sub> = 0) ฟลักซ์ที่ไหลเข้าเท่ากับไหลออก</div>
           <div class="quiz-option" data-correct="false">บริเวณนั้นเป็นตัวนำยิ่งยวดที่สะสมประจุอนันต์</div>
           <div class="quiz-option" data-correct="false">สนามไฟฟ้าในบริเวณนั้นมีทิศทางชี้พุ่งออกจากจุดกำเนิดเสมอ</div>
         </div>
@@ -569,33 +479,33 @@
       </div>
 
       <!-- Quiz 2 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>คำถามที่ 2: การคำนวณไดเวอร์เจนซ์ในพิกัดทรงกระบอก</h4>
           <span class="quiz-points">5 คะแนน</span>
         </div>
-        <p>ในพิกัดทรงกระบอก พจน์แรกของไดเวอร์เจนซ์ <code>(1/ρ) ∂(ρ D_ρ)/∂ρ</code> มีขั้นตอนที่ถูกต้องอย่างไร?</p>
+        <p>ในพิกัดทรงกระบอก พจน์แรกของไดเวอร์เจนซ์ <code>(1/ρ) ∂(ρ D<sub>ρ</sub>)/∂ρ</code> มีขั้นตอนที่ถูกต้องอย่างไร?</p>
         <div class="quiz-options">
-          <div class="quiz-option" data-correct="false">ดิฟ D_ρ เทียบกับ ρ ก่อน แล้วค่อยคูณด้วย ρ²</div>
-          <div class="quiz-option" data-correct="false">ดิฟ D_ρ เทียบกับ ρ ตรงๆ โดยไม่ต้องนำ ρ มาเกี่ยวข้อง</div>
-          <div class="quiz-option" data-correct="true">คูณตัวแปร ρ เข้ากับ D_ρ ก่อน แล้วจึงหาอนุพันธ์เทียบกับ ρ จากนั้นหารผลลัพธ์ด้วย ρ</div>
-          <div class="quiz-option" data-correct="false">อินทิเกรต D_ρ เทียบกับ dρ แล้วหารด้วย 2π</div>
+          <div class="quiz-option" data-correct="false">ดิฟ D<sub>ρ</sub> เทียบกับ ρ ก่อน แล้วค่อยคูณด้วย ρ²</div>
+          <div class="quiz-option" data-correct="false">ดิฟ D<sub>ρ</sub> เทียบกับ ρ ตรงๆ โดยไม่ต้องนำ ρ มาเกี่ยวข้อง</div>
+          <div class="quiz-option" data-correct="true">คูณตัวแปร ρ เข้ากับ D<sub>ρ</sub> ก่อน แล้วจึงหาอนุพันธ์เทียบกับ ρ จากนั้นหารผลลัพธ์ด้วย ρ</div>
+          <div class="quiz-option" data-correct="false">อินทิเกรต D<sub>ρ</sub> เทียบกับ dρ แล้วหารด้วย 2π</div>
         </div>
         <div class="quiz-feedback" data-explanation="ในพิกัดทรงกระบอกและทรงกลม เนื่องจากพื้นที่ผิวขยายตัวตามรัศมี จึงต้อง <b>คูณตัวแปร ρ เข้ากับฟังก์ชัน D<sub>ρ</sub> ก่อนดิฟ</b> เสมอ"></div>
       </div>
 
       <!-- Quiz 3 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>คำถามที่ 3: ทฤษฎีบทไดเวอร์เจนซ์</h4>
           <span class="quiz-points">5 คะแนน</span>
         </div>
         <p>ทฤษฎีบทไดเวอร์เจนซ์เปลี่ยนการอินทิเกรตบนผิวปิด <code>∮<sub>S</sub> <b>D</b> • d<b>s</b></code> ให้กลายเป็นการอินทิเกรตแบบใด?</p>
         <div class="quiz-options">
-          <div class="quiz-option" data-correct="false">อินทิเกรตรอบเส้นปิด ∮ E • dl</div>
-          <div class="quiz-option" data-correct="true">อินทิเกรตเชิงปริมาตรภายในผิวปิดนั้น ∫_v (∇ • D) dv</div>
+          <div class="quiz-option" data-correct="false">อินทิเกรตรอบเส้นปิด ∮ <b>E</b> • d<b>l</b></div>
+          <div class="quiz-option" data-correct="true">อินทิเกรตเชิงปริมาตรภายในผิวปิดนั้น ∫<sub>v</sub> (∇ • <b>D</b>) dv</div>
           <div class="quiz-option" data-correct="false">อินทิเกรตพื้นที่ผิวสองมิติบนระนาบอนันต์</div>
-          <div class="quiz-option" data-correct="false">เกรเดียนต์ของศักย์ไฟฟ้า -∇V</div>
+          <div class="quiz-option" data-correct="false">เกรเดียนต์ของศักย์ไฟฟ้า -∇<em>V</em></div>
         </div>
         <div class="quiz-feedback" data-explanation="ทฤษฎีบทไดเวอร์เจนซ์ระบุว่า <b>∮<sub>S</sub> D • ds = ∫<sub>v</sub> (∇ • D) dv = Q<sub>enc</sub></b> แปลงอินทิกรัลผิวปิดเป็นอินทิกรัลปริมาตร"></div>
       </div>
@@ -614,16 +524,16 @@
 </div>
 
 <!-- Core & Engine Scripts -->
-<script src="../assets/js/common.js"></script>
-<script src="../assets/js/engines/vector3d-core.js"></script>
-<script src="../assets/js/engines/divergence-sim.js"></script>
-<script src="../assets/js/engines/search-index.js"></script>
-<script src="../assets/js/engines/site-search.js"></script>
+<script src="../assets/js/roadmap-data.js?v=3aaa1712c262"></script><script src="../assets/js/common.js?v=73398137ac34"></script>
+<script src="../assets/js/engines/vector3d-core.js?v=575e736c3dce"></script>
+<script src="../assets/js/engines/divergence-sim.js?v=9e26061fe4e9"></script>
+<script src="../assets/js/engines/search-index.js?v=40e72b6683fe"></script>
+<script src="../assets/js/engines/site-search.js?v=20965619ab46"></script>
 <script>
   let divEngine;
   window.addEventListener('load', () => {
     divEngine = new DivergenceSimEngine('div-canvas', 'div-output');
   });
 </script>
-</body>
+<script src="../assets/js/masterclass-labs.js?v=ce486e12f5c8"></script></body>
 </html>

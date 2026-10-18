@@ -5,105 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:,">
 <title>บทที่ 1: พีชคณิตเวกเตอร์และระบบพิกัดฉาก (Vector Analysis & Cartesian Coordinates) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/interactive.css">
-</head>
+<link rel="stylesheet" href="../assets/css/style.css?v=ac8ca7ccf42a">
+<link rel="stylesheet" href="../assets/css/interactive.css?v=88e5a71cd689">
+<meta name="emf-root" content="../">
+<link rel="stylesheet" href="../assets/css/final.css?v=89a32acfcb86">
+<link rel="stylesheet" href="../assets/css/masterclass.css?v=05ec3264c7e7"><meta name="emf-chapter" content="1"></head>
 <body>
 
 <!-- ═══════════ Sticky Top Navbar ═══════════ -->
-<header class="site-header">
-  <nav class="site-navbar">
-    <a href="../index.html" class="nav-brand">
-      <span class="course-code">303214</span>
-      <span>สนามแม่เหล็กไฟฟ้า 1</span>
-    </a>
-
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="../index.html" class="nav-link">หน้าหลัก</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
-          <a href="../01-vector-algebra/index.html" class="dropdown-item active"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
-          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
-          <a href="../09-electric-potential/index.html" class="dropdown-item"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
-          
-          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
-      </li>
-      <li class="nav-item">
-        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
-      </li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <span>ค้นหา</span>
-        <span class="search-kbd-hint">Ctrl K</span>
-      </button>
-      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
-      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
-    </div>
-  </nav>
-
-  <!-- Structured Mobile Drawer -->
-  <div class="mobile-nav-drawer">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-title">เมนูหลัก</div>
-      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
-      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
-      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
-    </div>
-
-    <div class="mobile-nav-group">
-      <div class="mobile-accordion-item open">
-        <div class="mobile-accordion-header">
-          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
-          <span class="accordion-icon">▼</span>
-        </div>
-        <div class="mobile-accordion-content">
-          <a href="../01-vector-algebra/index.html" class="mobile-ch-link active"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
-          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
-          <a href="../09-electric-potential/index.html" class="mobile-ch-link"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<header class="site-header"><nav class="site-navbar" aria-label="เมนูหลัก"><a href="../index.html" class="nav-brand"><span class="course-code">303214</span><span>สนามแม่เหล็กไฟฟ้า 1</span></a><ul class="nav-menu"><li><a class="nav-link" href="../index.html">หน้าหลัก</a></li><li class="nav-item"><button type="button" class="nav-link nav-dropdown-button" aria-expanded="false">สารบัญรายวิชา ▾</button><div class="dropdown-menu"><div class="dropdown-header">กลางภาค · Sets 01–09</div><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a><div class="dropdown-header">ปลายภาค · Sets 10–22</div><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ใบสูตร ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="dropdown-item" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ห้องสอบ ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="dropdown-item" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a></div></li></ul><div class="nav-actions"><button class="search-trigger-btn" type="button" aria-label="ค้นหาคลังความรู้"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"></circle><path d="m16 16 6 6"></path></svg><span>ค้นหา</span><span class="search-kbd-hint">Ctrl K</span></button><button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนธีม"></button><button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button></div></nav><div class="mobile-nav-drawer"><a class="mobile-nav-link" href="../index.html">หน้าหลัก</a><a class="mobile-nav-link" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="mobile-nav-link" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a><a class="mobile-nav-link" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="mobile-nav-link" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a><details class="mobile-course-group accordion-solution"><summary>กลางภาค · Sets 01–09</summary><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a></details><details class="mobile-course-group accordion-solution"><summary>ปลายภาค · Sets 10–22</summary><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></details></div></header>
 
 <!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
 <div class="chapter-container">
@@ -111,7 +21,7 @@
   <!-- Sticky Table of Contents Sidebar -->
   <aside class="chapter-sidebar">
     <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
-    <ul class="sidebar-nav">
+    <ul class="sidebar-nav"><li><a class="sidebar-link" href="#masterclass">ภาพรวมและการพิสูจน์</a></li>
       <li><a href="#sec1" class="sidebar-link active">1. อภิธานศัพท์และสัญลักษณ์</a></li>
       <li><a href="#sec2" class="sidebar-link">2. นิยามสเกลาร์ เวกเตอร์ และสนาม</a></li>
       <li><a href="#sec3" class="sidebar-link">3. พิกัดฉากและเวกเตอร์ระยะทาง</a></li>
@@ -145,13 +55,13 @@
       <span class="academic-badge badge-primary">บทเรียนที่ 1/9</span>
     </div>
 
-    <h1 class="book-title">บทที่ 1: พีชคณิตเวกเตอร์และระบบพิกัดฉาก</h1>
+    <h1 class="book-title">บทที่ 1: พีชคณิตเวกเตอร์และระบบพิกัดฉาก</h1><!-- BEGIN MASTERCLASS --><section id="masterclass" class="masterclass"><div class="card academic-callout masterclass-reading"><span class="academic-badge badge-primary">SET 01 · จากภาพกายภาพสู่การพิสูจน์</span><h2>คำถามที่บทนี้กำลังตอบ</h2><p class="lesson-anchor">จะบอกแรงหรือสนามให้ครบได้อย่างไร เมื่อขนาดอย่างเดียวบอกไม่ได้ว่ามันชี้ไปไหน?</p><div class="bridge-links"><p>เริ่มจากพีชคณิต ตรีโกณมิติ และหน่วย SI ไม่ต้องมีพื้นฐานสนามมาก่อน</p></div></div><div class="masterclass-group masterclass-reading"><h2>01 · สร้างภาพในใจก่อนใช้สมการ</h2><div class="card"><p>แรง 5 N ทางตะวันออกกับแรง 5 N ทางเหนือมีขนาดเท่ากัน แต่ทำให้วัตถุเคลื่อนไปต่างทาง เวกเตอร์จึงต้องบันทึกทั้งขนาดและทิศ เลือกฐานเหมือนเลือกไม้บรรทัดสามแนว เวกเตอร์จริงไม่เปลี่ยนเมื่อหมุนไม้บรรทัด มีเพียงตัวเลของค์ประกอบที่เปลี่ยน</p><p>ผลคูณจุดถามว่าอีกเวกเตอร์ช่วยไปตามทิศที่สนใจเท่าใด จึงเป็นการฉายและให้สเกลาร์ ผลคูณไขว้ถามถึงพื้นที่ที่ลูกศรสองอันกางออก และแนวตั้งฉากที่กำหนดด้วยมือขวา ความหมายทั้งสองต่างกันตั้งแต่ก่อนเริ่มคำนวณ</p><p class="assumption-line"><b>ขอบเขตแบบจำลอง:</b> ใช้ฐานฉากที่มีขนาดหนึ่งและจัดลำดับตามมือขวา</p></div></div><div class="masterclass-group"><h2>02 · พิสูจน์ทีละบรรทัดพร้อมเหตุผล</h2><article class="card derivation-line"><h3><span class="step-number">01</span> สูตรตั้งต้นของฐานตั้งฉาก</h3><div class="math-display"><b>A</b> = Σ<sub>i=x,y,z</sub><em>A</em><sub>i</sub><b>a</b><sub>i</sub>; <b>a</b><sub>i</sub> • <b>a</b><sub>j</sub> = <em>δ</em><sub>ij</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> δ เท่ากับหนึ่งเมื่อฐานเดียวกันและศูนย์เมื่อคนละฐาน เป็นเงื่อนไขที่ใช้ในทุกการกระจายต่อไป</p></article><article class="card derivation-line"><h3><span class="step-number">02</span> ฉายองค์ประกอบโดยไม่เดาทิศ</h3><div class="math-display"><b>A</b> • <b>a</b><sub>x</sub> = <em>A</em><sub>x</sub>(1) + <em>A</em><sub>y</sub>(0) + <em>A</em><sub>z</sub>(0) = <em>A</em><sub>x</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> คูณจุดทั้งสองข้างของสูตรตั้งต้น ฐานที่ตั้งฉากกันตัดพจน์อื่นทิ้ง</p></article><article class="card derivation-line"><h3><span class="step-number">03</span> กระจายขนาดกำลังสอง</h3><div class="math-display">|<b>A</b>|² = <b>A</b> • <b>A</b> = Σ<sub>i</sub>Σ<sub>j</sub><em>A</em><sub>i</sub><em>A</em><sub>j</sub><em>δ</em><sub>ij</sub> = <em>A</em><sub>x</sub>² + <em>A</em><sub>y</sub>² + <em>A</em><sub>z</sub>²</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> พจน์ข้ามแกนเป็นศูนย์ เหลือเฉพาะผลคูณแกนเดียวกัน จึงได้พีทาโกรัสสามมิติ</p></article><article class="card derivation-line"><h3><span class="step-number">04</span> หาเวกเตอร์หน่วยของทิศใดก็ได้</h3><div class="math-display"><b>a</b><sub>A</sub> = <span class="math-frac"><span class="math-num"><b>A</b></span><span class="math-den">|<b>A</b>|</span></span>; |<b>a</b><sub>A</sub>|² = <span class="math-frac"><span class="math-num">|<b>A</b>|²</span><span class="math-den">|<b>A</b>|²</span></span> = 1</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> หารทุกองค์ประกอบด้วยขนาดเดียวกัน เปลี่ยนความยาวให้เป็นหนึ่งโดยไม่เปลี่ยนทิศ ใช้ไม่ได้เมื่อเวกเตอร์เป็นศูนย์</p></article><article class="card derivation-line"><h3><span class="step-number">05</span> เชื่อมการฉายกับมุม</h3><div class="math-display"><b>A</b> • <b>B</b> = <em>A</em><sub>x</sub><em>B</em><sub>x</sub> + <em>A</em><sub>y</sub><em>B</em><sub>y</sub> + <em>A</em><sub>z</sub><em>B</em><sub>z</sub> = |<b>A</b>| |<b>B</b>| cos <em>θ</em></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ส่วนที่ B ฉายบนแนว A ยาว |B|cosθ แล้วคูณขนาด A เครื่องหมายลบหมายถึงฉายสวนทิศ</p></article><article class="card derivation-line"><h3><span class="step-number">06</span> กระจายผลคูณไขว้ตามฐาน</h3><div class="math-display"><b>A</b> × <b>B</b> = (<em>A</em><sub>y</sub><em>B</em><sub>z</sub>−<em>A</em><sub>z</sub><em>B</em><sub>y</sub>)<b>a</b><sub>x</sub> + (<em>A</em><sub>z</sub><em>B</em><sub>x</sub>−<em>A</em><sub>x</sub><em>B</em><sub>z</sub>)<b>a</b><sub>y</sub> + (<em>A</em><sub>x</sub><em>B</em><sub>y</sub>−<em>A</em><sub>y</sub><em>B</em><sub>x</sub>)<b>a</b><sub>z</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ใช้ x×y=z, y×z=x, z×x=y พจน์ฐานเดียวกันเป็นศูนย์และเมื่อสลับลำดับต้องติดลบ</p></article><article class="card derivation-line"><h3><span class="step-number">07</span> ตรวจด้วยตัวอย่างที่คำนวณในใจได้</h3><div class="math-display"><b>A</b>=3<b>a</b><sub>x</sub>+4<b>a</b><sub>y</sub>; <b>B</b>=2<b>a</b><sub>z</sub><br>|<b>A</b>|=5; <b>A</b> • <b>B</b>=0; <b>A</b> × <b>B</b>=8<b>a</b><sub>x</sub>−6<b>a</b><sub>y</sub>; |<b>A</b> × <b>B</b>|=10</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> เวกเตอร์ตั้งฉากกันจึง dot เป็นศูนย์และพื้นที่เท่ากับ 5×2 ตรวจด้วยการคูณผลลัพธ์กับ A และ B จะได้ศูนย์ทั้งคู่</p></article></div><div class="masterclass-group"><h2>03 · กับดักที่ทำให้เสียคะแนน</h2><div class="summary-box exam-trap"><ul><li>ห้ามบวกขนาดแทนองค์ประกอบเมื่อแรงไม่ขนานกัน</li><li>สลับ A×B เป็น B×A ต้องกลับเครื่องหมายทั้งเวกเตอร์</li><li>เวกเตอร์หน่วยไม่มีหน่วย แต่ขนาดผลคูณต้องรักษาหน่วยของเวกเตอร์ต้นทาง</li></ul><p>เขียนสูตรทั่วไป → ระบุพิกัดและทิศ → วิเคราะห์ด้วยมือ → ใช้ขอบเขต → ตรวจหน่วย SI และความหมาย</p></div></div><div class="masterclass-group masterclass-reading"><h2>04 · สนามนี้อยู่ในงานวิศวกรรมอย่างไร</h2><div class="card"><p>งานของแรงเป็นผลคูณจุดกับการกระจัด เพราะแรงตั้งฉากเส้นทางไม่ทำงาน ส่วนแรงบิดเป็นผลคูณไขว้ของแขนแรงกับแรง จึงบอกแกนหมุนของโรเตอร์ได้</p><p>ต่อไปแรงบนตัวนำกระแสในสนามแม่เหล็กจะใช้ผลคูณไขว้ ขณะที่การนับฟลักซ์ผ่านหน้าขดลวดใช้ผลคูณจุด ทักษะเลือกตัวดำเนินการจึงสำคัญกว่าจำสูตร</p><p class="why-step"><b>ลองอธิบายด้วยคำของตนเอง:</b> ถ้าหมุนแกนพิกัด 30° ขนาดเวกเตอร์จริงต้องเปลี่ยนหรือไม่? อธิบายด้วยนิยามผลคูณจุด</p></div></div><div class="masterclass-group"><h2>05 · ทำนาย ทดลอง และตรวจเหตุผล</h2><div class="practice-generator-card master-lab" data-chapter="1"><h3>ห้องทดลอง Set 1</h3><p>ปรับมุมเวกเตอร์ในเครื่องมือด้านล่างจาก 0° เป็น 90° ก่อนเปิดผล ทำนายว่าผลคูณจุดจะลดลงเป็นศูนย์ แต่พื้นที่จะเพิ่มขึ้นสูงสุด</p><div class="master-lab-controls"></div><div class="master-lab-view"></div><output class="master-lab-result" aria-live="polite"></output><p class="master-lab-assumptions"></p><details class="accordion-solution"><summary>บันทึกสิ่งที่ทำนายและสิ่งที่สังเกต</summary><label for="reflection-1">อธิบายเหตุและผลพร้อมเงื่อนไขที่ตรึง</label><div class="worksheet-editor"><p class="worksheet-hint">ก่อนปรับ: ทำนายทิศและขนาด · หลังปรับ: อธิบายด้วยสมการและเงื่อนไข</p><textarea id="reflection-1" class="learning-input learning-reflection" rows="4" placeholder="ฉันตรึง… ปรับ… จึงทำนายว่า… ผลที่เห็นคือ… เพราะ…"></textarea></div><p class="reflection-status" role="status"></p></details></div></div><div class="card"><h3>สะพานสู่บทถัดไป</h3><p>แนวคิดของบทนี้เป็นฐานให้ Set 2, Set 3, Set 4, Set 6, Set 9, Set 15, Set 17</p><div class="bridge-links"><a class="topic-pill" href="../02-cylindrical-coordinates/index.html">Set 2 · พิกัดทรงกระบอก</a><a class="topic-pill" href="../03-spherical-coordinates/index.html">Set 3 · พิกัดทรงกลม</a><a class="topic-pill" href="../04-coulombs-law/index.html">Set 4 · กฎคูลอมบ์</a><a class="topic-pill" href="../06-electric-flux-density/index.html">Set 6 · ความหนาแน่นฟลักซ์ไฟฟ้า</a><a class="topic-pill" href="../09-electric-potential/index.html">Set 9 · ศักย์ไฟฟ้า</a><a class="topic-pill" href="../15-steady-magnetic-field/index.html">Set 15 · สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="topic-pill" href="../17-curl-stokes/index.html">Set 17 · เคิร์ลและทฤษฎีบทสโตกส์</a></div><details class="accordion-solution"><summary>ตรวจวิธีจากสไลด์และตำราต้นฉบับ</summary><div class="source-reference-list"><a href="../lecture/set3_Vector3_for_prnt.pdf#page=8" target="_blank" rel="noopener">Set 3 · ฐานทรงกลม · PDF 8</a><a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=30" target="_blank" rel="noopener">Hayt D1.6 · วิธีแปลงฐาน (คนละข้อมูล) · PDF 30</a><a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=31" target="_blank" rel="noopener">Hayt §1.9 · ทรงกลม · PDF 31</a></div><p class="source-line">เลขหน้าทั้งหมดนับหน้า PDF รวมปก ตำราเป็นแหล่งตรวจวิธีและนิยาม ไม่ได้กล่าวว่าข้อมูลทุกตัวอย่างตรงกับข้อสอบ บทอธิบายและการพิสูจน์ด้านบนเรียบเรียงเพื่อการสอน</p></details></div></section><!-- END MASTERCLASS -->
     <div class="subtitle">
       รากฐานคณิตศาสตร์เวกเตอร์สำหรับวิศวกรรมไฟฟ้า: ปริมาณสเกลาร์-เวกเตอร์, สนามเวกเตอร์, เวกเตอร์บอกตำแหน่งและระยะทาง, ผลคูณจุด (Dot Product), ผลคูณไขว้ (Cross Product), เวกเตอร์ส่วนย่อยเชิงอนุพันธ์ (d<b>l</b>, d<b>s</b>, dv) พร้อมโจทย์ฝึกทักษะระดับ Textbook
     </div>
 
     <!-- สรุปวัตถุประสงค์ -->
-    <div class="academic-callout">
+    <div class="academic-callout card">
       <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
       <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
         <li>เข้าใจความแตกต่างเชิงกายภาพระหว่าง <strong>ปริมาณสเกลาร์ (Scalar)</strong>, <strong>ปริมาณเวกเตอร์ (Vector)</strong> และ <strong>สนามเวกเตอร์ (Vector Field)</strong></li>
@@ -504,7 +414,7 @@
       <p>
         เมื่อพิจารณาการเปลี่ยนแปลงระยะทางเล็กๆ ตามแนวแกน x, y, z เป็น <code>dx, dy, dz</code> จะได้ส่วนย่อยสำคัญ 3 รูปแบบ:
       </p>
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="math-display">
           <div style="margin-bottom: 14px;">
             <strong>1. เวกเตอร์ความยาวส่วนย่อย (Differential Length Vector, d<b>l</b>):</strong><br>
@@ -529,10 +439,10 @@
       <h2 class="section-title">7. ตัวอย่างโจทย์และแบบฝึกหัดเสริมทักษะ (Worked Examples & Drill Problems)</h2>
 
       <!-- กล่องเชื่อมโยงข้อสอบจริงและเกณฑ์การให้คะแนน (Exam Rubric Box) -->
-      <div class="step-card step-essential" style="border-left: 4px solid var(--accent); margin-bottom: 24px;">
+      <div class="step-card step-essential card" style="border-left: 4px solid var(--accent); margin-bottom: 24px;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
           <span class="step-badge must-write">เกณฑ์การแสดงวิธีทำเพื่อได้คะแนนเต็มในข้อสอบกลางภาค</span>
-          <span class="academic-badge badge-primary">อ้างอิงเอกสาร for_Exam_mid_214_68_for_prnt.pdf</span>
+          <span class="academic-badge badge-primary">อ้างอิงเอกสาร เอกสารคำชี้แจงกลางภาค</span>
         </div>
         <h4>แนวปฏิบัติทางคณิตศาสตร์เวกเตอร์สำหรับข้อสอบกลางภาควิชาสนามแม่เหล็กไฟฟ้า (303214):</h4>
         <div class="math-display">
@@ -567,34 +477,34 @@
             <span class="accordion-icon">▼</span>
           </div>
           <div class="accordion-body">
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(a) หา <strong>R</strong><sub>MN</sub> = <strong>r</strong><sub>N</sub> - <strong>r</strong><sub>M</sub>:</h4>
               <div class="math-display">
                 <strong>R</strong><sub>MN</sub> = [ 3 - (-1) ] <strong>a</strong><sub>x</sub> + [ -3 - 2 ] <strong>a</strong><sub>y</sub> + [ 0 - 1 ] <strong>a</strong><sub>z</sub> = <strong>4 a</strong><sub>x</sub> - <strong>5 a</strong><sub>y</sub> - <strong>a</strong><sub>z</sub>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(b) หา <strong>R</strong><sub>MP</sub> และผลบวก <strong>R</strong><sub>MN</sub> + <strong>R</strong><sub>MP</sub>:</h4>
               <div class="math-display">
                 <strong>R</strong><sub>MP</sub> = [ -2 - (-1) ] <strong>a</strong><sub>x</sub> + [ -3 - 2 ] <strong>a</strong><sub>y</sub> + [ -4 - 1 ] <strong>a</strong><sub>z</sub> = - <strong>a</strong><sub>x</sub> - 5 <strong>a</strong><sub>y</sub> - 5 <strong>a</strong><sub>z</sub><br>
                 <strong>R</strong><sub>MN</sub> + <strong>R</strong><sub>MP</sub> = (4 - 1) <strong>a</strong><sub>x</sub> + (-5 - 5) <strong>a</strong><sub>y</sub> + (-1 - 5) <strong>a</strong><sub>z</sub> = <strong>3 a</strong><sub>x</sub> - <strong>10 a</strong><sub>y</sub> - <strong>6 a</strong><sub>z</sub>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(c) หาขนาด |<strong>r</strong><sub>M</sub>|:</h4>
               <div class="math-display">
                 <strong>r</strong><sub>M</sub> = - <strong>a</strong><sub>x</sub> + 2 <strong>a</strong><sub>y</sub> + <strong>a</strong><sub>z</sub><br>
                 |<strong>r</strong><sub>M</sub>| = √[ (-1)² + 2² + 1² ] = √(1 + 4 + 1) = √6 ≈ <strong>2.45</strong>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(d) หาเวกเตอร์หนึ่งหน่วย <strong>a</strong><sub>MP</sub>:</h4>
               <div class="math-display">
                 |<strong>R</strong><sub>MP</sub>| = √[ (-1)² + (-5)² + (-5)² ] = √(1 + 25 + 25) = √51 ≈ 7.141<br>
                 <strong>a</strong><sub>MP</sub> = <span class="math-frac"><span class="math-num"><strong>R</strong><sub>MP</sub></span><span class="math-den">|<strong>R</strong><sub>MP</sub>|</span></span> = <span class="math-frac"><span class="math-num">- <strong>a</strong><sub>x</sub> - 5 <strong>a</strong><sub>y</sub> - 5 <strong>a</strong><sub>z</sub></span><span class="math-den">7.141</span></span> = <strong>-0.140 a</strong><sub>x</sub> - <strong>0.700 a</strong><sub>y</sub> - <strong>0.700 a</strong><sub>z</sub>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(e) หาขนาด |2 <strong>r</strong><sub>P</sub> - 3 <strong>r</strong><sub>N</sub>|:</h4>
               <div class="math-display">
                 2 <strong>r</strong><sub>P</sub> = 2(-2 <strong>a</strong><sub>x</sub> - 3 <strong>a</strong><sub>y</sub> - 4 <strong>a</strong><sub>z</sub>) = -4 <strong>a</strong><sub>x</sub> - 6 <strong>a</strong><sub>y</sub> - 8 <strong>a</strong><sub>z</sub><br>
@@ -622,14 +532,14 @@
             <span class="accordion-icon">▼</span>
           </div>
           <div class="accordion-body">
-            <div class="step-card">
+            <div class="step-card card">
               <h4>ขั้นที่ 1: หาเวกเตอร์ด้านประกอบ <strong>R</strong><sub>AB</sub> และ <strong>R</strong><sub>AC</sub></h4>
               <div class="math-display">
                 <strong>R</strong><sub>AB</sub> = (-2 - 6) <strong>a</strong><sub>x</sub> + (3 - (-1)) <strong>a</strong><sub>y</sub> + (-4 - 2) <strong>a</strong><sub>z</sub> = <strong>-8 a</strong><sub>x</sub> + <strong>4 a</strong><sub>y</sub> - <strong>6 a</strong><sub>z</sub><br>
                 <strong>R</strong><sub>AC</sub> = (-3 - 6) <strong>a</strong><sub>x</sub> + (1 - (-1)) <strong>a</strong><sub>y</sub> + (5 - 2) <strong>a</strong><sub>z</sub> = <strong>-9 a</strong><sub>x</sub> + <strong>2 a</strong><sub>y</sub> + <strong>3 a</strong><sub>z</sub>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(a) หาผลคูณไขว้ <strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub> ด้วยดีเทอร์มิแนนต์:</h4>
               <div class="math-display">
                 <div class="math-equation">
@@ -658,7 +568,7 @@
                 <div>= <strong>24 a</strong><sub>x</sub> + <strong>78 a</strong><sub>y</sub> + <strong>20 a</strong><sub>z</sub></div>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(b) หามุม θ<sub>BAC</sub> จาก Dot Product:</h4>
               <div class="math-display">
                 <strong>R</strong><sub>AB</sub> • <strong>R</strong><sub>AC</sub> = (-8)(-9) + (4)(2) + (-6)(3) = 72 + 8 - 18 = <strong>62</strong><br>
@@ -668,14 +578,14 @@
                 θ<sub>BAC</sub> = arccos(0.5937) = <strong>53.58° ≈ 53.6°</strong>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(c) หาพื้นที่ของรูปสามเหลี่ยม ABC:</h4>
               <div class="math-display">
                 ขนาดของ |<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>| = √(24² + 78² + 20²) = √(576 + 6084 + 400) = √7060 ≈ 84.024<br>
                 พื้นที่สามเหลี่ยม Area = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> |<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>| = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> (84.024) = <strong>42.01 ≈ 42.0 ตารางหน่วย</strong>
               </div>
             </div>
-            <div class="step-card">
+            <div class="step-card card">
               <h4>(d) หาเวกเตอร์หนึ่งหน่วยตั้งฉาก <strong>a</strong><sub>N</sub>:</h4>
               <div class="math-display">
                 <strong>a</strong><sub>N</sub> = <span class="math-frac"><span class="math-num"><strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub></span><span class="math-den">|<strong>R</strong><sub>AB</sub> × <strong>R</strong><sub>AC</sub>|</span></span> = <span class="math-frac"><span class="math-num">24 <strong>a</strong><sub>x</sub> + 78 <strong>a</strong><sub>y</sub> + 20 <strong>a</strong><sub>z</sub></span><span class="math-den">84.024</span></span><br>
@@ -688,9 +598,9 @@
 
       <!-- ข้อสอบและความเชื่อมโยงสู่การสอบจริง -->
       <div class="step-container" style="margin-top: 32px;">
-        <div class="step-card step-essential">
+        <div class="step-card step-essential card">
           <span class="step-badge must-write">มาตรฐานการเขียนวิธีทำในข้อสอบให้ได้คะแนนเต็ม (Official Exam Standards)</span>
-          <h4>3 กฎเหล็กของการแสดงวิธีทำตามประกาศการสอบกลางภาค (for_Exam_mid_214_68_for_prnt.pdf):</h4>
+          <h4>3 กฎเหล็กของการแสดงวิธีทำตามประกาศการสอบกลางภาค (เอกสารคำชี้แจงกลางภาค):</h4>
           
           <div class="math-display" style="border-left-color: var(--red);">
             <ol style="margin-left: 20px; line-height: 1.95;">
@@ -707,7 +617,7 @@
     <section id="sec8">
       <h2 class="section-title">8. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Test)</h2>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 1: การทดสอบเงื่อนไขการตั้งฉากของเวกเตอร์ (Orthogonality Condition)</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
@@ -722,7 +632,7 @@
         <div class="quiz-feedback" data-explanation="เงื่อนไขการตั้งฉากคือ <strong>A</strong> • <strong>B</strong> = 0: (2)(3) + (<em>c</em>)(2) + (-4)(2) = 0 ⇒ 6 + 2<em>c</em> - 8 = 0 ⇒ 2<em>c</em> = 2 ⇒ <em>c</em> = 1"></div>
       </div>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 2: ความหมายเชิงกายภาพของผลคูณไขว้ของเวกเตอร์ที่ขนานกัน</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
@@ -737,7 +647,7 @@
         <div class="quiz-feedback" data-explanation="เนื่องจากมุมระหว่างเวกเตอร์ที่ขนานกันคือ θ = 0° หรือ 180° ทำให้ sin θ = 0 ดังนั้น <strong>A</strong> × <strong>B</strong> = <strong>0</strong> (เวกเตอร์ศูนย์) เสมอ"></div>
       </div>
 
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>ข้อที่ 3: เวกเตอร์พื้นที่ผิวส่วนย่อยบนระนาบแนวนอน z = 3</h4>
           <span class="quiz-points">ประเมินความเข้าใจ</span>
@@ -767,15 +677,15 @@
 </div>
 
 <!-- JavaScript Core & Engines -->
-<script src="../assets/js/common.js"></script>
-<script src="../assets/js/engines/vector3d-core.js"></script>
-<script src="../assets/js/engines/vector-sandbox.js"></script>
-<script src="../assets/js/engines/search-index.js"></script>
-<script src="../assets/js/engines/site-search.js"></script>
+<script src="../assets/js/roadmap-data.js?v=3aaa1712c262"></script><script src="../assets/js/common.js?v=73398137ac34"></script>
+<script src="../assets/js/engines/vector3d-core.js?v=575e736c3dce"></script>
+<script src="../assets/js/engines/vector-sandbox.js?v=05341840b409"></script>
+<script src="../assets/js/engines/search-index.js?v=40e72b6683fe"></script>
+<script src="../assets/js/engines/site-search.js?v=20965619ab46"></script>
 <script>
   window.addEventListener('load', () => {
     new VectorSandboxEngine('vector-canvas', 'vector-output');
   });
 </script>
-</body>
+<script src="../assets/js/masterclass-labs.js?v=ce486e12f5c8"></script></body>
 </html>

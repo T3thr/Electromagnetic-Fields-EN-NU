@@ -140,12 +140,12 @@ class PotentialSimEngine {
     }
 
     // 2. Draw Points A (Target) and B (Initial)
-    this.core.addCharge(aPt, 1, `A (ปลายทาง)`);
-    this.core.addCharge(bPt, -1, `B (เริ่มต้น)`);
+    this.core.addCharge(aPt, 1, ("A (ปลายทาง)"));
+    this.core.addCharge(bPt, -1, ("B (เริ่มต้น)"));
 
     // 3. Draw Path Line from B to A (dl direction)
     this.core.addLine(bPt, aPt, '#DC2626', 2.0, [4, 2]);
-    this.core.addCustomLabel(
+    this.core.addLabel(
       { x: (aPt.x + bPt.x) / 2, y: (aPt.y + bPt.y) / 2, z: (aPt.z + bPt.z) / 2 },
       'แนวการเลื่อนประจุ dl (B → A)',
       '#DC2626'
@@ -168,7 +168,7 @@ class PotentialSimEngine {
   }
 
   drawPointEquipotentials(q_nC) {
-    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, `+Q (${q_nC} nC)`);
+    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, ("+Q (").concat(q_nC).concat(" nC)"));
     const radii = [1.0, 2.0, 3.0];
     const colors = ['#3B82F6', '#60A5FA', '#93C5FD'];
 
@@ -184,14 +184,14 @@ class PotentialSimEngine {
       }
       const k = 8.98755e9;
       const vVal = (k * q_nC * 1e-9) / r;
-      this.core.addCustomLabel({ x: r * 0.707, y: r * 0.707, z: 0 }, `V = ${vVal.toFixed(1)} V`, colors[idx]);
+      this.core.addLabel({ x: r * 0.707, y: r * 0.707, z: 0 }, ("V = ").concat(vVal.toFixed(1)).concat(" V"), colors[idx]);
     });
   }
 
   drawLectureGradContours(aPt) {
     // V = 2x^2 y - 5z
     const vAtA = 2 * Math.pow(aPt.x, 2) * aPt.y - 5 * aPt.z;
-    this.core.addCustomLabel({ x: aPt.x, y: aPt.y, z: aPt.z + 0.8 }, `V(A) = ${vAtA.toFixed(1)} V`, '#1E40AF');
+    this.core.addLabel({ x: aPt.x, y: aPt.y, z: aPt.z + 0.8 }, ("V(A) = ").concat(vAtA.toFixed(1)).concat(" V"), '#1E40AF');
 
     // Draw reference grid plane
     const size = 4;
@@ -220,7 +220,7 @@ class PotentialSimEngine {
     this.core.addCharge({ x: 0, y: -1.5, z: 0 }, -5, '-Q');
     // Equipotential plane at y = 0 where V = 0
     this.core.addLine({ x: -3, y: 0, z: 0 }, { x: 3, y: 0, z: 0 }, '#047857', 2.0);
-    this.core.addCustomLabel({ x: 1.5, y: 0, z: 0 }, 'ระนาบสมศักย์ V = 0 V', '#047857');
+    this.core.addLabel({ x: 1.5, y: 0, z: 0 }, 'ระนาบสมศักย์ V = 0 V', '#047857');
   }
 
   calculateFieldAtPoint(preset, pt, q_nC, eps0) {
@@ -234,7 +234,7 @@ class PotentialSimEngine {
       const eVal = (k * q_nC * 1e-9) / (r * r);
       vec = { x: (pt.x / r) * 1.5, y: (pt.y / r) * 1.5, z: (pt.z / r) * 1.5 };
       eMag = eVal;
-      formula = `<b>E</b> = <span class="math-frac"><span class="math-num">Q</span><span class="math-den">4πε₀ r²</span></span> <b>a</b><sub>r</sub>`;
+      formula = ("<b>E</b> = <span class=\"math-frac\"><span class=\"math-num\">Q</span><span class=\"math-den\">4πε₀ r²</span></span> <b>a</b><sub>r</sub>");
     } else if (preset === 'lecture-grad') {
       // V = 2x^2 y - 5z => E = -∇V = -4xy a_x - 2x^2 a_y + 5 a_z
       const Ex = -4 * pt.x * pt.y;
@@ -243,7 +243,7 @@ class PotentialSimEngine {
       eMag = Math.sqrt(Ex * Ex + Ey * Ey + Ez * Ez);
       const scale = 1.8 / (eMag || 1);
       vec = { x: Ex * scale, y: Ey * scale, z: Ez * scale };
-      formula = `<b>E</b> = -∇V = -(${4 * pt.x * pt.y}) <b>a</b><sub>x</sub> - (${2 * pt.x * pt.x}) <b>a</b><sub>y</sub> + 5 <b>a</b><sub>z</sub> V/m`;
+      formula = ("<b>E</b> = -∇V = -(").concat(4 * pt.x * pt.y).concat(") <b>a</b><sub>x</sub> - (").concat(2 * pt.x * pt.x).concat(") <b>a</b><sub>y</sub> + 5 <b>a</b><sub>z</sub> V/m");
     } else if (preset === 'exam4') {
       // D = [r / (r^2 + a^2)^2] a_r => E = D / eps0
       const a = 1.0;
@@ -251,7 +251,7 @@ class PotentialSimEngine {
       const D_val = r / Math.pow(r * r + a * a, 2);
       eMag = D_val / eps0;
       vec = { x: (pt.x / r) * 1.5, y: (pt.y / r) * 1.5, z: (pt.z / r) * 1.5 };
-      formula = `<b>E</b> = <span class="math-frac"><span class="math-num">r</span><span class="math-den">ε₀ (r² + a²)²</span></span> <b>a</b><sub>r</sub>`;
+      formula = ("<b>E</b> = <span class=\"math-frac\"><span class=\"math-num\">r</span><span class=\"math-den\">ε₀ (r² + a²)²</span></span> <b>a</b><sub>r</sub>");
     } else {
       vec = { x: 0, y: 1.5, z: 0 };
       eMag = 10;
@@ -296,46 +296,16 @@ class PotentialSimEngine {
     }
 
     if (v_AB > 0.0001) {
-      analogyText = 'V_AB มีค่าเป็น <strong>บวก (+)</strong>: เลื่อนประจุทวนสนามไฟฟ้า เปรียบเสมือน<strong>การเข็นลูกบอลขึ้นเนินสูง หรือการออกแรงกดสปริง</strong> (แรงภายนอกต้องทำงาน W > 0 ทำให้ระบบสะสมพลังงานศักย์สูงขึ้น)';
+      analogyText = '<em>V</em><sub>AB</sub> มีค่าเป็น <strong>บวก (+)</strong>: เลื่อนประจุทวนสนามไฟฟ้า เปรียบเสมือน<strong>การเข็นลูกบอลขึ้นเนินสูง หรือการออกแรงกดสปริง</strong> (แรงภายนอกต้องทำงาน W > 0 ทำให้ระบบสะสมพลังงานศักย์สูงขึ้น)';
       natureColor = 'var(--green)';
     } else if (v_AB < -0.0001) {
-      analogyText = 'V_AB มีค่าเป็น <strong>ลบ (-)</strong>: เลื่อนประจุตามแนวสนามไฟฟ้า เปรียบเสมือน<strong>ลูกบอลกลิ้งลงเนินตามแรงโน้มถ่วง</strong> (สนามไฟฟ้าทำงานเอง พลังงานศักย์ลดลง)';
+      analogyText = '<em>V</em><sub>AB</sub> มีค่าเป็น <strong>ลบ (-)</strong>: เลื่อนประจุตามแนวสนามไฟฟ้า เปรียบเสมือน<strong>ลูกบอลกลิ้งลงเนินตามแรงโน้มถ่วง</strong> (สนามไฟฟ้าทำงานเอง พลังงานศักย์ลดลง)';
       natureColor = 'var(--red)';
     } else {
-      analogyText = 'V_AB = 0: จุดทั้งสองอยู่บน<strong>ผิวสมศักย์เดียวกัน (Equipotential Surface)</strong> ไม่ต้องทำงานสุทธิในการเลื่อนประจุ W = 0';
+      analogyText = '<em>V</em><sub>AB</sub> = 0: จุดทั้งสองอยู่บน<strong>ผิวสมศักย์เดียวกัน (Equipotential Surface)</strong> ไม่ต้องทำงานสุทธิในการเลื่อนประจุ W = 0';
       natureColor = 'var(--accent)';
     }
 
-    this.outputEl.innerHTML = `
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-        <div class="result-item">
-          <div class="res-label">1. ศักย์ไฟฟ้า ณ จุดปลายทาง A และจุดเริ่มต้น B</div>
-          <div class="res-val" style="font-size: 0.95rem;">
-            • V<sub>A</sub> = <strong>${v_A.toFixed(2)} V</strong> ณ A(${aPt.x}, ${aPt.y}, ${aPt.z})<br>
-            • V<sub>B</sub> = <strong>${v_B.toFixed(2)} V</strong> ณ B(${bPt.x}, ${bPt.y}, ${bPt.z})
-          </div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            ความต่างศักย์: <strong>V<sub>AB</sub> = V<sub>A</sub> - V<sub>B</sub> = ${v_AB.toFixed(2)} V</strong>
-          </p>
-        </div>
-
-        <div class="result-item">
-          <div class="res-label">2. งานในการเลื่อนประจุทดสอบ q = ${test_q_nC} nC (B → A)</div>
-          <div class="res-val" style="font-size: 0.95rem;">
-            W = q V<sub>AB</sub> = -q ∫<sub>B</sub><sup>A</sup> <b>E</b> • d<b>l</b> = <strong>${(work_J).toExponential(3)} J</strong>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            สูตรสนามไฟฟ้า: ${fieldData.formula}
-          </p>
-        </div>
-
-        <div class="result-item" style="border-left-color: ${natureColor}; grid-column: 1 / -1;">
-          <div class="res-label">3. การวิเคราะห์อุปมาทางฟิสิกส์เครื่องหมายบวก/ลบ (Physical Analogy)</div>
-          <div class="res-val" style="color: ${natureColor}; line-height: 1.85;">
-            ${analogyText}
-          </div>
-        </div>
-      </div>
-    `;
+    this.outputEl.innerHTML = ("\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;\">\n        <div class=\"result-item\">\n          <div class=\"res-label\">1. ศักย์ไฟฟ้า ณ จุดปลายทาง A และจุดเริ่มต้น B</div>\n          <div class=\"res-val\" style=\"font-size: 0.95rem;\">\n            • V<sub>A</sub> = <strong>").concat(v_A.toFixed(2)).concat(" V</strong> ณ A(").concat(aPt.x).concat(", ").concat(aPt.y).concat(", ").concat(aPt.z).concat(")<br>\n            • V<sub>B</sub> = <strong>").concat(v_B.toFixed(2)).concat(" V</strong> ณ B(").concat(bPt.x).concat(", ").concat(bPt.y).concat(", ").concat(bPt.z).concat(")\n          </div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            ความต่างศักย์: <strong>V<sub>AB</sub> = V<sub>A</sub> - V<sub>B</sub> = ").concat(v_AB.toFixed(2)).concat(" V</strong>\n          </p>\n        </div>\n\n        <div class=\"result-item\">\n          <div class=\"res-label\">2. งานในการเลื่อนประจุทดสอบ q = ").concat(test_q_nC).concat(" nC (B → A)</div>\n          <div class=\"res-val\" style=\"font-size: 0.95rem;\">\n            W = q V<sub>AB</sub> = -q ∫<sub>B</sub><sup>A</sup> <b>E</b> • d<b>l</b> = <strong>").concat((work_J).toExponential(3)).concat(" J</strong>\n          </div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            สูตรสนามไฟฟ้า: ").concat(fieldData.formula).concat("\n          </p>\n        </div>\n\n        <div class=\"result-item\" style=\"border-left-color: ").concat(natureColor).concat("; grid-column: 1 / -1;\">\n          <div class=\"res-label\">3. การวิเคราะห์อุปมาทางฟิสิกส์เครื่องหมายบวก/ลบ (Physical Analogy)</div>\n          <div class=\"res-val\" style=\"color: ").concat(natureColor).concat("; line-height: 1.85;\">\n            ").concat(analogyText).concat("\n          </div>\n        </div>\n      </div>\n    ");
   }
 }

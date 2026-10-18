@@ -109,7 +109,7 @@ class DivergenceSimEngine {
     this.core.clear();
 
     // 1. Center Point P Marker
-    this.core.addCharge({ x, y, z }, 1, `P(${x.toFixed(1)}, ${y.toFixed(1)}, ${z.toFixed(1)})`);
+    this.core.addCharge({ x, y, z }, 1, ("P(").concat(x.toFixed(1)).concat(", ").concat(y.toFixed(1)).concat(", ").concat(z.toFixed(1)).concat(")"));
 
     // 2. Draw Differential Box Δx Δy Δz around P
     this.drawDifferentialBox({ x, y, z }, delta);
@@ -149,7 +149,7 @@ class DivergenceSimEngine {
       this.core.addLine(corners[i], corners[j], '#B45309', 1.5, [4, 2]);
     });
 
-    this.core.addCustomLabel({ x: x + hs, y: y + hs, z: z + hs }, `Δv = ΔxΔyΔz (${Math.pow(size, 3).toFixed(3)} m³)`, '#B45309');
+    this.core.addLabel({ x: x + hs, y: y + hs, z: z + hs }, ("Δv = ΔxΔyΔz (").concat(Math.pow(size, 3).toFixed(3)).concat(" m³)"), '#B45309');
   }
 
   drawFaceVectors(center, size, data) {
@@ -158,19 +158,19 @@ class DivergenceSimEngine {
     const arrowLen = 0.8;
 
     // Front (+x face)
-    this.core.addVector({ x: x + hs, y, z }, { x: x + hs + arrowLen, y, z }, '#047857', 'D_front', 1.5);
+    this.core.addVector({ x: x + hs, y, z }, { x: x + hs + arrowLen, y, z }, '#047857', '<b>D</b> (หน้า)', 1.5);
     // Back (-x face)
-    this.core.addVector({ x: x - hs - arrowLen, y, z }, { x: x - hs, y, z }, '#047857', 'D_back', 1.5);
+    this.core.addVector({ x: x - hs - arrowLen, y, z }, { x: x - hs, y, z }, '#047857', '<b>D</b> (หลัง)', 1.5);
 
     // Right (+y face)
-    this.core.addVector({ x, y: y + hs, z }, { x, y: y + hs + arrowLen, z }, '#1E40AF', 'D_right', 1.5);
+    this.core.addVector({ x, y: y + hs, z }, { x, y: y + hs + arrowLen, z }, '#1E40AF', '<b>D</b> (ขวา)', 1.5);
     // Left (-y face)
-    this.core.addVector({ x, y: y - hs - arrowLen, z }, { x, y: y - hs, z }, '#1E40AF', 'D_left', 1.5);
+    this.core.addVector({ x, y: y - hs - arrowLen, z }, { x, y: y - hs, z }, '#1E40AF', '<b>D</b> (ซ้าย)', 1.5);
 
     // Top (+z face)
-    this.core.addVector({ x, y, z: z + hs }, { x, y, z: z + hs + arrowLen }, '#DC2626', 'D_top', 1.5);
+    this.core.addVector({ x, y, z: z + hs }, { x, y, z: z + hs + arrowLen }, '#DC2626', '<b>D</b> (บน)', 1.5);
     // Bottom (-z face)
-    this.core.addVector({ x, y, z: z - hs - arrowLen }, { x, y, z: z - hs }, '#DC2626', 'D_bottom', 1.5);
+    this.core.addVector({ x, y, z: z - hs - arrowLen }, { x, y, z: z - hs }, '#DC2626', '<b>D</b> (ล่าง)', 1.5);
   }
 
   evaluateField(preset, coordsys, x, y, z) {
@@ -189,7 +189,7 @@ class DivergenceSimEngine {
       dDy_dy = Math.exp(-x) * Math.sin(y);
       dDz_dz = 2.0;
       div_val = dDx_dx + dDy_dy + dDz_dz; // -e^-x sin y + e^-x sin y + 2 = 2
-      explanation = `∂D<sub>x</sub>/∂x = -e⁻ˣ sin y, &nbsp; ∂D<sub>y</sub>/∂y = e⁻ˣ sin y, &nbsp; ∂D<sub>z</sub>/∂z = 2 <br>ผลรวม ∇ • <b>D</b> = (-e⁻ˣ sin y) + (e⁻ˣ sin y) + 2 = <strong>2 C/m³</strong> (ค่าคงตัวทุกตำแหน่ง)`;
+      explanation = ("∂D<sub>x</sub>/∂x = -e⁻ˣ sin y, &nbsp; ∂D<sub>y</sub>/∂y = e⁻ˣ sin y, &nbsp; ∂D<sub>z</sub>/∂z = 2 <br>ผลรวม ∇ • <b>D</b> = (-e⁻ˣ sin y) + (e⁻ˣ sin y) + 2 = <strong>2 C/m³</strong> (ค่าคงตัวทุกตำแหน่ง)");
     } else if (preset === 'lecture-hw') {
       // D = (2xyz - y^2) a_x + (x^2 z - 2xy) a_y + x^2 y a_z
       Dx_str = '2xyz - y²';
@@ -200,10 +200,10 @@ class DivergenceSimEngine {
       dDy_dy = -2 * x;
       dDz_dz = 0;
       div_val = dDx_dx + dDy_dy + dDz_dz;
-      explanation = `∂D<sub>x</sub>/∂x = 2yz = 2(${y})(${z}) = <strong>${dDx_dx.toFixed(2)}</strong><br>` +
-                    `∂D<sub>y</sub>/∂y = -2x = -2(${x}) = <strong>${dDy_dy.toFixed(2)}</strong><br>` +
-                    `∂D<sub>z</sub>/∂z = 0 <br>` +
-                    `ผลรวม ∇ • <b>D</b> = ${dDx_dx.toFixed(2)} + (${dDy_dy.toFixed(2)}) + 0 = <strong>${div_val.toFixed(2)} C/m³</strong>`;
+      explanation = ("∂D<sub>x</sub>/∂x = 2yz = 2(").concat(y).concat(")(").concat(z).concat(") = <strong>").concat(dDx_dx.toFixed(2)).concat("</strong><br>") +
+                    ("∂D<sub>y</sub>/∂y = -2x = -2(").concat(x).concat(") = <strong>").concat(dDy_dy.toFixed(2)).concat("</strong><br>") +
+                    ("∂D<sub>z</sub>/∂z = 0 <br>") +
+                    ("ผลรวม ∇ • <b>D</b> = ").concat(dDx_dx.toFixed(2)).concat(" + (").concat(dDy_dy.toFixed(2)).concat(") + 0 = <strong>").concat(div_val.toFixed(2)).concat(" C/m³</strong>");
     } else if (preset === 'radial-uniform') {
       // D = (rho_0 r / 3) a_r in spherical (assume rho_0 = 3 => D = r a_r)
       Dx_str = 'x';
@@ -214,7 +214,7 @@ class DivergenceSimEngine {
       dDy_dy = 1.0;
       dDz_dz = 1.0;
       div_val = 3.0;
-      explanation = `ในพิกัดทรงกลม ∇ • <b>D</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">r²</span></span> <span class="math-frac"><span class="math-num">∂</span><span class="math-den">∂r</span></span>(r² · r) = <span class="math-frac"><span class="math-num">1</span><span class="math-den">r²</span></span> (3r²) = <strong>3 C/m³</strong> (ประจุบวกกระจายสม่ำเสมอ แหล่งกำเนิด Source)`;
+      explanation = ("ในพิกัดทรงกลม ∇ • <b>D</b> = <span class=\"math-frac\"><span class=\"math-num\">1</span><span class=\"math-den\">r²</span></span> <span class=\"math-frac\"><span class=\"math-num\">∂</span><span class=\"math-den\">∂r</span></span>(r² · r) = <span class=\"math-frac\"><span class=\"math-num\">1</span><span class=\"math-den\">r²</span></span> (3r²) = <strong>3 C/m³</strong> (ประจุบวกกระจายสม่ำเสมอ แหล่งกำเนิด Source)");
     } else if (preset === 'solenoidal') {
       // D = y a_x + x a_y
       Dx_str = 'y';
@@ -225,7 +225,7 @@ class DivergenceSimEngine {
       dDy_dy = 0;
       dDz_dz = 0;
       div_val = 0;
-      explanation = `∂D<sub>x</sub>/∂x = 0, &nbsp; ∂D<sub>y</sub>/∂y = 0, &nbsp; ∂D<sub>z</sub>/∂z = 0 <br>ผลรวม ∇ • <b>D</b> = <strong>0 C/m³</strong> (ไม่มีประจุสุทธิ ฟลักซ์ไหลเข้าเท่ากับไหลออกพอดี Solenoidal Field)`;
+      explanation = ("∂D<sub>x</sub>/∂x = 0, &nbsp; ∂D<sub>y</sub>/∂y = 0, &nbsp; ∂D<sub>z</sub>/∂z = 0 <br>ผลรวม ∇ • <b>D</b> = <strong>0 C/m³</strong> (ไม่มีประจุสุทธิ ฟลักซ์ไหลเข้าเท่ากับไหลออกพอดี Solenoidal Field)");
     }
 
     return { Dx_str, Dy_str, Dz_str, dDx_dx, dDy_dy, dDz_dz, div_val, explanation };
@@ -240,44 +240,16 @@ class DivergenceSimEngine {
     let natureText = '';
     let natureColor = '';
     if (data.div_val > 0.0001) {
-      natureText = 'แหล่งกำเนิดฟลักซ์สุทธิ (Source · มีประจุบวก ρ_v > 0 อยู่ภายใน)';
+      natureText = 'แหล่งกำเนิดฟลักซ์สุทธิ (Source · มีประจุบวก ρ<sub>v</sub> &gt; 0 อยู่ภายใน)';
       natureColor = 'var(--green)';
     } else if (data.div_val < -0.0001) {
-      natureText = 'แหล่งดูดกลืนฟลักซ์สุทธิ (Sink · มีประจุลบ ρ_v < 0 อยู่ภายใน)';
+      natureText = 'แหล่งดูดกลืนฟลักซ์สุทธิ (Sink · มีประจุลบ ρ<sub>v</sub> &lt; 0 อยู่ภายใน)';
       natureColor = 'var(--red)';
     } else {
-      natureText = 'ฟลักซ์สมดุล ไหลเข้าเท่ากับไหลออก (Solenoidal / Divergence-Free · ρ_v = 0)';
+      natureText = 'ฟลักซ์สมดุล ไหลเข้าเท่ากับไหลออก (Solenoidal / Divergence-Free · ρ<sub>v</sub> = 0)';
       natureColor = 'var(--accent)';
     }
 
-    this.outputEl.innerHTML = `
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-        <div class="result-item">
-          <div class="res-label">1. เวกเตอร์ความหนาแน่นฟลักซ์ D(x, y, z)</div>
-          <div class="res-val" style="font-size: 0.95rem;">
-            <b>D</b> = (${data.Dx_str}) <b>a</b><sub>x</sub> + (${data.Dy_str}) <b>a</b><sub>y</sub> + (${data.Dz_str}) <b>a</b><sub>z</sub>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            ตำแหน่งสังเกต: <strong>P(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)})</strong>
-          </p>
-        </div>
-
-        <div class="result-item">
-          <div class="res-label">2. การหาอนุพันธ์ย่อย (Partial Derivatives)</div>
-          <div class="res-val" style="line-height: 1.8; font-size: 0.92rem;">
-            ${data.explanation}
-          </div>
-        </div>
-
-        <div class="result-item" style="border-left-color: ${natureColor}; grid-column: 1 / -1;">
-          <div class="res-label">3. ค่าไดเวอร์เจนซ์และสมการของแมกซ์เวลล์ข้อที่ 1 (∇ • D = ρ<sub>v</sub>)</div>
-          <div class="res-val" style="color: ${natureColor}; line-height: 2.0;">
-            • <strong>∇ • D = ρ<sub>v</sub> = ${data.div_val.toFixed(4)} C/m³</strong><br>
-            • <strong>ฟลักซ์สุทธิรอบกล่องส่วนย่อย:</strong> ∮<sub>S</sub> <b>D</b> • d<b>s</b> ≈ (∇ • <b>D</b>) Δv = (${data.div_val.toFixed(4)}) × (${vol.toFixed(4)} m³) = <strong>${netFlux.toFixed(4)} C</strong><br>
-            • <strong>ลักษณะทางกายภาพ:</strong> <span style="font-weight: 700;">${natureText}</span>
-          </div>
-        </div>
-      </div>
-    `;
+    this.outputEl.innerHTML = ("\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;\">\n        <div class=\"result-item\">\n          <div class=\"res-label\">1. เวกเตอร์ความหนาแน่นฟลักซ์ D(x, y, z)</div>\n          <div class=\"res-val\" style=\"font-size: 0.95rem;\">\n            <b>D</b> = (").concat(data.Dx_str).concat(") <b>a</b><sub>x</sub> + (").concat(data.Dy_str).concat(") <b>a</b><sub>y</sub> + (").concat(data.Dz_str).concat(") <b>a</b><sub>z</sub>\n          </div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            ตำแหน่งสังเกต: <strong>P(").concat(x.toFixed(2)).concat(", ").concat(y.toFixed(2)).concat(", ").concat(z.toFixed(2)).concat(")</strong>\n          </p>\n        </div>\n\n        <div class=\"result-item\">\n          <div class=\"res-label\">2. การหาอนุพันธ์ย่อย (Partial Derivatives)</div>\n          <div class=\"res-val\" style=\"line-height: 1.8; font-size: 0.92rem;\">\n            ").concat(data.explanation).concat("\n          </div>\n        </div>\n\n        <div class=\"result-item\" style=\"border-left-color: ").concat(natureColor).concat("; grid-column: 1 / -1;\">\n          <div class=\"res-label\">3. ค่าไดเวอร์เจนซ์และสมการของแมกซ์เวลล์ข้อที่ 1 (∇ • D = ρ<sub>v</sub>)</div>\n          <div class=\"res-val\" style=\"color: ").concat(natureColor).concat("; line-height: 2.0;\">\n            • <strong>∇ • D = ρ<sub>v</sub> = ").concat(data.div_val.toFixed(4)).concat(" C/m³</strong><br>\n            • <strong>ฟลักซ์สุทธิรอบกล่องส่วนย่อย:</strong> ∮<sub>S</sub> <b>D</b> • d<b>s</b> ≈ (∇ • <b>D</b>) Δv = (").concat(data.div_val.toFixed(4)).concat(") × (").concat(vol.toFixed(4)).concat(" m³) = <strong>").concat(netFlux.toFixed(4)).concat(" C</strong><br>\n            • <strong>ลักษณะทางกายภาพ:</strong> <span style=\"font-weight: 700;\">").concat(natureText).concat("</span>\n          </div>\n        </div>\n      </div>\n    ");
   }
 }

@@ -103,13 +103,13 @@ class FaradaySimEngine {
     this.core.clear();
 
     // 1. Draw Inner Conductor Sphere (r = a)
-    this.drawSphereRings(innerR, '#B45309', 24, `ผิวนอกทรงกลมใน r = a (${innerR.toFixed(1)} m)`);
+    this.drawSphereRings(innerR, '#B45309', 24, ("ผิวนอกทรงกลมใน r = a (").concat(innerR.toFixed(1)).concat(" m)"));
 
     // 2. Draw Outer Conductor Sphere (r = b)
-    this.drawSphereRings(outerR, '#1E40AF', 32, `ผิวด้านในทรงกลมนอก r = b (${outerR.toFixed(1)} m)`);
+    this.drawSphereRings(outerR, '#1E40AF', 32, ("ผิวด้านในทรงกลมนอก r = b (").concat(outerR.toFixed(1)).concat(" m)"));
 
     // 3. Center point charge representation
-    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, `+Q (${q_nC} nC)`);
+    this.core.addCharge({ x: 0, y: 0, z: 0 }, q_nC, ("+Q (").concat(q_nC).concat(" nC)"));
 
     // 4. Draw radial D flux lines emanating between a and b
     const numLines = 12;
@@ -184,7 +184,7 @@ class FaradaySimEngine {
     }
 
     if (label) {
-      this.core.addCustomLabel({ x: radius * 0.707, y: radius * 0.707, z: 0 }, label, color);
+      this.core.addLabel({ x: radius * 0.707, y: radius * 0.707, z: 0 }, label, color);
     }
   }
 
@@ -198,7 +198,7 @@ class FaradaySimEngine {
     for (let i = 0; i < pts.length - 1; i++) {
       this.core.addLine(pts[i], pts[i + 1], color, 1.8, []);
     }
-    this.core.addCustomLabel({ x: r, y: 0, z: 0 }, `r = ${r.toFixed(2)} m`, color);
+    this.core.addLabel({ x: r, y: 0, z: 0 }, ("r = ").concat(r.toFixed(2)).concat(" m"), color);
   }
 
   renderAnalytics(q_nC, q_C, a, b, eps_r, eps0, eps, r) {
@@ -235,40 +235,6 @@ class FaradaySimEngine {
     const rho_sa = (q_C / (4 * Math.PI * a * a)) * 1e9; // nC/m^2
     const rho_sb = (-q_C / (4 * Math.PI * b * b)) * 1e9; // nC/m^2
 
-    this.outputEl.innerHTML = `
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-        <div class="result-item">
-          <div class="res-label">1. ฟลักซ์ไฟฟ้ารวม (Total Electric Flux Ψ)</div>
-          <div class="res-val">Ψ = Q<sub>enc</sub> = ${totalPsi_nC.toFixed(2)} nC = ${(q_C).toExponential(3)} C</div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            ตามข้อสรุปการทดลองของฟาราเดย์: ฟลักซ์ไฟฟ้าที่แผ่ออกมาทั้งหมดมีค่าเท่ากับประจุที่ล้อมรอบเสมอ
-          </p>
-        </div>
-
-        <div class="result-item">
-          <div class="res-label">2. สภาพยอมของตัวกลาง (Permittivity ε)</div>
-          <div class="res-val">ε = ε<sub>r</sub> ε₀ = ${(eps).toExponential(4)} F/m</div>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;">
-            ε<sub>r</sub> = ${eps_r.toFixed(2)}, ε₀ ≈ 8.854 × 10⁻¹² F/m
-          </p>
-        </div>
-
-        <div class="result-item">
-          <div class="res-label">3. ความหนาแน่นประจุเชิงผิวบนโลหะ (ρ<sub>s</sub>)</div>
-          <div class="res-val">
-            • ผิวนอกทรงกลมใน (r = a): <strong>${rho_sa.toFixed(4)} nC/m²</strong><br>
-            • ผิวด้านในทรงกลมนอก (r = b): <strong>${rho_sb.toFixed(4)} nC/m²</strong>
-          </div>
-        </div>
-
-        <div class="result-item" style="border-left-color: var(--accent);">
-          <div class="res-label">4. ผลการคำนวณ ณ ระยะสังเกต r = ${r.toFixed(2)} m [${regionName}]</div>
-          <div class="res-val" style="color: var(--accent);">
-            <strong>D(r) = ${D_r > 0 ? `${D_r.toFixed(4)} <b>a</b><sub>r</sub> nC/m²` : `0 <b>a</b><sub>r</sub> (ศูนย์)`}</strong><br>
-            <strong>E(r) = ${E_r > 0 ? `${E_r.toFixed(2)} <b>a</b><sub>r</sub> V/m` : `0 <b>a</b><sub>r</sub> (ศูนย์)`}</strong>
-          </div>
-        </div>
-      </div>
-    `;
+    this.outputEl.innerHTML = ("\n      <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;\">\n        <div class=\"result-item\">\n          <div class=\"res-label\">1. ฟลักซ์ไฟฟ้ารวม (Total Electric Flux Ψ)</div>\n          <div class=\"res-val\">Ψ = Q<sub>enc</sub> = ").concat(totalPsi_nC.toFixed(2)).concat(" nC = ").concat((q_C).toExponential(3)).concat(" C</div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            ตามข้อสรุปการทดลองของฟาราเดย์: ฟลักซ์ไฟฟ้าที่แผ่ออกมาทั้งหมดมีค่าเท่ากับประจุที่ล้อมรอบเสมอ\n          </p>\n        </div>\n\n        <div class=\"result-item\">\n          <div class=\"res-label\">2. สภาพยอมของตัวกลาง (Permittivity ε)</div>\n          <div class=\"res-val\">ε = ε<sub>r</sub> ε₀ = ").concat((eps).toExponential(4)).concat(" F/m</div>\n          <p style=\"font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px;\">\n            ε<sub>r</sub> = ").concat(eps_r.toFixed(2)).concat(", ε₀ ≈ 8.854 × 10⁻¹² F/m\n          </p>\n        </div>\n\n        <div class=\"result-item\">\n          <div class=\"res-label\">3. ความหนาแน่นประจุเชิงผิวบนโลหะ (ρ<sub>s</sub>)</div>\n          <div class=\"res-val\">\n            • ผิวนอกทรงกลมใน (r = a): <strong>").concat(rho_sa.toFixed(4)).concat(" nC/m²</strong><br>\n            • ผิวด้านในทรงกลมนอก (r = b): <strong>").concat(rho_sb.toFixed(4)).concat(" nC/m²</strong>\n          </div>\n        </div>\n\n        <div class=\"result-item\" style=\"border-left-color: var(--accent);\">\n          <div class=\"res-label\">4. ผลการคำนวณ ณ ระยะสังเกต r = ").concat(r.toFixed(2)).concat(" m [").concat(regionName).concat("]</div>\n          <div class=\"res-val\" style=\"color: var(--accent);\">\n            <strong>D(r) = ").concat(D_r > 0 ? ("").concat(D_r.toFixed(4)).concat(" <b>a</b><sub>r</sub> nC/m²") : ("0 <b>a</b><sub>r</sub> (ศูนย์)")).concat("</strong><br>\n            <strong>E(r) = ").concat(E_r > 0 ? ("").concat(E_r.toFixed(2)).concat(" <b>a</b><sub>r</sub> V/m") : ("0 <b>a</b><sub>r</sub> (ศูนย์)")).concat("</strong>\n          </div>\n        </div>\n      </div>\n    ");
   }
 }

@@ -1,0 +1,176 @@
+[
+  {
+    "path": "lecture/final/set10_Current/set10_Current_for_prnt.pdf",
+    "pages": 23,
+    "set": 10,
+    "key": "set10-Current-for-prnt"
+  },
+  {
+    "path": "lecture/final/set10_Current/set10_HW4_Continue_eqn.pdf",
+    "pages": 1,
+    "set": 10,
+    "key": "set10-HW4-Continue-eqn"
+  },
+  {
+    "path": "lecture/final/set10_Current/set10_Note_Divergence_theorem.pdf",
+    "pages": 1,
+    "set": 10,
+    "key": "set10-Note-Divergence-theorem"
+  },
+  {
+    "path": "lecture/final/set10_Current/set10_eg_Current.pdf",
+    "pages": 3,
+    "set": 10,
+    "key": "set10-eg-Current"
+  },
+  {
+    "path": "lecture/final/set11_Dielectric/set11_Dielectric_for_prnt.pdf",
+    "pages": 5,
+    "set": 11,
+    "key": "set11-Dielectric-for-prnt"
+  },
+  {
+    "path": "lecture/final/set12_Boundary/set12_Boundary_for_prnt.pdf",
+    "pages": 27,
+    "set": 12,
+    "key": "set12-Boundary-for-prnt"
+  },
+  {
+    "path": "lecture/final/set12_Boundary/set12_eg_BC.pdf",
+    "pages": 3,
+    "set": 12,
+    "key": "set12-eg-BC"
+  },
+  {
+    "path": "lecture/final/set13_Capacitance/set13_Capacitance_for_prnt.pdf",
+    "pages": 3,
+    "set": 13,
+    "key": "set13-Capacitance-for-prnt"
+  },
+  {
+    "path": "lecture/final/set14_Laplace/set14_Laplace_for_prnt.pdf",
+    "pages": 8,
+    "set": 14,
+    "key": "set14-Laplace-for-prnt"
+  },
+  {
+    "path": "lecture/final/set14_Laplace/set14_eg_Capacitance.pdf",
+    "pages": 7,
+    "set": 14,
+    "key": "set14-eg-Capacitance"
+  },
+  {
+    "path": "lecture/final/set15_Stdy_Mag/set15_Stdy_magnetic_for_prnt.pdf",
+    "pages": 13,
+    "set": 15,
+    "key": "set15-Stdy-magnetic-for-prnt"
+  },
+  {
+    "path": "lecture/final/set15_Stdy_Mag/set15_eg_biot_COR.pdf",
+    "pages": 5,
+    "set": 15,
+    "key": "set15-eg-biot-COR"
+  },
+  {
+    "path": "lecture/final/set16_Ampere/set16_Ampere_for_prnt.pdf",
+    "pages": 4,
+    "set": 16,
+    "key": "set16-Ampere-for-prnt"
+  },
+  {
+    "path": "lecture/final/set16_Ampere/set16_eg_Ampere.pdf",
+    "pages": 4,
+    "set": 16,
+    "key": "set16-eg-Ampere"
+  },
+  {
+    "path": "lecture/final/set17_Curl/set17_Curl_for_prnt.pdf",
+    "pages": 49,
+    "set": 17,
+    "key": "set17-Curl-for-prnt"
+  },
+  {
+    "path": "lecture/final/set17_Curl/set17_Note_Curl_direct.pdf",
+    "pages": 7,
+    "set": 17,
+    "key": "set17-Note-Curl-direct"
+  },
+  {
+    "path": "lecture/final/set17_Curl/set17_eg_Curl.pdf",
+    "pages": 2,
+    "set": 17,
+    "key": "set17-eg-Curl"
+  },
+  {
+    "path": "lecture/final/set18_Magnetic_Flux/set18_Magnetic_flux_for_prnt.pdf",
+    "pages": 3,
+    "set": 18,
+    "key": "set18-Magnetic-flux-for-prnt"
+  },
+  {
+    "path": "lecture/final/set19_Maxwell_static/set19_Maxwell_static_for_prnt.pdf",
+    "pages": 15,
+    "set": 19,
+    "key": "set19-Maxwell-static-for-prnt"
+  },
+  {
+    "path": "lecture/final/set20_Time_Varying/set20_Stroke_diagram.pdf",
+    "pages": 3,
+    "set": 20,
+    "key": "set20-Stroke-diagram"
+  },
+  {
+    "path": "lecture/final/set20_Time_Varying/set20_Time_varying_for_prnt.pdf",
+    "pages": 13,
+    "set": 20,
+    "key": "set20-Time-varying-for-prnt"
+  },
+  {
+    "path": "lecture/final/set20_Time_Varying/set20_eg_Time_varying.pdf",
+    "pages": 3,
+    "set": 20,
+    "key": "set20-eg-Time-varying"
+  },
+  {
+    "path": "lecture/final/set21_Displacement_Current/set21_Jd_for_prnt.pdf",
+    "pages": 33,
+    "set": 21,
+    "key": "set21-Jd-for-prnt"
+  },
+  {
+    "path": "lecture/final/set21_Displacement_Current/set21_Maxwell_meaning.pdf",
+    "pages": 4,
+    "set": 21,
+    "key": "set21-Maxwell-meaning"
+  },
+  {
+    "path": "lecture/final/set21_Displacement_Current/set21_eg_Cap_current.pdf",
+    "pages": 2,
+    "set": 21,
+    "key": "set21-eg-Cap-current"
+  },
+  {
+    "path": "lecture/final/set21_Displacement_Current/set21_eg_jd.pdf",
+    "pages": 3,
+    "set": 21,
+    "key": "set21-eg-jd"
+  },
+  {
+    "path": "lecture/final/set22_Maxwell_time_harmonic/set22_Maxwell_time_harmonic_for_prnt.pdf",
+    "pages": 46,
+    "set": 22,
+    "key": "set22-Maxwell-time-harmonic-for-prnt"
+  },
+  {
+    "path": "lecture/final/set22_Maxwell_time_harmonic/set22_eg_Maxwell_time_harmonic_COMPLETE.pdf",
+    "pages": 5,
+    "set": 22,
+    "key": "set22-eg-Maxwell-time-harmonic-COMPLETE"
+  },
+  {
+    "path": "lecture/final/set22_Maxwell_time_harmonic/set22_eg_Spatial_field.pdf",
+    "pages": 1,
+    "set": 22,
+    "key": "set22-eg-Spatial-field"
+  }
+]

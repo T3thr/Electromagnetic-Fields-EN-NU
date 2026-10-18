@@ -5,105 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:,">
 <title>บทที่ 9: ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (Electric Potential & Energy) · 303214 สนามแม่เหล็กไฟฟ้า 1</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/interactive.css">
-</head>
+<link rel="stylesheet" href="../assets/css/style.css?v=ac8ca7ccf42a">
+<link rel="stylesheet" href="../assets/css/interactive.css?v=88e5a71cd689">
+<meta name="emf-root" content="../">
+<link rel="stylesheet" href="../assets/css/final.css?v=89a32acfcb86">
+<link rel="stylesheet" href="../assets/css/masterclass.css?v=05ec3264c7e7"><meta name="emf-chapter" content="9"></head>
 <body>
 
 <!-- ═══════════ Sticky Top Navbar ═══════════ -->
-<header class="site-header">
-  <nav class="site-navbar">
-    <a href="../index.html" class="nav-brand">
-      <span class="course-code">303214</span>
-      <span>สนามแม่เหล็กไฟฟ้า 1</span>
-    </a>
-
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="../index.html" class="nav-link">หน้าหลัก</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link active">สารบัญรายวิชา ▾</a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">เนื้อหาส่วนกลางภาค (Midterm Coursework)</div>
-          <a href="../01-vector-algebra/index.html" class="dropdown-item"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="dropdown-item"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="dropdown-item"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="dropdown-item"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="dropdown-item"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="dropdown-item"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่นฟลักซ์ D</a>
-          <a href="../07-gauss-law/index.html" class="dropdown-item"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="dropdown-item"><span class="ch-num">08</span> ไดเวอร์เจนซ์และทฤษฎีบทไดเวอร์เจนซ์</a>
-          <a href="../09-electric-potential/index.html" class="dropdown-item active"><span class="ch-num">09</span> ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (ข้อสอบ 4)</a>
-          
-          <div class="dropdown-header" style="margin-top: 6px;">เนื้อหาส่วนปลายภาค (Final Coursework — ตามชุดสไลด์)</div>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">10</span> Current & Current Density (กระแสและความหนาแน่น)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">11</span> Metallic Conductors & Dielectrics (ตัวนำและไดอิเล็กทริก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">12</span> Boundary Conditions (เงื่อนไขขอบเขต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">13</span> Capacitance & Energy (ความจุไฟฟ้าและพลังงาน)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">14</span> Poisson's & Laplace's Equations (สมการปัวซง-ลาปลาซ)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">15</span> Steady Magnetic Field & Biot-Savart (สนามแม่เหล็กสถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">16</span> Ampere's Circuital Law (กฎวงรอบของแอมแปร์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">17</span> Curl & Stokes' Theorem (เคิร์ลและทฤษฎีบทสโตกส์)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">18</span> Magnetic Flux Density (ความหนาแน่นฟลักซ์แม่เหล็ก)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">19</span> Maxwell's Equations for Static Fields (สมการแมกซ์เวลล์สถิต)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">20</span> Time-Varying Fields & Faraday's Law (สนามแปรตามเวลา)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">21</span> Displacement Current (กระแสแทนที่ J<sub>d</sub>)</a>
-          <a href="../index.html#sec-final" class="dropdown-item" style="color: var(--ink-soft);"><span class="ch-num">22</span> Time-Harmonic Fields (สนามฮาร์มอนิกสมบูรณ์)</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="../formula-sheet/index.html" class="nav-link">ใบสูตรกลางภาค</a>
-      </li>
-      <li class="nav-item">
-        <a href="../exam-simulator/index.html" class="nav-link">ระบบจำลองการสอบ</a>
-      </li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="search-trigger-btn" type="button" aria-label="ค้นหา">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <span>ค้นหา</span>
-        <span class="search-kbd-hint">Ctrl K</span>
-      </button>
-      <button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนโหมดการแสดงผล"></button>
-      <button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู">☰</button>
-    </div>
-  </nav>
-
-  <!-- Structured Mobile Drawer -->
-  <div class="mobile-nav-drawer">
-    <div class="mobile-nav-group">
-      <div class="mobile-nav-title">เมนูหลัก</div>
-      <a href="../index.html" class="mobile-nav-link">หน้าหลัก Portal</a>
-      <a href="../formula-sheet/index.html" class="mobile-nav-link">ใบสูตรสอบกลางภาคดิจิทัล</a>
-      <a href="../exam-simulator/index.html" class="mobile-nav-link">ระบบจำลองการสอบกลางภาค 3 ชม.</a>
-    </div>
-
-    <div class="mobile-nav-group">
-      <div class="mobile-accordion-item open">
-        <div class="mobile-accordion-header">
-          <span>เนื้อหาส่วนกลางภาค (บทที่ 01–09)</span>
-          <span class="accordion-icon">▼</span>
-        </div>
-        <div class="mobile-accordion-content">
-          <a href="../01-vector-algebra/index.html" class="mobile-ch-link"><span class="ch-num">01</span> พีชคณิตเวกเตอร์และพิกัดฉาก</a>
-          <a href="../02-cylindrical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">02</span> ระบบพิกัดทรงกระบอก</a>
-          <a href="../03-spherical-coordinates/index.html" class="mobile-ch-link"><span class="ch-num">03</span> ระบบพิกัดทรงกลม (ข้อสอบ 1)</a>
-          <a href="../04-coulombs-law/index.html" class="mobile-ch-link"><span class="ch-num">04</span> กฎของคูลอมบ์และแรงระหว่างประจุ (ข้อสอบ 2)</a>
-          <a href="../05-electric-field-intensity/index.html" class="mobile-ch-link"><span class="ch-num">05</span> ความเข้มสนามไฟฟ้า E (ข้อสอบ 3)</a>
-          <a href="../06-electric-flux-density/index.html" class="mobile-ch-link"><span class="ch-num">06</span> ฟลักซ์ไฟฟ้าและความหนาแน่น D</a>
-          <a href="../07-gauss-law/index.html" class="mobile-ch-link"><span class="ch-num">07</span> กฎของเกาส์และผิวสมมาตร</a>
-          <a href="../08-divergence-theorem/index.html" class="mobile-ch-link"><span class="ch-num">08</span> ไดเวอร์เจนซ์ ∇ • D</a>
-          <a href="../09-electric-potential/index.html" class="mobile-ch-link active"><span class="ch-num">09</span> ศักย์ไฟฟ้าและพลังงาน (ข้อสอบ 4)</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<header class="site-header"><nav class="site-navbar" aria-label="เมนูหลัก"><a href="../index.html" class="nav-brand"><span class="course-code">303214</span><span>สนามแม่เหล็กไฟฟ้า 1</span></a><ul class="nav-menu"><li><a class="nav-link" href="../index.html">หน้าหลัก</a></li><li class="nav-item"><button type="button" class="nav-link nav-dropdown-button" aria-expanded="false">สารบัญรายวิชา ▾</button><div class="dropdown-menu"><div class="dropdown-header">กลางภาค · Sets 01–09</div><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a><div class="dropdown-header">ปลายภาค · Sets 10–22</div><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ใบสูตร ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="dropdown-item" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a></div></li><li class="nav-item"><button class="nav-link nav-dropdown-button" type="button" aria-expanded="false">ห้องสอบ ▾</button><div class="dropdown-menu"><a class="dropdown-item" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="dropdown-item" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a></div></li></ul><div class="nav-actions"><button class="search-trigger-btn" type="button" aria-label="ค้นหาคลังความรู้"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"></circle><path d="m16 16 6 6"></path></svg><span>ค้นหา</span><span class="search-kbd-hint">Ctrl K</span></button><button class="theme-toggle-btn" type="button" aria-label="เปลี่ยนธีม"></button><button class="nav-mobile-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button></div></nav><div class="mobile-nav-drawer"><a class="mobile-nav-link" href="../index.html">หน้าหลัก</a><a class="mobile-nav-link" href="../formula-sheet/index.html">ใบสูตรกลางภาค</a><a class="mobile-nav-link" href="../formula-sheet-final/index.html">ใบสูตรปลายภาค</a><a class="mobile-nav-link" href="../exam-simulator/midterm/index.html">ห้องสอบกลางภาค</a><a class="mobile-nav-link" href="../exam-simulator/final/index.html">ห้องสอบปลายภาค</a><details class="mobile-course-group accordion-solution"><summary>กลางภาค · Sets 01–09</summary><a class="dropdown-item" href="../01-vector-algebra/index.html"><span class="ch-num">01</span>พีชคณิตเวกเตอร์</a><a class="dropdown-item" href="../02-cylindrical-coordinates/index.html"><span class="ch-num">02</span>พิกัดทรงกระบอก</a><a class="dropdown-item" href="../03-spherical-coordinates/index.html"><span class="ch-num">03</span>พิกัดทรงกลม</a><a class="dropdown-item" href="../04-coulombs-law/index.html"><span class="ch-num">04</span>กฎคูลอมบ์</a><a class="dropdown-item" href="../05-electric-field-intensity/index.html"><span class="ch-num">05</span>สนามไฟฟ้า</a><a class="dropdown-item" href="../06-electric-flux-density/index.html"><span class="ch-num">06</span>ฟลักซ์ไฟฟ้า</a><a class="dropdown-item" href="../07-gauss-law/index.html"><span class="ch-num">07</span>กฎเกาส์</a><a class="dropdown-item" href="../08-divergence-theorem/index.html"><span class="ch-num">08</span>ไดเวอร์เจนซ์</a><a class="dropdown-item" href="../09-electric-potential/index.html"><span class="ch-num">09</span>ศักย์ไฟฟ้า</a></details><details class="mobile-course-group accordion-solution"><summary>ปลายภาค · Sets 10–22</summary><a class="dropdown-item" href="../10-current-and-conductors/index.html"><span class="ch-num">10</span>กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="dropdown-item" href="../11-dielectrics/index.html"><span class="ch-num">11</span>ธรรมชาติของไดอิเล็กทริก</a><a class="dropdown-item" href="../12-boundary-conditions/index.html"><span class="ch-num">12</span>เงื่อนไขขอบเขตสนามไฟฟ้า</a><a class="dropdown-item" href="../13-capacitance/index.html"><span class="ch-num">13</span>ความจุไฟฟ้าและพลังงานสะสม</a><a class="dropdown-item" href="../14-poisson-laplace/index.html"><span class="ch-num">14</span>สมการปัวซงและลาปลาส</a><a class="dropdown-item" href="../15-steady-magnetic-field/index.html"><span class="ch-num">15</span>สนามแม่เหล็กสถิตและกฎบิโอต์–ซาวารต์</a><a class="dropdown-item" href="../16-amperes-law/index.html"><span class="ch-num">16</span>กฎวงรอบของแอมแปร์</a><a class="dropdown-item" href="../17-curl-stokes/index.html"><span class="ch-num">17</span>เคิร์ลและทฤษฎีบทสโตกส์</a><a class="dropdown-item" href="../18-magnetic-flux/index.html"><span class="ch-num">18</span>ฟลักซ์แม่เหล็กและศักย์เวกเตอร์</a><a class="dropdown-item" href="../19-maxwell-static/index.html"><span class="ch-num">19</span>สมการแมกซ์เวลล์สำหรับสนามสถิต</a><a class="dropdown-item" href="../20-faradays-law/index.html"><span class="ch-num">20</span>สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a><a class="dropdown-item" href="../21-displacement-current/index.html"><span class="ch-num">21</span>กระแสการกระจัดและสมการแมกซ์เวลล์เต็มรูป</a><a class="dropdown-item" href="../22-maxwell-time-harmonic/index.html"><span class="ch-num">22</span>ฮาร์มอนิกเวลาและคลื่นระนาบสม่ำเสมอ</a></details></div></header>
 
 <!-- ═══════════ Chapter Layout (Sidebar + Main Content) ═══════════ -->
 <div class="chapter-container">
@@ -111,9 +21,9 @@
   <!-- Sticky Table of Contents Sidebar -->
   <aside class="chapter-sidebar">
     <div class="sidebar-title">หัวข้อประจำบทเรียน</div>
-    <ul class="sidebar-nav">
+    <ul class="sidebar-nav"><li><a class="sidebar-link" href="#masterclass">ภาพรวมและการพิสูจน์</a></li>
       <li><a href="#sec1" class="sidebar-link active">1. งานในการเลื่อนประจุไฟฟ้า</a></li>
-      <li><a href="#sec2" class="sidebar-link">2. ความต่างศักย์ไฟฟ้า (V_AB)</a></li>
+      <li><a href="#sec2" class="sidebar-link">2. ความต่างศักย์ไฟฟ้า (<em>V</em><sub>AB</sub>)</a></li>
       <li><a href="#sec3" class="sidebar-link">3. เวกเตอร์การกระจัด dl 3 พิกัด</a></li>
       <li><a href="#sec-sim" class="sidebar-link">แบบจำลองศักย์และเกรเดียนต์ (CAD)</a></li>
       <li><a href="#sec4" class="sidebar-link">4. ศักย์ไฟฟ้าสัมบูรณ์ V(r)</a></li>
@@ -146,13 +56,13 @@
       <span class="academic-badge badge-primary">ข้อสอบข้อ 4 (25 คะแนนเต็ม)</span>
     </div>
 
-    <h1 class="book-title">บทที่ 9: ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (Electric Potential, Gradient & Energy)</h1>
+    <h1 class="book-title">บทที่ 9: ศักย์ไฟฟ้า เกรเดียนต์ และพลังงาน (Electric Potential, Gradient & Energy)</h1><!-- BEGIN MASTERCLASS --><section id="masterclass" class="masterclass"><div class="card academic-callout masterclass-reading"><span class="academic-badge badge-primary">SET 09 · จากภาพกายภาพสู่การพิสูจน์</span><h2>คำถามที่บทนี้กำลังตอบ</h2><p class="lesson-anchor">จะสรุปสนามเวกเตอร์ให้เป็นแผนที่พลังงานเพียงตัวเลขเดียวได้อย่างไร?</p><div class="bridge-links"><a class="topic-pill" href="../01-vector-algebra/index.html">Set 1 · พีชคณิตเวกเตอร์</a><a class="topic-pill" href="../04-coulombs-law/index.html">Set 4 · กฎคูลอมบ์</a><a class="topic-pill" href="../05-electric-field-intensity/index.html">Set 5 · ความเข้มสนามไฟฟ้า</a></div></div><div class="masterclass-group masterclass-reading"><h2>01 · สร้างภาพในใจก่อนใช้สมการ</h2><div class="card"><p>ศักย์คือบัญชีพลังงานต่อประจุ ไม่ใช่ลูกศรแรง สนามไฟฟ้าสถิตชี้จากศักย์สูงไปต่ำ แต่แรงบนประจุลบชี้สวนสนาม การบอกว่างานบวกหรือลบจึงต้องระบุว่าใครทำงาน ประจุอะไร และย้ายจากจุดไหนไปจุดไหน</p><p>การย้ายประจุบวกเข้าใกล้แหล่งบวกช้า ๆ ต้องออกแรงสวนแรงผลัก ภายนอกจึงทำงานบวกและพลังงานศักย์เพิ่ม ส่วนแรงสนามทำงานลบ เหมือนยกวัตถุขึ้นในสนามโน้มถ่วง แต่ประจุลบทำให้เครื่องหมายพลังงานกลับได้</p><p class="assumption-line"><b>ขอบเขตแบบจำลอง:</b> ไฟฟ้าสถิต สนามอนุรักษ์ งานภายนอกย้ายแบบพลังงานจลน์คงที่</p></div></div><div class="masterclass-group"><h2>02 · พิสูจน์ทีละบรรทัดพร้อมเหตุผล</h2><article class="card derivation-line"><h3><span class="step-number">01</span> สูตรทั่วไปจากงานต่อประจุ</h3><div class="math-display"><em>V</em><sub>A</sub>−<em>V</em><sub>B</sub>=−∫<sub>B</sub><sup>A</sup><b>E</b> • d<b>l</b></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> กำหนดจุดเริ่ม B และปลาย A ให้ชัด ลบมาจากงานของสนามเป็นลบของการเพิ่มพลังงานศักย์</p></article><article class="card derivation-line"><h3><span class="step-number">02</span> เชื่อมกับงานสองชนิด</h3><div class="math-display">Δ<em>W</em><sub>potential</sub>=<em>q</em>(<em>V</em><sub>A</sub>−<em>V</em><sub>B</sub>)<br>W<sub>ext</sub>=qΔV; <em>W</em><sub>field</sub>=−qΔV</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> งานภายนอกรูปนี้ใช้การย้ายช้ามากโดยพลังงานจลน์ไม่เปลี่ยน จึงชดเชยแรงสนามพอดี</p></article><article class="card derivation-line"><h3><span class="step-number">03</span> ลดเป็นความสัมพันธ์ ณ จุด</h3><div class="math-display">dV=−<b>E</b> • d<b>l</b>=−<em>E</em><sub>x</sub>dx−<em>E</em><sub>y</sub>dy−<em>E</em><sub>z</sub>dz</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> เปรียบเทียบกับดิฟเฟอเรนเชียลรวมของฟังก์ชัน V เพื่ออ่านองค์ประกอบสนาม</p></article><article class="card derivation-line"><h3><span class="step-number">04</span> อ่านเกรเดียนต์ครบสามแกน</h3><div class="math-display"><b>E</b>=−∇<em>V</em>=−(<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂<em>x</em></span></span><b>a</b><sub>x</sub>+<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂<em>y</em></span></span><b>a</b><sub>y</sub>+<span class="math-frac"><span class="math-num">∂V</span><span class="math-den">∂<em>z</em></span></span><b>a</b><sub>z</sub>)</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> เกรเดียนต์ชี้ทางเพิ่มศักย์เร็วที่สุด สนามจึงชี้สวนทางในไฟฟ้าสถิต</p></article><article class="card derivation-line"><h3><span class="step-number">05</span> ปริพันธ์สนามประจุจุด</h3><div class="math-display">V(<em>r</em>)−V(∞)=−<span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε</span></span>∫<sub>∞</sub><sup>r</sup><em>r</em>′<sup>−2</sup>dr′=<span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε</span></span>[<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>′</span></span>]<sub>∞</sub><sup>r</sup>=<span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πεr</span></span></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> ใช้ ∫r′⁻²dr′=−1/r′ แล้วลบจากนิยามศักย์ตัดกับลบจากปริพันธ์ กำหนดศูนย์ที่อนันต์</p></article><article class="card derivation-line"><h3><span class="step-number">06</span> รูปปริพันธ์ของ MID-Q04</h3><div class="math-display">∫<span class="math-frac"><span class="math-num"><em>r</em> dr</span><span class="math-den">(<em>r</em>²+<em>a</em>²)²</span></span>=<span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span>∫u<sup>−2</sup>du=−<span class="math-frac"><span class="math-num">1</span><span class="math-den">2u</span></span>; u=<em>r</em>²+<em>a</em>²</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> du=2rdr เปลี่ยนตัวแปรให้ปริพันธ์เป็นกำลังธรรมดา แสดงเครื่องหมายก่อนประเมินขอบเขต</p></article><article class="card derivation-line"><h3><span class="step-number">07</span> ความต่างศักย์และค่าที่อนันต์</h3><div class="math-display"><em>V</em><sub>AB</sub>=<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub></span></span>[<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>²+<em>a</em>²</span></span>−<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>²+<em>a</em>²</span></span>]<br>V(<em>r</em>)=<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub>(<em>r</em>²+<em>a</em>²)</span></span> เมื่อ V(∞)=0</div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> รักษาสัมประสิทธิ์สนามตามโจทย์ หาก rA<rB จะได้ VAB บวก สำหรับประจุบวกงานภายนอกจึงเป็นบวก</p></article><article class="card derivation-line"><h3><span class="step-number">08</span> ตรวจโดยย้อนอนุพันธ์</h3><div class="math-display">−<span class="math-frac"><span class="math-num">dV</span><span class="math-den">dr</span></span>=<span class="math-frac"><span class="math-num"><em>r</em></span><span class="math-den"><em>ε</em><sub>0</sub>(<em>r</em>²+<em>a</em>²)²</span></span>=<em>E</em><sub>r</sub></div><p class="why-step"><b>เหตุใดจึงแปลงรูปเช่นนี้?</b> คืนสนามเดิมเป็นการตรวจทั้งเครื่องหมายและตัวประกอบสองโดยไม่ใช้วิธีเดิมซ้ำ</p></article></div><div class="masterclass-group"><h2>03 · กับดักที่ทำให้เสียคะแนน</h2><div class="summary-box exam-trap"><ul><li>VAB คือ VA−VB ห้ามกลับขอบโดยลืมลบ</li><li>งานภายนอกและงานของสนามมีเครื่องหมายตรงข้าม</li><li>ศักย์สัมบูรณ์ยังต้องเลือกศูนย์อ้างอิง เช่น V(∞)=0</li></ul><p>เขียนสูตรทั่วไป → ระบุพิกัดและทิศ → วิเคราะห์ด้วยมือ → ใช้ขอบเขต → ตรวจหน่วย SI และความหมาย</p></div></div><div class="masterclass-group masterclass-reading"><h2>04 · สนามนี้อยู่ในงานวิศวกรรมอย่างไร</h2><div class="card"><p>ความต่างศักย์กำหนดพลังงานที่แหล่งจ่ายให้ประจุในวงจร แต่สนามในฉนวนเป็นความชันเชิงพื้นที่ของศักย์ จึงอาจสูงมากในช่องว่างเล็กแม้แรงดันไม่สูงมาก</p><p>ในเครื่องจักรไฟฟ้า การแยกงานไฟฟ้า พลังงานสะสม และงานกลช่วยตรวจการอนุรักษ์พลังงานได้ ปริมาณ qV เป็นจุดเริ่มต้นก่อนเรียนพลังงานสนามและแรงบิด</p><p class="why-step"><b>ลองอธิบายด้วยคำของตนเอง:</b> ถ้า VAB บวก ประจุลบย้ายจาก B ไป A จะมีพลังงานศักย์เพิ่มหรือลด? ระบุงานของทั้งสนามและภายนอก</p></div></div><div class="masterclass-group"><h2>05 · ทำนาย ทดลอง และตรวจเหตุผล</h2><div class="practice-generator-card master-lab" data-chapter="9"><h3>ห้องทดลอง Set 9</h3><p>เคลื่อนประจุบวกเข้าหาประจุแหล่งบวก ทำนายงานภายนอกเป็นบวก แล้วเทียบศักย์ต้นกับปลาย</p><div class="master-lab-controls"></div><div class="master-lab-view"></div><output class="master-lab-result" aria-live="polite"></output><p class="master-lab-assumptions"></p><details class="accordion-solution"><summary>บันทึกสิ่งที่ทำนายและสิ่งที่สังเกต</summary><label for="reflection-9">อธิบายเหตุและผลพร้อมเงื่อนไขที่ตรึง</label><div class="worksheet-editor"><p class="worksheet-hint">ก่อนปรับ: ทำนายทิศและขนาด · หลังปรับ: อธิบายด้วยสมการและเงื่อนไข</p><textarea id="reflection-9" class="learning-input learning-reflection" rows="4" placeholder="ฉันตรึง… ปรับ… จึงทำนายว่า… ผลที่เห็นคือ… เพราะ…"></textarea></div><p class="reflection-status" role="status"></p></details></div></div><div class="card"><h3>สะพานสู่บทถัดไป</h3><p>แนวคิดของบทนี้เป็นฐานให้ Set 10, Set 11, Set 13, Set 14, Set 20</p><div class="bridge-links"><a class="topic-pill" href="../10-current-and-conductors/index.html">Set 10 · กระแสไฟฟ้า ความหนาแน่นกระแส และตัวนำ</a><a class="topic-pill" href="../11-dielectrics/index.html">Set 11 · ธรรมชาติของไดอิเล็กทริก</a><a class="topic-pill" href="../13-capacitance/index.html">Set 13 · ความจุไฟฟ้าและพลังงานสะสม</a><a class="topic-pill" href="../14-poisson-laplace/index.html">Set 14 · สมการปัวซงและลาปลาส</a><a class="topic-pill" href="../20-faradays-law/index.html">Set 20 · สนามแปรตามเวลา กฎฟาราเดย์ และเลนซ์</a></div><details class="accordion-solution"><summary>ตรวจวิธีจากสไลด์และตำราต้นฉบับ</summary><div class="source-reference-list"><a href="../lecture/set9_Potential_for_prnt.pdf#page=8" target="_blank" rel="noopener">Set 9 · นิยามความต่างศักย์ · PDF 8</a><a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=96" target="_blank" rel="noopener">Hayt §4.3 · นิยามศักย์ · PDF 96</a></div><p class="source-line">เลขหน้าทั้งหมดนับหน้า PDF รวมปก ตำราเป็นแหล่งตรวจวิธีและนิยาม ไม่ได้กล่าวว่าข้อมูลทุกตัวอย่างตรงกับข้อสอบ บทอธิบายและการพิสูจน์ด้านบนเรียบเรียงเพื่อการสอน</p></details></div></section><!-- END MASTERCLASS -->
     <div class="subtitle">
       งานในการเลื่อนประจุต้านสนามไฟฟ้า, นิยามความต่างศักย์ <em>V</em><sub>AB</sub> และศักย์ไฟฟ้าสัมบูรณ์ <em>V</em>(<em>r</em>), เวกเตอร์การกระจัด d<b>l</b> ใน 3 ระบบพิกัด, ความสัมพันธ์เกรเดียนต์ <b>E</b> = -∇<em>V</em>, อุปมาทางฟิสิกส์ของเครื่องหมายบวก/ลบ และ<strong>เฉลยข้อสอบกลางภาคฉบับจริง ข้อที่ 4 (25 คะแนนเต็ม)</strong>
     </div>
 
     <!-- สรุปวัตถุประสงค์ -->
-    <div class="academic-callout">
+    <div class="academic-callout card">
       <p><strong>วัตถุประสงค์การเรียนรู้ประจำบท (Learning Objectives):</strong></p>
       <ol style="margin-left: 20px; line-height: 1.85; font-size: 0.94rem;">
         <li>เข้าใจนิยามของ <strong>งานในการเคลื่อนประจุ (Work Done, W)</strong> ต้านสนามไฟฟ้า และเหตุผลทางฟิสิกส์ที่ต้องใช้แรงภายนอก <code><b>F</b><sub>appl</sub> = -<em>Q</em> <b>E</b></code></li>
@@ -180,7 +90,7 @@
         งานส่วนย่อย <code>dW</code> ในการเลื่อนประจุไปตามแนวเส้นทางส่วนย่อย <code>d<b>l</b></code> และงานรวมทั้งหมด <code>W</code> ในการเคลื่อนประจุจากจุดเริ่มต้นไปยังจุดสิ้นสุดจึงมีค่าเป็น:
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>สมการงานในการเคลื่อนประจุไฟฟ้า (Work Done by External Force)</span>
           <button class="copy-btn" data-copy="W = -Q ∫_(init)^(final) E • dl">คัดลอกสูตร</button>
@@ -207,9 +117,9 @@
         เช่นเดียวกับที่ความเข้มสนามไฟฟ้า <code><b>E</b></code> นิยามจากแรงต่อหนึ่งหน่วยประจุ (<code><b>E</b> = <b>F</b>/<em>q</em></code>) ปริมาณ <strong>ความต่างศักย์ไฟฟ้า (Potential Difference)</strong> ก็นิยามจาก <strong>งานต่อหนึ่งหน่วยประจุบวก (Work per Unit Positive Charge)</strong> ในการเลื่อนประจุจากจุดเริ่มต้นไปยังจุดปลายทาง:
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
-          <span>นิยามความต่างศักย์ไฟฟ้าระหว่างจุด A และ B (Potential Difference V_AB)</span>
+          <span>นิยามความต่างศักย์ไฟฟ้าระหว่างจุด A และ B (Potential Difference <em>V</em><sub>AB</sub>)</span>
           <button class="copy-btn" data-copy="V_AB = V_A - V_B = - ∫_B^A E • dl">คัดลอกสูตร</button>
         </div>
         <div class="math-display">
@@ -289,7 +199,7 @@
             <select id="pot-preset">
               <option value="point-radial">1. จุดประจุที่จุดกำเนิด V = Q / (4πε₀ r)</option>
               <option value="lecture-grad">2. ตัวอย่างสไลด์ Set 9: V = 2x²y - 5z</option>
-              <option value="exam4">3. ข้อสอบกลางภาคข้อ 4: D = [r / (r² + a²)²] a_r</option>
+              <option value="exam4">3. ข้อสอบกลางภาคข้อ 4: สนามรัศมี</option>
               <option value="dipole-pot">4. ไดโพลไฟฟ้า (Electric Dipole)</option>
             </select>
           </div>
@@ -310,7 +220,7 @@
         <!-- Preset Bar -->
         <div class="preset-bar">
           <span style="font-size: 0.85rem; font-weight: 700; color: var(--ink-soft);">เลือกกรณีทดสอบ:</span>
-          <button type="button" class="preset-btn" data-pot-preset="exam4">ข้อสอบจริง ข้อ 4 (r_A=1, r_B=3)</button>
+          <button type="button" class="preset-btn" data-pot-preset="exam4">ข้อสอบจริง ข้อ 4 (<em>r</em><sub>A</sub> = 1, <em>r</em><sub>B</sub> = 3)</button>
           <button type="button" class="preset-btn" data-pot-preset="lecture-grad">ตัวอย่างสไลด์ P(-4, 3, 6)</button>
           <button type="button" class="preset-btn" data-pot-preset="point-radial">จุดประจุเดี่ยว (Point Charge)</button>
           <button type="button" class="preset-btn" data-pot-preset="dipole-pot">ไดโพลไฟฟ้า (Dipole)</button>
@@ -363,14 +273,14 @@
 
       <h3 class="sub-title">ศักย์ไฟฟ้าจากโครงสร้างประจุชนิดต่างๆ:</h3>
       <div class="step-container">
-        <div class="step-card">
+        <div class="step-card card">
           <span class="step-badge">1. จุดประจุเดี่ยว (Point Charge)</span>
           <div class="math-display">
             <em>V</em>(<em>r</em>) = - ∫<sub>∞</sub><sup>r</sup> <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε₀ <em>r</em>'²</span></span> d<em>r</em>' = [ <span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε₀ <em>r</em>'</span></span> ]<sub>∞</sub><sup>r</sup> = <strong><span class="math-frac"><span class="math-num"><em>Q</em></span><span class="math-den">4πε₀ <em>r</em></span></span></strong>
           </div>
         </div>
 
-        <div class="step-card">
+        <div class="step-card card">
           <span class="step-badge">2. กลุ่มจุดประจุ N ตัว (Multiple Charges)</span>
           <div class="math-display">
             <em>V</em>(<b>r</b>) = ∑<sub>i=1</sub><sup>N</sup> <span class="math-frac"><span class="math-num"><em>Q</em><sub>i</sub></span><span class="math-den">4πε₀ |<b>r</b> - <b>r</b><sub>i</sub>|</span></span>
@@ -380,13 +290,13 @@
           </p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card card">
           <span class="step-badge">3. เส้นประจุอนันต์ (Infinite Line Charge)</span>
           <div class="math-display">
             <em>V</em><sub>AB</sub> = - ∫<sub>rB</sub><sup>rA</sup> <span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2πε₀ ρ</span></span> dρ = <strong><span class="math-frac"><span class="math-num">ρ<sub>l</sub></span><span class="math-den">2πε₀</span></span> ln(<span class="math-frac"><span class="math-num"><em>r</em><sub>B</sub></span><span class="math-den"><em>r</em><sub>A</sub></span></span>)</strong>
           </div>
           <p style="font-size: 0.88rem; color: var(--ink-muted);">
-            (สำหรับเส้นประจุอนันต์ ไม่สามารถใช้ระยะอนันต์เป็นจุดอ้างอิงได้เพราะลวดทอดยาวถึงอนันต์ ต้องใช้จุดอ้างอิงสัมพัทธ์ r_B)
+            (สำหรับเส้นประจุอนันต์ ไม่สามารถใช้ระยะอนันต์เป็นจุดอ้างอิงได้เพราะลวดทอดยาวถึงอนันต์ ต้องใช้จุดอ้างอิงสัมพัทธ์ <em>r</em><sub>B</sub>)
           </p>
         </div>
       </div>
@@ -399,7 +309,7 @@
         หากเราทราบฟังก์ชันศักย์ไฟฟ้าสเกลาร์ <code><em>V</em>(x, y, z)</code> ในอวกาศ เราสามารถหาสนามไฟฟ้า <code><b>E</b></code> ได้ทันทีโดยใช้ <strong>ตัวดำเนินการเกรเดียนต์ (Gradient Operator, ∇<em>V</em>)</strong>:
       </p>
 
-      <div class="formula-card">
+      <div class="formula-card card">
         <div class="f-title">
           <span>ความสัมพันธ์เกรเดียนต์ (Electric Field as Negative Gradient of Potential)</span>
           <button class="copy-btn" data-copy="E = - ∇V">คัดลอกสูตร</button>
@@ -507,116 +417,46 @@
     </section>
 
     <!-- ส่วนที่ 8: เฉลยข้อสอบจริง ข้อที่ 4 -->
-    <section id="sec8">
-      <h2 class="section-title">8. เฉลยข้อสอบกลางภาคฉบับจริง ข้อที่ 4 (25 คะแนนเต็ม)</h2>
-      <div class="exam-badge" style="display: inline-block; margin-bottom: 16px; padding: 6px 14px; background: var(--red-bg); color: var(--red); border: 1.5px solid var(--red); border-radius: var(--radius-sm); font-weight: 800;">
-        ข้อสอบจริงข้อที่ 4 (น้ำหนักคะแนน 25% ของข้อสอบกลางภาค)
-      </div>
-
-      <div class="step-container">
-        <!-- Part 4.1 -->
-        <div class="step-card step-essential">
-          <span class="step-badge must-write">ข้อ 4.1 (12 คะแนน)</span>
-          <h4>โจทย์: กำหนดความหนาแน่นฟลักซ์ไฟฟ้าในอวกาศว่าง <b>D</b> = [ r / (r² + a²)² ] <b>a</b><sub>r</sub> C/m² จงหาความต่างศักย์ไฟฟ้า V<sub>AB</sub> ระหว่างตำแหน่ง r = r<sub>A</sub> และ r = r<sub>B</sub> โดยแสดงการอินทิเกรตเชิงวิเคราะห์ละเอียดทุกขั้นตอน</h4>
-          
-          <p><strong>วิธีทำอย่างละเอียดทุกบรรทัด:</strong></p>
-          <ol style="margin-left: 20px; line-height: 1.9;">
-            <li><strong>เขียนความสัมพันธ์ระหว่างสนามไฟฟ้า E และ D ในอวกาศว่าง:</strong>
-              <div class="math-display">
-                <b>E</b> = <span class="math-frac"><span class="math-num"><b>D</b></span><span class="math-den">ε₀</span></span> = <span class="math-frac"><span class="math-num"><em>r</em></span><span class="math-den">ε₀ (<em>r</em>² + <em>a</em>²)²</span></span> <b>a</b><sub>r</sub>
-              </div>
-            </li>
-            <li><strong>เขียนสูตรตั้งต้นความต่างศักย์ไฟฟ้า V<sub>AB</sub>:</strong>
-              <div class="math-display">
-                <em>V</em><sub>AB</sub> = - ∫<sub>B</sub><sup>A</sup> <b>E</b> • d<b>l</b> = - ∫<sub>rB</sub><sup>rA</sup> [ <span class="math-frac"><span class="math-num"><em>r</em></span><span class="math-den">ε₀ (<em>r</em>² + <em>a</em>²)²</span></span> <b>a</b><sub>r</sub> ] • (d<em>r</em> <b>a</b><sub>r</sub>) = - <span class="math-frac"><span class="math-num">1</span><span class="math-den">ε₀</span></span> ∫<sub>rB</sub><sup>rA</sup> <span class="math-frac"><span class="math-num"><em>r</em> d<em>r</em></span><span class="math-den">(<em>r</em>² + <em>a</em>²)²</span></span>
-              </div>
-            </li>
-            <li><strong>แสดงการอินทิเกรตเชิงวิเคราะห์ด้วยการเปลี่ยนตัวแปร (u-Substitution):</strong>
-              <div class="math-display">
-                กำหนดให้ &nbsp; <em>u</em> = <em>r</em>² + <em>a</em>² &nbsp;&nbsp; ⇒ &nbsp;&nbsp; d<em>u</em> = 2<em>r</em> d<em>r</em> &nbsp;&nbsp; ⇒ &nbsp;&nbsp; <em>r</em> d<em>r</em> = <span class="math-frac"><span class="math-num">d<em>u</em></span><span class="math-den">2</span></span>
-              </div>
-              <div class="math-display">
-                <em>V</em><sub>AB</sub> = - <span class="math-frac"><span class="math-num">1</span><span class="math-den">ε₀</span></span> ∫ <span class="math-frac"><span class="math-num">d<em>u</em> / 2</span><span class="math-den"><em>u</em>²</span></span> = - <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> ∫ <em>u</em>⁻² d<em>u</em> = - <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ -<em>u</em>⁻¹ ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>u</em></span></span> ]
-              </div>
-            </li>
-            <li><strong>แทนค่า u = r² + a² กลับคืนพร้อมใส่ขอบเขตล่าง r<sub>B</sub> และขอบเขตบน r<sub>A</sub>:</strong>
-              <div class="math-display">
-                <em>V</em><sub>AB</sub> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>² + <em>a</em>²</span></span> ]<sub>rB</sub><sup>rA</sup> = <strong><span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>² + <em>a</em>²</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>² + <em>a</em>²</span></span> ] &nbsp; V</strong>
-              </div>
-            </li>
-          </ol>
-        </div>
-
-        <!-- Part 4.2 -->
-        <div class="step-card step-essential">
-          <span class="step-badge must-write">ข้อ 4.2 (8 คะแนน)</span>
-          <h4>โจทย์: ถ้า r<sub>A</sub> &lt; r<sub>B</sub> (จุด A อยู่ใกล้จุดกำเนิดมากกว่าจุด B) ค่าความต่างศักย์ V<sub>AB</sub> จะมีค่าเป็น บวก (+) หรือ ลบ (-) เพราะเหตุใด พร้อมยกอุปมาประกอบคำอธิบาย</h4>
-          
-          <p><strong>คำตอบและเหตุผลทางฟิสิกส์:</strong></p>
-          <ol style="margin-left: 20px; line-height: 1.9;">
-            <li><strong>เครื่องหมายของ V<sub>AB</sub>:</strong> มีค่าเป็น <strong>บวก (+)</strong></li>
-            <li><strong>เหตุผลทางคณิตศาสตร์และฟิสิกส์:</strong>
-              <ul style="margin-left: 18px; line-height: 1.8;">
-                <li>เมื่อ <code>r<sub>A</sub> &lt; r<sub>B</sub></code> จะได้ <code>r<sub>A</sub>² + a² &lt; r<sub>B</sub>² + a²</code> ทำให้ตัวส่วนของพจน์แรกมีค่าน้อยกว่า ส่งผลให้ <code><span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>² + <em>a</em>²</span></span> &gt; <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>² + <em>a</em>²</span></span></code> ผลลัพธ์จึงเป็นบวกอย่างแน่นอน</li>
-                <li>สนามไฟฟ้า <b>E</b> มีทิศพุ่งออกจากจุดศูนย์กลาง (ตามแนว <code>+<b>a</b><sub>r</sub></code>) เมื่อเราเลื่อนประจุทดสอบบวกจากจุด <code>B</code> เข้าสู่จุด <code>A</code> ซึ่งอยู่ใกล้กว่า ทิศทางการเคลื่อนที่ <code>d<b>l</b></code> จะสวนทางกับแรงผลักของสนามไฟฟ้า จึงต้องมี <strong>แรงภายนอกทำงานต้านสนามไฟฟ้า (W &gt; 0)</strong> ส่งผลให้ประจุมีพลังงานศักย์สูงขึ้นที่จุด A (<code><em>V</em><sub>A</sub> &gt; <em>V</em><sub>B</sub> ⇒ <em>V</em><sub>AB</sub> &gt; 0</code>)</li>
-              </ul>
-            </li>
-            <li><strong>อุปมาประกอบ (Physical Analogy):</strong> เปรียบเสมือน <strong>การออกแรงเข็นลูกบอลขึ้นเนินเขาต้านแรงโน้มถ่วงของโลก</strong> หรือ <strong>การออกแรงกดสปริงให้หดตัวเข้าหาศูนย์กลาง</strong> พลังงานกลที่ผู้กระทำใส่เข้าไปจะถูกสะสมเป็นพลังงานศักย์ที่เป็นบวกในระบบ</li>
-          </ol>
-        </div>
-
-        <!-- Part 4.3 -->
-        <div class="step-card step-essential">
-          <span class="step-badge must-write">ข้อ 4.3 (5 คะแนน)</span>
-          <h4>โจทย์: จงหาศักย์ไฟฟ้าสัมบูรณ์ V(r) ณ ตำแหน่งใดๆ เทียบกับจุดอ้างอิงที่ระยะอนันต์</h4>
-          
-          <p><strong>วิธีทำ:</strong></p>
-          <div class="math-display">
-            <em>V</em>(<em>r</em>) = - ∫<sub>∞</sub><sup>r</sup> <b>E</b> • d<b>l</b> = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>² + <em>a</em>²</span></span> - <span class="math-frac"><span class="math-num">1</span><span class="math-den">∞² + <em>a</em>²</span></span> ] = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀</span></span> [ <span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em>² + <em>a</em>²</span></span> - 0 ]<br><br>
-            <strong><em>V</em>(<em>r</em>) = <span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε₀ (<em>r</em>² + <em>a</em>²)</span></span> &nbsp; V</strong>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="sec8"><h2 class="section-title">เฉลยข้อสอบเก่าที่ตรวจสอบจากไฟล์จริง</h2><article class="card"><h3>MID-Q04 · ศักย์จาก D รัศมีและงานภายนอก</h3><p>ในอวกาศว่าง D = <span class="math-frac"><span class="math-num">r</span><span class="math-den">(r²+a²)²</span></span><b>a</b><sub>r</sub> (สัมประสิทธิ์ของสนามมีหน่วยตามที่ทำให้ D เป็น C/m²; r,a ใช้ m และ a&gt;0) 4.1 หา VAB 4.2 ถ้า rA&lt;rB ความต่างศักย์ VAB เป็นบวกหรือลบ เพราะเหตุใด พร้อมอุปมาและตีความงาน 4.3 หา V(r) เมื่อ V(∞)=0</p><p class="source-line">ข้อสอบเก่าต้นฉบับ · ปีการศึกษา 2563 · <a href="../raw/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2.pdf#page=2" target="_blank" rel="noopener">MID-Q04 · หน้าโจทย์และต่อหน้า 3 · หน้า PDF 2</a> · <a href="../raw/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2.pdf#page=3" target="_blank" rel="noopener">MID-Q04 · ข้อย่อยและรูปต่อเนื่อง · หน้า PDF 3</a> · <a href="../lecture/set9_Potential_for_prnt.pdf#page=8" target="_blank" rel="noopener">Set 9 · นิยามความต่างศักย์ · หน้า PDF 8</a> · <a href="../textbook/engineering-electromagnetics-9th-ed.pdf#page=96" target="_blank" rel="noopener">Hayt §4.3 · นิยามศักย์ · หน้า PDF 96</a></p><details class="accordion-solution"><summary>เปิดการพิสูจน์และเหตุผลทุกขั้น</summary><div class="card solution-step"><h4>1. สูตรทั่วไปและปกติ</h4><div class="math-display"><b>E</b>=<span class="math-frac"><span class="math-num"><b>D</b></span><span class="math-den"><em>ε</em><sub>0</sub></span></span>; <em>V</em><sub>AB</sub>=−∫<sub>B</sub><sup>A</sup><b>E</b> • d<b>l</b>; d<b>l</b>=dr<b>a</b><sub>r</sub> บนทางรัศมี</div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ทางรัศมีเลือกได้ในสนามนี้เพราะเป็นสนามสถิตและศักย์ขึ้นกับ r; กำหนดขอบต้น B ปลาย A</p></div><div class="card solution-step"><h4>2. ตั้งขอบและแทนตัวแปร</h4><div class="math-display"><em>V</em><sub>AB</sub>=−<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>ε</em><sub>0</sub></span></span>∫<sub>rB</sub><sup>rA</sup><span class="math-frac"><span class="math-num"><em>r</em> dr</span><span class="math-den">(<em>r</em>²+<em>a</em>²)²</span></span><br>u=<em>r</em>²+<em>a</em>²; du=2rdr; u<sub>B</sub>=<em>r</em><sub>B</sub>²+<em>a</em>²; u<sub>A</sub>=<em>r</em><sub>A</sub>²+<em>a</em>²</div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> เปลี่ยนขอบตามตัวแปรใหม่และคงลบจากนิยามศักย์ไว้ด้านนอก</p></div><div class="card solution-step"><h4>3. ปริพันธ์กำลังด้วยมือ</h4><div class="math-display"><em>V</em><sub>AB</sub>=−<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub></span></span>∫<sub>uB</sub><sup>uA</sup>u<sup>−2</sup>du=+<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub></span></span>[u<sup>−1</sup>]<sub>uB</sub><sup>uA</sup></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ∫u⁻²du=−u⁻¹ ทำให้ลบสองตัวตัดกัน และต้องประเมินค่าปลายลบต้น</p></div><div class="card solution-step"><h4>4. อินทิเกรตด้วยการแทนตัวแปร</h4><div class="math-display"><em>V</em><sub>AB</sub>=−<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>ε</em><sub>0</sub></span></span>∫<sub>rB</sub><sup>rA</sup><span class="math-frac"><span class="math-num"><em>r</em> dr</span><span class="math-den">(<em>r</em>²+<em>a</em>²)²</span></span><br>u=<em>r</em>²+<em>a</em>²; du=2rdr; ∫ u<sup>−2</sup>du=−u<sup>−1</sup><br>V<sub>AB</sub>=<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub></span></span>[<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>A</sub>²+<em>a</em>²</span></span>−<span class="math-frac"><span class="math-num">1</span><span class="math-den"><em>r</em><sub>B</sub>²+<em>a</em>²</span></span>]</div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> เก็บลบจากนิยามศักย์และลบจากปริพันธ์แยกกัน แล้วประเมินค่าปลายลบต้น ไม่ใช้เครื่องคิดเลขหาปริพันธ์</p></div><div class="card solution-step"><h4>5. ตีความเงื่อนไขบวก</h4><div class="math-display"><em>V</em><sub>AB</sub>&gt;0 ⇔ <em>r</em><sub>A</sub>&lt;<em>r</em><sub>B</sub>; <em>W</em><sub>ext</sub>=qV<sub>AB</sub></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> ศักย์ลดตาม r สำหรับสัมประสิทธิ์บวก จึงเข้าใกล้ศูนย์กลางเมื่อไป A สำหรับ q บวก งานภายนอกบวก ส่วน q ลบงานภายนอกลบ</p></div><div class="card solution-step"><h4>6. กำหนดศูนย์อ้างอิง</h4><div class="math-display"><em>r</em><sub>B</sub>→∞, V(∞)=0 ⇒ V(<em>r</em>)=<span class="math-frac"><span class="math-num">1</span><span class="math-den">2ε<sub>0</sub>(<em>r</em>²+<em>a</em>²)</span></span></div><p class="why-step"><b>ทำไมจึงทำขั้นนี้?</b> พจน์ที่อนันต์หายไป ทดสอบ −dV/dr = r/[ε0(r²+a²)²] คืน E เดิม หน่วยศักย์เป็น V เมื่อติดสัมประสิทธิ์สนามตามโจทย์</p></div></details><p><a href="../exam-simulator/midterm/index.html#problem-mid-q04">ฝึกข้อนี้พร้อม Checklist ในห้องสอบ</a></p></article></section>
 
     <!-- ส่วนที่ 9: แบบทดสอบความเข้าใจ -->
     <section id="sec9">
       <h2 class="section-title">9. แบบประเมินความเข้าใจด้วยตนเอง (Self-Assessment Quiz)</h2>
 
       <!-- Quiz 1 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
-          <h4>คำถามที่ 1: ความต่างศักย์ไฟฟ้า V_AB</h4>
+          <h4>คำถามที่ 1: ความต่างศักย์ไฟฟ้า <em>V</em><sub>AB</sub></h4>
           <span class="quiz-points">5 คะแนน</span>
         </div>
         <p>การเขียนสมการอินทิกรัลของความต่างศักย์ไฟฟ้า <code><em>V</em><sub>AB</sub></code> มีขอบเขตอินทิกรัลที่ถูกต้องตามข้อใด?</p>
         <div class="quiz-options">
-          <div class="quiz-option" data-correct="false">V_AB = - ∫_A^B E • dl</div>
-          <div class="quiz-option" data-correct="true">V_AB = - ∫_B^A E • dl</div>
-          <div class="quiz-option" data-correct="false">V_AB = + ∫_B^A E • dl</div>
-          <div class="quiz-option" data-correct="false">V_AB = ∫_0^(A-B) E • dl</div>
+          <div class="quiz-option" data-correct="false"><em>V</em><sub>AB</sub> = - ∫<sub>A</sub><sup>B</sup> <b>E</b> • d<b>l</b></div>
+          <div class="quiz-option" data-correct="true"><em>V</em><sub>AB</sub> = - ∫<sub>B</sub><sup>A</sup> <b>E</b> • d<b>l</b></div>
+          <div class="quiz-option" data-correct="false"><em>V</em><sub>AB</sub> = + ∫<sub>B</sub><sup>A</sup> <b>E</b> • d<b>l</b></div>
+          <div class="quiz-option" data-correct="false"><em>V</em><sub>AB</sub> = ∫<sub>0</sub><sup>A-B</sup> <b>E</b> • d<b>l</b></div>
         </div>
         <div class="quiz-feedback" data-explanation="ตามนิยาม <b>V<sub>AB</sub> = - ∫<sub>B</sub><sup>A</sup> E • dl</b> ขอบเขตล่างคือจุดเริ่มต้น (B) และขอบเขตบนคือจุดสิ้นสุด (A) มีเครื่องหมายลบหน้าอินทิกรัลเสมอ"></div>
       </div>
 
       <!-- Quiz 2 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>คำถามที่ 2: ความสัมพันธ์เกรเดียนต์</h4>
           <span class="quiz-points">5 คะแนน</span>
         </div>
         <p>ถ้าศักย์ไฟฟ้าในบริเวณหนึ่งมีค่าเป็น <code><em>V</em>(x, y, z) = 4x² + 3y</code> สนามไฟฟ้า <code><b>E</b></code> ณ จุด <code>P(1, 2, 0)</code> คือข้อใด?</p>
         <div class="quiz-options">
-          <div class="quiz-option" data-correct="false">8 a_x + 3 a_y V/m</div>
-          <div class="quiz-option" data-correct="true">-8 a_x - 3 a_y V/m</div>
-          <div class="quiz-option" data-correct="false">-4 a_x - 3 a_y V/m</div>
-          <div class="quiz-option" data-correct="false">8 a_x - 3 a_y V/m</div>
+          <div class="quiz-option" data-correct="false">8 <b>a</b><sub>x</sub> + 3 <b>a</b><sub>y</sub> V/m</div>
+          <div class="quiz-option" data-correct="true">-8 <b>a</b><sub>x</sub> - 3 <b>a</b><sub>y</sub> V/m</div>
+          <div class="quiz-option" data-correct="false">-4 <b>a</b><sub>x</sub> - 3 <b>a</b><sub>y</sub> V/m</div>
+          <div class="quiz-option" data-correct="false">8 <b>a</b><sub>x</sub> - 3 <b>a</b><sub>y</sub> V/m</div>
         </div>
-        <div class="quiz-feedback" data-explanation="<b>E = -∇V = - ( (∂V/∂x) a_x + (∂V/∂y) a_y ) = - ( 8x a_x + 3 a_y )</b> ที่จุด (1, 2, 0) ได้ <b>E = -8 a_x - 3 a_y V/m</b>"></div>
+        <div class="quiz-feedback" data-explanation="<b>E</b> = -∇<em>V</em> = - [ (∂<em>V</em>/∂x) <b>a</b><sub>x</sub> + (∂<em>V</em>/∂y) <b>a</b><sub>y</sub> ] = - ( 8x <b>a</b><sub>x</sub> + 3 <b>a</b><sub>y</sub> ) ที่จุด P(1, 2, 0) ได้ <b>E</b> = -8 <b>a</b><sub>x</sub> - 3 <b>a</b><sub>y</sub> V/m"></div>
       </div>
 
       <!-- Quiz 3 -->
-      <div class="quiz-card">
+      <div class="quiz-card card">
         <div class="quiz-header">
           <h4>คำถามที่ 3: ผิวสมศักย์ (Equipotential Surface)</h4>
           <span class="quiz-points">5 คะแนน</span>
@@ -645,16 +485,16 @@
 </div>
 
 <!-- Core & Engine Scripts -->
-<script src="../assets/js/common.js"></script>
-<script src="../assets/js/engines/vector3d-core.js"></script>
-<script src="../assets/js/engines/potential-sim.js"></script>
-<script src="../assets/js/engines/search-index.js"></script>
-<script src="../assets/js/engines/site-search.js"></script>
+<script src="../assets/js/roadmap-data.js?v=3aaa1712c262"></script><script src="../assets/js/common.js?v=73398137ac34"></script>
+<script src="../assets/js/engines/vector3d-core.js?v=575e736c3dce"></script>
+<script src="../assets/js/engines/potential-sim.js?v=92b4faac8ca0"></script>
+<script src="../assets/js/engines/search-index.js?v=40e72b6683fe"></script>
+<script src="../assets/js/engines/site-search.js?v=20965619ab46"></script>
 <script>
   let potEngine;
   window.addEventListener('load', () => {
     potEngine = new PotentialSimEngine('pot-canvas', 'pot-output');
   });
 </script>
-</body>
+<script src="../assets/js/masterclass-labs.js?v=ce486e12f5c8"></script></body>
 </html>

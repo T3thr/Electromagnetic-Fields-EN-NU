@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "name": "cumulative trail contains exactly sets 1–11",
+      "pass": true
+    },
+    {
+      "name": "forward linkage includes capacitance",
+      "pass": true
+    },
+    {
+      "name": "learner progress survives reload",
+      "pass": true
+    },
+    {
+      "name": "current lesson visible immediately",
+      "pass": true
+    },
+    {
+      "name": "interactive map selects a new anchor",
+      "pass": true
+    },
+    {
+      "name": "drawer follows dark theme",
+      "pass": true
+    },
+    {
+      "name": "tabs support arrow key selection",
+      "pass": true
+    },
+    {
+      "name": "mobile anchor clears sticky sidebar",
+      "pass": true
+    },
+    {
+      "name": "midterm source coverage",
+      "pass": true
+    },
+    {
+      "name": "midterm original weights total 100",
+      "pass": true
+    },
+    {
+      "name": "midterm missing general formula blocks dependent credit",
+      "pass": true
+    },
+    {
+      "name": "complete midterm checklist gives original question weight",
+      "pass": true
+    },
+    {
+      "name": "midterm work and reveal persist",
+      "pass": true
+    },
+    {
+      "name": "midterm clock continues after reload",
+      "pass": true
+    },
+    {
+      "name": "midterm correct formula sheet",
+      "pass": true
+    },
+    {
+      "name": "midterm Escape closes formula from iframe",
+      "pass": true
+    },
+    {
+      "name": "midterm mock has four sections",
+      "pass": true
+    },
+    {
+      "name": "midterm complete bank",
+      "pass": true
+    },
+    {
+      "name": "midterm finish locks work",
+      "pass": true
+    },
+    {
+      "name": "final source coverage",
+      "pass": true
+    },
+    {
+      "name": "final missing general formula blocks dependent credit",
+      "pass": true
+    },
+    {
+      "name": "hand integration gate blocks dependent points",
+      "pass": true
+    },
+    {
+      "name": "complete final checklist gives full credit",
+      "pass": true
+    },
+    {
+      "name": "final work and reveal persist",
+      "pass": true
+    },
+    {
+      "name": "final clock continues after reload",
+      "pass": true
+    },
+    {
+      "name": "final correct formula sheet",
+      "pass": true
+    },
+    {
+      "name": "final Escape closes formula from iframe",
+      "pass": true
+    },
+    {
+      "name": "final mock has four sections",
+      "pass": true
+    },
+    {
+      "name": "Ampere mock combines both source pages and requires hand integration",
+      "pass": true
+    },
+    {
+      "name": "final complete bank",
+      "pass": true
+    },
+    {
+      "name": "raw coefficient and corrected variant distinguished",
+      "pass": true
+    },
+    {
+      "name": "inconsistent permeability preserved and explained",
+      "pass": true
+    },
+    {
+      "name": "final finish locks work",
+      "pass": true
+    },
+    {
+      "name": "rooms retain separate attempts",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

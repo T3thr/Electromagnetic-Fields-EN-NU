@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "path": "01-vector-algebra",
+      "painted": 48,
+      "raw": []
+    },
+    {
+      "path": "02-cylindrical-coordinates",
+      "painted": 36,
+      "raw": []
+    },
+    {
+      "path": "03-spherical-coordinates",
+      "painted": 36,
+      "raw": []
+    },
+    {
+      "path": "04-coulombs-law",
+      "painted": 54,
+      "raw": []
+    },
+    {
+      "path": "08-divergence-theorem",
+      "painted": 51,
+      "raw": []
+    }
+  ],
+  "mobile": [
+    {
+      "width": 320,
+      "overflow": false,
+      "cardFullyVisible": true,
+      "questionClearsSidebar": true,
+      "anchorGap": 18.328125
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cardFullyVisible": true,
+      "questionClearsSidebar": true,
+      "anchorGap": 18.3125
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+### Result
+{"screenshots":8,"offline":{"buttons":1,"nodes":22,"link":"01-vector-algebra/index.html"}}
+### Ran Playwright code
+```js
+await (async(page)=>{
+ const out="/Users/3rapat/student/internship/CODEFIN/project/cwms/vahalla-wealth/private-docs/other-project/uni-work/engineering-problem/electromagnetic-fields/output/playwright";
+ await page.emulateMedia({reducedMotion:'reduce'});
+ async function capture(name){await page.waitForTimeout(350);await page.screenshot({path:out+'/'+name+'.png'});}
+ await page.route('**/*',r=>r.continue());await page.setViewportSize({width:1440,height:1000});
+ await page.goto('http://127.0.0.1:8765/index.html');await page.evaluate(()=>{localStorage.removeItem('emf-final-attempt-v2');localStorage.removeItem('emf-midterm-attempt-v2');localStorage.removeItem('emf-learning-v1');});await capture('portal-desktop');
+ await page.goto('http://127.0.0.1:8765/exam-simulator/final/index.html');await page.locator('#problem-continuity').evaluate(e=>e.scrollIntoView());await capture('final-exam-desktop');
+ await page.goto('http://127.0.0.1:8765/12-boundary-conditions/index.html');await capture('chapter-depth-desktop');await page.locator('.nav-roadmap').click();await capture('roadmap-desktop');await page.keyboard.press('Escape');
+ await page.setViewportSize({width:390,height:900});await page.locator('.nav-roadmap').click();await capture('roadmap-mobile');await page.keyboard.press('Escape');
+ await page.goto('http://127.0.0.1:8765/exam-simulator/final/index.html');await page.locator('#problem-continuity').evaluate(e=>e.scrollIntoView());await capture('final-exam-mobile');
+ await page.evaluate(()=>{const target=document.querySelector('#problem-continuity .rubric-list').previousElementSibling;scrollTo(0,scrollY+target.getBoundingClientRect().top-350);});await capture('rubric-mobile');
+ await page.goto('http://127.0.0.1:8765/22-maxwell-time-harmonic/index.html');await page.evaluate(()=>{const e=document.querySelectorAll('.derivation-line')[6];scrollTo(0,scrollY+e.getBoundingClientRect().top-290);});await capture('derivation-mobile');
+ await page.goto("file:///Users/3rapat/student/internship/CODEFIN/project/cwms/vahalla-wealth/private-docs/other-project/uni-work/engineering-problem/electromagnetic-fields/index.html");await page.locator('.nav-roadmap').click();const offline={buttons:await page.locator('.roadmap-trigger').count(),nodes:await page.locator('.roadmap-node').count(),link:await page.locator('.roadmap-panel a').first().getAttribute('href')};await page.keyboard.press('Escape');
+ await page.setViewportSize({width:1440,height:1000});await page.goto('http://127.0.0.1:8765/index.html');return {screenshots:8,offline};
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:8765/index.html
+- Page Title: คลังบทเรียนสนามแม่เหล็กไฟฟ้า 1 · 303214

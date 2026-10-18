@@ -55,7 +55,7 @@ class CylindricalSimEngine {
     const lblPhi = document.getElementById('lbl-phi');
     const lblZ = document.getElementById('lbl-z');
     if (lblRho) lblRho.innerText = rho.toFixed(1);
-    if (lblPhi) lblPhi.innerText = `${phiDeg}°`;
+    if (lblPhi) lblPhi.innerText = ("").concat(phiDeg).concat("°");
     if (lblZ) lblZ.innerText = z.toFixed(1);
 
     const phiRad = phiDeg * (Math.PI / 180);
@@ -69,17 +69,17 @@ class CylindricalSimEngine {
     this.core.clear();
 
     // 1. Position Vector r_P
-    this.core.addVector({ x: 0, y: 0, z: 0 }, { x: px, y: py, z: pz }, '#64748B', 'r_P', 2.0);
-    this.core.addCharge({ x: px, y: py, z: pz }, 1, `P(${rho.toFixed(1)}, ${phiDeg}°, ${z.toFixed(1)})`);
+    this.core.addVector({ x: 0, y: 0, z: 0 }, { x: px, y: py, z: pz }, '#64748B', '<b>r</b><sub>P</sub>', 2.0);
+    this.core.addCharge({ x: px, y: py, z: pz }, 1, ("P(").concat(rho.toFixed(1)).concat(", ").concat(phiDeg).concat("°, ").concat(z.toFixed(1)).concat(")"));
 
     // 2. Unit Vector a_ρ (Red)
-    this.core.addVector({ x: px, y: py, z: pz }, { x: px + cosP * 1.5, y: py + sinP * 1.5, z: pz }, '#DC2626', 'a_rho', 3.0);
+    this.core.addVector({ x: px, y: py, z: pz }, { x: px + cosP * 1.5, y: py + sinP * 1.5, z: pz }, '#DC2626', '<b>a</b><sub>ρ</sub>', 3.0);
 
     // 3. Unit Vector a_ϕ (Green)
-    this.core.addVector({ x: px, y: py, z: pz }, { x: px - sinP * 1.5, y: py + cosP * 1.5, z: pz }, '#059669', 'a_phi', 3.0);
+    this.core.addVector({ x: px, y: py, z: pz }, { x: px - sinP * 1.5, y: py + cosP * 1.5, z: pz }, '#059669', '<b>a</b><sub>ϕ</sub>', 3.0);
 
     // 4. Unit Vector a_z (Blue)
-    this.core.addVector({ x: px, y: py, z: pz }, { x: px, y: py, z: pz + 1.5 }, '#2563EB', 'a_z', 3.0);
+    this.core.addVector({ x: px, y: py, z: pz }, { x: px, y: py, z: pz + 1.5 }, '#2563EB', '<b>a</b><sub>z</sub>', 3.0);
 
     // 5. Reference cylinder circle arc at height z
     const segs = 32;
@@ -96,28 +96,7 @@ class CylindricalSimEngine {
     this.core.render();
 
     if (this.outputEl) {
-      this.outputEl.innerHTML = `
-        <div class="breakdown-grid">
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">1. พิกัดฉากของจุด P (Rectangular Coordinates)</div>
-            <div class="breakdown-card-value">
-              • x = ρ cos ϕ = ${rho.toFixed(1)} × cos(${phiDeg}°) = <strong>${px.toFixed(3)}</strong> m
-              <br>• y = ρ sin ϕ = ${rho.toFixed(1)} × sin(${phiDeg}°) = <strong>${py.toFixed(3)}</strong> m
-              <br>• z = <strong>${pz.toFixed(2)}</strong> m
-              <br>• ตำแหน่งพิกัดฉาก: <strong>P(${px.toFixed(3)}, ${py.toFixed(3)}, ${pz.toFixed(2)})</strong>
-            </div>
-          </div>
-
-          <div class="breakdown-card">
-            <div class="breakdown-card-title">2. เวกเตอร์หนึ่งหน่วยฐาน ณ จุด P (Basis Vectors)</div>
-            <div class="breakdown-card-value">
-              • <strong>a</strong><sub>ρ</sub> (แนวรัศมี): <strong>${cosP.toFixed(3)} a</strong><sub>x</sub> <strong>${sinP >= 0 ? '+' : ''}${sinP.toFixed(3)} a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>
-              <br>• <strong>a</strong><sub>ϕ</sub> (แนวสัมผัส): <strong>${(-sinP).toFixed(3)} a</strong><sub>x</sub> <strong>${cosP >= 0 ? '+' : ''}${cosP.toFixed(3)} a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>
-              <br>• <strong>a</strong><sub>z</sub> (แนวดิ่ง): <strong>0 a</strong><sub>x</sub> + <strong>0 a</strong><sub>y</sub> + <strong>1.0 a</strong><sub>z</sub>
-            </div>
-          </div>
-        </div>
-      `;
+      this.outputEl.innerHTML = ("\n        <div class=\"breakdown-grid\">\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">1. พิกัดฉากของจุด P (Rectangular Coordinates)</div>\n            <div class=\"breakdown-card-value\">\n              • x = ρ cos ϕ = ").concat(rho.toFixed(1)).concat(" × cos(").concat(phiDeg).concat("°) = <strong>").concat(px.toFixed(3)).concat("</strong> m\n              <br>• y = ρ sin ϕ = ").concat(rho.toFixed(1)).concat(" × sin(").concat(phiDeg).concat("°) = <strong>").concat(py.toFixed(3)).concat("</strong> m\n              <br>• z = <strong>").concat(pz.toFixed(2)).concat("</strong> m\n              <br>• ตำแหน่งพิกัดฉาก: <strong>P(").concat(px.toFixed(3)).concat(", ").concat(py.toFixed(3)).concat(", ").concat(pz.toFixed(2)).concat(")</strong>\n            </div>\n          </div>\n\n          <div class=\"breakdown-card\">\n            <div class=\"breakdown-card-title\">2. เวกเตอร์หนึ่งหน่วยฐาน ณ จุด P (Basis Vectors)</div>\n            <div class=\"breakdown-card-value\">\n              • <strong>a</strong><sub>ρ</sub> (แนวรัศมี): <strong>").concat(cosP.toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(sinP >= 0 ? '+' : '').concat("").concat(sinP.toFixed(3)).concat(" a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>\n              <br>• <strong>a</strong><sub>ϕ</sub> (แนวสัมผัส): <strong>").concat((-sinP).toFixed(3)).concat(" a</strong><sub>x</sub> <strong>").concat(cosP >= 0 ? '+' : '').concat("").concat(cosP.toFixed(3)).concat(" a</strong><sub>y</sub> + <strong>0 a</strong><sub>z</sub>\n              <br>• <strong>a</strong><sub>z</sub> (แนวดิ่ง): <strong>0 a</strong><sub>x</sub> + <strong>0 a</strong><sub>y</sub> + <strong>1.0 a</strong><sub>z</sub>\n            </div>\n          </div>\n        </div>\n      ");
     }
   }
 }
